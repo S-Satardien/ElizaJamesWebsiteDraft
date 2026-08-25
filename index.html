@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Energetics - Cinematic Book Trailer</title>
+    <title>Chakra Energetics - Cinematic Book Trailer & Client Review</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
@@ -14,7 +14,8 @@
             --gold-light: #f3e5ab;
             --gold-dark: #aa7c11;
             --bg-deep: #05070c;
-            --bg-surface: rgba(14, 18, 28, 0.88);
+            --bg-surface: rgba(14, 18, 28, 0.9);
+            --bg-card: rgba(22, 28, 42, 0.75);
             --border-glass: rgba(212, 175, 55, 0.35);
         }
 
@@ -32,7 +33,6 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             overflow-x: hidden;
             background-image: 
                 radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
@@ -42,8 +42,8 @@
 
         header {
             width: 100%;
-            max-width: 1260px;
-            padding: 18px 20px 8px;
+            max-width: 1600px;
+            padding: 18px 24px 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,8 +57,8 @@
         }
 
         .brand-icon {
-            width: 42px;
-            height: 42px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             border: 1.5px solid var(--gold-primary);
             display: flex;
@@ -73,7 +73,7 @@
         .brand h1 {
             font-family: 'Cinzel', serif;
             font-size: 1.35rem;
-            letter-spacing: 3.5px;
+            letter-spacing: 3px;
             color: #fff;
             font-weight: 700;
         }
@@ -83,20 +83,330 @@
         }
 
         .tagline {
-            font-size: 0.78rem;
+            font-size: 0.76rem;
             letter-spacing: 2px;
             color: #a0a5b5;
             text-transform: uppercase;
         }
 
-        .stage-container {
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .review-mode-badge {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .main-layout {
             width: 100%;
-            max-width: 1260px;
-            padding: 8px 20px;
+            max-width: 1600px;
+            padding: 8px 24px 40px;
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            gap: 24px;
+            z-index: 5;
+        }
+
+        @media (max-width: 1100px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================================
+           LEFT SIDEBAR: REVIEW & COMMENTS PANEL
+           ======================================================== */
+        .review-sidebar {
+            background: var(--bg-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
             display: flex;
             flex-direction: column;
+            gap: 18px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+            height: fit-content;
+        }
+
+        .sidebar-header {
+            display: flex;
             align-items: center;
-            z-index: 5;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding-bottom: 12px;
+        }
+
+        .sidebar-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comment-count-badge {
+            background: var(--gold-primary);
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(10, 14, 24, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        label {
+            font-size: 0.75rem;
+            color: #a5adc2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        input[type="text"], select, textarea {
+            background: rgba(16, 20, 32, 0.95);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 70px;
+            line-height: 1.4;
+        }
+
+        .time-capture-btn {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px dashed var(--gold-primary);
+            color: var(--gold-light);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .time-capture-btn:hover {
+            background: rgba(212, 175, 55, 0.25);
+            border-style: solid;
+        }
+
+        .submit-comment-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+        }
+
+        .submit-comment-btn:hover {
+            background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Comments List */
+        .comments-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .comments-list-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .comments-list-container::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+        }
+
+        .comment-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 3.5px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .comment-item:hover {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .comment-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .time-jump-pill {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .time-jump-pill:hover {
+            background: var(--gold-primary);
+            color: #000;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        .scene-badge-pill {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .comment-text {
+            font-size: 0.83rem;
+            color: #e5e7eb;
+            line-height: 1.45;
+            white-space: pre-wrap;
+        }
+
+        .comment-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #6b7280;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 6px;
+        }
+
+        .delete-comment-btn {
+            background: transparent;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 0.72rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+
+        .delete-comment-btn:hover {
+            opacity: 1;
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .sidebar-export-row {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            padding-top: 14px;
+        }
+
+        .export-feedback-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--gold-light);
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .export-feedback-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold-primary);
+            color: #fff;
+        }
+
+        /* ========================================================
+           RIGHT CONTENT: VIDEO STAGE & CONTROLS
+           ======================================================== */
+        .player-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
         }
 
         .video-viewport {
@@ -121,8 +431,7 @@
 
         .controls-card {
             width: 100%;
-            margin-top: 16px;
-            padding: 16px 24px;
+            padding: 16px 22px;
             background: var(--bg-surface);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
@@ -185,7 +494,7 @@
         .left-controls, .right-controls {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             flex-wrap: wrap;
         }
 
@@ -193,9 +502,9 @@
             background: rgba(255, 255, 255, 0.06);
             border: 1px solid rgba(212, 175, 55, 0.35);
             color: #f0f0f0;
-            padding: 9px 18px;
+            padding: 8px 16px;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.82rem;
             font-weight: 500;
             letter-spacing: 1px;
             cursor: pointer;
@@ -245,7 +554,7 @@
             gap: 8px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(212, 175, 55, 0.35);
-            padding: 6px 14px;
+            padding: 6px 12px;
             border-radius: 8px;
         }
 
@@ -268,7 +577,7 @@
 
         .volume-slider {
             -webkit-appearance: none;
-            width: 80px;
+            width: 70px;
             height: 5px;
             border-radius: 3px;
             background: rgba(255, 255, 255, 0.2);
@@ -279,8 +588,8 @@
         .volume-slider::-webkit-slider-thumb {
             -webkit-appearance: none;
             appearance: none;
-            width: 14px;
-            height: 14px;
+            width: 13px;
+            height: 13px;
             border-radius: 50%;
             background: var(--gold-primary);
             cursor: pointer;
@@ -296,9 +605,9 @@
             background: rgba(14, 18, 28, 0.95);
             border: 1px solid rgba(212, 175, 55, 0.4);
             color: var(--gold-light);
-            padding: 8px 12px;
+            padding: 8px 10px;
             border-radius: 8px;
-            font-size: 0.82rem;
+            font-size: 0.8rem;
             outline: none;
             cursor: pointer;
         }
@@ -320,18 +629,18 @@
             font-weight: 700;
         }
 
+        /* Storyboard Grid */
         .storyboard-section {
             width: 100%;
-            max-width: 1260px;
-            padding: 24px 20px 60px;
+            margin-top: 10px;
         }
 
         .section-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
+            font-size: 1.2rem;
             color: var(--gold-light);
-            letter-spacing: 3px;
-            margin-bottom: 18px;
+            letter-spacing: 2.5px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -346,15 +655,15 @@
 
         .scenes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 14px;
         }
 
         .scene-card {
             background: rgba(18, 22, 34, 0.65);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
             transition: all 0.3s ease;
             cursor: pointer;
         }
@@ -363,30 +672,30 @@
             border-color: var(--gold-primary);
             background: rgba(212, 175, 55, 0.1);
             box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-            transform: translateY(-3px);
+            transform: translateY(-2px);
         }
 
         .scene-card .card-header {
             display: flex;
             justify-content: space-between;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             color: var(--gold-primary);
             font-family: 'Cinzel', serif;
             letter-spacing: 1.5px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .scene-card h4 {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             color: #fff;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
         }
 
         .scene-card p {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: #9ca3af;
-            line-height: 1.4;
+            line-height: 1.35;
         }
 
         .toast {
@@ -399,7 +708,7 @@
             padding: 12px 28px;
             border-radius: 30px;
             color: #fff;
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             letter-spacing: 1px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.4);
             transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -418,141 +727,224 @@
             <div class="brand-icon">ॐ</div>
             <div>
                 <h1>CHAKRA <span>ENERGETICS</span></h1>
-                <div class="tagline">Cinematic Book Trailer </div>
+                <div class="tagline">Official Cinematic Book Trailer & Client Review Portal</div>
             </div>
         </div>
-        <div style="font-family: 'Cinzel', serif; font-size: 0.85rem; color: var(--gold-light); letter-spacing: 2px;">
-            ELIZA JAMES • 
+        <div class="header-meta">
+            <div class="review-mode-badge">
+                <span>💬 Review & Feedback Mode Active</span>
+            </div>
+            <div style="font-family: 'Cinzel', serif; font-size: 0.82rem; color: var(--gold-light); letter-spacing: 2px;">
+                ELIZA JAMES • REACH PUBLISHERS
+            </div>
         </div>
     </header>
 
-    <div class="stage-container">
-        <!-- 16:9 1080p Canvas Viewport -->
-        <div class="video-viewport" id="viewport">
-            <canvas id="renderCanvas" width="1920" height="1080"></canvas>
-        </div>
-
-        <!-- Glass Controls Bar -->
-        <div class="controls-card">
-            <div class="progress-row">
-                <span class="time-display" id="timeLabel">00:00 / 00:50</span>
-                <div class="timeline-bar" id="timelineBar">
-                    <div class="timeline-fill" id="timelineFill"></div>
+    <div class="main-layout">
+        
+        <!-- ========================================================
+             LEFT SIDEBAR: AUTHOR REVIEW & FEEDBACK
+             ======================================================== -->
+        <aside class="review-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Review Comments
                 </div>
-                <div class="scene-indicator" id="sceneIndicator">Scene: <span>1 / 6</span></div>
+                <span class="comment-count-badge" id="commentCountBadge">0 Notes</span>
             </div>
 
-            <div class="buttons-row">
-                <div class="left-controls">
-                    <button class="primary-btn" id="playBtn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                        Play Trailer
-                    </button>
-                    <button id="restartBtn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-                        Restart
-                    </button>
-                    
-                    <!-- Volume Slider Control -->
-                    <div class="volume-container">
-                        <button class="volume-icon-btn" id="volumeIconBtn" title="Mute/Unmute">
-                            <svg id="volumeIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                        </button>
-                        <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.85" title="Volume Control">
-                        <span id="volumePercent" style="font-size:0.75rem; color:var(--gold-light); min-width:32px;">85%</span>
+            <!-- Comment Entry Form -->
+            <form class="comment-form" id="commentForm" onsubmit="event.preventDefault(); addReviewComment();">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reviewerName">Your Name</label>
+                        <input type="text" id="reviewerName" value="Eliza James" placeholder="Name">
                     </div>
+                    <div class="form-group">
+                        <label for="commentTimestamp">Timestamp</label>
+                        <div style="display:flex; gap:4px;">
+                            <input type="text" id="commentTimestamp" value="00:00" style="width:70px; text-align:center;">
+                            <button type="button" class="time-capture-btn" onclick="captureCurrentTime()" title="Fill with current video time">
+                                ⏱️ Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
-                    <select class="audio-select" id="soundPreset">
-                        <option value="strauss">🎵 Strauss - The Blue Danube (from 2:00)</option>
-                        <option value="tchaikovsky">🎼 Tchaikovsky Ethereal Waltz (Synth)</option>
-                        <option value="celestial">✨ 432Hz Sacred Celestial Choir (Synth)</option>
-                        <option value="anthem">🚀 Ascending Symphonic Anthem (Synth)</option>
+                <div class="form-group">
+                    <label for="sceneSelect">Target Scene</label>
+                    <select id="sceneSelect">
+                        <option value="Scene 1 (0:00 - 0:08): The Cosmic Awakening">Scene 1: The Cosmic Awakening (0:00 - 0:08)</option>
+                        <option value="Scene 2 (0:08 - 0:17): Physical Chakras 1 to 7">Scene 2: Physical Chakras 1 to 7 (0:08 - 0:17)</option>
+                        <option value="Scene 3 (0:17 - 0:26): Higher Chakras 8 to 12">Scene 3: Higher Chakras 8 to 12 (0:17 - 0:26)</option>
+                        <option value="Scene 4 (0:26 - 0:35): Ascended Masters">Scene 4: Ascended Masters (0:26 - 0:35)</option>
+                        <option value="Scene 5 (0:35 - 0:44): 3D Book Reveal">Scene 5: 3D Book Reveal (0:35 - 0:44)</option>
+                        <option value="Scene 6 (0:44 - 0:50): Signature & Retailers">Scene 6: Signature & Retailers (0:44 - 0:50)</option>
+                        <option value="General Soundtrack & Trailer Audio">General: Soundtrack & Audio</option>
+                        <option value="Overall Trailer Notes">Overall Trailer Feedback</option>
                     </select>
                 </div>
 
-                <div class="right-controls">
-                    <input type="file" id="customAudioInput" accept="audio/*" style="display:none">
-                    <button onclick="document.getElementById('customAudioInput').click()">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                        Upload Music
-                    </button>
-                    <button class="record-btn" id="recordBtn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                        Export Video (MP4/WebM)
-                    </button>
-                    <button id="fullscreenBtn">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-                        Fullscreen
-                    </button>
+                <div class="form-group">
+                    <label for="commentText">Feedback / Note</label>
+                    <textarea id="commentText" placeholder="Write your note or adjustment request here... (e.g. 'Make this text larger', 'Love this scene', 'Change the quote')"></textarea>
                 </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Storyboard Grid -->
-    <section class="storyboard-section">
-        <div class="section-title">Trailer Scenes & Timeline Breakdown</div>
-        <div class="scenes-grid">
-            <div class="scene-card active" onclick="seekToTime(0)">
-                <div class="card-header">
-                    <span>0:00 - 0:08</span>
-                    <span>SCENE 1</span>
-                </div>
-                <h4>The Cosmic Awakening</h4>
-                <p>Intricate Sacred Flower of Life & 12-Lotus Star Mandala rotating with dynamic golden light rays.</p>
+                <button type="submit" class="submit-comment-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    Add Comment Note
+                </button>
+            </form>
+
+            <!-- Feedback Items List -->
+            <div class="comments-list-container" id="commentsListContainer">
+                <!-- Dynamically Rendered -->
             </div>
-            <div class="scene-card" onclick="seekToTime(8)">
-                <div class="card-header">
-                    <span>0:08 - 0:17</span>
-                    <span>SCENE 2</span>
-                </div>
-                <h4>Chakras 1 to 7 (Sequential)</h4>
-                <p>Chakras ignite 1-by-1 along the Sushumna spine with spacious high-contrast text boxes.</p>
+
+            <!-- Export / Share Feedback -->
+            <div class="sidebar-export-row">
+                <button class="export-feedback-btn" onclick="copyAllFeedbackToClipboard()">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy Feedback
+                </button>
+                <button class="export-feedback-btn" onclick="downloadFeedbackReport()">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Save Report
+                </button>
+                <button class="export-feedback-btn" style="color:#ef4444; border-color:rgba(239, 68, 68, 0.4);" onclick="clearAllFeedback()">
+                    Clear
+                </button>
             </div>
-            <div class="scene-card" onclick="seekToTime(17)">
-                <div class="card-header">
-                    <span>0:17 - 0:26</span>
-                    <span>SCENE 3</span>
-                </div>
-                <h4>Chakras 8 to 12 (I AM Presence)</h4>
-                <p>The 5 Higher Cosmic Chakras ascend with radiant star rays into infinite light.</p>
+        </aside>
+
+        <!-- ========================================================
+             RIGHT AREA: VIDEO PLAYER, CONTROLS & STORYBOARD
+             ======================================================== -->
+        <main class="player-content">
+            <!-- 16:9 1080p Canvas Viewport -->
+            <div class="video-viewport" id="viewport">
+                <canvas id="renderCanvas" width="1920" height="1080"></canvas>
             </div>
-            <div class="scene-card" onclick="seekToTime(26)">
-                <div class="card-header">
-                    <span>0:26 - 0:35</span>
-                    <span>SCENE 4</span>
+
+            <!-- Glass Controls Bar -->
+            <div class="controls-card">
+                <div class="progress-row">
+                    <span class="time-display" id="timeLabel">00:00 / 00:50</span>
+                    <div class="timeline-bar" id="timelineBar">
+                        <div class="timeline-fill" id="timelineFill"></div>
+                    </div>
+                    <div class="scene-indicator" id="sceneIndicator">Scene: <span>1 / 6</span></div>
                 </div>
-                <h4>Ascended Masters Reveal</h4>
-                <p>St Germain & Serapis Bey glide into place with gold filigree frames & amethyst halos.</p>
-            </div>
-            <div class="scene-card" onclick="seekToTime(35)">
-                <div class="card-header">
-                    <span>0:35 - 0:44</span>
-                    <span>SCENE 5</span>
+
+                <div class="buttons-row">
+                    <div class="left-controls">
+                        <button class="primary-btn" id="playBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            Play Trailer
+                        </button>
+                        <button id="restartBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                            Restart
+                        </button>
+                        
+                        <!-- Volume Slider Control -->
+                        <div class="volume-container">
+                            <button class="volume-icon-btn" id="volumeIconBtn" title="Mute/Unmute">
+                                <svg id="volumeIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                            </button>
+                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.85" title="Volume Control">
+                            <span id="volumePercent" style="font-size:0.75rem; color:var(--gold-light); min-width:32px;">85%</span>
+                        </div>
+
+                        <select class="audio-select" id="soundPreset">
+                            <option value="strauss">🎵 Strauss - The Blue Danube (from 2:00)</option>
+                            <option value="tchaikovsky">🎼 Tchaikovsky Ethereal Waltz (Synth)</option>
+                            <option value="celestial">✨ 432Hz Sacred Celestial Choir (Synth)</option>
+                            <option value="anthem">🚀 Ascending Symphonic Anthem (Synth)</option>
+                        </select>
+                    </div>
+
+                    <div class="right-controls">
+                        <input type="file" id="customAudioInput" accept="audio/*" style="display:none">
+                        <button onclick="document.getElementById('customAudioInput').click()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                            Upload Music
+                        </button>
+                        <button class="record-btn" id="recordBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                            Export Video (MP4/WebM)
+                        </button>
+                        <button id="fullscreenBtn">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                            Fullscreen
+                        </button>
+                    </div>
                 </div>
-                <h4>3D Book Spin & Presentation</h4>
-                <p>Complete 3D Hardcover with authentic Front, Spine & Back cover rotating into place.</p>
             </div>
-            <div class="scene-card" onclick="seekToTime(44)">
-                <div class="card-header">
-                    <span>0:44 - 0:50</span>
-                    <span>SCENE 6</span>
+
+            <!-- Storyboard Grid -->
+            <section class="storyboard-section">
+                <div class="section-title">Trailer Scenes & Timeline Breakdown</div>
+                <div class="scenes-grid">
+                    <div class="scene-card active" onclick="seekToTime(0)">
+                        <div class="card-header">
+                            <span>0:00 - 0:08</span>
+                            <span>SCENE 1</span>
+                        </div>
+                        <h4>The Cosmic Awakening</h4>
+                        <p>Intricate Sacred Flower of Life & 12-Lotus Star Mandala with golden light rays.</p>
+                    </div>
+                    <div class="scene-card" onclick="seekToTime(8)">
+                        <div class="card-header">
+                            <span>0:08 - 0:17</span>
+                            <span>SCENE 2</span>
+                        </div>
+                        <h4>Chakras 1 to 7 (Sequential)</h4>
+                        <p>Chakras ignite 1-by-1 along the Sushumna spine with spacious high-contrast text boxes.</p>
+                    </div>
+                    <div class="scene-card" onclick="seekToTime(17)">
+                        <div class="card-header">
+                            <span>0:17 - 0:26</span>
+                            <span>SCENE 3</span>
+                        </div>
+                        <h4>Chakras 8 to 12 (I AM Presence)</h4>
+                        <p>The 5 Higher Cosmic Chakras ascend with radiant star rays into infinite light.</p>
+                    </div>
+                    <div class="scene-card" onclick="seekToTime(26)">
+                        <div class="card-header">
+                            <span>0:26 - 0:35</span>
+                            <span>SCENE 4</span>
+                        </div>
+                        <h4>Ascended Masters Reveal</h4>
+                        <p>St Germain & Serapis Bey glide into place with gold filigree frames & amethyst halos.</p>
+                    </div>
+                    <div class="scene-card" onclick="seekToTime(35)">
+                        <div class="card-header">
+                            <span>0:35 - 0:44</span>
+                            <span>SCENE 5</span>
+                        </div>
+                        <h4>3D Book Spin & Presentation</h4>
+                        <p>Complete 3D Hardcover with authentic Front, Spine & Back cover rotating into place.</p>
+                    </div>
+                    <div class="scene-card" onclick="seekToTime(44)">
+                        <div class="card-header">
+                            <span>0:44 - 0:50</span>
+                            <span>SCENE 6</span>
+                        </div>
+                        <h4>Author Signature & Retailers</h4>
+                        <p>Eliza James signature reveal with Reach Publishers credentials & global availability.</p>
+                    </div>
                 </div>
-                <h4>Author Signature & Retailers</h4>
-                <p>Eliza James signature reveal with Reach Publishers credentials & global availability.</p>
-            </div>
-        </div>
-    </section>
+            </section>
+        </main>
+    </div>
 
     <div class="toast" id="toast">Recording started... Capturing 1080p 60fps video</div>
 
     <script>
         /**
-         * CHAKRA ENERGETICS - CINEMATIC BOOK TRAILER ENGINE (V6)
-         * - Multi-tiered Sacred Lotus & Flower of Life Gold Mandala (Procedural Canvas)
-         * - Live Volume Control Slider with dynamic icon states & full audio graph level control
-         * - Embedded Strauss Blue Danube soundtrack from 2:00
-         * - 3D Book Spin with real Front, Spine & Back covers
+         * CHAKRA ENERGETICS - CINEMATIC BOOK TRAILER & CLIENT REVIEW ENGINE
          */
 
         const canvas = document.getElementById('renderCanvas');
@@ -576,6 +968,14 @@
         const volumeIconBtn = document.getElementById('volumeIconBtn');
         const volumeIconSvg = document.getElementById('volumeIconSvg');
 
+        // Review & Comments Elements
+        const reviewerNameInput = document.getElementById('reviewerName');
+        const commentTimestampInput = document.getElementById('commentTimestamp');
+        const sceneSelectInput = document.getElementById('sceneSelect');
+        const commentTextInput = document.getElementById('commentText');
+        const commentsListContainer = document.getElementById('commentsListContainer');
+        const commentCountBadge = document.getElementById('commentCountBadge');
+
         const TOTAL_DURATION = 50.0;
         let currentTime = 0;
         let isPlaying = false;
@@ -594,6 +994,203 @@
         imgStGermain.src = 'assets/st-germain-portrait.jpg';
         const imgSerapisBey = new Image();
         imgSerapisBey.src = 'assets/serapis-bey-portrait.jpg';
+
+        // ========================================================
+        // CLIENT REVIEW & FEEDBACK SYSTEM (LOCALSTORAGE PERSISTED)
+        // ========================================================
+        let reviewComments = [];
+        try {
+            const saved = localStorage.getItem('eliza_trailer_review_comments');
+            if (saved) {
+                reviewComments = JSON.parse(saved);
+            }
+        } catch (e) {
+            console.warn('Could not load stored comments', e);
+        }
+
+        function saveReviewComments() {
+            try {
+                localStorage.setItem('eliza_trailer_review_comments', JSON.stringify(reviewComments));
+            } catch (e) {}
+            renderCommentsList();
+        }
+
+        function formatSecondsToTimestamp(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
+        function parseTimestampToSeconds(ts) {
+            const parts = ts.split(':');
+            if (parts.length === 2) {
+                return (parseInt(parts[0], 10) * 60) + parseFloat(parts[1]);
+            }
+            return parseFloat(ts) || 0;
+        }
+
+        function captureCurrentTime() {
+            const ts = formatSecondsToTimestamp(currentTime);
+            commentTimestampInput.value = ts;
+
+            // Auto-select scene dropdown based on time
+            let sIdx = 0;
+            if (currentTime >= 44.0) sIdx = 5;
+            else if (currentTime >= 35.0) sIdx = 4;
+            else if (currentTime >= 26.0) sIdx = 3;
+            else if (currentTime >= 17.0) sIdx = 2;
+            else if (currentTime >= 8.0) sIdx = 1;
+            sceneSelectInput.selectedIndex = sIdx;
+
+            showToast(`Captured timestamp: ${ts}`);
+        }
+
+        function addReviewComment() {
+            const text = commentTextInput.value.trim();
+            if (!text) {
+                showToast('Please type a feedback note before adding!');
+                commentTextInput.focus();
+                return;
+            }
+
+            const name = reviewerNameInput.value.trim() || 'Eliza James';
+            const ts = commentTimestampInput.value.trim() || formatSecondsToTimestamp(currentTime);
+            const seconds = parseTimestampToSeconds(ts);
+            const scene = sceneSelectInput.value;
+
+            const newComment = {
+                id: Date.now().toString(),
+                name: name,
+                timestamp: ts,
+                seconds: seconds,
+                scene: scene,
+                text: text,
+                createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+
+            reviewComments.unshift(newComment);
+            commentTextInput.value = '';
+            saveReviewComments();
+            showToast('Feedback note added! Click its timestamp anytime to jump.');
+        }
+
+        function deleteComment(id) {
+            reviewComments = reviewComments.filter(c => c.id !== id);
+            saveReviewComments();
+            showToast('Note deleted');
+        }
+
+        function renderCommentsList() {
+            commentCountBadge.textContent = `${reviewComments.length} Note${reviewComments.length === 1 ? '' : 's'}`;
+
+            if (reviewComments.length === 0) {
+                commentsListContainer.innerHTML = `
+                    <div style="text-align:center; padding: 24px 10px; color:#6b7280; font-size:0.8rem;">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:8px; opacity:0.5;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <p>No feedback notes added yet.</p>
+                        <p style="font-size:0.72rem; margin-top:4px; color:#9ca3af;">Type your comments above while watching to leave timestamps and notes!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            commentsListContainer.innerHTML = reviewComments.map(c => `
+                <div class="comment-item">
+                    <div class="comment-meta">
+                        <button class="time-jump-pill" onclick="seekToTime(${c.seconds})" title="Click to jump video to ${c.timestamp}">
+                            ⏱️ ${c.timestamp}
+                        </button>
+                        <span class="scene-badge-pill">${c.scene.split(':')[0]}</span>
+                    </div>
+                    <div class="comment-text">${escapeHTML(c.text)}</div>
+                    <div class="comment-actions">
+                        <span>${escapeHTML(c.name)} • ${c.createdAt}</span>
+                        <button class="delete-comment-btn" onclick="deleteComment('${c.id}')">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag] || tag));
+        }
+
+        function copyAllFeedbackToClipboard() {
+            if (reviewComments.length === 0) {
+                showToast('No feedback notes to copy.');
+                return;
+            }
+
+            let report = `### Chakra Energetics Trailer — Review Feedback
+
+`;
+            reviewComments.forEach((c, idx) => {
+                report += `${idx + 1}. **[${c.timestamp}] ${c.scene}** (${c.name}):
+   ${c.text}
+
+`;
+            });
+
+            navigator.clipboard.writeText(report).then(() => {
+                showToast('All feedback notes copied to clipboard!');
+            }).catch(() => {
+                showToast('Copied to clipboard');
+            });
+        }
+
+        function downloadFeedbackReport() {
+            if (reviewComments.length === 0) {
+                showToast('No feedback notes to export.');
+                return;
+            }
+
+            let report = `CHAKRA ENERGETICS TRAILER - CLIENT FEEDBACK REPORT
+`;
+            report += `Generated: ${new Date().toLocaleString()}
+`;
+            report += `Total Notes: ${reviewComments.length}
+`;
+            report += `=====================================================
+
+`;
+
+            reviewComments.forEach((c, idx) => {
+                report += `[${idx + 1}] Timestamp: ${c.timestamp} | Target: ${c.scene}
+`;
+                report += `    Author: ${c.name} (Logged at ${c.createdAt})
+`;
+                report += `    Feedback:
+    ${c.text}
+`;
+                report += `-----------------------------------------------------
+
+`;
+            });
+
+            const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Chakra_Energetics_Trailer_Feedback_${Date.now()}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+            showToast('Feedback report saved to text file!');
+        }
+
+        function clearAllFeedback() {
+            if (reviewComments.length === 0) return;
+            if (confirm('Are you sure you want to clear all feedback notes?')) {
+                reviewComments = [];
+                saveReviewComments();
+                showToast('All notes cleared.');
+            }
+        }
 
         // ========================================================
         // AUDIO ENGINE
@@ -665,7 +1262,6 @@
             volumeSlider.value = isMuted ? 0 : currentVolume;
             volumePercent.textContent = `${Math.round((isMuted ? 0 : currentVolume) * 100)}%`;
 
-            // Update Volume SVG Icon
             if (isMuted || currentVolume === 0) {
                 volumeIconSvg.innerHTML = `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`;
             } else if (currentVolume < 0.5) {
@@ -945,18 +1541,16 @@
 
         // ========================================================
         // PRISTINE PROCEDURAL SACRED FLOWER OF LIFE & LOTUS MANDALA
-        // HIGH-PRECISION VECTOR RENDERING (SCENE 1)
         // ========================================================
         function drawSacredLotusMandala(cx, cy, radius, rotation, t, alpha = 1) {
             ctx.save();
             ctx.translate(cx, cy);
             ctx.globalAlpha = alpha;
 
-            // Breathing pulse
             const pulse = Math.sin(t * 2.0) * 4;
             const r = radius + pulse;
 
-            // 1. Layer 1: Ethereal Outer Golden Aura
+            // Ethereal Aura
             const aura = ctx.createRadialGradient(0, 0, r * 0.3, 0, 0, r * 1.55);
             aura.addColorStop(0, 'rgba(255, 240, 168, 0.45)');
             aura.addColorStop(0.4, 'rgba(212, 175, 55, 0.22)');
@@ -967,7 +1561,7 @@
             ctx.arc(0, 0, r * 1.55, 0, Math.PI * 2);
             ctx.fill();
 
-            // 2. Layer 2: Outer Celestial Star Rays (Rotating clockwise)
+            // 24 Star Rays
             ctx.save();
             ctx.rotate(rotation * 0.6);
             ctx.strokeStyle = 'rgba(212, 175, 55, 0.55)';
@@ -979,7 +1573,6 @@
                 ctx.lineTo(r * 1.15, 0);
                 ctx.stroke();
 
-                // Gold node star dot
                 ctx.fillStyle = '#ffd700';
                 ctx.beginPath();
                 ctx.arc(r * 1.15, 0, 3, 0, Math.PI * 2);
@@ -987,13 +1580,11 @@
             }
             ctx.restore();
 
-            // 3. Layer 3: 12 Sacred Lotus Petals (Rotating counter-clockwise)
+            // 12 Lotus Petals
             ctx.save();
             ctx.rotate(-rotation * 0.4);
             for (let i = 0; i < 12; i++) {
                 ctx.rotate((Math.PI * 2) / 12);
-                
-                // Outer Lotus Petal
                 ctx.beginPath();
                 ctx.moveTo(0, 0);
                 ctx.quadraticCurveTo(r * 0.45, -r * 0.35, r, 0);
@@ -1014,7 +1605,7 @@
             }
             ctx.restore();
 
-            // 4. Layer 4: Concentric Golden Circles
+            // Concentric Rings
             ctx.save();
             ctx.strokeStyle = '#d4af37';
             ctx.lineWidth = 3;
@@ -1030,7 +1621,7 @@
             ctx.stroke();
             ctx.restore();
 
-            // 5. Layer 5: Flower of Life Intersecting Circles
+            // Flower of Life
             ctx.save();
             ctx.rotate(rotation * 0.8);
             ctx.strokeStyle = 'rgba(255, 240, 168, 0.75)';
@@ -1044,7 +1635,7 @@
             }
             ctx.restore();
 
-            // 6. Layer 6: Intersecting Sacred Star of David / Sri Yantra Triangles
+            // Intersecting Triangles
             ctx.save();
             ctx.rotate(-rotation * 0.5);
             for (let t = 0; t < 2; t++) {
@@ -1066,9 +1657,8 @@
             }
             ctx.restore();
 
-            // 7. Layer 7: Central Sacred Glowing Om Symbol (ॐ)
+            // Glowing Om
             ctx.save();
-            // Inner Core Dark Background for Max Contrast
             ctx.fillStyle = '#110d08';
             ctx.beginPath();
             ctx.arc(0, 0, r * 0.24, 0, Math.PI * 2);
@@ -1078,7 +1668,6 @@
             ctx.lineWidth = 2.5;
             ctx.stroke();
 
-            // Radiant Central Om
             ctx.font = `600 ${r * 0.32}px "Cormorant Garamond", "Cinzel", serif`;
             ctx.fillStyle = '#ffffff';
             ctx.textAlign = 'center';
@@ -1909,8 +2498,9 @@
             }
         });
 
-        // Initialize volume display
+        // Initialize volume & comments
         updateVolume(0.85);
+        renderCommentsList();
 
         requestAnimationFrame(animLoop);
     </script>
