@@ -1,5 +1,4 @@
-# Dependencies & temp files
-node_modules/
+_*.b64
 .DS_Store
-*.tmp
-*.log
+Thumbs.db
+node_modules/

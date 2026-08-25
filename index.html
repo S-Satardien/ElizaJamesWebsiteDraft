@@ -1,2508 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chakra Energetics - Cinematic Book Trailer & Client Review</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="assets/strauss_audio_b64.js"></script>
-    <style>
-        :root {
-            --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-dark: #aa7c11;
-            --bg-deep: #05070c;
-            --bg-surface: rgba(14, 18, 28, 0.9);
-            --bg-card: rgba(22, 28, 42, 0.75);
-            --border-glass: rgba(212, 175, 55, 0.35);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            background-color: var(--bg-deep);
-            color: #f5f5f7;
-            font-family: 'Montserrat', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            overflow-x: hidden;
-            background-image: 
-                radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
-                radial-gradient(circle at 85% 75%, rgba(138, 75, 175, 0.09) 0%, transparent 50%),
-                radial-gradient(circle at 15% 85%, rgba(45, 115, 195, 0.09) 0%, transparent 50%);
-        }
-
-        header {
-            width: 100%;
-            max-width: 1600px;
-            padding: 18px 24px 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 14px;
-        }
-
-        .brand-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1.5px solid var(--gold-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--gold-primary);
-            font-size: 1.35rem;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.45);
-            background: rgba(212, 175, 55, 0.12);
-        }
-
-        .brand h1 {
-            font-family: 'Cinzel', serif;
-            font-size: 1.35rem;
-            letter-spacing: 3px;
-            color: #fff;
-            font-weight: 700;
-        }
-
-        .brand span {
-            color: var(--gold-primary);
-        }
-
-        .tagline {
-            font-size: 0.76rem;
-            letter-spacing: 2px;
-            color: #a0a5b5;
-            text-transform: uppercase;
-        }
-
-        .header-meta {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .review-mode-badge {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-light);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.78rem;
-            font-weight: 600;
-            letter-spacing: 1.5px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .main-layout {
-            width: 100%;
-            max-width: 1600px;
-            padding: 8px 24px 40px;
-            display: grid;
-            grid-template-columns: 380px 1fr;
-            gap: 24px;
-            z-index: 5;
-        }
-
-        @media (max-width: 1100px) {
-            .main-layout {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ========================================================
-           LEFT SIDEBAR: REVIEW & COMMENTS PANEL
-           ======================================================== */
-        .review-sidebar {
-            background: var(--bg-surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
-            height: fit-content;
-        }
-
-        .sidebar-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
-            padding-bottom: 12px;
-        }
-
-        .sidebar-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.1rem;
-            color: var(--gold-light);
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .comment-count-badge {
-            background: var(--gold-primary);
-            color: #000;
-            font-size: 0.72rem;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 12px;
-        }
-
-        .comment-form {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            background: rgba(10, 14, 24, 0.7);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 14px;
-        }
-
-        .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        label {
-            font-size: 0.75rem;
-            color: #a5adc2;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        input[type="text"], select, textarea {
-            background: rgba(16, 20, 32, 0.95);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            color: #fff;
-            padding: 8px 12px;
-            border-radius: 8px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 0.82rem;
-            outline: none;
-            transition: border-color 0.2s;
-        }
-
-        input[type="text"]:focus, select:focus, textarea:focus {
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 70px;
-            line-height: 1.4;
-        }
-
-        .time-capture-btn {
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px dashed var(--gold-primary);
-            color: var(--gold-light);
-            padding: 6px 10px;
-            border-radius: 6px;
-            font-size: 0.72rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: all 0.2s;
-        }
-
-        .time-capture-btn:hover {
-            background: rgba(212, 175, 55, 0.25);
-            border-style: solid;
-        }
-
-        .submit-comment-btn {
-            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-            color: #000;
-            font-weight: 700;
-            border: none;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.84rem;
-            letter-spacing: 1px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            transition: all 0.2s;
-            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
-        }
-
-        .submit-comment-btn:hover {
-            background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
-        }
-
-        /* Comments List */
-        .comments-list-container {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            max-height: 480px;
-            overflow-y: auto;
-            padding-right: 4px;
-        }
-
-        .comments-list-container::-webkit-scrollbar {
-            width: 5px;
-        }
-
-        .comments-list-container::-webkit-scrollbar-thumb {
-            background: rgba(212, 175, 55, 0.4);
-            border-radius: 4px;
-        }
-
-        .comment-item {
-            background: var(--bg-card);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-left: 3.5px solid var(--gold-primary);
-            border-radius: 10px;
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            transition: all 0.2s ease;
-        }
-
-        .comment-item:hover {
-            border-color: var(--gold-primary);
-            background: rgba(212, 175, 55, 0.1);
-        }
-
-        .comment-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .time-jump-pill {
-            background: rgba(212, 175, 55, 0.2);
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-light);
-            font-size: 0.72rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 12px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            transition: all 0.2s;
-        }
-
-        .time-jump-pill:hover {
-            background: var(--gold-primary);
-            color: #000;
-            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
-        }
-
-        .scene-badge-pill {
-            font-size: 0.7rem;
-            color: #9ca3af;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-family: 'Cinzel', serif;
-        }
-
-        .comment-text {
-            font-size: 0.83rem;
-            color: #e5e7eb;
-            line-height: 1.45;
-            white-space: pre-wrap;
-        }
-
-        .comment-actions {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-size: 0.7rem;
-            color: #6b7280;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 6px;
-        }
-
-        .delete-comment-btn {
-            background: transparent;
-            border: none;
-            color: #ef4444;
-            cursor: pointer;
-            font-size: 0.72rem;
-            padding: 2px 6px;
-            border-radius: 4px;
-            opacity: 0.7;
-        }
-
-        .delete-comment-btn:hover {
-            opacity: 1;
-            background: rgba(239, 68, 68, 0.15);
-        }
-
-        .sidebar-export-row {
-            display: flex;
-            gap: 8px;
-            border-top: 1px solid rgba(212, 175, 55, 0.25);
-            padding-top: 14px;
-        }
-
-        .export-feedback-btn {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            color: var(--gold-light);
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: all 0.2s;
-        }
-
-        .export-feedback-btn:hover {
-            background: rgba(212, 175, 55, 0.2);
-            border-color: var(--gold-primary);
-            color: #fff;
-        }
-
-        /* ========================================================
-           RIGHT CONTENT: VIDEO STAGE & CONTROLS
-           ======================================================== */
-        .player-content {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .video-viewport {
-            position: relative;
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            background: #000;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 
-                0 25px 60px rgba(0, 0, 0, 0.9),
-                0 0 50px rgba(212, 175, 55, 0.22),
-                inset 0 0 0 1px rgba(212, 175, 55, 0.45);
-        }
-
-        #renderCanvas {
-            width: 100%;
-            height: 100%;
-            display: block;
-            object-fit: contain;
-        }
-
-        .controls-card {
-            width: 100%;
-            padding: 16px 22px;
-            background: var(--bg-surface);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid var(--border-glass);
-            border-radius: 14px;
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
-        }
-
-        .progress-row {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .time-display {
-            font-family: 'Cinzel', monospace;
-            font-size: 0.88rem;
-            color: var(--gold-light);
-            min-width: 95px;
-            letter-spacing: 1.5px;
-        }
-
-        .timeline-bar {
-            position: relative;
-            flex: 1;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.12);
-            border-radius: 4px;
-            cursor: pointer;
-            overflow: hidden;
-            transition: height 0.2s ease;
-        }
-
-        .timeline-bar:hover {
-            height: 10px;
-        }
-
-        .timeline-fill {
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 0%;
-            background: linear-gradient(90deg, #aa7c11, #d4af37, #fff2a3);
-            box-shadow: 0 0 12px rgba(212, 175, 55, 0.9);
-            border-radius: 4px;
-        }
-
-        .buttons-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .left-controls, .right-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        button {
-            background: rgba(255, 255, 255, 0.06);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            color: #f0f0f0;
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 0.82rem;
-            font-weight: 500;
-            letter-spacing: 1px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            outline: none;
-        }
-
-        button:hover {
-            background: rgba(212, 175, 55, 0.2);
-            border-color: var(--gold-primary);
-            color: #fff;
-            box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
-            transform: translateY(-1px);
-        }
-
-        button.primary-btn {
-            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
-            color: #000;
-            font-weight: 700;
-            border: none;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
-        }
-
-        button.primary-btn:hover {
-            background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
-            box-shadow: 0 6px 22px rgba(212, 175, 55, 0.6);
-        }
-
-        button.record-btn {
-            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
-            border: none;
-            color: #fff;
-            font-weight: 600;
-        }
-
-        button.record-btn:hover {
-            background: linear-gradient(135deg, #ff6b6b 0%, #e74c3c 100%);
-            box-shadow: 0 0 18px rgba(231, 76, 60, 0.6);
-        }
-
-        .volume-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            padding: 6px 12px;
-            border-radius: 8px;
-        }
-
-        .volume-icon-btn {
-            background: transparent;
-            border: none;
-            padding: 0;
-            cursor: pointer;
-            color: var(--gold-light);
-            display: flex;
-            align-items: center;
-        }
-
-        .volume-icon-btn:hover {
-            background: transparent;
-            box-shadow: none;
-            transform: none;
-            color: #fff;
-        }
-
-        .volume-slider {
-            -webkit-appearance: none;
-            width: 70px;
-            height: 5px;
-            border-radius: 3px;
-            background: rgba(255, 255, 255, 0.2);
-            outline: none;
-            cursor: pointer;
-        }
-
-        .volume-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 13px;
-            height: 13px;
-            border-radius: 50%;
-            background: var(--gold-primary);
-            cursor: pointer;
-            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
-            transition: transform 0.15s ease;
-        }
-
-        .volume-slider::-webkit-slider-thumb:hover {
-            transform: scale(1.2);
-        }
-
-        .audio-select {
-            background: rgba(14, 18, 28, 0.95);
-            border: 1px solid rgba(212, 175, 55, 0.4);
-            color: var(--gold-light);
-            padding: 8px 10px;
-            border-radius: 8px;
-            font-size: 0.8rem;
-            outline: none;
-            cursor: pointer;
-        }
-
-        .audio-select option {
-            background: #0d1017;
-            color: #fff;
-        }
-
-        .scene-indicator {
-            font-size: 0.82rem;
-            color: #8e95aa;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        .scene-indicator span {
-            color: var(--gold-light);
-            font-weight: 700;
-        }
-
-        /* Storyboard Grid */
-        .storyboard-section {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        .section-title {
-            font-family: 'Cinzel', serif;
-            font-size: 1.2rem;
-            color: var(--gold-light);
-            letter-spacing: 2.5px;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .section-title::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, var(--gold-primary), transparent);
-        }
-
-        .scenes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 14px;
-        }
-
-        .scene-card {
-            background: rgba(18, 22, 34, 0.65);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
-            padding: 14px;
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .scene-card:hover, .scene-card.active {
-            border-color: var(--gold-primary);
-            background: rgba(212, 175, 55, 0.1);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
-            transform: translateY(-2px);
-        }
-
-        .scene-card .card-header {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.72rem;
-            color: var(--gold-primary);
-            font-family: 'Cinzel', serif;
-            letter-spacing: 1.5px;
-            margin-bottom: 6px;
-        }
-
-        .scene-card h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.15rem;
-            color: #fff;
-            margin-bottom: 4px;
-        }
-
-        .scene-card p {
-            font-size: 0.78rem;
-            color: #9ca3af;
-            line-height: 1.35;
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(10, 12, 20, 0.95);
-            border: 1px solid var(--gold-primary);
-            padding: 12px 28px;
-            border-radius: 30px;
-            color: #fff;
-            font-size: 0.88rem;
-            letter-spacing: 1px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.4);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            z-index: 100;
-        }
-
-        .toast.visible {
-            transform: translateX(-50%) translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eliza — Healing Practitioner | Sacred Alignment</title>
+  <meta name="description" content="Reconnective Healing, Curator of Consciousness coaching, and Meditation &amp; Conscious Breathing with Eliza — Lakeside, Cape Town.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <header>
-        <div class="brand">
-            <div class="brand-icon">ॐ</div>
-            <div>
-                <h1>CHAKRA <span>ENERGETICS</span></h1>
-                <div class="tagline">Official Cinematic Book Trailer & Client Review Portal</div>
-            </div>
-        </div>
-        <div class="header-meta">
-            <div class="review-mode-badge">
-                <span>💬 Review & Feedback Mode Active</span>
-            </div>
-            <div style="font-family: 'Cinzel', serif; font-size: 0.82rem; color: var(--gold-light); letter-spacing: 2px;">
-                ELIZA JAMES • REACH PUBLISHERS
-            </div>
-        </div>
-    </header>
+  <header class="site-header">
+    <div class="bar">
+      <a class="brand" href="index.html" aria-label="Eliza Reconnection Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2c1.6 2.1 2.6 3.8 2.6 5.4 0 1.2-.8 2-1.8 2s-1.7-.8-1.7-1.8c0-.6.2-1.1.5-1.6-1.1.8-1.9 2.1-1.9 3.6a3 3 0 0 0 3 3 3.9 3.9 0 0 0 3.3-4.1C16 6.2 13.7 3.7 12 2z"/>
+          </svg>
+        </span>
+        <span class="brand-name">Eliza<small>Sacred Alignment</small></span>
+      </a>
 
-    <div class="main-layout">
-        
-        <!-- ========================================================
-             LEFT SIDEBAR: AUTHOR REVIEW & FEEDBACK
-             ======================================================== -->
-        <aside class="review-sidebar">
-            <div class="sidebar-header">
-                <div class="sidebar-title">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                    Review Comments
-                </div>
-                <span class="comment-count-badge" id="commentCountBadge">0 Notes</span>
-            </div>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <ul>
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="work-with-me.html">Services</a></li>
+          <li><a href="journal.html">Science &amp; Evidence</a></li>
+          <li><a href="results.html">Results</a></li>
+          <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+        <a class="header-phone" href="tel:+27829269851" aria-label="Call 082 926 9851">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+          </svg>
+          082 926 9851
+        </a>
+      </nav>
 
-            <!-- Comment Entry Form -->
-            <form class="comment-form" id="commentForm" onsubmit="event.preventDefault(); addReviewComment();">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="reviewerName">Your Name</label>
-                        <input type="text" id="reviewerName" value="Eliza James" placeholder="Name">
-                    </div>
-                    <div class="form-group">
-                        <label for="commentTimestamp">Timestamp</label>
-                        <div style="display:flex; gap:4px;">
-                            <input type="text" id="commentTimestamp" value="00:00" style="width:70px; text-align:center;">
-                            <button type="button" class="time-capture-btn" onclick="captureCurrentTime()" title="Fill with current video time">
-                                ⏱️ Now
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <label for="sceneSelect">Target Scene</label>
-                    <select id="sceneSelect">
-                        <option value="Scene 1 (0:00 - 0:08): The Cosmic Awakening">Scene 1: The Cosmic Awakening (0:00 - 0:08)</option>
-                        <option value="Scene 2 (0:08 - 0:17): Physical Chakras 1 to 7">Scene 2: Physical Chakras 1 to 7 (0:08 - 0:17)</option>
-                        <option value="Scene 3 (0:17 - 0:26): Higher Chakras 8 to 12">Scene 3: Higher Chakras 8 to 12 (0:17 - 0:26)</option>
-                        <option value="Scene 4 (0:26 - 0:35): Ascended Masters">Scene 4: Ascended Masters (0:26 - 0:35)</option>
-                        <option value="Scene 5 (0:35 - 0:44): 3D Book Reveal">Scene 5: 3D Book Reveal (0:35 - 0:44)</option>
-                        <option value="Scene 6 (0:44 - 0:50): Signature & Retailers">Scene 6: Signature & Retailers (0:44 - 0:50)</option>
-                        <option value="General Soundtrack & Trailer Audio">General: Soundtrack & Audio</option>
-                        <option value="Overall Trailer Notes">Overall Trailer Feedback</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="commentText">Feedback / Note</label>
-                    <textarea id="commentText" placeholder="Write your note or adjustment request here... (e.g. 'Make this text larger', 'Love this scene', 'Change the quote')"></textarea>
-                </div>
-
-                <button type="submit" class="submit-comment-btn">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-                    Add Comment Note
-                </button>
-            </form>
-
-            <!-- Feedback Items List -->
-            <div class="comments-list-container" id="commentsListContainer">
-                <!-- Dynamically Rendered -->
-            </div>
-
-            <!-- Export / Share Feedback -->
-            <div class="sidebar-export-row">
-                <button class="export-feedback-btn" onclick="copyAllFeedbackToClipboard()">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                    Copy Feedback
-                </button>
-                <button class="export-feedback-btn" onclick="downloadFeedbackReport()">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-                    Save Report
-                </button>
-                <button class="export-feedback-btn" style="color:#ef4444; border-color:rgba(239, 68, 68, 0.4);" onclick="clearAllFeedback()">
-                    Clear
-                </button>
-            </div>
-        </aside>
-
-        <!-- ========================================================
-             RIGHT AREA: VIDEO PLAYER, CONTROLS & STORYBOARD
-             ======================================================== -->
-        <main class="player-content">
-            <!-- 16:9 1080p Canvas Viewport -->
-            <div class="video-viewport" id="viewport">
-                <canvas id="renderCanvas" width="1920" height="1080"></canvas>
-            </div>
-
-            <!-- Glass Controls Bar -->
-            <div class="controls-card">
-                <div class="progress-row">
-                    <span class="time-display" id="timeLabel">00:00 / 00:50</span>
-                    <div class="timeline-bar" id="timelineBar">
-                        <div class="timeline-fill" id="timelineFill"></div>
-                    </div>
-                    <div class="scene-indicator" id="sceneIndicator">Scene: <span>1 / 6</span></div>
-                </div>
-
-                <div class="buttons-row">
-                    <div class="left-controls">
-                        <button class="primary-btn" id="playBtn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                            Play Trailer
-                        </button>
-                        <button id="restartBtn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
-                            Restart
-                        </button>
-                        
-                        <!-- Volume Slider Control -->
-                        <div class="volume-container">
-                            <button class="volume-icon-btn" id="volumeIconBtn" title="Mute/Unmute">
-                                <svg id="volumeIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
-                            </button>
-                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.85" title="Volume Control">
-                            <span id="volumePercent" style="font-size:0.75rem; color:var(--gold-light); min-width:32px;">85%</span>
-                        </div>
-
-                        <select class="audio-select" id="soundPreset">
-                            <option value="strauss">🎵 Strauss - The Blue Danube (from 2:00)</option>
-                            <option value="tchaikovsky">🎼 Tchaikovsky Ethereal Waltz (Synth)</option>
-                            <option value="celestial">✨ 432Hz Sacred Celestial Choir (Synth)</option>
-                            <option value="anthem">🚀 Ascending Symphonic Anthem (Synth)</option>
-                        </select>
-                    </div>
-
-                    <div class="right-controls">
-                        <input type="file" id="customAudioInput" accept="audio/*" style="display:none">
-                        <button onclick="document.getElementById('customAudioInput').click()">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
-                            Upload Music
-                        </button>
-                        <button class="record-btn" id="recordBtn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
-                            Export Video (MP4/WebM)
-                        </button>
-                        <button id="fullscreenBtn">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
-                            Fullscreen
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Storyboard Grid -->
-            <section class="storyboard-section">
-                <div class="section-title">Trailer Scenes & Timeline Breakdown</div>
-                <div class="scenes-grid">
-                    <div class="scene-card active" onclick="seekToTime(0)">
-                        <div class="card-header">
-                            <span>0:00 - 0:08</span>
-                            <span>SCENE 1</span>
-                        </div>
-                        <h4>The Cosmic Awakening</h4>
-                        <p>Intricate Sacred Flower of Life & 12-Lotus Star Mandala with golden light rays.</p>
-                    </div>
-                    <div class="scene-card" onclick="seekToTime(8)">
-                        <div class="card-header">
-                            <span>0:08 - 0:17</span>
-                            <span>SCENE 2</span>
-                        </div>
-                        <h4>Chakras 1 to 7 (Sequential)</h4>
-                        <p>Chakras ignite 1-by-1 along the Sushumna spine with spacious high-contrast text boxes.</p>
-                    </div>
-                    <div class="scene-card" onclick="seekToTime(17)">
-                        <div class="card-header">
-                            <span>0:17 - 0:26</span>
-                            <span>SCENE 3</span>
-                        </div>
-                        <h4>Chakras 8 to 12 (I AM Presence)</h4>
-                        <p>The 5 Higher Cosmic Chakras ascend with radiant star rays into infinite light.</p>
-                    </div>
-                    <div class="scene-card" onclick="seekToTime(26)">
-                        <div class="card-header">
-                            <span>0:26 - 0:35</span>
-                            <span>SCENE 4</span>
-                        </div>
-                        <h4>Ascended Masters Reveal</h4>
-                        <p>St Germain & Serapis Bey glide into place with gold filigree frames & amethyst halos.</p>
-                    </div>
-                    <div class="scene-card" onclick="seekToTime(35)">
-                        <div class="card-header">
-                            <span>0:35 - 0:44</span>
-                            <span>SCENE 5</span>
-                        </div>
-                        <h4>3D Book Spin & Presentation</h4>
-                        <p>Complete 3D Hardcover with authentic Front, Spine & Back cover rotating into place.</p>
-                    </div>
-                    <div class="scene-card" onclick="seekToTime(44)">
-                        <div class="card-header">
-                            <span>0:44 - 0:50</span>
-                            <span>SCENE 6</span>
-                        </div>
-                        <h4>Author Signature & Retailers</h4>
-                        <p>Eliza James signature reveal with Reach Publishers credentials & global availability.</p>
-                    </div>
-                </div>
-            </section>
-        </main>
+      <button class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
+        <span></span>
+      </button>
     </div>
+  </header>
 
-    <div class="toast" id="toast">Recording started... Capturing 1080p 60fps video</div>
+  <main id="main">
 
-    <script>
-        /**
-         * CHAKRA ENERGETICS - CINEMATIC BOOK TRAILER & CLIENT REVIEW ENGINE
-         */
+    <!-- Hero Section -->
+    <section class="home-hero">
+      <div class="glow-1" aria-hidden="true"></div>
+      <div class="glow-2" aria-hidden="true"></div>
 
-        const canvas = document.getElementById('renderCanvas');
-        const ctx = canvas.getContext('2d');
-        const timeLabel = document.getElementById('timeLabel');
-        const timelineFill = document.getElementById('timelineFill');
-        const timelineBar = document.getElementById('timelineBar');
-        const playBtn = document.getElementById('playBtn');
-        const restartBtn = document.getElementById('restartBtn');
-        const recordBtn = document.getElementById('recordBtn');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const sceneIndicator = document.getElementById('sceneIndicator');
-        const toast = document.getElementById('toast');
-        const sceneCards = document.querySelectorAll('.scene-card');
-        const soundPreset = document.getElementById('soundPreset');
-        const customAudioInput = document.getElementById('customAudioInput');
+      <!-- Sacred Geometry Ambient Ornament -->
+      <svg class="sacred-mandala-bg" viewBox="0 0 400 400" aria-hidden="true">
+        <g fill="none" stroke="#E5BF65" stroke-width="1.2">
+          <circle cx="200" cy="200" r="60"/>
+          <circle cx="200" cy="200" r="130"/>
+          <circle cx="200" cy="200" r="195"/>
+          <line x1="265" y1="200" x2="395" y2="200"/>
+          <line x1="256.3" y1="232.5" x2="368.9" y2="297.5"/>
+          <line x1="232.5" y1="256.3" x2="297.5" y2="368.9"/>
+          <line x1="200" y1="265" x2="200" y2="395"/>
+          <line x1="167.5" y1="256.3" x2="102.5" y2="368.9"/>
+          <line x1="143.7" y1="232.5" x2="31.1" y2="297.5"/>
+          <line x1="135" y1="200" x2="5" y2="200"/>
+          <line x1="143.7" y1="167.5" x2="31.1" y2="102.5"/>
+          <line x1="167.5" y1="143.7" x2="102.5" y2="31.1"/>
+          <line x1="200" y1="135" x2="200" y2="5"/>
+          <line x1="232.5" y1="143.7" x2="297.5" y2="31.1"/>
+          <line x1="256.3" y1="167.5" x2="368.9" y2="102.5"/>
+        </g>
+        <g fill="#E5BF65">
+          <circle cx="395" cy="200" r="3.5"/>
+          <circle cx="368.9" cy="297.5" r="3.5"/>
+          <circle cx="297.5" cy="368.9" r="3.5"/>
+          <circle cx="200" cy="395" r="3.5"/>
+          <circle cx="102.5" cy="368.9" r="3.5"/>
+          <circle cx="31.1" cy="297.5" r="3.5"/>
+          <circle cx="5" cy="200" r="3.5"/>
+          <circle cx="31.1" cy="102.5" r="3.5"/>
+          <circle cx="102.5" cy="31.1" r="3.5"/>
+          <circle cx="200" cy="5" r="3.5"/>
+          <circle cx="297.5" cy="31.1" r="3.5"/>
+          <circle cx="368.9" cy="102.5" r="3.5"/>
+          <circle cx="200" cy="200" r="5"/>
+        </g>
+      </svg>
 
-        // Volume Controls
-        const volumeSlider = document.getElementById('volumeSlider');
-        const volumePercent = document.getElementById('volumePercent');
-        const volumeIconBtn = document.getElementById('volumeIconBtn');
-        const volumeIconSvg = document.getElementById('volumeIconSvg');
+      <!-- Mountain Silhouette Horizon -->
+      <svg class="mountains" viewBox="0 0 1400 500" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <polygon points="0,500 0,300 220,160 420,340 560,220 760,390 860,270 1060,380 1180,230 1400,340 1400,500" fill="#241710" opacity="0.85"></polygon>
+        <polygon points="0,500 0,380 160,310 380,420 500,330 700,440 900,340 1100,430 1300,390 1400,400 1400,500" fill="#170F0A"></polygon>
+      </svg>
 
-        // Review & Comments Elements
-        const reviewerNameInput = document.getElementById('reviewerName');
-        const commentTimestampInput = document.getElementById('commentTimestamp');
-        const sceneSelectInput = document.getElementById('sceneSelect');
-        const commentTextInput = document.getElementById('commentText');
-        const commentsListContainer = document.getElementById('commentsListContainer');
-        const commentCountBadge = document.getElementById('commentCountBadge');
+      <!-- Violet Flame Interactive Canvas -->
+      <canvas class="hero-flame-canvas" id="heroFlameCanvas" aria-hidden="true"></canvas>
 
-        const TOTAL_DURATION = 50.0;
-        let currentTime = 0;
-        let isPlaying = false;
-        let lastFrameTime = performance.now();
-        let currentVolume = 0.85;
-        let isMuted = false;
+      <div class="inner">
+        <div class="reveal">
+          <div class="glass-chip">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>Sacred Alignment &middot; Lakeside, Cape Town</span>
+          </div>
+          <h1>Sacred Alignment</h1>
+          <div class="hero-subtitle">Where Inner Stillness Meets Sacred Power</div>
+          <p class="lede">&ldquo;We are each Miraculous Works of Art in this amazing tapestry called Life. Allow me to guide you toward experiencing this Life Journey in a meaningful way, to gently hold the space as you step onto your unique path toward the unfolding of your Becoming.&rdquo;</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="contact.html">Book a session</a>
+            <a class="btn btn-ghost-light" href="#book">Explore Book &amp; Trailer</a>
+          </div>
+        </div>
 
-        // Image Assets
-        const imgFrontCover = new Image();
-        imgFrontCover.src = 'assets/chakra-energetics-front.jpg';
-        const imgBackCover = new Image();
-        imgBackCover.src = 'assets/chakra-energetics-back.jpg';
-        const imgSpine = new Image();
-        imgSpine.src = 'assets/chakra-energetics-spine.jpg';
-        const imgStGermain = new Image();
-        imgStGermain.src = 'assets/st-germain-portrait.jpg';
-        const imgSerapisBey = new Image();
-        imgSerapisBey.src = 'assets/serapis-bey-portrait.jpg';
+        <div class="home-hero-portrait-wrap reveal delay-1">
+          <div class="home-hero-portrait">
+            <img src="assets/eliza-headshot.jpg" alt="Eliza James, Reconnective Healing practitioner and coach" width="565" height="700" loading="eager">
+          </div>
+          <div class="portrait-floating-badge" aria-label="Experience badge">
+            <span style="color:var(--gold);">✦</span> Since 2011 &middot; Lakeside, Cape Town
+          </div>
+        </div>
+      </div>
+    </section>
 
-        // ========================================================
-        // CLIENT REVIEW & FEEDBACK SYSTEM (LOCALSTORAGE PERSISTED)
-        // ========================================================
-        let reviewComments = [];
-        try {
-            const saved = localStorage.getItem('eliza_trailer_review_comments');
-            if (saved) {
-                reviewComments = JSON.parse(saved);
-            }
-        } catch (e) {
-            console.warn('Could not load stored comments', e);
-        }
+    <!-- Section 1: Sacred Alignment Philosophy -->
+    <section class="section-alt">
+      <div class="container-narrow prose dropcap reveal text-center" style="max-width: 820px;">
+        <span class="eyebrow">Philosophy</span>
+        <h2 class="section-title">Sacred Alignment</h2>
+        <p style="text-align: justify; margin-top: 16px;"><strong>SACRED ALIGNMENT</strong> (be it through a Reconnective Healing session, a Meditation or Conscious breathing workshop, or embarking on your unique Inner Journey) serves to gently awaken the curiosity, help ground in presence and align with purpose those on the journey toward their becoming. To know Thyself is to know God&mdash;whether you refer to that Higher Being as God, Allah, Buddha, Krishna, Yahweh, Great Spirit, Source, Ancestor &mdash; it really matters not. What matters is that you know and understand that Higher Power and recognize that you are an aspect thereof.</p>
+      </div>
+    </section>
 
-        function saveReviewComments() {
-            try {
-                localStorage.setItem('eliza_trailer_review_comments', JSON.stringify(reviewComments));
-            } catch (e) {}
-            renderCommentsList();
-        }
+    <!-- Section 2: Biography (Evenly Balanced Columns) -->
+    <section>
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 28px;">
+          <span class="eyebrow">About Eliza</span>
+          <h2 class="section-title">Biography</h2>
+        </div>
 
-        function formatSecondsToTimestamp(sec) {
-            const m = Math.floor(sec / 60);
-            const s = Math.floor(sec % 60);
-            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-        }
+        <div class="grid-balanced-2">
+          <!-- Column 1: Portrait & Early Background -->
+          <div class="prose reveal equal-col">
+            <div class="home-hero-portrait-wrap" style="margin-bottom: 24px;">
+              <div class="home-hero-portrait" style="max-width: 320px;">
+                <img src="assets/eliza-headshot.jpg" alt="Eliza James" width="565" height="700">
+              </div>
+            </div>
+            <p>I am a graduate of the University of Cape Town Graduate School of Business; an experienced Reconnective Healing Practitioner (having added the skill of presenting Meditation and Conscious Breathing Workshops into the mix). Conversational or presenting the more structured Life Coaching Workshops is second nature and I resonate strongly with the work of Drs Hurtak (Academy for Future Science). However, being a student and friend of St Germain is what brings me the most joy. My 9-year Spiritual Journey with the enigmatic Comte de St Germain was recently shared with the world in my internationally published work (<em>A Most Extraordinary Journey of Self-discovery</em>).</p>
+            <p>I consider myself an ordinary individual, grounded in the realities of daily life. I am a mother, a colleague, a friend and a sibling - someone who laughs with abandon, sheds tears unashamedly, feels the full spectrum of emotions, and loves fiercely. I am not immune to the world's hardships and the harsh realities of corruption, inequality, and inhumanity. And yes, I often voice my frustration with a heartfelt, &ldquo;What the f#ck!&rdquo;</p>
+          </div>
 
-        function parseTimestampToSeconds(ts) {
-            const parts = ts.split(':');
-            if (parts.length === 2) {
-                return (parseInt(parts[0], 10) * 60) + parseFloat(parts[1]);
-            }
-            return parseFloat(ts) || 0;
-        }
+          <!-- Column 2: Quest & Conscious Purpose -->
+          <div class="prose reveal delay-1 equal-col">
+            <p>I've always had this sense that &ldquo;there must be more to life&rdquo; than what the status quo offers - that there is a greater truth beyond what most people settle for. My hunger for understanding has led me to seminars, books, and teachings that dive into the mysteries of the world. These steps are not just intellectual - each step is a quest to know the Self more deeply, to uncover the truth of who I really am. I believe that true freedom comes from self-awareness, and that the journey is most enlightening when guided by wisdom and clarity.</p>
+            <p>In these shifting times, I fully embrace the dawning of the Age of Aquarius - a time when the individual is called to take full responsibility for their own path. With courage, understanding, and consciousness. And so I urge others to step into their power and experience life with intention and self-awareness. For me, the human journey is not one to be left to chance; it is something to be consciously directed and lived to its fullest potential.</p>
 
-        function captureCurrentTime() {
-            const ts = formatSecondsToTimestamp(currentTime);
-            commentTimestampInput.value = ts;
-
-            // Auto-select scene dropdown based on time
-            let sIdx = 0;
-            if (currentTime >= 44.0) sIdx = 5;
-            else if (currentTime >= 35.0) sIdx = 4;
-            else if (currentTime >= 26.0) sIdx = 3;
-            else if (currentTime >= 17.0) sIdx = 2;
-            else if (currentTime >= 8.0) sIdx = 1;
-            sceneSelectInput.selectedIndex = sIdx;
-
-            showToast(`Captured timestamp: ${ts}`);
-        }
-
-        function addReviewComment() {
-            const text = commentTextInput.value.trim();
-            if (!text) {
-                showToast('Please type a feedback note before adding!');
-                commentTextInput.focus();
-                return;
-            }
-
-            const name = reviewerNameInput.value.trim() || 'Eliza James';
-            const ts = commentTimestampInput.value.trim() || formatSecondsToTimestamp(currentTime);
-            const seconds = parseTimestampToSeconds(ts);
-            const scene = sceneSelectInput.value;
-
-            const newComment = {
-                id: Date.now().toString(),
-                name: name,
-                timestamp: ts,
-                seconds: seconds,
-                scene: scene,
-                text: text,
-                createdAt: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-            };
-
-            reviewComments.unshift(newComment);
-            commentTextInput.value = '';
-            saveReviewComments();
-            showToast('Feedback note added! Click its timestamp anytime to jump.');
-        }
-
-        function deleteComment(id) {
-            reviewComments = reviewComments.filter(c => c.id !== id);
-            saveReviewComments();
-            showToast('Note deleted');
-        }
-
-        function renderCommentsList() {
-            commentCountBadge.textContent = `${reviewComments.length} Note${reviewComments.length === 1 ? '' : 's'}`;
-
-            if (reviewComments.length === 0) {
-                commentsListContainer.innerHTML = `
-                    <div style="text-align:center; padding: 24px 10px; color:#6b7280; font-size:0.8rem;">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:8px; opacity:0.5;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-                        <p>No feedback notes added yet.</p>
-                        <p style="font-size:0.72rem; margin-top:4px; color:#9ca3af;">Type your comments above while watching to leave timestamps and notes!</p>
-                    </div>
-                `;
-                return;
-            }
-
-            commentsListContainer.innerHTML = reviewComments.map(c => `
-                <div class="comment-item">
-                    <div class="comment-meta">
-                        <button class="time-jump-pill" onclick="seekToTime(${c.seconds})" title="Click to jump video to ${c.timestamp}">
-                            ⏱️ ${c.timestamp}
-                        </button>
-                        <span class="scene-badge-pill">${c.scene.split(':')[0]}</span>
-                    </div>
-                    <div class="comment-text">${escapeHTML(c.text)}</div>
-                    <div class="comment-actions">
-                        <span>${escapeHTML(c.name)} • ${c.createdAt}</span>
-                        <button class="delete-comment-btn" onclick="deleteComment('${c.id}')">Delete</button>
-                    </div>
+            <!-- Workshop & Mentorship Photo Card -->
+            <div class="bio-photo-card">
+              <div class="bio-photo-frame">
+                <img src="assets/eliza-workshop-presentation.jpg" alt="Eliza James facilitating consciousness coaching workshops" width="1000" height="667" loading="lazy">
+                <div class="bio-photo-caption">
+                  <span class="bio-photo-badge">✦ Interactive Workshops &amp; Mentorship</span>
+                  <p>Guiding seekers, students, and professionals toward conscious self-mastery.</p>
                 </div>
-            `).join('');
-        }
+              </div>
+            </div>
 
-        function escapeHTML(str) {
-            return str.replace(/[&<>'"]/g, tag => ({
-                '&': '&amp;',
-                '<': '&lt;',
-                '>': '&gt;',
-                "'": '&#39;',
-                '"': '&quot;'
-            }[tag] || tag));
-        }
+            <div class="glass-box" style="margin-top: auto;">
+              <h4>Session Logistics &amp; Inquiries</h4>
+              <p style="font-size:0.94rem; margin-bottom:12px;">Available weekdays after 6pm and weekends from 3pm by appointment in Lakeside, Cape Town or via distant session.</p>
+              <a class="btn btn-primary" href="contact.html">Schedule a Session</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        function copyAllFeedbackToClipboard() {
-            if (reviewComments.length === 0) {
-                showToast('No feedback notes to copy.');
-                return;
-            }
+    <!-- Section 3: Services Grid (Wide, Structured, Balanced Triptych) -->
+    <section class="section-alt">
+      <div class="container-wide">
+        <div class="reveal text-center" style="max-width: 780px; margin: 0 auto 12px;">
+          <span class="eyebrow">Offerings &amp; Modalities</span>
+          <h2 class="section-title">Services</h2>
+          <p class="section-intro" style="margin: 12px auto 36px; font-family: var(--font-serif); font-size: 1.15rem; font-style: italic; color: var(--ink-soft); max-width: 650px;">Three transformative pathways to restore harmonic balance, awaken conscious awareness, and align your life journey.</p>
+        </div>
 
-            let report = `### Chakra Energetics Trailer — Review Feedback
-
-`;
-            reviewComments.forEach((c, idx) => {
-                report += `${idx + 1}. **[${c.timestamp}] ${c.scene}** (${c.name}):
-   ${c.text}
-
-`;
-            });
-
-            navigator.clipboard.writeText(report).then(() => {
-                showToast('All feedback notes copied to clipboard!');
-            }).catch(() => {
-                showToast('Copied to clipboard');
-            });
-        }
-
-        function downloadFeedbackReport() {
-            if (reviewComments.length === 0) {
-                showToast('No feedback notes to export.');
-                return;
-            }
-
-            let report = `CHAKRA ENERGETICS TRAILER - CLIENT FEEDBACK REPORT
-`;
-            report += `Generated: ${new Date().toLocaleString()}
-`;
-            report += `Total Notes: ${reviewComments.length}
-`;
-            report += `=====================================================
-
-`;
-
-            reviewComments.forEach((c, idx) => {
-                report += `[${idx + 1}] Timestamp: ${c.timestamp} | Target: ${c.scene}
-`;
-                report += `    Author: ${c.name} (Logged at ${c.createdAt})
-`;
-                report += `    Feedback:
-    ${c.text}
-`;
-                report += `-----------------------------------------------------
-
-`;
-            });
-
-            const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `Chakra_Energetics_Trailer_Feedback_${Date.now()}.txt`;
-            a.click();
-            URL.revokeObjectURL(url);
-            showToast('Feedback report saved to text file!');
-        }
-
-        function clearAllFeedback() {
-            if (reviewComments.length === 0) return;
-            if (confirm('Are you sure you want to clear all feedback notes?')) {
-                reviewComments = [];
-                saveReviewComments();
-                showToast('All notes cleared.');
-            }
-        }
-
-        // ========================================================
-        // AUDIO ENGINE
-        // ========================================================
-        const htmlAudio = new Audio();
-        htmlAudio.preload = 'auto';
-        if (window.STRAUSS_AUDIO_DATA) {
-            htmlAudio.src = window.STRAUSS_AUDIO_DATA;
-        } else {
-            htmlAudio.src = 'assets/strauss-blue-danube-trailer.mp3';
-        }
-        htmlAudio.volume = currentVolume;
-
-        let customAudio = null;
-        let audioCtx = null;
-        let masterGain = null;
-        let synthTimer = null;
-        let synthBeat = 0;
-
-        const noteFreqs = {
-            'C3': 130.81, 'D3': 146.83, 'E3': 164.81, 'F3': 174.61, 'G3': 196.00, 'A3': 220.00, 'B3': 246.94,
-            'C4': 261.63, 'D4': 293.66, 'E4': 329.63, 'F4': 349.23, 'G4': 392.00, 'A4': 440.00, 'B4': 493.88,
-            'C5': 523.25, 'D5': 587.33, 'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00, 'B5': 987.77,
-            'C6': 1046.50
-        };
-
-        const waltzMeasures = [
-            { bass: 'A3', chord: ['C5', 'E5'], melody: 'A5', melLen: 3 },
-            { bass: 'A3', chord: ['C5', 'E5'], melody: 'G5', melLen: 1.5 },
-            { bass: 'D3', chord: ['F4', 'A4', 'D5'], melody: 'F5', melLen: 1.5 },
-            { bass: 'D3', chord: ['F4', 'A4', 'D5'], melody: 'E5', melLen: 3 },
-            { bass: 'E3', chord: ['G4', 'B4', 'E5'], melody: 'D5', melLen: 1.5 },
-            { bass: 'E3', chord: ['G4', 'B4', 'E5'], melody: 'C5', melLen: 1.5 },
-            { bass: 'A3', chord: ['C5', 'E5'], melody: 'B4', melLen: 1.5 },
-            { bass: 'A3', chord: ['C5', 'E5'], melody: 'A4', melLen: 3 },
-            { bass: 'F3', chord: ['A4', 'C5', 'F5'], melody: 'C6', melLen: 2 },
-            { bass: 'G3', chord: ['B4', 'D5', 'G5'], melody: 'B5', melLen: 2 },
-            { bass: 'E3', chord: ['G4', 'B4', 'E5'], melody: 'G5', melLen: 2 },
-            { bass: 'A3', chord: ['C5', 'E5', 'A5'], melody: 'E6', melLen: 3 }
-        ];
-
-        function initAudioContext() {
-            if (!audioCtx) {
-                try {
-                    const AudioContext = window.AudioContext || window.webkitAudioContext;
-                    audioCtx = new AudioContext();
-                    masterGain = audioCtx.createGain();
-                    masterGain.gain.setValueAtTime(isMuted ? 0 : currentVolume, audioCtx.currentTime);
-                    masterGain.connect(audioCtx.destination);
-                } catch (e) {
-                    console.warn(e);
-                }
-            }
-            if (audioCtx && audioCtx.state === 'suspended') {
-                audioCtx.resume();
-            }
-        }
-
-        function updateVolume(val) {
-            currentVolume = parseFloat(val);
-            if (currentVolume > 0) isMuted = false;
+        <div class="offer-grid">
+          <!-- Service 1: Reconnective Healing -->
+          <div class="offer-card reveal delay-1">
+            <div class="offer-card-header">
+              <div class="offer-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <circle cx="16" cy="16" r="6" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <g stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+                    <line x1="16" y1="2" x2="16" y2="7"/>
+                    <line x1="16" y1="25" x2="16" y2="30"/>
+                    <line x1="2" y1="16" x2="7" y2="16"/>
+                    <line x1="25" y1="16" x2="30" y2="16"/>
+                  </g>
+                </svg>
+              </div>
+              <span class="tag">Energy Work</span>
+              <h3>Reconnective Healing</h3>
+              <span class="card-subtitle">Frequency &amp; Balance Restoration</span>
+            </div>
             
-            htmlAudio.volume = isMuted ? 0 : currentVolume;
-            if (customAudio) customAudio.volume = isMuted ? 0 : currentVolume;
-            if (masterGain && audioCtx) {
-                masterGain.gain.setValueAtTime(isMuted ? 0 : currentVolume, audioCtx.currentTime);
-            }
-
-            volumeSlider.value = isMuted ? 0 : currentVolume;
-            volumePercent.textContent = `${Math.round((isMuted ? 0 : currentVolume) * 100)}%`;
-
-            if (isMuted || currentVolume === 0) {
-                volumeIconSvg.innerHTML = `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>`;
-            } else if (currentVolume < 0.5) {
-                volumeIconSvg.innerHTML = `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>`;
-            } else {
-                volumeIconSvg.innerHTML = `<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>`;
-            }
-        }
-
-        volumeSlider.addEventListener('input', (e) => {
-            updateVolume(e.target.value);
-        });
-
-        volumeIconBtn.addEventListener('click', () => {
-            isMuted = !isMuted;
-            updateVolume(isMuted ? 0 : (currentVolume > 0 ? currentVolume : 0.85));
-        });
-
-        function playSynthNote(freq, type, duration, gainLevel = 0.2, detune = 0) {
-            if (!audioCtx || isMuted) return;
-            try {
-                const osc = audioCtx.createOscillator();
-                const gain = audioCtx.createGain();
-
-                osc.type = type;
-                osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-                if (detune !== 0) osc.detune.setValueAtTime(detune, audioCtx.currentTime);
-
-                gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-                gain.gain.linearRampToValueAtTime(gainLevel * currentVolume, audioCtx.currentTime + 0.04);
-                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
-
-                osc.connect(gain);
-                gain.connect(masterGain);
-
-                osc.start();
-                osc.stop(audioCtx.currentTime + duration + 0.05);
-            } catch (e) {}
-        }
-
-        function stepSynthSequencer() {
-            if (!isPlaying || !audioCtx || isMuted) return;
-            const mode = soundPreset.value;
-
-            if (mode === 'tchaikovsky') {
-                const beatDuration = 0.422;
-                const measureIdx = Math.floor(synthBeat / 3) % waltzMeasures.length;
-                const beatInMeasure = synthBeat % 3;
-                const currentMeasure = waltzMeasures[measureIdx];
-
-                if (beatInMeasure === 0) {
-                    const bassHz = noteFreqs[currentMeasure.bass] || 110;
-                    playSynthNote(bassHz, 'triangle', beatDuration * 2.2, 0.4);
-                    playSynthNote(bassHz * 0.5, 'sine', beatDuration * 2.2, 0.45);
-
-                    if (currentMeasure.melody) {
-                        const melHz = noteFreqs[currentMeasure.melody] || 440;
-                        playSynthNote(melHz, 'sine', beatDuration * (currentMeasure.melLen || 2.5), 0.32);
-                        playSynthNote(melHz * 2, 'triangle', beatDuration * 1.5, 0.14, 6);
-                    }
-                } else {
-                    if (currentMeasure.chord) {
-                        currentMeasure.chord.forEach(n => {
-                            const cHz = noteFreqs[n] || 330;
-                            playSynthNote(cHz, 'sawtooth', beatDuration * 0.75, 0.09, 4);
-                            playSynthNote(cHz, 'sine', beatDuration * 0.75, 0.16);
-                        });
-                    }
-                }
-            } else if (mode === 'celestial') {
-                if (synthBeat % 4 === 0) {
-                    playSynthNote(216, 'sine', 2.2, 0.35);
-                    playSynthNote(432, 'triangle', 2.2, 0.28);
-                    playSynthNote(648, 'sine', 2.2, 0.18);
-                }
-            } else if (mode === 'anthem') {
-                if (synthBeat % 2 === 0) {
-                    playSynthNote(130.81, 'triangle', 0.8, 0.4);
-                    playSynthNote(523.25, 'sine', 0.6, 0.25);
-                }
-            }
-
-            synthBeat++;
-        }
-
-        function startSynthIfActive() {
-            if (synthTimer) clearInterval(synthTimer);
-            const mode = soundPreset.value;
-            if (mode !== 'strauss') {
-                synthBeat = Math.floor(currentTime / 0.422);
-                synthTimer = setInterval(stepSynthSequencer, 422);
-            }
-        }
-
-        function stopSynth() {
-            if (synthTimer) {
-                clearInterval(synthTimer);
-                synthTimer = null;
-            }
-        }
-
-        function syncAudioPlayback() {
-            const mode = soundPreset.value;
-            if (mode === 'strauss') {
-                stopSynth();
-                if (customAudio) customAudio.pause();
-                htmlAudio.currentTime = currentTime;
-                if (isPlaying && !isMuted) {
-                    htmlAudio.play().catch(e => console.log('Audio play catch:', e));
-                } else {
-                    htmlAudio.pause();
-                }
-            } else if (customAudio) {
-                stopSynth();
-                htmlAudio.pause();
-                customAudio.currentTime = currentTime;
-                if (isPlaying && !isMuted) {
-                    customAudio.play().catch(e => console.log('Custom play catch:', e));
-                } else {
-                    customAudio.pause();
-                }
-            } else {
-                htmlAudio.pause();
-                if (customAudio) customAudio.pause();
-                if (isPlaying && !isMuted) {
-                    startSynthIfActive();
-                } else {
-                    stopSynth();
-                }
-            }
-        }
-
-        soundPreset.addEventListener('change', () => {
-            syncAudioPlayback();
-            showToast(`Soundtrack: ${soundPreset.options[soundPreset.selectedIndex].text}`);
-        });
-
-        customAudioInput.addEventListener('change', (e) => {
-            const file = e.target.files[0];
-            if (file) {
-                const url = URL.createObjectURL(file);
-                if (customAudio) customAudio.pause();
-                customAudio = new Audio(url);
-                customAudio.volume = isMuted ? 0 : currentVolume;
-                htmlAudio.pause();
-                stopSynth();
-
-                let customOpt = soundPreset.querySelector('option[value="custom"]');
-                if (!customOpt) {
-                    customOpt = document.createElement('option');
-                    customOpt.value = 'custom';
-                    soundPreset.appendChild(customOpt);
-                }
-                customOpt.text = `📁 ${file.name.slice(0, 24)}...`;
-                soundPreset.value = 'custom';
-
-                syncAudioPlayback();
-                showToast(`Loaded Custom Track: ${file.name}`);
-            }
-        });
-
-        function showToast(msg, duration = 3000) {
-            toast.textContent = msg;
-            toast.classList.add('visible');
-            setTimeout(() => toast.classList.remove('visible'), duration);
-        }
-
-        // ========================================================
-        // DYNAMIC MOVING BACKGROUND ENGINE
-        // ========================================================
-        const particles = [];
-        const PARTICLE_COUNT = 220;
-        for (let i = 0; i < PARTICLE_COUNT; i++) {
-            particles.push({
-                x: Math.random() * 1920,
-                y: Math.random() * 1080,
-                radius: Math.random() * 3.5 + 0.8,
-                speedX: (Math.random() - 0.5) * 0.6,
-                speedY: -(Math.random() * 1.2 + 0.3),
-                alpha: Math.random() * 0.7 + 0.3,
-                pulse: Math.random() * Math.PI * 2,
-                colorHue: Math.random() > 0.4 ? 45 : (Math.random() > 0.5 ? 275 : 195)
-            });
-        }
-
-        const chakraData = [
-            { id: 1, name: 'Root', sanskrit: 'Muladhara', freq: '396 Hz', color: '#e74c3c', glow: '#ff6b6b' },
-            { id: 2, name: 'Sacral', sanskrit: 'Svadhisthana', freq: '417 Hz', color: '#e67e22', glow: '#f39c12' },
-            { id: 3, name: 'Solar Plexus', sanskrit: 'Manipura', freq: '528 Hz', color: '#f1c40f', glow: '#f39c12' },
-            { id: 4, name: 'Heart', sanskrit: 'Anahata', freq: '639 Hz', color: '#2ecc71', glow: '#27ae60' },
-            { id: 5, name: 'Throat', sanskrit: 'Vishuddha', freq: '741 Hz', color: '#00d2d3', glow: '#0abde3' },
-            { id: 6, name: 'Third Eye', sanskrit: 'Ajna', freq: '852 Hz', color: '#5f27cd', glow: '#341f97' },
-            { id: 7, name: 'Crown', sanskrit: 'Sahasrara', freq: '963 Hz', color: '#9b59b6', glow: '#8e44ad' },
-            { id: 8, name: 'Soul Star', sanskrit: 'Higher Self', freq: '1074 Hz', color: '#ffffff', glow: '#dff9fb' },
-            { id: 9, name: 'Spirit', sanskrit: 'Universal Blueprint', freq: '1185 Hz', color: '#f39c12', glow: '#f1c40f' },
-            { id: 10, name: 'Solar Light', sanskrit: 'Divine Matrix', freq: '1296 Hz', color: '#1dd1a1', glow: '#10ac84' },
-            { id: 11, name: 'Galactic', sanskrit: 'Ascension Gateway', freq: '1407 Hz', color: '#ff9ff3', glow: '#f368e0' },
-            { id: 12, name: 'Stellar Gateway', sanskrit: 'Cosmic I AM Presence', freq: '1518 Hz', color: '#ffd700', glow: '#fff200' }
-        ];
-
-        function drawDynamicBackground(t, sceneId) {
-            const camDriftX = Math.sin(t * 0.35) * 60;
-            const camDriftY = Math.cos(t * 0.25) * 40;
-            const zoom = 1.0 + Math.sin(t * 0.2) * 0.08;
-
-            ctx.save();
-            ctx.translate(960, 540);
-            ctx.scale(zoom, zoom);
-            ctx.translate(-960 + camDriftX, -540 + camDriftY);
-
-            let gradColor1 = '#181b2a';
-            let gradColor2 = '#0c0f18';
-            let gradColor3 = '#040609';
-
-            if (sceneId === 2) {
-                gradColor1 = '#23152c';
-                gradColor2 = '#130c1e';
-            } else if (sceneId === 3) {
-                gradColor1 = '#2d2411';
-                gradColor2 = '#141108';
-            } else if (sceneId === 4) {
-                gradColor1 = '#2a1435';
-                gradColor2 = '#110718';
-            } else if (sceneId === 5) {
-                gradColor1 = '#241c10';
-                gradColor2 = '#0d0a06';
-            }
-
-            const bgGrad = ctx.createRadialGradient(960, 540, 80, 960, 540, 1200);
-            bgGrad.addColorStop(0, gradColor1);
-            bgGrad.addColorStop(0.5, gradColor2);
-            bgGrad.addColorStop(1, gradColor3);
-            ctx.fillStyle = bgGrad;
-            ctx.fillRect(-200, -200, 2320, 1480);
-
-            // Volumetric Light Shafts
-            const rayCount = 8;
-            ctx.save();
-            ctx.translate(960, 540);
-            ctx.rotate(t * 0.06);
-            for (let i = 0; i < rayCount; i++) {
-                ctx.rotate((Math.PI * 2) / rayCount);
-                const rayGrad = ctx.createLinearGradient(0, 0, 950, 0);
-                rayGrad.addColorStop(0, 'rgba(212, 175, 55, 0.12)');
-                rayGrad.addColorStop(0.5, 'rgba(142, 68, 173, 0.05)');
-                rayGrad.addColorStop(1, 'transparent');
-                ctx.fillStyle = rayGrad;
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(1000, -80);
-                ctx.lineTo(1000, 80);
-                ctx.closePath();
-                ctx.fill();
-            }
-            ctx.restore();
-
-            for (let i = 0; i < particles.length; i++) {
-                const p = particles[i];
-                p.y += p.speedY;
-                p.x += p.speedX + Math.sin(t * 1.4 + p.pulse) * 0.5;
-
-                if (p.y < -50) p.y = 1130;
-                if (p.x < -50) p.x = 1970;
-                if (p.x > 1970) p.x = -50;
-
-                const currentAlpha = p.alpha * (0.6 + 0.4 * Math.sin(t * 2 + p.pulse));
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fillStyle = `hsla(${p.colorHue}, 85%, 70%, ${currentAlpha})`;
-                ctx.shadowColor = `hsla(${p.colorHue}, 90%, 65%, 0.8)`;
-                ctx.shadowBlur = 10;
-                ctx.fill();
-            }
-
-            ctx.restore();
-        }
-
-        // ========================================================
-        // PRISTINE PROCEDURAL SACRED FLOWER OF LIFE & LOTUS MANDALA
-        // ========================================================
-        function drawSacredLotusMandala(cx, cy, radius, rotation, t, alpha = 1) {
-            ctx.save();
-            ctx.translate(cx, cy);
-            ctx.globalAlpha = alpha;
-
-            const pulse = Math.sin(t * 2.0) * 4;
-            const r = radius + pulse;
-
-            // Ethereal Aura
-            const aura = ctx.createRadialGradient(0, 0, r * 0.3, 0, 0, r * 1.55);
-            aura.addColorStop(0, 'rgba(255, 240, 168, 0.45)');
-            aura.addColorStop(0.4, 'rgba(212, 175, 55, 0.22)');
-            aura.addColorStop(0.8, 'rgba(142, 68, 173, 0.08)');
-            aura.addColorStop(1, 'transparent');
-            ctx.fillStyle = aura;
-            ctx.beginPath();
-            ctx.arc(0, 0, r * 1.55, 0, Math.PI * 2);
-            ctx.fill();
-
-            // 24 Star Rays
-            ctx.save();
-            ctx.rotate(rotation * 0.6);
-            ctx.strokeStyle = 'rgba(212, 175, 55, 0.55)';
-            ctx.lineWidth = 1.8;
-            for (let i = 0; i < 24; i++) {
-                ctx.rotate((Math.PI * 2) / 24);
-                ctx.beginPath();
-                ctx.moveTo(r * 0.88, 0);
-                ctx.lineTo(r * 1.15, 0);
-                ctx.stroke();
-
-                ctx.fillStyle = '#ffd700';
-                ctx.beginPath();
-                ctx.arc(r * 1.15, 0, 3, 0, Math.PI * 2);
-                ctx.fill();
-            }
-            ctx.restore();
-
-            // 12 Lotus Petals
-            ctx.save();
-            ctx.rotate(-rotation * 0.4);
-            for (let i = 0; i < 12; i++) {
-                ctx.rotate((Math.PI * 2) / 12);
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.quadraticCurveTo(r * 0.45, -r * 0.35, r, 0);
-                ctx.quadraticCurveTo(r * 0.45, r * 0.35, 0, 0);
-                
-                const petalGrad = ctx.createLinearGradient(0, 0, r, 0);
-                petalGrad.addColorStop(0, 'rgba(212, 175, 55, 0.12)');
-                petalGrad.addColorStop(0.7, 'rgba(243, 229, 171, 0.35)');
-                petalGrad.addColorStop(1, 'rgba(255, 255, 255, 0.6)');
-                ctx.fillStyle = petalGrad;
-                ctx.fill();
-
-                ctx.strokeStyle = 'rgba(212, 175, 55, 0.85)';
-                ctx.lineWidth = 2;
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 12;
-                ctx.stroke();
-            }
-            ctx.restore();
-
-            // Concentric Rings
-            ctx.save();
-            ctx.strokeStyle = '#d4af37';
-            ctx.lineWidth = 3;
-            ctx.shadowColor = '#d4af37';
-            ctx.shadowBlur = 20;
-
-            ctx.beginPath();
-            ctx.arc(0, 0, r * 0.72, 0, Math.PI * 2);
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(0, 0, r * 0.48, 0, Math.PI * 2);
-            ctx.stroke();
-            ctx.restore();
-
-            // Flower of Life
-            ctx.save();
-            ctx.rotate(rotation * 0.8);
-            ctx.strokeStyle = 'rgba(255, 240, 168, 0.75)';
-            ctx.lineWidth = 1.8;
-            const subR = r * 0.28;
-            for (let i = 0; i < 6; i++) {
-                ctx.rotate((Math.PI * 2) / 6);
-                ctx.beginPath();
-                ctx.arc(subR, 0, subR, 0, Math.PI * 2);
-                ctx.stroke();
-            }
-            ctx.restore();
-
-            // Intersecting Triangles
-            ctx.save();
-            ctx.rotate(-rotation * 0.5);
-            for (let t = 0; t < 2; t++) {
-                const offset = (t === 1 ? Math.PI : 0);
-                ctx.beginPath();
-                for (let i = 0; i < 3; i++) {
-                    const ang = offset + i * (Math.PI * 2 / 3) - Math.PI / 2;
-                    const x = Math.cos(ang) * (r * 0.48);
-                    const y = Math.sin(ang) * (r * 0.48);
-                    if (i === 0) ctx.moveTo(x, y);
-                    else ctx.lineTo(x, y);
-                }
-                ctx.closePath();
-                ctx.strokeStyle = '#ffd700';
-                ctx.lineWidth = 2.5;
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 15;
-                ctx.stroke();
-            }
-            ctx.restore();
-
-            // Glowing Om
-            ctx.save();
-            ctx.fillStyle = '#110d08';
-            ctx.beginPath();
-            ctx.arc(0, 0, r * 0.24, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.strokeStyle = '#ffd700';
-            ctx.lineWidth = 2.5;
-            ctx.stroke();
-
-            ctx.font = `600 ${r * 0.32}px "Cormorant Garamond", "Cinzel", serif`;
-            ctx.fillStyle = '#ffffff';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.shadowColor = '#ffd700';
-            ctx.shadowBlur = 30;
-            ctx.fillText('ॐ', 0, 0);
-
-            ctx.fillStyle = '#fff0a8';
-            ctx.fillText('ॐ', 0, 0);
-            ctx.restore();
-
-            ctx.restore();
-        }
-
-        function drawDividerOrnament(cx, cy, width = 360, alpha = 1) {
-            ctx.save();
-            ctx.globalAlpha = alpha;
-            ctx.strokeStyle = '#d4af37';
-            ctx.fillStyle = '#d4af37';
-            ctx.lineWidth = 1.8;
-            ctx.shadowColor = '#d4af37';
-            ctx.shadowBlur = 14;
-
-            ctx.beginPath();
-            ctx.moveTo(cx - width / 2, cy);
-            ctx.lineTo(cx - 30, cy);
-            ctx.moveTo(cx + 30, cy);
-            ctx.lineTo(cx + width / 2, cy);
-            ctx.stroke();
-
-            ctx.beginPath();
-            ctx.arc(cx, cy, 6, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.beginPath();
-            ctx.arc(cx - 16, cy, 3.5, 0, Math.PI * 2);
-            ctx.arc(cx + 16, cy, 3.5, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.restore();
-        }
-
-        // ========================================================
-        // HIGH-IMPACT CHAKRA ENERGY VORTEX RENDERER
-        // WITH DYNAMICALLY SIZED HIGH-CONTRAST BOXES
-        // ========================================================
-        function drawLargeChakraVortex(cx, cy, radius, chakra, progress, t, alpha) {
-            ctx.save();
-            ctx.globalAlpha = alpha;
-            ctx.translate(cx, cy);
-
-            if (progress < 1.0) {
-                const burstR = radius * (1.0 + (1.0 - progress) * 2.5);
-                const burstAlpha = progress * 0.75;
-                ctx.save();
-                ctx.beginPath();
-                ctx.arc(0, 0, burstR, 0, Math.PI * 2);
-                ctx.strokeStyle = chakra.glow;
-                ctx.lineWidth = 4 * (1.0 - progress);
-                ctx.globalAlpha = burstAlpha;
-                ctx.stroke();
-                ctx.restore();
-            }
-
-            const pulse = Math.sin(t * 3.5 + chakra.id) * 7;
-            const outerR = radius + pulse;
-
-            const glowGrad = ctx.createRadialGradient(0, 0, radius * 0.3, 0, 0, outerR * 1.9);
-            glowGrad.addColorStop(0, chakra.glow);
-            glowGrad.addColorStop(0.5, chakra.color);
-            glowGrad.addColorStop(1, 'transparent');
-            ctx.fillStyle = glowGrad;
-            ctx.beginPath();
-            ctx.arc(0, 0, outerR * 1.9, 0, Math.PI * 2);
-            ctx.fill();
-
-            ctx.save();
-            ctx.rotate(t * 1.5 * (chakra.id % 2 === 0 ? 1 : -1));
-            ctx.strokeStyle = chakra.color;
-            ctx.lineWidth = 3.5;
-            ctx.shadowColor = chakra.glow;
-            ctx.shadowBlur = 20;
-
-            ctx.beginPath();
-            ctx.arc(0, 0, outerR, 0, Math.PI * 2);
-            ctx.stroke();
-
-            const petalCount = 6 + chakra.id;
-            for (let p = 0; p < petalCount; p++) {
-                ctx.rotate((Math.PI * 2) / petalCount);
-                ctx.beginPath();
-                ctx.moveTo(0, 0);
-                ctx.lineTo(outerR * 0.92, 0);
-                ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
-                ctx.lineWidth = 2;
-                ctx.stroke();
-            }
-            ctx.restore();
-
-            ctx.beginPath();
-            ctx.arc(0, 0, radius * 0.52, 0, Math.PI * 2);
-            ctx.fillStyle = '#ffffff';
-            ctx.shadowColor = chakra.glow;
-            ctx.shadowBlur = 28;
-            ctx.fill();
-
-            ctx.font = `900 ${radius * 0.52}px "Cinzel", serif`;
-            ctx.fillStyle = '#0f172a';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            ctx.shadowBlur = 0;
-            ctx.fillText(`${chakra.id}`, 0, 2);
-
-            // Dynamic Box Sizing
-            const tagY = radius + 46;
-
-            ctx.font = '700 20px "Cinzel", serif';
-            const nameWidth = ctx.measureText(chakra.name.toUpperCase()).width;
-            ctx.font = 'italic 600 16px "Cormorant Garamond", serif';
-            const sanskritWidth = ctx.measureText(chakra.sanskrit).width;
-
-            const requiredW = Math.max(nameWidth, sanskritWidth, 140) + 34;
-            const boxW = Math.max(requiredW, 195);
-            const boxH = 80;
-
-            ctx.save();
-            ctx.fillStyle = 'rgba(10, 14, 24, 0.88)';
-            ctx.strokeStyle = chakra.color;
-            ctx.lineWidth = 1.8;
-            ctx.shadowColor = chakra.glow;
-            ctx.shadowBlur = 12;
-            ctx.beginPath();
-            ctx.roundRect(-boxW * 0.5, tagY - 14, boxW, boxH, 12);
-            ctx.fill();
-            ctx.stroke();
-            ctx.restore();
-
-            ctx.font = '700 20px "Cinzel", serif';
-            ctx.fillStyle = '#fff0a8';
-            ctx.shadowColor = '#d4af37';
-            ctx.shadowBlur = 12;
-            ctx.fillText(chakra.name.toUpperCase(), 0, tagY + 6);
-
-            ctx.font = 'italic 600 16px "Cormorant Garamond", serif';
-            ctx.fillStyle = '#ffffff';
-            ctx.shadowBlur = 0;
-            ctx.fillText(chakra.sanskrit, 0, tagY + 30);
-
-            ctx.font = '700 14px "Montserrat", sans-serif';
-            ctx.fillStyle = chakra.glow;
-            ctx.shadowColor = chakra.glow;
-            ctx.shadowBlur = 8;
-            ctx.fillText(chakra.freq, 0, tagY + 50);
-
-            ctx.restore();
-        }
-
-        // ========================================================
-        // 3D HARDCOVER BOOK ENGINE (FRONT, SPINE & BACK TEXTURES)
-        // ========================================================
-        function draw3DBookCinematic(cx, cy, st, scale = 1.0) {
-            ctx.save();
-            ctx.translate(cx, cy);
-
-            let rotY = 0;
-            let enterScale = scale;
-
-            if (st < 3.2) {
-                const norm = st / 3.2;
-                const easeOut = 1 - Math.pow(1 - norm, 3);
-                rotY = (1 - easeOut) * (Math.PI * 2.5);
-                enterScale = scale * (0.65 + easeOut * 0.35);
-            } else {
-                rotY = Math.sin((st - 3.2) * 1.2) * 0.12;
-            }
-
-            const floatY = Math.sin(st * 2.0) * 14;
-            ctx.translate(0, floatY);
-
-            const bookW = 460 * enterScale;
-            const bookH = 640 * enterScale;
-            const spineDepth = 55 * enterScale;
-
-            ctx.save();
-            ctx.beginPath();
-            ctx.ellipse(0, bookH * 0.54, bookW * 0.8, 45 * enterScale, 0, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
-            ctx.filter = 'blur(24px)';
-            ctx.fill();
-            ctx.restore();
-
-            const cosRot = Math.cos(rotY);
-            const sinRot = Math.sin(rotY);
-            const faceWidth = Math.max(Math.abs(cosRot) * bookW, 10);
-            const spineWidth = Math.max(Math.abs(sinRot) * spineDepth, 4);
-
-            // Pages block
-            ctx.save();
-            ctx.fillStyle = '#f0e6d2';
-            ctx.strokeStyle = '#baa686';
-            ctx.lineWidth = 1.5;
-            ctx.fillRect(-faceWidth * 0.48 + spineDepth * 0.4, -bookH * 0.48, faceWidth * 0.96, bookH * 0.96);
-            ctx.strokeRect(-faceWidth * 0.48 + spineDepth * 0.4, -bookH * 0.48, faceWidth * 0.96, bookH * 0.96);
-            ctx.restore();
-
-            // Front Cover Face
-            if (cosRot >= 0) {
-                if (imgFrontCover.complete && imgFrontCover.naturalWidth > 0) {
-                    ctx.save();
-                    ctx.shadowColor = 'rgba(212, 175, 55, 0.45)';
-                    ctx.shadowBlur = 40;
-
-                    ctx.strokeStyle = 'rgba(212, 175, 55, 0.9)';
-                    ctx.lineWidth = 4;
-                    ctx.strokeRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
-
-                    ctx.drawImage(imgFrontCover, -faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
-
-                    const glintPos = ((st * 0.5) % 3) - 1.5;
-                    const glintGrad = ctx.createLinearGradient(-faceWidth * 0.5 + glintPos * faceWidth, -bookH * 0.5, -faceWidth * 0.2 + glintPos * faceWidth, bookH * 0.5);
-                    glintGrad.addColorStop(0, 'transparent');
-                    glintGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.45)');
-                    glintGrad.addColorStop(1, 'transparent');
-                    ctx.fillStyle = glintGrad;
-                    ctx.fillRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
-
-                    ctx.restore();
-                }
-            // Back Cover Face
-            } else {
-                if (imgBackCover.complete && imgBackCover.naturalWidth > 0) {
-                    ctx.save();
-                    ctx.shadowColor = 'rgba(212, 175, 55, 0.45)';
-                    ctx.shadowBlur = 40;
-
-                    ctx.strokeStyle = 'rgba(212, 175, 55, 0.9)';
-                    ctx.lineWidth = 4;
-                    ctx.strokeRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
-
-                    ctx.save();
-                    ctx.scale(-1, 1);
-                    ctx.drawImage(imgBackCover, -faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
-                    ctx.restore();
-
-                    ctx.restore();
-                }
-            }
-
-            // Spine
-            if (imgSpine.complete && imgSpine.naturalWidth > 0 && Math.abs(sinRot) > 0.05) {
-                ctx.save();
-                const spineX = sinRot < 0 ? -faceWidth * 0.5 - spineWidth : faceWidth * 0.5;
-                ctx.drawImage(imgSpine, spineX, -bookH * 0.5, spineWidth, bookH);
-                ctx.restore();
-            }
-
-            ctx.restore();
-        }
-
-        // ========================================================
-        // MAIN FRAME RENDER LOOP
-        // ========================================================
-        let prevSceneIndex = -1;
-
-        function renderFrame() {
-            const t = currentTime;
-
-            let currentScene = 1;
-            if (t >= 44.0) currentScene = 6;
-            else if (t >= 35.0) currentScene = 5;
-            else if (t >= 26.0) currentScene = 4;
-            else if (t >= 17.0) currentScene = 3;
-            else if (t >= 8.0) currentScene = 2;
-            else currentScene = 1;
-
-            drawDynamicBackground(t, currentScene);
-
-            // ==========================================
-            // SCENE 1: THE COSMIC AWAKENING (0:00 - 0:08)
-            // ==========================================
-            if (currentScene === 1) {
-                const st = t;
-                const fadeIn = Math.min(st / 1.5, 1);
-                const fadeOut = st > 6.8 ? Math.max((8.0 - st) / 1.2, 0) : 1;
-                const alpha = fadeIn * fadeOut;
-
-                const scale = 1.0 + Math.sin(st * 0.8) * 0.05;
-                drawSacredLotusMandala(960, 420, 215 * scale, st * 0.15, t, alpha);
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'center';
-                ctx.fillStyle = '#d4af37';
-                ctx.font = '700 28px "Cinzel", serif';
-                ctx.letterSpacing = '8px';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 18;
-                ctx.fillText('ANCIENT WISDOM REVEALED', 960, 730);
-
-                drawDividerOrnament(960, 765, 380, alpha);
-
-                ctx.font = '400 36px "Cormorant Garamond", serif';
-                ctx.fillStyle = '#f3e5ab';
-                ctx.fillText('Beyond the Physical Body Lies the Multidimensional Self', 960, 825);
-                ctx.restore();
-
-            // ==========================================
-            // SCENE 2: PHYSICAL CHAKRAS 1 TO 7 (0:08 - 0:17)
-            // ==========================================
-            } else if (currentScene === 2) {
-                const st = t - 8.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const fadeOut = st > 7.8 ? Math.max((9.0 - st) / 1.2, 0) : 1;
-                const alpha = fadeIn * fadeOut;
-
-                ctx.save();
-                ctx.globalAlpha = alpha * 0.8;
-                const spineGrad = ctx.createLinearGradient(180, 370, 1740, 370);
-                spineGrad.addColorStop(0, '#e74c3c');
-                spineGrad.addColorStop(0.5, '#2ecc71');
-                spineGrad.addColorStop(1, '#9b59b6');
-                ctx.strokeStyle = spineGrad;
-                ctx.lineWidth = 5;
-                ctx.shadowColor = '#ffffff';
-                ctx.shadowBlur = 18;
-                ctx.beginPath();
-                ctx.moveTo(160, 370);
-                ctx.lineTo(1760, 370);
-                ctx.stroke();
-                ctx.restore();
-
-                const chakraSpacing = 228;
-                const startX = 960 - (3 * chakraSpacing);
-
-                for (let i = 0; i < 7; i++) {
-                    const appearTime = i * 0.92;
-                    if (st >= appearTime) {
-                        const chakraProgress = Math.min((st - appearTime) / 0.55, 1.0);
-                        const cx = startX + i * chakraSpacing;
-                        const cy = 370 + Math.sin(st * 2.5 + i * 0.7) * 12;
-
-                        drawLargeChakraVortex(cx, cy, 52, chakraData[i], chakraProgress, t, alpha * chakraProgress);
-                    }
-                }
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'center';
-                ctx.font = '700 26px "Cinzel", serif';
-                ctx.fillStyle = '#d4af37';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 16;
-                ctx.fillText('THE INCARNATE FOUNDATION', 960, 685);
-
-                drawDividerOrnament(960, 720, 360, alpha);
-
-                ctx.font = 'italic 600 42px "Cormorant Garamond", serif';
-                ctx.fillStyle = '#ffffff';
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-                ctx.shadowBlur = 15;
-                ctx.fillText('“The first to the seventh chakra:', 960, 785);
-                ctx.fillText('that which is incarnate, temporal and mortal.”', 960, 842);
-                ctx.restore();
-
-            // ==========================================
-            // SCENE 3: HIGHER CHAKRAS 8 TO 12 (0:17 - 0:26)
-            // ==========================================
-            } else if (currentScene === 3) {
-                const st = t - 17.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const fadeOut = st > 7.8 ? Math.max((9.0 - st) / 1.2, 0) : 1;
-                const alpha = fadeIn * fadeOut;
-
-                const chakraSpacing = 285;
-                const startX = 960 - (2 * chakraSpacing);
-
-                for (let i = 0; i < 5; i++) {
-                    const chakraIdx = i + 7;
-                    const appearTime = i * 1.15;
-
-                    if (st >= appearTime) {
-                        const chakraProgress = Math.min((st - appearTime) / 0.55, 1.0);
-                        const cx = startX + i * chakraSpacing;
-                        const cy = 370 - (i * 15) + Math.sin(st * 2.2 + i * 0.8) * 14;
-
-                        ctx.save();
-                        ctx.globalAlpha = alpha * chakraProgress;
-                        const rayGrad = ctx.createLinearGradient(cx, cy - 160, cx, cy + 160);
-                        rayGrad.addColorStop(0, 'rgba(255, 255, 255, 0.95)');
-                        rayGrad.addColorStop(0.5, 'rgba(212, 175, 55, 0.65)');
-                        rayGrad.addColorStop(1, 'transparent');
-                        ctx.strokeStyle = rayGrad;
-                        ctx.lineWidth = 4.5;
-                        ctx.beginPath();
-                        ctx.moveTo(cx, cy - 170);
-                        ctx.lineTo(cx, cy + 170);
-                        ctx.stroke();
-                        ctx.restore();
-
-                        drawLargeChakraVortex(cx, cy, 58, chakraData[chakraIdx], chakraProgress, t, alpha * chakraProgress);
-                    }
-                }
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'center';
-                ctx.font = '700 26px "Cinzel", serif';
-                ctx.fillStyle = '#ffd700';
-                ctx.shadowColor = '#ffd700';
-                ctx.shadowBlur = 18;
-                ctx.fillText('THE DIVINE I AM PRESENCE', 960, 685);
-
-                drawDividerOrnament(960, 720, 380, alpha);
-
-                ctx.font = 'italic 600 42px "Cormorant Garamond", serif';
-                ctx.fillStyle = '#ffffff';
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-                ctx.shadowBlur = 15;
-                ctx.fillText('“The eighth to the twelfth chakra:', 960, 785);
-                ctx.fillText('that which is the I AM, the eternal and infinite.”', 960, 842);
-                ctx.restore();
-
-            // ==========================================
-            // SCENE 4: ASCENDED MASTERS (0:26 - 0:35)
-            // ==========================================
-            } else if (currentScene === 4) {
-                const st = t - 26.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const fadeOut = st > 7.8 ? Math.max((9.0 - st) / 1.2, 0) : 1;
-                const alpha = fadeIn * fadeOut;
-
-                if (st < 2.0) {
-                    const burstNorm = st / 2.0;
-                    ctx.save();
-                    ctx.globalAlpha = (1.0 - burstNorm) * 0.75;
-                    const bGrad = ctx.createRadialGradient(960, 410, 10, 960, 410, 800 * burstNorm);
-                    bGrad.addColorStop(0, '#ffffff');
-                    bGrad.addColorStop(0.4, '#d4af37');
-                    bGrad.addColorStop(1, 'transparent');
-                    ctx.fillStyle = bGrad;
-                    ctx.beginPath();
-                    ctx.arc(960, 410, 800 * burstNorm, 0, Math.PI * 2);
-                    ctx.fill();
-                    ctx.restore();
-                }
-
-                const slideDist = (1 - Math.min(st / 1.5, 1)) * 120;
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-
-                // ST GERMAIN
-                const sgX = 640 - slideDist;
-                const sgY = 410;
-
-                ctx.save();
-                ctx.translate(sgX, sgY);
-
-                const sgGlow = ctx.createRadialGradient(0, 0, 110, 0, 0, 240);
-                sgGlow.addColorStop(0, 'rgba(155, 89, 182, 0.45)');
-                sgGlow.addColorStop(0.6, 'rgba(212, 175, 55, 0.25)');
-                sgGlow.addColorStop(1, 'transparent');
-                ctx.fillStyle = sgGlow;
-                ctx.beginPath();
-                ctx.arc(0, 0, 240, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.strokeStyle = '#d4af37';
-                ctx.lineWidth = 6;
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 30;
-                ctx.beginPath();
-                ctx.ellipse(0, 0, 155, 205, 0, 0, Math.PI * 2);
-                ctx.stroke();
-
-                ctx.save();
-                ctx.beginPath();
-                ctx.ellipse(0, 0, 150, 200, 0, 0, Math.PI * 2);
-                ctx.clip();
-                if (imgStGermain.complete && imgStGermain.naturalWidth > 0) {
-                    ctx.drawImage(imgStGermain, -155, -205, 310, 410);
-                }
-                ctx.restore();
-
-                for (let a = 0; a < 16; a++) {
-                    const ang = (a * Math.PI * 2) / 16;
-                    ctx.fillStyle = '#ffd700';
-                    ctx.beginPath();
-                    ctx.arc(Math.cos(ang) * 168, Math.sin(ang) * 218, 3.5, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-
-                ctx.font = '700 28px "Cinzel", serif';
-                ctx.fillStyle = '#fff0a8';
-                ctx.textAlign = 'center';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 15;
-                ctx.fillText('ST GERMAIN', 0, 255);
-                ctx.restore();
-
-                // SERAPIS BEY
-                const sbX = 1280 + slideDist;
-                const sbY = 410;
-
-                ctx.save();
-                ctx.translate(sbX, sbY);
-
-                const sbGlow = ctx.createRadialGradient(0, 0, 110, 0, 0, 240);
-                sbGlow.addColorStop(0, 'rgba(241, 196, 15, 0.45)');
-                sbGlow.addColorStop(0.6, 'rgba(212, 175, 55, 0.25)');
-                sbGlow.addColorStop(1, 'transparent');
-                ctx.fillStyle = sbGlow;
-                ctx.beginPath();
-                ctx.arc(0, 0, 240, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.strokeStyle = '#d4af37';
-                ctx.lineWidth = 6;
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 30;
-                ctx.beginPath();
-                ctx.ellipse(0, 0, 155, 205, 0, 0, Math.PI * 2);
-                ctx.stroke();
-
-                ctx.save();
-                ctx.beginPath();
-                ctx.ellipse(0, 0, 150, 200, 0, 0, Math.PI * 2);
-                ctx.clip();
-                if (imgSerapisBey.complete && imgSerapisBey.naturalWidth > 0) {
-                    ctx.drawImage(imgSerapisBey, -155, -205, 310, 410);
-                }
-                ctx.restore();
-
-                for (let a = 0; a < 16; a++) {
-                    const ang = (a * Math.PI * 2) / 16;
-                    ctx.fillStyle = '#ffd700';
-                    ctx.beginPath();
-                    ctx.arc(Math.cos(ang) * 168, Math.sin(ang) * 218, 3.5, 0, Math.PI * 2);
-                    ctx.fill();
-                }
-
-                ctx.font = '700 28px "Cinzel", serif';
-                ctx.fillStyle = '#fff0a8';
-                ctx.textAlign = 'center';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 15;
-                ctx.fillText('SERAPIS BEY', 0, 255);
-                ctx.restore();
-
-                ctx.textAlign = 'center';
-                ctx.font = '700 30px "Cinzel", serif';
-                ctx.fillStyle = '#d4af37';
-                ctx.letterSpacing = '6px';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 18;
-                ctx.fillText('TEACHERS OF ANCIENT AND INNER WISDOM', 960, 770);
-
-                drawDividerOrnament(960, 805, 440, alpha);
-
-                ctx.font = '300 30px "Cormorant Garamond", serif';
-                ctx.fillStyle = '#e5e7eb';
-                ctx.fillText('Direct Channeling & Transmissions for the Evolution of Human Consciousness', 960, 860);
-                ctx.restore();
-
-            // ==========================================
-            // SCENE 5: 3D HARDCOVER BOOK REVEAL & SPIN (0:35 - 0:44)
-            // ==========================================
-            } else if (currentScene === 5) {
-                const st = t - 35.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const fadeOut = st > 7.8 ? Math.max((9.0 - st) / 1.2, 0) : 1;
-                const alpha = fadeIn * fadeOut;
-
-                draw3DBookCinematic(660, 520, st, 1.0);
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'left';
-
-                ctx.font = '900 64px "Cinzel", serif';
-                ctx.fillStyle = '#ffffff';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 25;
-                ctx.fillText('CHAKRA', 980, 390);
-                ctx.fillStyle = '#d4af37';
-                ctx.fillText('ENERGETICS', 980, 465);
-
-                drawDividerOrnament(1180, 505, 380, alpha);
-
-                ctx.font = '600 30px "Cinzel", serif';
-                ctx.fillStyle = '#f3e5ab';
-                ctx.fillText('BY ELIZA JAMES', 980, 565);
-
-                ctx.font = '300 24px "Montserrat", sans-serif';
-                ctx.fillStyle = '#cbd5e1';
-                ctx.fillText('✨  The Complete 12-Chakra System Revealed', 980, 630);
-                ctx.fillText('✨  Ascended Master Channelings & Ancient Wisdom', 980, 680);
-                ctx.fillText('✨  Practical Energy Awakening & Ascension Tools', 980, 730);
-
-                ctx.restore();
-
-            // ==========================================
-            // SCENE 6: AUTHOR SIGNATURE & CTA (0:44 - 0:50)
-            // ==========================================
-            } else {
-                const st = t - 44.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const alpha = fadeIn;
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'center';
-
-                ctx.font = '85px "Great Vibes", cursive';
-                ctx.fillStyle = '#f3e5ab';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 25;
-                ctx.fillText('Eliza James', 960, 380);
-
-                drawDividerOrnament(960, 435, 460, alpha);
-
-                ctx.font = '700 32px "Cinzel", serif';
-                ctx.fillStyle = '#ffffff';
-                ctx.letterSpacing = '7px';
-                ctx.fillText('NOW AVAILABLE WORLDWIDE', 960, 510);
-
-                ctx.font = '600 22px "Montserrat", sans-serif';
-                ctx.fillStyle = '#d4af37';
-                ctx.letterSpacing = '4px';
-                ctx.fillText('PUBLISHED BY REACH PUBLISHERS', 960, 575);
-
-                ctx.font = '400 24px "Cinzel", serif';
-                ctx.fillStyle = '#e2e8f0';
-                ctx.letterSpacing = '5px';
-                ctx.fillText('AMAZON  •  BARNES & NOBLE  •  LEADING BOOKSTORES', 960, 680);
-
-                ctx.font = '400 18px "Montserrat", sans-serif';
-                ctx.fillStyle = '#94a3b8';
-                ctx.fillText('Available in Deluxe Hardcover, Paperback & eBook Editions', 960, 740);
-
-                ctx.restore();
-            }
-
-            if (currentScene !== prevSceneIndex) {
-                prevSceneIndex = currentScene;
-                updateActiveSceneCard(currentScene);
-            }
-
-            updateTimelineUI();
-        }
-
-        function updateTimelineUI() {
-            const minutes = Math.floor(currentTime / 60);
-            const seconds = Math.floor(currentTime % 60);
-            const totalMin = Math.floor(TOTAL_DURATION / 60);
-            const totalSec = Math.floor(TOTAL_DURATION % 60);
-            timeLabel.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')} / ${String(totalMin).padStart(2, '0')}:${String(totalSec).padStart(2, '0')}`;
-
-            const pct = (currentTime / TOTAL_DURATION) * 100;
-            timelineFill.style.width = `${pct}%`;
-
-            let sceneNum = 1;
-            if (currentTime >= 44.0) sceneNum = 6;
-            else if (currentTime >= 35.0) sceneNum = 5;
-            else if (currentTime >= 26.0) sceneNum = 4;
-            else if (currentTime >= 17.0) sceneNum = 3;
-            else if (currentTime >= 8.0) sceneNum = 2;
-
-            sceneIndicator.innerHTML = `Scene: <span>${sceneNum} / 6</span>`;
-        }
-
-        function updateActiveSceneCard(index) {
-            sceneCards.forEach((card, i) => {
-                if (i === index - 1) card.classList.add('active');
-                else card.classList.remove('active');
-            });
-        }
-
-        function syncAudioTime() {
-            if (customAudio) {
-                customAudio.currentTime = currentTime;
-            } else if (htmlAudio) {
-                htmlAudio.currentTime = currentTime;
-            }
-        }
-
-        function seekToTime(targetTime) {
-            currentTime = Math.max(0, Math.min(targetTime, TOTAL_DURATION));
-            syncAudioTime();
-            syncAudioPlayback();
-            renderFrame();
-        }
-
-        function animLoop(now) {
-            const dt = (now - lastFrameTime) / 1000;
-            lastFrameTime = now;
-
-            if (isPlaying) {
-                currentTime += dt;
-                if (currentTime >= TOTAL_DURATION) {
-                    currentTime = TOTAL_DURATION;
-                    pauseTrailer();
-                    if (isRecording) {
-                        stopRecording();
-                    }
-                }
-            }
-
-            renderFrame();
-            requestAnimationFrame(animLoop);
-        }
-
-        function playTrailer() {
-            initAudioContext();
-            if (currentTime >= TOTAL_DURATION) {
-                seekToTime(0);
-            }
-            isPlaying = true;
-            syncAudioPlayback();
-            playBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg> Pause`;
-        }
-
-        function pauseTrailer() {
-            isPlaying = false;
-            syncAudioPlayback();
-            playBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg> Play Trailer`;
-        }
-
-        playBtn.addEventListener('click', () => {
-            if (isPlaying) pauseTrailer();
-            else playTrailer();
-        });
-
-        restartBtn.addEventListener('click', () => {
-            seekToTime(0);
-            playTrailer();
-        });
-
-        timelineBar.addEventListener('click', (e) => {
-            const rect = timelineBar.getBoundingClientRect();
-            const clickPos = (e.clientX - rect.left) / rect.width;
-            seekToTime(clickPos * TOTAL_DURATION);
-        });
-
-        fullscreenBtn.addEventListener('click', () => {
-            const vp = document.getElementById('viewport');
-            if (!document.fullscreenElement) {
-                vp.requestFullscreen().catch(err => alert(err.message));
-            } else {
-                document.exitFullscreen();
-            }
-        });
-
-        function startRecording() {
-            initAudioContext();
-            recordedChunks = [];
+            <p class="card-desc">Reconnective Healing is a form of energy that conveys corrective information to the body and mind. It is a form of hands-off energy work which utilizes newly re-established frequencies now available to us, and which we use to restore balance and harmony to the body, mind and spirit.</p>
             
-            const stream = canvas.captureStream(60);
+            <div class="offer-highlight-box">
+              <span class="box-label">Scientific Observation</span>
+              <p style="margin:0 0 8px;">Stanford Professor Emeritus Dr. William Tiller says &ldquo;When information carried through these frequencies is introduced, it creates coherence and order within the field and the body itself.&rdquo;</p>
+              <p style="margin:0; font-weight: 600; color: var(--copper-text);">The result: dramatic reports of regeneration instead of degeneration.</p>
+            </div>
+            
+            <p class="offer-callout"><strong>The reality of its existence has been demonstrated clearly in practice, as well as in scientific research laboratories. My youngest client was a sweet 8 year young little girl and the eldest a 79 year grand old lady.</strong></p>
+            
+            <a class="card-cta-btn" href="work-with-me.html#reconnective-healing">Explore Modality &rarr;</a>
+          </div>
 
-            const activeAudio = (soundPreset.value === 'custom' && customAudio) ? customAudio : htmlAudio;
-            if (activeAudio && activeAudio.captureStream) {
-                const aStream = activeAudio.captureStream();
-                if (aStream && aStream.getAudioTracks().length > 0) {
-                    stream.addTrack(aStream.getAudioTracks()[0]);
-                }
-            } else if (audioCtx && masterGain) {
-                const dest = audioCtx.createMediaStreamDestination();
-                masterGain.connect(dest);
-                const audioTracks = dest.stream.getAudioTracks();
-                if (audioTracks.length > 0) {
-                    stream.addTrack(audioTracks[0]);
-                }
-            }
+          <!-- Service 2: Curator of Consciousness -->
+          <div class="offer-card reveal delay-2">
+            <div class="offer-card-header">
+              <div class="offer-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M2 16C6 8 26 8 30 16C26 24 6 24 2 16Z" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="16" cy="16" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+                  <circle cx="16" cy="16" r="1.6" fill="currentColor"/>
+                </svg>
+              </div>
+              <span class="tag">Life Coaching</span>
+              <h3>Curator of Consciousness</h3>
+              <span class="card-subtitle">(Aligning your Outer Reality with your Inner World)</span>
+            </div>
+            
+            <p class="card-desc">A curator doesn't create - hence I select, arrange, and present so others can understand and experience in a meaningful way.</p>
+            
+            <div class="offer-highlight-box">
+              <span class="box-label">Applied to Consciousness</span>
+              <ul>
+                <li>I encourage reflection on wisdom from diverse traditions, experiences, and perspectives.</li>
+                <li>I hold the space for contemplation and dialogue.</li>
+                <li>I help you discover insights and explore the wisdom that exists within.</li>
+                <li>I don't give you consciousness; I help you discover, recognize and encounter your own.</li>
+              </ul>
+            </div>
+            
+            <p class="offer-callout"><strong>Be you a student, a young employee, an executive, a religious follower or a seeker of truths - I help connect your head and your heart in a way that transforms your passion for your dreams into action for your life.</strong></p>
+            
+            <a class="card-cta-btn" href="work-with-me.html#curator-of-consciousness">Explore Coaching &rarr;</a>
+          </div>
 
-            let mimeType = 'video/webm;codecs=vp9';
-            if (!MediaRecorder.isTypeSupported(mimeType)) {
-                mimeType = 'video/webm';
-            }
+          <!-- Service 3: Meditation & Breathing -->
+          <div class="offer-card reveal delay-3">
+            <div class="offer-card-header">
+              <div class="offer-icon-wrap" aria-hidden="true">
+                <svg viewBox="0 0 32 32">
+                  <path d="M16 16c0-4.5 4.3-6.8 7.6-4.6 3.3 2.2 2.7 7.7-1.7 8.9-5.6 1.5-10.4-3-9.7-8.6C12.9 6 19 3 24 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="tag">Sacred Practice</span>
+              <h3>Meditation and Conscious Breathing</h3>
+              <span class="card-subtitle">Awakening Inner Stillness &amp; Clarity</span>
+            </div>
+            
+            <p class="card-desc">Meditation is that sacred moment where the Consciousness comes to rest in the heartspace and connects to a Higher Aspect of the Self. Insights pertinent to the individual, a deep sense of inner peace, calm and gratitude; a deeper understanding and a clarity are but some of the benefits experienced with meditation.</p>
+            
+            <div class="offer-highlight-box">
+              <span class="box-label">The Breath as Elixir</span>
+              <p style="margin:0;">The breath is the elixir of Life itself - it sustains our very being, yet we engage in this act of nurturing so unconsciously. 15min of deep, conscious breathing - practiced regularly, brings a transformation within that cascades into our outer experiences and enriches the very tapestry of our Life Journey.</p>
+            </div>
+            
+            <p class="offer-callout"><strong>During one such breathing meditation the words &ldquo;Pay attention to me and I shall attend to you&rdquo; was downloaded into my consciousness.</strong></p>
+            
+            <a class="card-cta-btn" href="work-with-me.html#meditation-breathing">Explore Practice &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-            try {
-                mediaRecorder = new MediaRecorder(stream, {
-                    mimeType: mimeType,
-                    videoBitsPerSecond: 10000000
-                });
-            } catch (e) {
-                mediaRecorder = new MediaRecorder(stream);
-            }
+    <!-- Section 4: Featured Book & Official Book Trailer -->
+    <section id="book" class="section-subtle">
+      <div class="container-wide">
+        <div class="reveal text-center" style="max-width: 840px; margin: 0 auto 36px;">
+          <span class="eyebrow">✦ Internationally Published Work</span>
+          <h2 class="section-title">A Most Extraordinary Journey of Self-Discovery</h2>
+          <p class="section-intro" style="margin: 12px auto 0; font-family: var(--font-serif); font-size: 1.18rem; font-style: italic; color: var(--ink-soft); max-width: 680px;">
+            A 9-Year Spiritual Journey with the Enigmatic Comte de St Germain &middot; By Eliza James
+          </p>
+        </div>
 
-            mediaRecorder.ondataavailable = (e) => {
-                if (e.data.size > 0) {
-                    recordedChunks.push(e.data);
-                }
-            };
+        <div class="grid-balanced-2" style="align-items: center; gap: 44px;">
+          <!-- Column 1: Book Narrative & Key Insights -->
+          <div class="prose reveal">
+            <div class="glass-chip" style="margin-bottom: 16px;">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>Spiritual Biography &middot; Metaphysical Wisdom</span>
+            </div>
 
-            mediaRecorder.onstop = () => {
-                const blob = new Blob(recordedChunks, { type: 'video/webm' });
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = 'Chakra_Energetics_Cinematic_Trailer.webm';
-                a.click();
-                URL.revokeObjectURL(url);
-                isRecording = false;
-                recordBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> Export Video (MP4/WebM)`;
-                showToast('Video exported and downloaded successfully!');
-            };
+            <p class="lede" style="color: var(--ink); font-weight: 600; font-size: 1.15rem; line-height: 1.5; margin-bottom: 16px;">
+              &ldquo;Being a student and friend of St Germain is what brings me the most joy. My 9-year Spiritual Journey with the enigmatic Comte de St Germain is shared with the world in this work.&rdquo;
+            </p>
 
-            isRecording = true;
-            recordBtn.innerHTML = `Recording 1080p Video...`;
-            showToast('Recording started! Capturing 1080p 60fps trailer with audio...');
-            seekToTime(0);
-            mediaRecorder.start();
-            playTrailer();
-        }
+            <p style="font-size: 0.98rem; line-height: 1.68; color: var(--ink-soft); margin-bottom: 20px;">
+              In this deeply personal and transformative book, Eliza chronicles her extraordinary nine-year communion with the Ascended Master, the enigmatic Comte de St Germain. Spanning deep metaphysical revelations, the dawning of the Age of Aquarius, and the sacred truth of personal sovereignty, the book serves as a guiding light for anyone seeking to uncover the truth of who they really are.
+            </p>
 
-        function stopRecording() {
-            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
-                mediaRecorder.stop();
-            }
-        }
+            <div class="offer-highlight-box" style="border-left: 3.5px solid var(--gold); background: rgba(201, 155, 54, 0.05); margin-bottom: 24px;">
+              <span class="box-label" style="color: var(--copper-text);">Core Book Insights &amp; Pillars</span>
+              <ul>
+                <li>Nine years of profound guidance with the Comte de St Germain</li>
+                <li>Transcending dogma into authentic personal sovereignty &amp; truth</li>
+                <li>Connecting head and heart to transform passion into intentional action</li>
+                <li>Harmonizing with newly re-established spiritual frequencies</li>
+              </ul>
+            </div>
 
-        recordBtn.addEventListener('click', () => {
-            if (isRecording) {
-                stopRecording();
-            } else {
-                startRecording();
-            }
-        });
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://www.youtube.com/watch?v=VmsQBtoa7h0" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                Watch Trailer on YouTube &nearr;
+              </a>
+              <a class="btn btn-ghost-dark" href="contact.html">Inquire About the Book</a>
+            </div>
+          </div>
 
-        // Initialize volume & comments
-        updateVolume(0.85);
-        renderCommentsList();
+          <!-- Column 2: Official Book Trailer Video Showcase -->
+          <div class="reveal delay-1">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/VmsQBtoa7h0?rel=0" title="A Most Extraordinary Journey of Self-Discovery - Official Book Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-footer-link">
+              <a href="https://www.youtube.com/watch?v=VmsQBtoa7h0" target="_blank" rel="noopener noreferrer">
+                <span>✦</span> Watch &ldquo;A Most Extraordinary Journey of Self-Discovery&rdquo; Trailer on YouTube &nearr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-        requestAnimationFrame(animLoop);
-    </script>
+    <!-- Section 5: In Conversation Video & Story (Structured Feature) -->
+    <section id="interview" class="section-alt">
+      <div class="container-wide">
+        <div class="reveal text-center" style="max-width: 840px; margin: 0 auto 36px;">
+          <span class="eyebrow">✦ Featured In-Depth Dialogue</span>
+          <h2 class="section-title">In Conversation: Sacred Alignment</h2>
+          <p class="section-intro" style="margin: 12px auto 0; font-family: var(--font-serif); font-size: 1.18rem; font-style: italic; color: var(--ink-soft); max-width: 680px;">
+            An In-Depth Interview with Body and Mind &middot; Frequencies, Remoteness &amp; Inner Unfolding
+          </p>
+        </div>
+
+        <div class="grid-balanced-2" style="align-items: center; gap: 44px;">
+          <!-- Column 1: Interview Narrative & Remote Case Highlight -->
+          <div class="prose reveal">
+            <div class="glass-chip" style="margin-bottom: 16px;">
+              <span class="pulse-dot" aria-hidden="true"></span>
+              <span>Body &amp; Mind South Africa &middot; Featured Guest</span>
+            </div>
+
+            <p class="lede" style="color: var(--ink); font-weight: 600; font-size: 1.15rem; line-height: 1.5; margin-bottom: 16px;">
+              &ldquo;Spirit has no boundaries or borders &mdash; we touch on the essence of frequency elevation, remote healing, and holding the space for your becoming.&rdquo;
+            </p>
+
+            <p style="font-size: 0.98rem; line-height: 1.68; color: var(--ink-soft); margin-bottom: 20px;">
+              In this heart-centered conversation, Eliza shares the origins of her journey&mdash;from deeply contemplating spiritual doctrines at age sixteen to her nine-year tutelage with the Ascended Master St Germain. We touch on the essence of Reconnective Healing (RH), the inner transformation that comes with elevating the frequency at which you vibrate, and what it means to hold space for your unique unfolding.
+            </p>
+
+            <div class="offer-highlight-box" style="border-left: 3.5px solid var(--sage); background: rgba(77, 114, 87, 0.05); margin-bottom: 24px;">
+              <span class="box-label" style="color: var(--sage);">✦ Remote Healing &middot; Groote Schuur Hospital Case</span>
+              <p style="margin: 0; font-size: 0.92rem; line-height: 1.62;">
+                One of my most remarkable remote healing sessions had a team of Specialists at the world-renowned Groote Schuur Hospital (Cape Town, South Africa) stumped when their patient, after remotely administered RH sessions, no longer presented symptoms of an illness for which he was scheduled to go into a 6-month period of strict quarantine.
+              </p>
+            </div>
+
+            <div class="btn-row">
+              <a class="btn btn-primary" href="https://www.youtube.com/watch?v=jk9U9D2H43I" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                Watch Full Interview on YouTube &nearr;
+              </a>
+              <a class="btn btn-ghost-dark" href="contact.html">Book a Distant Session</a>
+            </div>
+          </div>
+
+          <!-- Column 2: Video Showcase Frame -->
+          <div class="reveal delay-1">
+            <div class="video-frame">
+              <iframe src="https://www.youtube-nocookie.com/embed/jk9U9D2H43I?rel=0" title="Sacred Alignment with Eliza: An Interview with Body and Mind" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+            <div class="video-footer-link">
+              <a href="https://www.youtube.com/watch?v=jk9U9D2H43I" target="_blank" rel="noopener noreferrer">
+                <span>✦</span> Watch &ldquo;Sacred Alignment with Eliza&rdquo; Full Interview on YouTube &nearr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Testimonials & Resources Grid -->
+    <section>
+      <div class="container">
+        <div class="reveal text-center" style="max-width: 680px; margin: 0 auto 10px;">
+          <span class="eyebrow">Explore</span>
+          <h2 class="section-title">Testimonials &amp; Resources</h2>
+        </div>
+
+        <div class="offer-grid">
+          <a class="offer-card reveal delay-1" href="results.html">
+            <span class="tag">Testimonials</span>
+            <h3>Healing Results</h3>
+            <p>Click to view documented client healing experiences across physical, emotional, and spiritual sessions.</p>
+            <span class="card-link">View Results &rarr;</span>
+          </a>
+
+          <a class="offer-card reveal delay-2" href="results.html#coaching">
+            <span class="tag">Feedback</span>
+            <h3>Coaching Remarks</h3>
+            <p>What attendees and workshop participants are saying after meditation and life coaching sessions.</p>
+            <span class="card-link">Read Remarks &rarr;</span>
+          </a>
+
+          <a class="offer-card reveal delay-3" href="https://www.austinmacauley.com/book/a-most-extraordinary-journey-of-self-discovery" target="_blank" rel="noopener">
+            <span class="tag">Published Work</span>
+            <h3>A Most Extraordinary Journey of Self-discovery</h3>
+            <p>Eliza's internationally published book recounting nine years of study and spiritual journey with the Comte de St Germain.</p>
+            <span class="card-link">Explore Book &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Tea Chat CTA -->
+    <section class="cta-band">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="container-narrow reveal">
+        <h2>Do call me – let's have an informal chat over a cup of tea</h2>
+        <p>I am sure you have lots of questions and you will be under no obligation to then book a session. Psssssttt – really, I don't charge "an arm and a leg" for a 30 minute session.<br><br>
+        <strong>You are alive to give voice, action and physicality to GOD. To become the grandest version of the greatest vision you hold about Who You Are.</strong></p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="contact.html">Contact Eliza</a>
+          <a class="btn btn-ghost-light" href="about.html">Read About Us</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h4>
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2c1.6 2.1 2.6 3.8 2.6 5.4 0 1.2-.8 2-1.8 2s-1.7-.8-1.7-1.8c0-.6.2-1.1.5-1.6-1.1.8-1.9 2.1-1.9 3.6a3 3 0 0 0 3 3 3.9 3.9 0 0 0 3.3-4.1C16 6.2 13.7 3.7 12 2z"/>
+            </svg>
+            Eliza Reconnection
+          </h4>
+          <p>Reconnective Healing, Consciousness Coaching, and Meditation &amp; Conscious Breathing &mdash; practiced with care from a home office in Lakeside, Cape Town.</p>
+        </div>
+        <div>
+          <h4>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M15 9l-2 4.5L8.5 15l2-4.5z" fill="currentColor"/>
+            </svg>
+            Explore
+          </h4>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="work-with-me.html">Services &amp; Coaching</a></li>
+            <li><a href="journal.html">Evidence &amp; Science</a></li>
+            <li><a href="results.html">Results &amp; Voices</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
+              <path d="M4 6.5l8 6.5 8-6.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
+            </svg>
+            Get in touch
+          </h4>
+          <ul>
+            <li><a href="tel:+27829269851">082 926 9851</a></li>
+            <li><a href="mailto:eliza.reconnection@gmail.com">eliza.reconnection@gmail.com</a></li>
+            <li>Promenade Road, Lakeside, Cape Town, South Africa</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span data-year>2026</span> Eliza Reconnection. All rights reserved.</span>
+        <div class="social-row">
+          <a href="https://www.facebook.com/eliza.james1/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.2-1.5 1.6-1.5H17V3.7C16.7 3.6 15.6 3.5 14.4 3.5c-2.6 0-4.4 1.6-4.4 4.5v2h-3v3.1h3V21h3.5z" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.instagram.com/eliza.mudita" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.linkedin.com/in/eliza-james-8789b3109/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8" cy="8.2" r="1.3" fill="currentColor"/><line x1="8" y1="11" x2="8" y2="17" stroke="currentColor" stroke-width="1.8"/><path d="M12 17v-3.5c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
 </body>
 </html>
