@@ -4,7 +4,7 @@
 
   $(document).ready(function () {
     let isEditMode = true;
-    const editableSelectors = 'h1, h2, h3, h4, p, .lede, .hero-subtitle, .tag, .card-subtitle, .box-label, .btn, .eyebrow, .glass-chip span:not(.pulse-dot), .portrait-floating-badge, .bio-photo-badge, .bio-photo-caption p';
+    const editableSelectors = 'h1, h2, h3, h4, h5, h6, p, li, td, th, dt, dd, figcaption, blockquote, .lede, .hero-subtitle, .tag, .card-subtitle, .box-label, .btn, .eyebrow, .glass-chip span:not(.pulse-dot), .portrait-floating-badge, .bio-photo-badge, .bio-photo-caption p, .author-bio-tagline';
 
     // Initialize Edit Mode
     function enableLiveEditing() {

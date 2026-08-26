@@ -178,3 +178,9 @@ body.eliza-edit-active .eliza-editable-img-wrap:hover::after {
   pointer-events: none;
   z-index: 20;
 }
+
+/* List Items in Edit Mode */
+body.eliza-edit-active li[contenteditable="true"] {
+  padding: 3px 6px;
+  border-radius: 4px;
+}
