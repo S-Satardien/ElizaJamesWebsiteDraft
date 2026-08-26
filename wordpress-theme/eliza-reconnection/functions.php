@@ -10,14 +10,19 @@ function eliza_theme_setup() {
     add_theme_support('automatic-feed-links');
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
+    add_theme_support('align-wide');
+    add_theme_support('responsive-embeds');
+    add_theme_support('editor-styles');
+    add_editor_style('css/styles.css');
+
+    // Ensure standard page editor is enabled for visual in-place editing
+    add_post_type_support('page', 'editor');
+
     add_theme_support('html5', array('search-form', 'comment-form', 'comment-list', 'gallery', 'caption', 'style', 'script'));
     register_nav_menus(array(
         'primary-menu' => __('Primary Navigation', 'eliza-reconnection'),
         'footer-menu'  => __('Footer Navigation', 'eliza-reconnection'),
     ));
-
-    // Remove the blank default WYSIWYG editor for pages so client only sees structured ACF fields
-    remove_post_type_support('page', 'editor');
 }
 add_action('after_setup_theme', 'eliza_theme_setup');
 
@@ -32,6 +37,15 @@ function eliza_theme_scripts() {
     ));
 }
 add_action('wp_enqueue_scripts', 'eliza_theme_scripts');
+
+// Enqueue fonts in block editor
+function eliza_block_editor_assets() {
+    wp_enqueue_style('eliza-editor-fonts', 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap', array(), null);
+}
+add_action('enqueue_block_editor_assets', 'eliza_block_editor_assets');
+
+// Prevent wpautop from inserting random <p> tags into custom grid layouts
+remove_filter('the_content', 'wpautop');
 
 // ACF Options Page for Global Settings
 if (function_exists('acf_add_options_page')) {

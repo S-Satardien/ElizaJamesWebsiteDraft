@@ -2345,3 +2345,87 @@ form.contact-form {
 .editor-styles-wrapper .hero-flame-canvas {
   display: none !important;
 }
+
+
+/* =========================================================
+   WordPress Gutenberg Block Editor Visual In-Place Styling
+   ========================================================= */
+.editor-styles-wrapper,
+.editor-styles-wrapper * {
+  box-sizing: border-box;
+}
+
+.editor-styles-wrapper {
+  background-color: var(--sand-50, #FAF7F2) !important;
+  color: var(--ink, #1F1916) !important;
+  font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif) !important;
+  padding: 0 !important;
+}
+
+/* Force all reveal elements visible and in place in editor */
+.editor-styles-wrapper .reveal,
+.block-editor-block-list__layout .reveal,
+.wp-block .reveal,
+.wp-block-group .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+  transition: none !important;
+}
+
+/* Dark Hero Section inside Block Editor */
+.editor-styles-wrapper .home-hero {
+  background: var(--hero-bg, #170F0A) !important;
+  color: var(--cream, #FDFBF7) !important;
+  padding: 60px 32px !important;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 36px;
+}
+
+.editor-styles-wrapper .home-hero h1 {
+  color: var(--cream, #FDFBF7) !important;
+  font-family: var(--font-serif, "Cormorant Garamond", serif) !important;
+}
+
+.editor-styles-wrapper .home-hero .hero-subtitle {
+  color: var(--gold, #E5BF65) !important;
+}
+
+.editor-styles-wrapper .home-hero .lede {
+  color: var(--sand-200, #E4D9C8) !important;
+}
+
+.editor-styles-wrapper .hero-flame-canvas {
+  display: none !important;
+}
+
+/* Section styling in Editor */
+.editor-styles-wrapper .section-alt {
+  background-color: var(--sand-100, #F4EEE2) !important;
+  padding: 48px 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.editor-styles-wrapper .section-subtle {
+  background-color: var(--sand-50, #FAF7F2) !important;
+  padding: 48px 24px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+}
+
+.editor-styles-wrapper .cta-band {
+  background: var(--hero-bg, #170F0A) !important;
+  color: var(--cream, #FDFBF7) !important;
+  padding: 56px 32px !important;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.editor-styles-wrapper .cta-band h2,
+.editor-styles-wrapper .cta-band strong {
+  color: var(--gold, #E5BF65) !important;
+}
