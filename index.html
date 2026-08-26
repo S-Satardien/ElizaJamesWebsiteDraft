@@ -1894,7 +1894,7 @@
 
                     ctx.restore();
                 }
-            // Back Cover Face (cosRot < 0)
+            // Back Cover Face (cosRot < 0) - Unmirrored, crystal-clear readable text
             } else {
                 if (imgBackCover.complete && imgBackCover.naturalWidth > 0) {
                     ctx.save();
@@ -1905,10 +1905,8 @@
                     ctx.lineWidth = 4;
                     ctx.strokeRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
 
-                    ctx.save();
-                    ctx.scale(-1, 1);
+                    // Draw back cover upright without mirroring
                     ctx.drawImage(imgBackCover, -faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
-                    ctx.restore();
 
                     ctx.restore();
                 }
