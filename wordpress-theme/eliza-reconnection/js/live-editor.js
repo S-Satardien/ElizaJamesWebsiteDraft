@@ -4,12 +4,33 @@
 
   $(document).ready(function () {
     let isEditMode = true;
-    const editableSelectors = 'h1, h2, h3, h4, h5, h6, p, li, td, th, dt, dd, figcaption, blockquote, .lede, .hero-subtitle, .tag, .card-subtitle, .box-label, .btn, .eyebrow, .glass-chip span:not(.pulse-dot), .portrait-floating-badge, .bio-photo-badge, .bio-photo-caption p, .author-bio-tagline';
+
+    // Comprehensive list of all text elements across all page templates
+    const editableSelectors = [
+      'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
+      'p', 'li', 'td', 'th', 'dt', 'dd',
+      'blockquote', 'cite', 'figcaption',
+      '.who', '.kind', '.stat-item strong', '.stat-item span',
+      '.stat-item', '.remarks-columns li', '.testi-card p',
+      '.lede', '.hero-subtitle', '.tag', '.card-subtitle', '.box-label',
+      '.btn', '.eyebrow', '.glass-chip span:not(.pulse-dot)',
+      '.portrait-floating-badge', '.bio-photo-badge', '.bio-photo-caption p',
+      '.author-bio-tagline', '.single-author-sub', '.tea-cta strong', '.tea-cta p',
+      '.glass-box h4', '.glass-box p', '.glass-box li'
+    ].join(', ');
 
     // Initialize Edit Mode
     function enableLiveEditing() {
       $('body').addClass('eliza-edit-active');
+
+      // Make all specific text selectors editable
       $('#main').find(editableSelectors).each(function () {
+        $(this).attr('contenteditable', 'true');
+        $(this).attr('spellcheck', 'false');
+      });
+
+      // Ensure any text inside special cards (testimonials, stat items, client remarks) is editable
+      $('#main .testi-card, #main .glass-box, #main .stat-list, #main .remarks-columns').find('p, span, strong, em, li, div.who, span.kind').each(function () {
         $(this).attr('contenteditable', 'true');
         $(this).attr('spellcheck', 'false');
       });
@@ -121,6 +142,6 @@
 
     // Auto-enable upon loading
     enableLiveEditing();
-    console.log('Eliza Frontend Live Visual Editor initialized!');
+    console.log('Eliza Frontend Live Visual Editor initialized for all cards & boxes!');
   });
 })(jQuery);

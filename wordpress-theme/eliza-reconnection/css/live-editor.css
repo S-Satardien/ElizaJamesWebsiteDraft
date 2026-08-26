@@ -136,7 +136,7 @@
   opacity: 1 !important;
 }
 
-/* Editable Focus & Hover Outlines */
+/* Editable Focus & Hover Outlines for All Text Elements */
 body.eliza-edit-active [contenteditable="true"] {
   outline: 1px dashed transparent;
   transition: outline 0.2s ease, background 0.2s ease;
@@ -152,6 +152,17 @@ body.eliza-edit-active [contenteditable="true"]:hover {
 body.eliza-edit-active [contenteditable="true"]:focus {
   outline: 2px solid #E5BF65;
   background: rgba(229, 191, 101, 0.1);
+}
+
+body.eliza-edit-active li[contenteditable="true"] {
+  padding: 2px 4px;
+}
+
+body.eliza-edit-active .who[contenteditable="true"],
+body.eliza-edit-active .kind[contenteditable="true"] {
+  display: block;
+  padding: 2px 6px;
+  margin: 4px 0;
 }
 
 /* Image Click-to-Edit Indicator */
@@ -177,10 +188,4 @@ body.eliza-edit-active .eliza-editable-img-wrap:hover::after {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   pointer-events: none;
   z-index: 20;
-}
-
-/* List Items in Edit Mode */
-body.eliza-edit-active li[contenteditable="true"] {
-  padding: 3px 6px;
-  border-radius: 4px;
 }
