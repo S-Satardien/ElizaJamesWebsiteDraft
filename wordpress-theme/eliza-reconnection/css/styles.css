@@ -2329,27 +2329,197 @@ form.contact-form {
 .editor-styles-wrapper .reveal,
 .block-editor-block-list__layout .reveal,
 .block-editor-writing-flow .reveal,
-.wp-block .reveal,
-.wp-block-html .reveal,
-.block-editor-block-list__block .reveal {
-  opacity: 1 !important;
-  transform: none !important;
-  visibility: visible !important;
+.cta-band .btn-row {
+  justify-content: center;
 }
 
-.editor-styles-wrapper .home-hero {
-  min-height: 480px;
-  padding: 60px 24px;
+/* ---------- Site Footer ---------- */
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(130% 160% at 50% -20%, #201713 0%, #0E0A08 70%);
+  color: var(--on-dusk-soft);
+  padding: 68px 0 32px;
 }
 
-.editor-styles-wrapper .hero-flame-canvas {
-  display: none !important;
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--sage), var(--gold) 45%, var(--copper) 85%, var(--gold-light));
 }
 
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
 
-/* =========================================================
-   WordPress Gutenberg Block Editor Visual In-Place Styling
-   ========================================================= */
+@media (max-width: 800px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+}
+
+.footer-grid h4 {
+  color: var(--on-dusk-accent);
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-family: var(--font-sans);
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-grid h4 svg {
+  width: 15px;
+  height: 15px;
+  color: var(--gold);
+}
+
+.footer-grid p {
+  font-size: 0.92rem;
+  max-width: 38ch;
+  line-height: 1.65;
+}
+
+.footer-grid ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-grid li {
+  margin-bottom: 10px;
+}
+
+.footer-grid a {
+  color: var(--on-dusk-soft);
+  text-decoration: none;
+  font-size: 0.92rem;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+  display: inline-block;
+}
+
+.footer-grid a:hover {
+  color: var(--on-dusk-accent);
+  transform: translateX(4px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(245, 235, 220, 0.12);
+  padding-top: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 0.84rem;
+}
+
+.social-row {
+  display: flex;
+  gap: 10px;
+}
+
+.social-row a {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(245, 235, 220, 0.2);
+  color: var(--on-dusk-soft);
+  background: rgba(255, 255, 255, 0.04);
+  transition: all var(--transition-fast);
+}
+
+.social-row a svg {
+  width: 16px;
+  height: 16px;
+}
+
+.social-row a:hover {
+  border-color: var(--on-dusk-accent);
+  color: #FFFFFF;
+  background: rgba(201, 155, 54, 0.2);
+  transform: translateY(-2px);
+}
+
+/* ---------- Toast Notification ---------- */
+.toast-notice {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--dusk);
+  color: var(--on-dusk);
+  padding: 10px 20px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  z-index: 9999;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.toast-notice.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ---------- Scroll Reveal Animations (60fps Engine) ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--ease-spring), transform 0.65s var(--ease-spring);
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-scale {
+  transform: scale(0.95);
+}
+
+.reveal.is-revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Stagger delay helpers */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* Reduced Motion Safety (WCAG 2.1) */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* ---------- WordPress Block Editor (Gutenberg) In-Place Visibility & Styling ---------- */
 .editor-styles-wrapper,
 .editor-styles-wrapper * {
   box-sizing: border-box;
@@ -2359,18 +2529,70 @@ form.contact-form {
   background-color: var(--sand-50, #FAF7F2) !important;
   color: var(--ink, #1F1916) !important;
   font-family: var(--font-sans, "Plus Jakarta Sans", sans-serif) !important;
-  padding: 0 !important;
 }
 
-/* Force all reveal elements visible and in place in editor */
 .editor-styles-wrapper .reveal,
 .block-editor-block-list__layout .reveal,
+.block-editor-writing-flow .reveal,
 .wp-block .reveal,
-.wp-block-group .reveal {
+.wp-block-html .reveal,
+.block-editor-block-list__block .reveal {
   opacity: 1 !important;
   transform: none !important;
   visibility: visible !important;
   transition: none !important;
+}
+
+.home-hero-editor-wrap {
+  background: var(--hero-bg, #170F0A) !important;
+  color: var(--cream, #FDFBF7) !important;
+  padding: 64px 36px !important;
+  border-radius: 16px;
+  margin-bottom: 40px;
+}
+
+.home-hero-editor-wrap h1 {
+  color: var(--cream, #FDFBF7) !important;
+  font-family: var(--font-serif, "Cormorant Garamond", serif) !important;
+  font-size: 2.8rem !important;
+  margin-bottom: 12px;
+}
+
+.home-hero-editor-wrap .hero-subtitle {
+  color: var(--gold, #E5BF65) !important;
+  font-family: var(--font-serif, "Cormorant Garamond", serif) !important;
+  font-size: 1.35rem !important;
+  font-style: italic;
+  margin-bottom: 16px;
+}
+
+.home-hero-editor-wrap .lede {
+  color: var(--sand-200, #E4D9C8) !important;
+  font-size: 1.12rem !important;
+  line-height: 1.65 !important;
+}
+
+.bio-editor-section,
+.services-editor-section,
+.cta-band-editor {
+  padding: 48px 24px;
+  margin-bottom: 36px;
+  border-radius: 14px;
+}
+
+.services-editor-section {
+  background: var(--sand-100, #F4EEE2) !important;
+}
+
+.cta-band-editor {
+  background: var(--hero-bg, #170F0A) !important;
+  color: var(--cream, #FDFBF7) !important;
+  text-align: center;
+}
+
+.cta-band-editor h2,
+.cta-band-editor strong {
+  color: var(--gold, #E5BF65) !important;
 }
 
 /* Dark Hero Section inside Block Editor */
