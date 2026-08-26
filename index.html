@@ -925,7 +925,7 @@
                             <span>SCENE 5</span>
                         </div>
                         <h4>3D Book Reveal & Core Teachings</h4>
-                        <p>Slow 3D hardcover spin with authentic front & back cover details and complete teaching highlights.</p>
+                        <p>Extended 3D spin highlighting both back & front covers, seamlessly gliding into the finale.</p>
                     </div>
                     <div class="scene-card" onclick="seekToTime(44)">
                         <div class="card-header">
@@ -933,7 +933,7 @@
                             <span>SCENE 6</span>
                         </div>
                         <h4>Author Signature, 3D Book & Retailers</h4>
-                        <p>3D book showcase with Amazon, Takealot, Barnes & Noble, Paperback & eBook editions.</p>
+                        <p>Smoothly anchored 3D book showcase with Takealot, Amazon, Barnes & Noble & eBook editions.</p>
                     </div>
                 </div>
             </section>
@@ -944,13 +944,11 @@
 
     <script>
         /**
-         * CHAKRA ENERGETICS - OFFICIAL CINEMATIC BOOK TRAILER ENGINE
-         * Updated with all Author Specifications:
-         * - 13-Chakra System (Chakras 8 to 13 from pg61)
-         * - Base Chakra naming
-         * - Slower, readable 3D book spin
-         * - Complete author bullet points
-         * - 3D book presentation on final screen with Takealot & updated editions
+         * CHAKRA ENERGETICS - OFFICIAL CINEMATIC BOOK TRAILER ENGINE (V8)
+         * - Slower, readable 3D book spin in Scene 5 (generous Back Cover reading time)
+         * - Seamless, cinematic camera glide transition from Scene 5 to Scene 6 (no jumping)
+         * - 13-Chakra system & Base Chakra
+         * - Amazon, Takealot, Barnes & Noble, Paperback & eBook editions
          */
 
         const canvas = document.getElementById('renderCanvas');
@@ -1005,7 +1003,6 @@
         // COMPLETE 13-CHAKRA SYSTEM DATA (PER AUTHOR'S PG61)
         // ========================================================
         const chakraData = [
-            // Physical Chakras 1 to 7 (Changed Root -> Base)
             { id: 1, name: 'Base', sanskrit: 'Muladhara', freq: '396 Hz', color: '#e74c3c', glow: '#ff6b6b' },
             { id: 2, name: 'Sacral', sanskrit: 'Svadhisthana', freq: '417 Hz', color: '#e67e22', glow: '#f39c12' },
             { id: 3, name: 'Solar Plexus', sanskrit: 'Manipura', freq: '528 Hz', color: '#f1c40f', glow: '#f39c12' },
@@ -1013,7 +1010,7 @@
             { id: 5, name: 'Throat', sanskrit: 'Vishuddha', freq: '741 Hz', color: '#00d2d3', glow: '#0abde3' },
             { id: 6, name: 'Third Eye', sanskrit: 'Ajna', freq: '852 Hz', color: '#5f27cd', glow: '#341f97' },
             { id: 7, name: 'Crown', sanskrit: 'Sahasrara', freq: '963 Hz', color: '#9b59b6', glow: '#8e44ad' },
-            // Higher Multidimensional Chakras 8 to 13
+            // Higher Chakras 8 to 13
             { id: 8, name: 'Personal', sanskrit: 'Higher Self Blueprint', freq: '1074 Hz', color: '#ffffff', glow: '#dff9fb' },
             { id: 9, name: 'Planetary', sanskrit: 'Earth & Gaia Matrix', freq: '1185 Hz', color: '#f39c12', glow: '#f1c40f' },
             { id: 10, name: 'Solar', sanskrit: 'Solar Light Core', freq: '1296 Hz', color: '#1dd1a1', glow: '#10ac84' },
@@ -1496,7 +1493,7 @@
             } else if (sceneId === 4) {
                 gradColor1 = '#2a1435';
                 gradColor2 = '#110718';
-            } else if (sceneId === 5) {
+            } else if (sceneId >= 5) {
                 gradColor1 = '#241c10';
                 gradColor2 = '#0d0a06';
             }
@@ -1725,7 +1722,6 @@
 
         // ========================================================
         // HIGH-IMPACT CHAKRA ENERGY VORTEX RENDERER
-        // WITH DYNAMICALLY SIZED HIGH-CONTRAST BOXES
         // ========================================================
         function drawLargeChakraVortex(cx, cy, radius, chakra, progress, t, alpha) {
             ctx.save();
@@ -1840,39 +1836,20 @@
 
         // ========================================================
         // 3D HARDCOVER BOOK ENGINE (FRONT, SPINE & BACK TEXTURES)
-        // WITH SLOWER, DELIBERATE REVEAL (AUTHOR SPECIFICATION)
+        // WITH EXTENDED BACK COVER PAUSE & CONTINUOUS POSITIONING
         // ========================================================
-        function draw3DBookCinematic(cx, cy, st, scale = 1.0, isStaticShowcase = false) {
+        function draw3DBook(cx, cy, rotY, scale = 1.0, glintTime = 0) {
             ctx.save();
             ctx.translate(cx, cy);
 
-            let rotY = 0;
-            let enterScale = scale;
+            const bookW = 460 * scale;
+            const bookH = 640 * scale;
+            const spineDepth = 55 * scale;
 
-            if (isStaticShowcase) {
-                // Static elegant showcase angle
-                rotY = -0.15;
-                enterScale = scale;
-            } else if (st < 4.8) {
-                // Slower, highly deliberate 360 spin over 4.8s so both front and back clearly register
-                const norm = st / 4.8;
-                const ease = norm < 0.5 ? 2 * norm * norm : -1 + (4 - 2 * norm) * norm;
-                rotY = (1 - ease) * (Math.PI * 2.0);
-                enterScale = scale * (0.8 + ease * 0.2);
-            } else {
-                rotY = Math.sin((st - 4.8) * 1.0) * 0.08;
-            }
-
-            const floatY = Math.sin(st * 2.0) * 12;
-            ctx.translate(0, floatY);
-
-            const bookW = 460 * enterScale;
-            const bookH = 640 * enterScale;
-            const spineDepth = 55 * enterScale;
-
+            // Deep Floor Shadow
             ctx.save();
             ctx.beginPath();
-            ctx.ellipse(0, bookH * 0.54, bookW * 0.8, 45 * enterScale, 0, 0, Math.PI * 2);
+            ctx.ellipse(0, bookH * 0.54, bookW * 0.82, 45 * scale, 0, 0, Math.PI * 2);
             ctx.fillStyle = 'rgba(0, 0, 0, 0.85)';
             ctx.filter = 'blur(24px)';
             ctx.fill();
@@ -1883,7 +1860,7 @@
             const faceWidth = Math.max(Math.abs(cosRot) * bookW, 10);
             const spineWidth = Math.max(Math.abs(sinRot) * spineDepth, 4);
 
-            // Pages block
+            // Ivory Pages Block
             ctx.save();
             ctx.fillStyle = '#f0e6d2';
             ctx.strokeStyle = '#baa686';
@@ -1892,7 +1869,7 @@
             ctx.strokeRect(-faceWidth * 0.48 + spineDepth * 0.4, -bookH * 0.48, faceWidth * 0.96, bookH * 0.96);
             ctx.restore();
 
-            // Front Cover Face
+            // Front Cover Face (cosRot >= 0)
             if (cosRot >= 0) {
                 if (imgFrontCover.complete && imgFrontCover.naturalWidth > 0) {
                     ctx.save();
@@ -1905,17 +1882,19 @@
 
                     ctx.drawImage(imgFrontCover, -faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
 
-                    const glintPos = ((st * 0.4) % 3) - 1.5;
-                    const glintGrad = ctx.createLinearGradient(-faceWidth * 0.5 + glintPos * faceWidth, -bookH * 0.5, -faceWidth * 0.2 + glintPos * faceWidth, bookH * 0.5);
-                    glintGrad.addColorStop(0, 'transparent');
-                    glintGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.45)');
-                    glintGrad.addColorStop(1, 'transparent');
-                    ctx.fillStyle = glintGrad;
-                    ctx.fillRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
+                    if (glintTime > 0) {
+                        const glintPos = ((glintTime * 0.4) % 3) - 1.5;
+                        const glintGrad = ctx.createLinearGradient(-faceWidth * 0.5 + glintPos * faceWidth, -bookH * 0.5, -faceWidth * 0.2 + glintPos * faceWidth, bookH * 0.5);
+                        glintGrad.addColorStop(0, 'transparent');
+                        glintGrad.addColorStop(0.5, 'rgba(255, 255, 255, 0.45)');
+                        glintGrad.addColorStop(1, 'transparent');
+                        ctx.fillStyle = glintGrad;
+                        ctx.fillRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
+                    }
 
                     ctx.restore();
                 }
-            // Back Cover Face
+            // Back Cover Face (cosRot < 0)
             } else {
                 if (imgBackCover.complete && imgBackCover.naturalWidth > 0) {
                     ctx.save();
@@ -2060,7 +2039,6 @@
                 const fadeOut = st > 7.8 ? Math.max((9.0 - st) / 1.2, 0) : 1;
                 const alpha = fadeIn * fadeOut;
 
-                // 6 higher chakras (8, 9, 10, 11, 12, 13)
                 const chakraSpacing = 240;
                 const startX = 960 - (2.5 * chakraSpacing);
 
@@ -2252,112 +2230,166 @@
                 ctx.fillText('Direct Channeling & Transmissions for the Evolution of Human Consciousness', 960, 860);
                 ctx.restore();
 
-            // ==========================================
-            // SCENE 5: 3D HARDCOVER BOOK REVEAL & BULLETS (0:35 - 0:44)
-            // ==========================================
-            } else if (currentScene === 5) {
-                const st = t - 35.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const fadeOut = st > 7.8 ? Math.max((9.0 - st) / 1.2, 0) : 1;
-                const alpha = fadeIn * fadeOut;
-
-                draw3DBookCinematic(620, 520, st, 1.0);
-
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'left';
-
-                ctx.font = '900 60px "Cinzel", serif';
-                ctx.fillStyle = '#ffffff';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 25;
-                ctx.fillText('CHAKRA', 950, 330);
-                ctx.fillStyle = '#d4af37';
-                ctx.fillText('ENERGETICS', 950, 400);
-
-                drawDividerOrnament(1140, 435, 380, alpha);
-
-                ctx.font = '600 24px "Cinzel", serif';
-                ctx.fillStyle = '#f3e5ab';
-                ctx.fillText('BY ELIZA JAMES', 950, 480);
-
-                // Author's 5 Exact Bullet Points
-                const bullets = [
-                    'The Male & Female Energy Systems',
-                    'The Development of the Human Entity',
-                    'The Complete 13 Chakra Energetic System Revealed',
-                    'The Vastness of Dimensional Consciousness',
-                    'Ascended Master Channeling & Ancient Wisdom'
-                ];
-
-                ctx.font = '400 22px "Montserrat", sans-serif';
-                ctx.fillStyle = '#e2e8f0';
-                bullets.forEach((bullet, bIdx) => {
-                    const bY = 540 + (bIdx * 52);
-                    ctx.fillStyle = '#ffd700';
-                    ctx.shadowColor = '#d4af37';
-                    ctx.shadowBlur = 10;
-                    ctx.fillText('✨', 950, bY);
-
-                    ctx.fillStyle = '#e2e8f0';
-                    ctx.shadowBlur = 0;
-                    ctx.fillText(bullet, 990, bY);
-                });
-
-                ctx.restore();
-
-            // ==========================================
-            // SCENE 6: AUTHOR SIGNATURE, 3D BOOK & RETAILERS (0:44 - 0:50)
-            // ==========================================
+            // ========================================================
+            // SCENES 5 & 6: SEAMLESS 3D BOOK JOURNEY & GRAND FINALE
+            // (Continuous smooth interpolation from 35.0s to 50.0s)
+            // ========================================================
             } else {
-                const st = t - 44.0;
-                const fadeIn = Math.min(st / 1.0, 1);
-                const alpha = fadeIn;
+                const st = t - 35.0; // 0 to 15s
 
-                // Left: 3D Book Standing Proudly
-                draw3DBookCinematic(520, 530, st, 0.88, true);
+                // Compute 3D Book Rotation Angle (rotY) with extended Back Cover pause
+                let rotY = 0;
+                if (st < 1.0) {
+                    // Initial Front Cover glance
+                    rotY = 0;
+                } else if (st < 2.5) {
+                    // Smoothly rotates to Back Cover
+                    const p = (st - 1.0) / 1.5;
+                    const ease = p * p * (3 - 2 * p);
+                    rotY = ease * Math.PI;
+                } else if (st < 5.2) {
+                    // EXTENDED BACK COVER READING PHASE (2.7 seconds!)
+                    // Subtly drifts around 180 deg so author & quotes can be clearly read
+                    rotY = Math.PI + Math.sin((st - 2.5) * 1.2) * 0.08;
+                } else if (st < 6.8) {
+                    // Smoothly rotates back to Front Cover
+                    const p = (st - 5.2) / 1.6;
+                    const ease = p * p * (3 - 2 * p);
+                    rotY = Math.PI + ease * Math.PI;
+                } else {
+                    // Settled Front Cover orientation
+                    rotY = Math.sin((st - 6.8) * 1.0) * 0.06;
+                }
 
-                // Right: Signature, Availability & Retailers
-                ctx.save();
-                ctx.globalAlpha = alpha;
-                ctx.textAlign = 'center';
+                // ==========================================
+                // SEAMLESS CAMERA GLIDE BETWEEN SCENE 5 & 6
+                // (Smooth transition window between 43.0s and 45.0s)
+                // ==========================================
+                let bookX = 620;
+                let bookScale = 1.0;
+                let scene5Alpha = 1.0;
+                let scene6Alpha = 0.0;
 
-                const rightCX = 1240;
+                if (t < 43.0) {
+                    // Pure Scene 5
+                    bookX = 620;
+                    bookScale = 1.0;
+                    scene5Alpha = Math.min((t - 35.0) / 1.0, 1.0);
+                    scene6Alpha = 0.0;
+                } else if (t <= 45.0) {
+                    // SMOOTH 2-SECOND GLIDE
+                    const blend = (t - 43.0) / 2.0;
+                    const smoothBlend = blend * blend * (3 - 2 * blend); // Smooth cubic ease
 
-                ctx.font = '88px "Great Vibes", cursive';
-                ctx.fillStyle = '#f3e5ab';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 25;
-                ctx.fillText('Eliza James', rightCX, 350);
+                    bookX = 620 + (500 - 620) * smoothBlend; // Glides smoothly from 620 to 500
+                    bookScale = 1.0 + (0.86 - 1.0) * smoothBlend; // Scales from 1.0 to 0.86
+                    rotY = rotY * (1 - smoothBlend) + (-0.15) * smoothBlend; // Blends rotation smoothly
 
-                drawDividerOrnament(rightCX, 400, 420, alpha);
+                    scene5Alpha = 1.0 - smoothBlend;
+                    scene6Alpha = smoothBlend;
+                } else {
+                    // Pure Scene 6
+                    bookX = 500;
+                    bookScale = 0.86;
+                    rotY = -0.15 + Math.sin(t * 1.5) * 0.04;
+                    scene5Alpha = 0.0;
+                    scene6Alpha = 1.0;
+                }
 
-                ctx.font = '700 30px "Cinzel", serif';
-                ctx.fillStyle = '#ffffff';
-                ctx.letterSpacing = '6px';
-                ctx.fillText('NOW AVAILABLE WORLDWIDE', rightCX, 470);
+                // Render Continuous 3D Book
+                const floatY = Math.sin(st * 2.0) * 10;
+                draw3DBook(bookX, 530 + floatY, rotY, bookScale, st);
 
-                ctx.font = '600 20px "Montserrat", sans-serif';
-                ctx.fillStyle = '#d4af37';
-                ctx.letterSpacing = '3.5px';
-                ctx.fillText('PUBLISHED BY REACH PUBLISHERS', rightCX, 530);
+                // ==========================================
+                // SCENE 5 TEXT OVERLAY (Fades out smoothly)
+                // ==========================================
+                if (scene5Alpha > 0.01) {
+                    ctx.save();
+                    ctx.globalAlpha = scene5Alpha;
+                    ctx.textAlign = 'left';
 
-                // Updated Retailers (including TAKEALOT)
-                ctx.font = '700 21px "Cinzel", serif';
-                ctx.fillStyle = '#fff0a8';
-                ctx.shadowColor = '#d4af37';
-                ctx.shadowBlur = 14;
-                ctx.letterSpacing = '4px';
-                ctx.fillText('AMAZON  •  TAKEALOT  •  BARNES & NOBLE  •  BOOKSTORES', rightCX, 630);
+                    ctx.font = '900 60px "Cinzel", serif';
+                    ctx.fillStyle = '#ffffff';
+                    ctx.shadowColor = '#d4af37';
+                    ctx.shadowBlur = 25;
+                    ctx.fillText('CHAKRA', 950, 330);
+                    ctx.fillStyle = '#d4af37';
+                    ctx.fillText('ENERGETICS', 950, 400);
 
-                // Updated Format Availability
-                ctx.font = '400 19px "Montserrat", sans-serif';
-                ctx.fillStyle = '#cbd5e1';
-                ctx.shadowBlur = 0;
-                ctx.letterSpacing = '2px';
-                ctx.fillText('Available in Paperback & eBook Editions', rightCX, 685);
+                    drawDividerOrnament(1140, 435, 380, scene5Alpha);
 
-                ctx.restore();
+                    ctx.font = '600 24px "Cinzel", serif';
+                    ctx.fillStyle = '#f3e5ab';
+                    ctx.fillText('BY ELIZA JAMES', 950, 480);
+
+                    const bullets = [
+                        'The Male & Female Energy Systems',
+                        'The Development of the Human Entity',
+                        'The Complete 13 Chakra Energetic System Revealed',
+                        'The Vastness of Dimensional Consciousness',
+                        'Ascended Master Channeling & Ancient Wisdom'
+                    ];
+
+                    ctx.font = '400 22px "Montserrat", sans-serif';
+                    ctx.fillStyle = '#e2e8f0';
+                    bullets.forEach((bullet, bIdx) => {
+                        const bY = 540 + (bIdx * 52);
+                        ctx.fillStyle = '#ffd700';
+                        ctx.shadowColor = '#d4af37';
+                        ctx.shadowBlur = 10;
+                        ctx.fillText('✨', 950, bY);
+
+                        ctx.fillStyle = '#e2e8f0';
+                        ctx.shadowBlur = 0;
+                        ctx.fillText(bullet, 990, bY);
+                    });
+
+                    ctx.restore();
+                }
+
+                // ==========================================
+                // SCENE 6 TEXT OVERLAY (Fades in smoothly)
+                // ==========================================
+                if (scene6Alpha > 0.01) {
+                    ctx.save();
+                    ctx.globalAlpha = scene6Alpha;
+                    ctx.textAlign = 'center';
+
+                    const rightCX = 1240;
+
+                    ctx.font = '88px "Great Vibes", cursive';
+                    ctx.fillStyle = '#f3e5ab';
+                    ctx.shadowColor = '#d4af37';
+                    ctx.shadowBlur = 25;
+                    ctx.fillText('Eliza James', rightCX, 350);
+
+                    drawDividerOrnament(rightCX, 400, 420, scene6Alpha);
+
+                    ctx.font = '700 30px "Cinzel", serif';
+                    ctx.fillStyle = '#ffffff';
+                    ctx.letterSpacing = '6px';
+                    ctx.fillText('NOW AVAILABLE WORLDWIDE', rightCX, 470);
+
+                    ctx.font = '600 20px "Montserrat", sans-serif';
+                    ctx.fillStyle = '#d4af37';
+                    ctx.letterSpacing = '3.5px';
+                    ctx.fillText('PUBLISHED BY REACH PUBLISHERS', rightCX, 530);
+
+                    ctx.font = '700 21px "Cinzel", serif';
+                    ctx.fillStyle = '#fff0a8';
+                    ctx.shadowColor = '#d4af37';
+                    ctx.shadowBlur = 14;
+                    ctx.letterSpacing = '4px';
+                    ctx.fillText('AMAZON  •  TAKEALOT  •  BARNES & NOBLE  •  BOOKSTORES', rightCX, 630);
+
+                    ctx.font = '400 19px "Montserrat", sans-serif';
+                    ctx.fillStyle = '#cbd5e1';
+                    ctx.shadowBlur = 0;
+                    ctx.letterSpacing = '2px';
+                    ctx.fillText('Available in Paperback & eBook Editions', rightCX, 685);
+
+                    ctx.restore();
+                }
             }
 
             if (currentScene !== prevSceneIndex) {
