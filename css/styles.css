@@ -2323,3 +2323,25 @@ form.contact-form {
     transform: none !important;
   }
 }
+
+/* ---------- WordPress Block Editor (Gutenberg) In-Place Visibility ---------- */
+.editor-styles-wrapper,
+.editor-styles-wrapper .reveal,
+.block-editor-block-list__layout .reveal,
+.block-editor-writing-flow .reveal,
+.wp-block .reveal,
+.wp-block-html .reveal,
+.block-editor-block-list__block .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  visibility: visible !important;
+}
+
+.editor-styles-wrapper .home-hero {
+  min-height: 480px;
+  padding: 60px 24px;
+}
+
+.editor-styles-wrapper .hero-flame-canvas {
+  display: none !important;
+}
