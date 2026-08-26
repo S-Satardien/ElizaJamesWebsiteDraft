@@ -77,3 +77,6 @@ function eliza_handle_contact_ajax() {
 }
 add_action("wp_ajax_eliza_contact_submit", "eliza_handle_contact_ajax");
 add_action("wp_ajax_nopriv_eliza_contact_submit", "eliza_handle_contact_ajax");
+
+// Load Programmatic ACF Field Groups
+require_once get_template_directory() . '/inc/acf-fields.php';
