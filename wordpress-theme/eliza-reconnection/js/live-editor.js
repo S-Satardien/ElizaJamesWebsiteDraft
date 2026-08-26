@@ -4,7 +4,7 @@
 
   $(document).ready(function () {
     let isEditMode = true;
-    const editableSelectors = 'h1, h2, h3, h4, p, .lede, .glass-chip span:not(.pulse-dot), .hero-subtitle, .tag, .card-subtitle, .box-label, .btn, .eyebrow';
+    const editableSelectors = 'h1, h2, h3, h4, p, .lede, .hero-subtitle, .tag, .card-subtitle, .box-label, .btn, .eyebrow, .glass-chip span:not(.pulse-dot), .portrait-floating-badge, .bio-photo-badge, .bio-photo-caption p';
 
     // Initialize Edit Mode
     function enableLiveEditing() {
@@ -32,9 +32,9 @@
       isEditMode = !isEditMode;
       if (isEditMode) {
         enableLiveEditing();
-        $('#eliza-mode-label').text('Editing Mode');
+        $('#eliza-mode-label').text('Editing Active');
         $(this).removeClass('eliza-btn-preview');
-        showToast('✏️ Edit Mode Active - Click any text to edit');
+        showToast('✏️ Edit Mode Active - Click any text or image');
       } else {
         disableLiveEditing();
         $('#eliza-mode-label').text('Preview Mode');
@@ -49,19 +49,27 @@
       e.preventDefault();
       const $img = $(this).find('img');
 
-      const customUploader = wp.media({
-        title: 'Select or Upload Replacement Image',
-        button: { text: 'Use This Photo' },
-        multiple: false
-      });
+      if (typeof wp !== 'undefined' && wp.media) {
+        const customUploader = wp.media({
+          title: 'Select or Upload Replacement Image',
+          button: { text: 'Use This Photo' },
+          multiple: false
+        });
 
-      customUploader.on('select', function () {
-        const attachment = customUploader.state().get('selection').first().toJSON();
-        $img.attr('src', attachment.url);
-        showToast('✓ Image updated! Click Save Changes to save.');
-      });
+        customUploader.on('select', function () {
+          const attachment = customUploader.state().get('selection').first().toJSON();
+          $img.attr('src', attachment.url);
+          showToast('✓ Photo swapped! Click Save Changes.');
+        });
 
-      customUploader.open();
+        customUploader.open();
+      } else {
+        const newUrl = prompt('Enter image URL:', $img.attr('src'));
+        if (newUrl) {
+          $img.attr('src', newUrl);
+          showToast('✓ Photo URL updated! Click Save Changes.');
+        }
+      }
     });
 
     // Save Changes via AJAX
@@ -113,5 +121,6 @@
 
     // Auto-enable upon loading
     enableLiveEditing();
+    console.log('Eliza Frontend Live Visual Editor initialized!');
   });
 })(jQuery);

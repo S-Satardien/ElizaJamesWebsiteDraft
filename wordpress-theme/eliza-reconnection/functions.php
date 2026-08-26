@@ -82,3 +82,6 @@ add_action('wp_ajax_nopriv_eliza_contact_submit', 'eliza_handle_contact_ajax');
 
 // Load Programmatic ACF Field Groups
 require_once get_template_directory() . '/inc/acf-fields.php';
+
+// Load Frontend Live Visual Editor
+require_once get_template_directory() . '/inc/live-editor.php';
