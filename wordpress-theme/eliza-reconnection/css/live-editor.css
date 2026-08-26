@@ -1,0 +1,180 @@
+
+/* =========================================================================
+   Frontend Live Visual Editor Styling
+   ========================================================================= */
+
+/* Floating Live Editor Bar */
+.eliza-live-toolbar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999999;
+  background: rgba(23, 15, 10, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(229, 191, 101, 0.45);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.55), 0 0 20px rgba(229, 191, 101, 0.2);
+  border-radius: 50px;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  color: #FDFBF7;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.9rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.eliza-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eliza-toolbar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 191, 101, 0.15);
+  border: 1px solid rgba(229, 191, 101, 0.4);
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #E5BF65;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.eliza-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #34D399;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #34D399;
+  animation: elizaPulse 1.8s infinite;
+}
+
+@keyframes elizaPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px #34D399; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.eliza-toolbar-hint {
+  color: #E4D9C8;
+  font-size: 0.82rem;
+  opacity: 0.85;
+}
+
+.eliza-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eliza-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.eliza-btn-mode {
+  background: rgba(255, 255, 255, 0.1);
+  color: #FDFBF7;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.eliza-btn-mode:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.eliza-btn-save {
+  background: linear-gradient(135deg, #E5BF65, #C26330);
+  color: #170F0A;
+  box-shadow: 0 4px 14px rgba(194, 99, 48, 0.4);
+}
+
+.eliza-btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(194, 99, 48, 0.6);
+}
+
+.eliza-btn-save:active {
+  transform: translateY(0);
+}
+
+/* Toast Alert */
+.eliza-live-toast {
+  position: fixed;
+  bottom: 86px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #10B981;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 0.88rem;
+  padding: 10px 24px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 1000000;
+}
+
+.eliza-live-toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+
+/* Editable Focus & Hover Outlines */
+body.eliza-edit-active [contenteditable="true"] {
+  outline: 1px dashed transparent;
+  transition: outline 0.2s ease, background 0.2s ease;
+  border-radius: 4px;
+  cursor: text;
+}
+
+body.eliza-edit-active [contenteditable="true"]:hover {
+  outline: 1.5px dashed rgba(229, 191, 101, 0.7);
+  background: rgba(229, 191, 101, 0.05);
+}
+
+body.eliza-edit-active [contenteditable="true"]:focus {
+  outline: 2px solid #E5BF65;
+  background: rgba(229, 191, 101, 0.08);
+}
+
+/* Image Click-to-Edit Indicator */
+body.eliza-edit-active .eliza-editable-img-wrap {
+  position: relative;
+  cursor: pointer;
+}
+
+body.eliza-edit-active .eliza-editable-img-wrap:hover::after {
+  content: "📷 Click to Change Image";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(23, 15, 10, 0.88);
+  color: #E5BF65;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid #E5BF65;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  pointer-events: none;
+  z-index: 10;
+}
