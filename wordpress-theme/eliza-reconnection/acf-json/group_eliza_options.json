@@ -1,0 +1,37 @@
+{
+  "key": "group_eliza_options",
+  "title": "Site Settings & Contact Info",
+  "fields": [
+    {
+      "key": "field_global_phone",
+      "label": "Phone Number",
+      "name": "global_phone",
+      "type": "text",
+      "default_value": "082 926 9851"
+    },
+    {
+      "key": "field_global_email",
+      "label": "Email Address",
+      "name": "global_email",
+      "type": "email",
+      "default_value": "eliza.reconnection@gmail.com"
+    },
+    {
+      "key": "field_global_address",
+      "label": "Location",
+      "name": "global_address",
+      "type": "text",
+      "default_value": "Promenade Road, Lakeside, Cape Town, South Africa"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "options_page",
+        "operator": "==",
+        "value": "eliza-site-settings"
+      }
+    ]
+  ],
+  "active": true
+}

@@ -1,0 +1,16 @@
+/*
+Theme Name: Eliza Reconnection
+Theme URI: https://elizareconnection.co.za
+Author: Antigravity Team
+Author URI: https://elizareconnection.co.za
+Description: Bespoke WordPress custom theme for Eliza James — Sacred Alignment, Reconnective Healing, Consciousness Coaching & Meditation. Complete zero-code ACF integration, fluid typography, 60fps animations, and glassmorphic aesthetics.
+Version: 1.0.0
+Requires at least: 6.0
+Tested up to: 6.7
+Requires PHP: 7.4
+Text Domain: eliza-reconnection
+License: Proprietary
+License URI: https://elizareconnection.co.za
+*/
+
+@import url('css/styles.css');

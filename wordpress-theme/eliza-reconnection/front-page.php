@@ -1,52 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eliza — Healing Practitioner | Sacred Alignment</title>
-  <meta name="description" content="Reconnective Healing, Curator of Consciousness coaching, and Meditation &amp; Conscious Breathing with Eliza — Lakeside, Cape Town.">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="site-header">
-    <div class="bar">
-      <a class="brand" href="index.html" aria-label="Eliza Reconnection Home">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 2c1.6 2.1 2.6 3.8 2.6 5.4 0 1.2-.8 2-1.8 2s-1.7-.8-1.7-1.8c0-.6.2-1.1.5-1.6-1.1.8-1.9 2.1-1.9 3.6a3 3 0 0 0 3 3 3.9 3.9 0 0 0 3.3-4.1C16 6.2 13.7 3.7 12 2z"/>
-          </svg>
-        </span>
-        <span class="brand-name">Eliza<small>Sacred Alignment</small></span>
-      </a>
-
-      <nav class="main-nav" aria-label="Primary Navigation">
-        <ul>
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="about.html">About Us</a></li>
-          <li><a href="work-with-me.html">Services</a></li>
-          <li><a href="journal.html">Science &amp; Evidence</a></li>
-          <li><a href="results.html">Results</a></li>
-          <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <a class="header-phone" href="tel:+27829269851" aria-label="Call 082 926 9851">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
-          </svg>
-          082 926 9851
-        </a>
-      </nav>
-
-      <button class="nav-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false">
-        <span></span>
-      </button>
-    </div>
-  </header>
-
-  <main id="main">
+<?php
+/**
+ * Template for Homepage
+ */
+get_header();
+?>
+<main id="main">
 
     <!-- Hero Section -->
     <section class="home-hero">
@@ -108,14 +66,14 @@
           <div class="hero-subtitle">Where Inner Stillness Meets Sacred Power</div>
           <p class="lede">&ldquo;We are each Miraculous Works of Art in this amazing tapestry called Life. Allow me to guide you toward experiencing this Life Journey in a meaningful way, to gently hold the space as you step onto your unique path toward the unfolding of your Becoming.&rdquo;</p>
           <div class="btn-row">
-            <a class="btn btn-primary" href="contact.html">Book a session</a>
+            <a class="btn btn-primary" href="<?php echo esc_url(home_url("/contact/")); ?>">Book a session</a>
             <a class="btn btn-ghost-light" href="#book">Explore Book &amp; Trailer</a>
           </div>
         </div>
 
         <div class="home-hero-portrait-wrap reveal delay-1">
           <div class="home-hero-portrait">
-            <img src="assets/eliza-headshot.jpg" alt="Eliza James, Reconnective Healing practitioner and coach" width="565" height="700" loading="eager">
+            <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/eliza-headshot.jpg" alt="Eliza James, Reconnective Healing practitioner and coach" width="565" height="700" loading="eager">
           </div>
           <div class="portrait-floating-badge" aria-label="Experience badge">
             <span style="color:var(--gold);">✦</span> Since 2011 &middot; Lakeside, Cape Town
@@ -146,7 +104,7 @@
           <div class="prose reveal equal-col">
             <div class="home-hero-portrait-wrap" style="margin-bottom: 24px;">
               <div class="home-hero-portrait" style="max-width: 320px;">
-                <img src="assets/eliza-headshot.jpg" alt="Eliza James" width="565" height="700">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/eliza-headshot.jpg" alt="Eliza James" width="565" height="700">
               </div>
             </div>
             <p>I am a graduate of the University of Cape Town Graduate School of Business; an experienced Reconnective Healing Practitioner (having added the skill of presenting Meditation and Conscious Breathing Workshops into the mix). Conversational or presenting the more structured Life Coaching Workshops is second nature and I resonate strongly with the work of Drs Hurtak (Academy for Future Science). However, being a student and friend of St Germain is what brings me the most joy. My 9-year Spiritual Journey with the enigmatic Comte de St Germain was recently shared with the world in my internationally published work (<em>A Most Extraordinary Journey of Self-discovery</em>).</p>
@@ -161,7 +119,7 @@
             <!-- Workshop & Mentorship Photo Card -->
             <div class="bio-photo-card">
               <div class="bio-photo-frame">
-                <img src="assets/eliza-workshop-presentation.jpg" alt="Eliza James facilitating consciousness coaching workshops" width="1000" height="667" loading="lazy">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/eliza-workshop-presentation.jpg" alt="Eliza James facilitating consciousness coaching workshops" width="1000" height="667" loading="lazy">
                 <div class="bio-photo-caption">
                   <span class="bio-photo-badge">✦ Interactive Workshops &amp; Mentorship</span>
                   <p>Guiding seekers, students, and professionals toward conscious self-mastery.</p>
@@ -172,7 +130,7 @@
             <div class="glass-box" style="margin-top: auto;">
               <h4>Session Logistics &amp; Inquiries</h4>
               <p style="font-size:0.94rem; margin-bottom:12px;">Available weekdays after 6pm and weekends from 3pm by appointment in Lakeside, Cape Town or via distant session.</p>
-              <a class="btn btn-primary" href="contact.html">Schedule a Session</a>
+              <a class="btn btn-primary" href="<?php echo esc_url(home_url("/contact/")); ?>">Schedule a Session</a>
             </div>
           </div>
         </div>
@@ -323,7 +281,7 @@
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 Watch Trailer on YouTube &nearr;
               </a>
-              <a class="btn btn-ghost-dark" href="contact.html">Inquire About the Book</a>
+              <a class="btn btn-ghost-dark" href="<?php echo esc_url(home_url("/contact/")); ?>">Inquire About the Book</a>
             </div>
           </div>
 
@@ -381,7 +339,7 @@
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                 Watch Full Interview on YouTube &nearr;
               </a>
-              <a class="btn btn-ghost-dark" href="contact.html">Book a Distant Session</a>
+              <a class="btn btn-ghost-dark" href="<?php echo esc_url(home_url("/contact/")); ?>">Book a Distant Session</a>
             </div>
           </div>
 
@@ -409,7 +367,7 @@
         </div>
 
         <div class="offer-grid">
-          <a class="offer-card reveal delay-1" href="results.html">
+          <a class="offer-card reveal delay-1" href="<?php echo esc_url(home_url("/results/")); ?>">
             <span class="tag">Testimonials</span>
             <h3>Healing Results</h3>
             <p>Click to view documented client healing experiences across physical, emotional, and spiritual sessions.</p>
@@ -441,73 +399,12 @@
         <p>I am sure you have lots of questions and you will be under no obligation to then book a session. Psssssttt – really, I don't charge "an arm and a leg" for a 30 minute session.<br><br>
         <strong>You are alive to give voice, action and physicality to GOD. To become the grandest version of the greatest vision you hold about Who You Are.</strong></p>
         <div class="btn-row">
-          <a class="btn btn-primary" href="contact.html">Contact Eliza</a>
-          <a class="btn btn-ghost-light" href="about.html">Read About Us</a>
+          <a class="btn btn-primary" href="<?php echo esc_url(home_url("/contact/")); ?>">Contact Eliza</a>
+          <a class="btn btn-ghost-light" href="<?php echo esc_url(home_url("/about-us/")); ?>">Read About Us</a>
         </div>
       </div>
     </section>
 
   </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2c1.6 2.1 2.6 3.8 2.6 5.4 0 1.2-.8 2-1.8 2s-1.7-.8-1.7-1.8c0-.6.2-1.1.5-1.6-1.1.8-1.9 2.1-1.9 3.6a3 3 0 0 0 3 3 3.9 3.9 0 0 0 3.3-4.1C16 6.2 13.7 3.7 12 2z"/>
-            </svg>
-            Eliza Reconnection
-          </h4>
-          <p>Reconnective Healing, Consciousness Coaching, and Meditation &amp; Conscious Breathing &mdash; practiced with care from a home office in Lakeside, Cape Town.</p>
-        </div>
-        <div>
-          <h4>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M15 9l-2 4.5L8.5 15l2-4.5z" fill="currentColor"/>
-            </svg>
-            Explore
-          </h4>
-          <ul>
-            <li><a href="about.html">About Us</a></li>
-            <li><a href="work-with-me.html">Services &amp; Coaching</a></li>
-            <li><a href="journal.html">Evidence &amp; Science</a></li>
-            <li><a href="results.html">Results &amp; Voices</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <rect x="3.5" y="5.5" width="17" height="13" rx="2" fill="none" stroke="currentColor" stroke-width="1.8"/>
-              <path d="M4 6.5l8 6.5 8-6.5" fill="none" stroke="currentColor" stroke-width="1.8"/>
-            </svg>
-            Get in touch
-          </h4>
-          <ul>
-            <li><a href="tel:+27829269851">082 926 9851</a></li>
-            <li><a href="mailto:eliza.reconnection@gmail.com">eliza.reconnection@gmail.com</a></li>
-            <li>Promenade Road, Lakeside, Cape Town, South Africa</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>&copy; <span data-year>2026</span> Eliza Reconnection. All rights reserved.</span>
-        <div class="social-row">
-          <a href="https://www.facebook.com/eliza.james1/" target="_blank" rel="noopener" aria-label="Facebook">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V8c0-.9.2-1.5 1.6-1.5H17V3.7C16.7 3.6 15.6 3.5 14.4 3.5c-2.6 0-4.4 1.6-4.4 4.5v2h-3v3.1h3V21h3.5z" fill="currentColor"/></svg>
-          </a>
-          <a href="https://www.instagram.com/eliza.mudita" target="_blank" rel="noopener" aria-label="Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor"/></svg>
-          </a>
-          <a href="https://www.linkedin.com/in/eliza-james-8789b3109/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="3" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="8" cy="8.2" r="1.3" fill="currentColor"/><line x1="8" y1="11" x2="8" y2="17" stroke="currentColor" stroke-width="1.8"/><path d="M12 17v-3.5c0-1.6 1-2.5 2.3-2.5s2.2.9 2.2 2.5V17" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
-          </a>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
-</html>
+<?php
+get_footer();

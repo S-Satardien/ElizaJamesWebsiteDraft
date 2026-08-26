@@ -1,0 +1,44 @@
+{
+  "key": "group_eliza_homepage",
+  "title": "Homepage Content & Settings",
+  "fields": [
+    {
+      "key": "field_hero_title",
+      "label": "Hero Title",
+      "name": "hero_title",
+      "type": "text",
+      "default_value": "Sacred Alignment"
+    },
+    {
+      "key": "field_hero_subtitle",
+      "label": "Hero Subtitle",
+      "name": "hero_subtitle",
+      "type": "text",
+      "default_value": "Where Inner Stillness Meets Sacred Power"
+    },
+    {
+      "key": "field_book_trailer_id",
+      "label": "Book Trailer YouTube ID",
+      "name": "book_trailer_youtube_id",
+      "type": "text",
+      "default_value": "VmsQBtoa7h0"
+    },
+    {
+      "key": "field_interview_id",
+      "label": "Interview YouTube ID",
+      "name": "interview_youtube_id",
+      "type": "text",
+      "default_value": "jJ9U9D2H43I"
+    }
+  ],
+  "location": [
+    [
+      {
+        "param": "page_type",
+        "operator": "==",
+        "value": "front_page"
+      }
+    ]
+  ],
+  "active": true
+}
