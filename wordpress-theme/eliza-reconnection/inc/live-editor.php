@@ -9,17 +9,23 @@ if (!defined('ABSPATH')) exit;
 function eliza_enqueue_live_editor() {
     if (!is_user_logged_in() || !current_user_can('edit_pages')) return;
 
+    // Determine current post ID accurately
+    $page_id = get_the_ID();
+    if (is_front_page() || is_home()) {
+        $page_id = get_option('page_on_front') ?: $page_id;
+    }
+
     // Enqueue WordPress Media Library uploader
     wp_enqueue_media();
 
     // Enqueue Live Editor Styles & Script
-    wp_enqueue_style('eliza-live-editor-css', get_template_directory_uri() . '/css/live-editor.css', array(), '1.0.1');
-    wp_enqueue_script('eliza-live-editor-js', get_template_directory_uri() . '/js/live-editor.js', array('jquery'), '1.0.1', true);
+    wp_enqueue_style('eliza-live-editor-css', get_template_directory_uri() . '/css/live-editor.css', array(), '1.0.2');
+    wp_enqueue_script('eliza-live-editor-js', get_template_directory_uri() . '/js/live-editor.js', array('jquery'), '1.0.2', true);
 
     wp_localize_script('eliza-live-editor-js', 'eliza_live_editor', array(
         'ajax_url' => admin_url('admin-ajax.php'),
         'nonce'    => wp_create_nonce('eliza_live_editor_nonce'),
-        'post_id'  => get_the_ID() ?: get_option('page_on_front'),
+        'post_id'  => $page_id,
     ));
 }
 add_action('wp_enqueue_scripts', 'eliza_enqueue_live_editor');
@@ -35,7 +41,7 @@ function eliza_render_live_editor_toolbar() {
           <span class="eliza-pulse-dot"></span>
           <span>Live Visual Editor</span>
         </span>
-        <span class="eliza-toolbar-hint">Click any text on the page to edit · Click photos to replace</span>
+        <span class="eliza-toolbar-hint">Click any text on screen to edit · Click photos to replace</span>
       </div>
       <div class="eliza-toolbar-right">
         <button type="button" id="eliza-toggle-edit-mode" class="eliza-btn eliza-btn-mode">
@@ -59,9 +65,10 @@ function eliza_ajax_save_live_page() {
     }
 
     $post_id = intval($_POST['post_id'] ?? 0);
-    $content = wp_kses_post($_POST['content'] ?? '');
+    // Use wp_unslash to prevent slash escaping on HTML quotes
+    $content = wp_unslash($_POST['content'] ?? '');
 
-    if (!$post_id || !$content) {
+    if (!$post_id || empty(trim($content))) {
         wp_send_json_error(array('message' => 'Invalid post ID or empty content.'));
     }
 

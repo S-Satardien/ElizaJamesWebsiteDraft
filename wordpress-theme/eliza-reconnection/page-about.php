@@ -5,6 +5,17 @@
  */
 get_header();
 ?>
+<?php
+$page_id = get_the_ID();
+if (is_front_page() || is_home()) {
+    $page_id = get_option('page_on_front') ?: $page_id;
+}
+$saved_content = get_post_field('post_content', $page_id);
+
+if (!empty(trim($saved_content))) {
+    echo '<main id="main">' . $saved_content . '</main>';
+} else {
+?>
 <main id="main">
     <!-- Page Hero -->
     <section class="page-hero">
@@ -118,5 +129,9 @@ get_header();
       </div>
     </section>
   </main>
+<?php
+}
+?>
+
 <?php
 get_footer();

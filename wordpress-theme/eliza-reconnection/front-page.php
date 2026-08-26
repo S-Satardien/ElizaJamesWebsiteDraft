@@ -60,7 +60,18 @@ $cta_title        = eliza_field('cta_title', "Do call me – let's have an infor
 $cta_p1           = eliza_field('cta_p1', 'I am sure you have lots of questions and you will be under no obligation to then book a session. Psssssttt – really, I don\'t charge "an arm and a leg" for a 30 minute session.');
 $cta_quote        = eliza_field('cta_quote', 'You are alive to give voice, action and physicality to GOD. To become the grandest version of the greatest vision you hold about Who You Are.');
 ?>
-  <main id="main">
+  <?php
+$page_id = get_the_ID();
+if (is_front_page() || is_home()) {
+    $page_id = get_option('page_on_front') ?: $page_id;
+}
+$saved_content = get_post_field('post_content', $page_id);
+
+if (!empty(trim($saved_content))) {
+    echo '<main id="main">' . $saved_content . '</main>';
+} else {
+?>
+<main id="main">
 
     <!-- Section 1: Hero -->
     <section class="home-hero">
@@ -400,5 +411,9 @@ $cta_quote        = eliza_field('cta_quote', 'You are alive to give voice, actio
       </div>
     </section>
   </main>
+<?php
+}
+?>
+
 <?php
 get_footer();
