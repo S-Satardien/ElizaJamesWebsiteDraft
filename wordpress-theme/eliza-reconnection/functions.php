@@ -10,6 +10,11 @@ function eliza_theme_setup() {
     add_theme_support("automatic-feed-links");
     add_theme_support("title-tag");
     add_theme_support("post-thumbnails");
+    add_theme_support("align-wide");
+    add_theme_support("responsive-embeds");
+    add_theme_support("editor-styles");
+    add_editor_style("css/styles.css");
+
     add_theme_support("html5", array("search-form", "comment-form", "comment-list", "gallery", "caption", "style", "script"));
     register_nav_menus(array(
         "primary-menu" => __("Primary Navigation", "eliza-reconnection"),
@@ -30,21 +35,11 @@ function eliza_theme_scripts() {
 }
 add_action("wp_enqueue_scripts", "eliza_theme_scripts");
 
-// ACF JSON Auto-Sync
-add_filter("acf/settings/save_json", function($path) { return get_template_directory() . "/acf-json"; });
-add_filter("acf/settings/load_json", function($paths) { unset($paths[0]); $paths[] = get_template_directory() . "/acf-json"; return $paths; });
-
-// Options Page
-if (function_exists("acf_add_options_page")) {
-    acf_add_options_page(array(
-        "page_title" => __("Site Settings & Contact Info", "eliza-reconnection"),
-        "menu_title" => __("Site Settings", "eliza-reconnection"),
-        "menu_slug"  => "eliza-site-settings",
-        "capability" => "edit_posts",
-        "redirect"   => false,
-        "icon_url"   => "dashicons-admin-site-alt3",
-    ));
+// Enqueue fonts in block editor
+function eliza_block_editor_assets() {
+    wp_enqueue_style("eliza-editor-fonts", "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap", array(), null);
 }
+add_action("enqueue_block_editor_assets", "eliza_block_editor_assets");
 
 function eliza_field($name, $default = "", $post_id = false) {
     if (function_exists("get_field")) {
@@ -54,11 +49,12 @@ function eliza_field($name, $default = "", $post_id = false) {
     return $default;
 }
 
+// Contact form AJAX handler
 function eliza_handle_contact_ajax() {
     check_ajax_referer("eliza_contact_nonce", "nonce");
-    $name = sanitize_text_field($_POST["name"] ?? "");
-    $email = sanitize_email($_POST["email"] ?? "");
-    $phone = sanitize_text_field($_POST["phone"] ?? "");
+    $name    = sanitize_text_field($_POST["name"] ?? "");
+    $email   = sanitize_email($_POST["email"] ?? "");
+    $phone   = sanitize_text_field($_POST["phone"] ?? "");
     $service = sanitize_text_field($_POST["service"] ?? "");
     $message = sanitize_textarea_field($_POST["message"] ?? "");
     if (!$name || !$email || !$message) {
@@ -77,6 +73,3 @@ function eliza_handle_contact_ajax() {
 }
 add_action("wp_ajax_eliza_contact_submit", "eliza_handle_contact_ajax");
 add_action("wp_ajax_nopriv_eliza_contact_submit", "eliza_handle_contact_ajax");
-
-// Load Programmatic ACF Field Groups
-require_once get_template_directory() . '/inc/acf-fields.php';
