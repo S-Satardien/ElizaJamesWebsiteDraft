@@ -429,6 +429,84 @@
             object-fit: contain;
         }
 
+        /* Recording Progress Overlay */
+        .recording-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(10, 14, 24, 0.92);
+            border: 1.5px solid #e74c3c;
+            border-radius: 12px;
+            padding: 14px 18px;
+            display: none;
+            flex-direction: column;
+            gap: 8px;
+            z-index: 50;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(231, 76, 60, 0.4);
+            min-width: 280px;
+        }
+
+        .recording-overlay.active {
+            display: flex;
+        }
+
+        .recording-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            letter-spacing: 1px;
+        }
+
+        .rec-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #e74c3c;
+            animation: pulseRec 1s infinite alternate;
+        }
+
+        @keyframes pulseRec {
+            from { opacity: 0.3; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1.2); }
+        }
+
+        .rec-progress-bar {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .rec-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
+            transition: width 0.1s linear;
+        }
+
+        .rec-controls-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #cbd5e1;
+        }
+
+        .rec-stop-btn {
+            background: #e74c3c;
+            border: none;
+            color: #fff;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
         .controls-card {
             width: 100%;
             padding: 16px 22px;
@@ -825,6 +903,24 @@
             <!-- 16:9 1080p Canvas Viewport -->
             <div class="video-viewport" id="viewport">
                 <canvas id="renderCanvas" width="1920" height="1080"></canvas>
+
+                <!-- Recording Status Overlay -->
+                <div class="recording-overlay" id="recordingOverlay">
+                    <div class="recording-header">
+                        <span style="display:flex; align-items:center; gap:8px;">
+                            <span class="rec-dot"></span>
+                            RECORDING 1080P VIDEO
+                        </span>
+                        <span id="recTime">00:00 / 00:50</span>
+                    </div>
+                    <div class="rec-progress-bar">
+                        <div class="rec-progress-fill" id="recProgressFill"></div>
+                    </div>
+                    <div class="rec-controls-row">
+                        <span id="recStatus">Capturing 60fps frames with audio...</span>
+                        <button class="rec-stop-btn" onclick="stopRecording()">Stop & Download</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Glass Controls Bar -->
@@ -944,11 +1040,7 @@
 
     <script>
         /**
-         * CHAKRA ENERGETICS - OFFICIAL CINEMATIC BOOK TRAILER ENGINE (V8)
-         * - Slower, readable 3D book spin in Scene 5 (generous Back Cover reading time)
-         * - Seamless, cinematic camera glide transition from Scene 5 to Scene 6 (no jumping)
-         * - 13-Chakra system & Base Chakra
-         * - Amazon, Takealot, Barnes & Noble, Paperback & eBook editions
+         * CHAKRA ENERGETICS - OFFICIAL CINEMATIC BOOK TRAILER ENGINE
          */
 
         const canvas = document.getElementById('renderCanvas');
@@ -965,6 +1057,12 @@
         const sceneCards = document.querySelectorAll('.scene-card');
         const soundPreset = document.getElementById('soundPreset');
         const customAudioInput = document.getElementById('customAudioInput');
+
+        // Recording Progress Overlay Elements
+        const recordingOverlay = document.getElementById('recordingOverlay');
+        const recTime = document.getElementById('recTime');
+        const recProgressFill = document.getElementById('recProgressFill');
+        const recStatus = document.getElementById('recStatus');
 
         // Volume Controls
         const volumeSlider = document.getElementById('volumeSlider');
@@ -1264,7 +1362,7 @@
                     masterGain.gain.setValueAtTime(isMuted ? 0 : currentVolume, audioCtx.currentTime);
                     masterGain.connect(audioCtx.destination);
                 } catch (e) {
-                    console.warn(e);
+                    console.warn('AudioContext Init Error:', e);
                 }
             }
             if (audioCtx && audioCtx.state === 'suspended') {
@@ -1894,7 +1992,7 @@
 
                     ctx.restore();
                 }
-            // Back Cover Face (cosRot < 0) - Unmirrored, crystal-clear readable text
+            // Back Cover Face (cosRot < 0) - Upright & unmirrored
             } else {
                 if (imgBackCover.complete && imgBackCover.naturalWidth > 0) {
                     ctx.save();
@@ -1905,7 +2003,6 @@
                     ctx.lineWidth = 4;
                     ctx.strokeRect(-faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
 
-                    // Draw back cover upright without mirroring
                     ctx.drawImage(imgBackCover, -faceWidth * 0.5, -bookH * 0.5, faceWidth, bookH);
 
                     ctx.restore();
@@ -2233,60 +2330,48 @@
             // (Continuous smooth interpolation from 35.0s to 50.0s)
             // ========================================================
             } else {
-                const st = t - 35.0; // 0 to 15s
+                const st = t - 35.0;
 
                 // Compute 3D Book Rotation Angle (rotY) with extended Back Cover pause
                 let rotY = 0;
                 if (st < 1.0) {
-                    // Initial Front Cover glance
                     rotY = 0;
                 } else if (st < 2.5) {
-                    // Smoothly rotates to Back Cover
                     const p = (st - 1.0) / 1.5;
                     const ease = p * p * (3 - 2 * p);
                     rotY = ease * Math.PI;
                 } else if (st < 5.2) {
-                    // EXTENDED BACK COVER READING PHASE (2.7 seconds!)
-                    // Subtly drifts around 180 deg so author & quotes can be clearly read
                     rotY = Math.PI + Math.sin((st - 2.5) * 1.2) * 0.08;
                 } else if (st < 6.8) {
-                    // Smoothly rotates back to Front Cover
                     const p = (st - 5.2) / 1.6;
                     const ease = p * p * (3 - 2 * p);
                     rotY = Math.PI + ease * Math.PI;
                 } else {
-                    // Settled Front Cover orientation
                     rotY = Math.sin((st - 6.8) * 1.0) * 0.06;
                 }
 
-                // ==========================================
-                // SEAMLESS CAMERA GLIDE BETWEEN SCENE 5 & 6
-                // (Smooth transition window between 43.0s and 45.0s)
-                // ==========================================
+                // Smooth Glide Transition
                 let bookX = 620;
                 let bookScale = 1.0;
                 let scene5Alpha = 1.0;
                 let scene6Alpha = 0.0;
 
                 if (t < 43.0) {
-                    // Pure Scene 5
                     bookX = 620;
                     bookScale = 1.0;
                     scene5Alpha = Math.min((t - 35.0) / 1.0, 1.0);
                     scene6Alpha = 0.0;
                 } else if (t <= 45.0) {
-                    // SMOOTH 2-SECOND GLIDE
                     const blend = (t - 43.0) / 2.0;
-                    const smoothBlend = blend * blend * (3 - 2 * blend); // Smooth cubic ease
+                    const smoothBlend = blend * blend * (3 - 2 * blend);
 
-                    bookX = 620 + (500 - 620) * smoothBlend; // Glides smoothly from 620 to 500
-                    bookScale = 1.0 + (0.86 - 1.0) * smoothBlend; // Scales from 1.0 to 0.86
-                    rotY = rotY * (1 - smoothBlend) + (-0.15) * smoothBlend; // Blends rotation smoothly
+                    bookX = 620 + (500 - 620) * smoothBlend;
+                    bookScale = 1.0 + (0.86 - 1.0) * smoothBlend;
+                    rotY = rotY * (1 - smoothBlend) + (-0.15) * smoothBlend;
 
                     scene5Alpha = 1.0 - smoothBlend;
                     scene6Alpha = smoothBlend;
                 } else {
-                    // Pure Scene 6
                     bookX = 500;
                     bookScale = 0.86;
                     rotY = -0.15 + Math.sin(t * 1.5) * 0.04;
@@ -2294,13 +2379,10 @@
                     scene6Alpha = 1.0;
                 }
 
-                // Render Continuous 3D Book
                 const floatY = Math.sin(st * 2.0) * 10;
                 draw3DBook(bookX, 530 + floatY, rotY, bookScale, st);
 
-                // ==========================================
-                // SCENE 5 TEXT OVERLAY (Fades out smoothly)
-                // ==========================================
+                // Scene 5 Text
                 if (scene5Alpha > 0.01) {
                     ctx.save();
                     ctx.globalAlpha = scene5Alpha;
@@ -2345,9 +2427,7 @@
                     ctx.restore();
                 }
 
-                // ==========================================
-                // SCENE 6 TEXT OVERLAY (Fades in smoothly)
-                // ==========================================
+                // Scene 6 Text
                 if (scene6Alpha > 0.01) {
                     ctx.save();
                     ctx.globalAlpha = scene6Alpha;
@@ -2396,6 +2476,14 @@
             }
 
             updateTimelineUI();
+
+            // Update Recording Overlay if active
+            if (isRecording) {
+                const recPct = (currentTime / TOTAL_DURATION) * 100;
+                recProgressFill.style.width = `${recPct}%`;
+                recTime.textContent = `${formatSecondsToTimestamp(currentTime)} / 00:50`;
+                recStatus.textContent = `Scene ${currentScene} of 6 (${Math.round(recPct)}%)...`;
+            }
         }
 
         function updateTimelineUI() {
@@ -2500,65 +2588,107 @@
             }
         });
 
+        // ========================================================
+        // BULLETPROOF 1080P 60FPS VIDEO EXPORTER
+        // ========================================================
+        let mediaRecorder = null;
+        let recordedChunks = [];
+        let isRecording = false;
+        let selectedMimeType = 'video/webm';
+
+        function getBestMimeType() {
+            const types = [
+                'video/mp4;codecs=avc1.42E01E,mp4a.40.2',
+                'video/mp4',
+                'video/webm;codecs=vp9,opus',
+                'video/webm;codecs=vp8,opus',
+                'video/webm;codecs=h264',
+                'video/webm'
+            ];
+            for (let t of types) {
+                if (window.MediaRecorder && MediaRecorder.isTypeSupported(t)) {
+                    return t;
+                }
+            }
+            return 'video/webm';
+        }
+
         function startRecording() {
             initAudioContext();
             recordedChunks = [];
-            
+
+            // 1. Capture 60fps canvas stream
             const stream = canvas.captureStream(60);
 
-            const activeAudio = (soundPreset.value === 'custom' && customAudio) ? customAudio : htmlAudio;
-            if (activeAudio && activeAudio.captureStream) {
-                const aStream = activeAudio.captureStream();
-                if (aStream && aStream.getAudioTracks().length > 0) {
-                    stream.addTrack(aStream.getAudioTracks()[0]);
+            // 2. Safe Audio Track Capture via Web Audio Node
+            try {
+                if (audioCtx && masterGain) {
+                    const audioDest = audioCtx.createMediaStreamDestination();
+                    masterGain.connect(audioDest);
+                    const tracks = audioDest.stream.getAudioTracks();
+                    if (tracks && tracks.length > 0) {
+                        stream.addTrack(tracks[0]);
+                    }
                 }
-            } else if (audioCtx && masterGain) {
-                const dest = audioCtx.createMediaStreamDestination();
-                masterGain.connect(dest);
-                const audioTracks = dest.stream.getAudioTracks();
-                if (audioTracks.length > 0) {
-                    stream.addTrack(audioTracks[0]);
-                }
+            } catch (e) {
+                console.warn('Audio track routing note:', e);
             }
 
-            let mimeType = 'video/webm;codecs=vp9';
-            if (!MediaRecorder.isTypeSupported(mimeType)) {
-                mimeType = 'video/webm';
-            }
+            // 3. Select best supported MIME type
+            selectedMimeType = getBestMimeType();
+            const fileExt = selectedMimeType.includes('mp4') ? 'mp4' : 'webm';
 
             try {
                 mediaRecorder = new MediaRecorder(stream, {
-                    mimeType: mimeType,
-                    videoBitsPerSecond: 10000000
+                    mimeType: selectedMimeType,
+                    videoBitsPerSecond: 8000000
                 });
             } catch (e) {
-                mediaRecorder = new MediaRecorder(stream);
+                try {
+                    mediaRecorder = new MediaRecorder(stream);
+                } catch (e2) {
+                    alert('Video recording is not supported in this browser. Please try Chrome, Edge, or Firefox.');
+                    return;
+                }
             }
 
             mediaRecorder.ondataavailable = (e) => {
-                if (e.data.size > 0) {
+                if (e.data && e.data.size > 0) {
                     recordedChunks.push(e.data);
                 }
             };
 
             mediaRecorder.onstop = () => {
-                const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                recordingOverlay.classList.remove('active');
+                recordBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> Export Video (MP4/WebM)`;
+                isRecording = false;
+
+                if (recordedChunks.length === 0) {
+                    showToast('Recording ended with no frames captured.');
+                    return;
+                }
+
+                const blob = new Blob(recordedChunks, { type: selectedMimeType });
                 const url = URL.createObjectURL(blob);
                 const a = document.createElement('a');
                 a.href = url;
-                a.download = 'Chakra_Energetics_Cinematic_Trailer.webm';
+                a.download = `Chakra_Energetics_Trailer_1080p.${fileExt}`;
+                document.body.appendChild(a);
                 a.click();
+                document.body.removeChild(a);
                 URL.revokeObjectURL(url);
-                isRecording = false;
-                recordBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg> Export Video (MP4/WebM)`;
-                showToast('Video exported and downloaded successfully!');
+
+                showToast(`🎉 Video exported and downloaded: Chakra_Energetics_Trailer_1080p.${fileExt}!`, 5000);
             };
 
             isRecording = true;
-            recordBtn.innerHTML = `Recording 1080p Video...`;
+            recordingOverlay.classList.add('active');
+            recordBtn.innerHTML = `🔴 Recording Active...`;
             showToast('Recording started! Capturing 1080p 60fps trailer with audio...');
+
+            // Start recorder & play from beginning
             seekToTime(0);
-            mediaRecorder.start();
+            mediaRecorder.start(500); // 500ms time slice
             playTrailer();
         }
 
@@ -2566,6 +2696,8 @@
             if (mediaRecorder && mediaRecorder.state !== 'inactive') {
                 mediaRecorder.stop();
             }
+            isRecording = false;
+            recordingOverlay.classList.remove('active');
         }
 
         recordBtn.addEventListener('click', () => {
