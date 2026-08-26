@@ -5,7 +5,7 @@
   $(document).ready(function () {
     let isEditMode = true;
 
-    // Comprehensive list of all text elements across all page templates
+        // Comprehensive list of all text elements across all page templates
     const editableSelectors = [
       'h1', 'h2', 'h3', 'h4', 'h5', 'h6',
       'p', 'li', 'td', 'th', 'dt', 'dd',
@@ -16,7 +16,9 @@
       '.btn', '.eyebrow', '.glass-chip span:not(.pulse-dot)',
       '.portrait-floating-badge', '.bio-photo-badge', '.bio-photo-caption p',
       '.author-bio-tagline', '.single-author-sub', '.tea-cta strong', '.tea-cta p',
-      '.glass-box h4', '.glass-box p', '.glass-box li'
+      '.glass-box h4', '.glass-box p', '.glass-box li',
+      '.video-footer-link', '.video-footer-link a', '.video-footer-link span',
+      '.offer-callout', '.offer-highlight-box p', '.offer-highlight-box .box-label'
     ].join(', ');
 
     // Initialize Edit Mode
