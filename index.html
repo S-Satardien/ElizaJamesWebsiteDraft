@@ -434,7 +434,7 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            background: rgba(10, 14, 24, 0.92);
+            background: rgba(10, 14, 24, 0.94);
             border: 1.5px solid #e74c3c;
             border-radius: 12px;
             padding: 14px 18px;
@@ -443,7 +443,7 @@
             gap: 8px;
             z-index: 50;
             box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(231, 76, 60, 0.4);
-            min-width: 280px;
+            min-width: 290px;
         }
 
         .recording-overlay.active {
@@ -909,7 +909,7 @@
                     <div class="recording-header">
                         <span style="display:flex; align-items:center; gap:8px;">
                             <span class="rec-dot"></span>
-                            RECORDING 1080P VIDEO
+                            RECORDING 1080P VIDEO WITH AUDIO
                         </span>
                         <span id="recTime">00:00 / 00:50</span>
                     </div>
@@ -917,7 +917,7 @@
                         <div class="rec-progress-fill" id="recProgressFill"></div>
                     </div>
                     <div class="rec-controls-row">
-                        <span id="recStatus">Capturing 60fps frames with audio...</span>
+                        <span id="recStatus">Capturing 60fps frames with soundtrack...</span>
                         <button class="rec-stop-btn" onclick="stopRecording()">Stop & Download</button>
                     </div>
                 </div>
@@ -1036,7 +1036,7 @@
         </main>
     </div>
 
-    <div class="toast" id="toast">Recording started... Capturing 1080p 60fps video</div>
+    <div class="toast" id="toast">Recording started... Capturing 1080p 60fps video with audio</div>
 
     <script>
         /**
@@ -1314,7 +1314,7 @@
         }
 
         // ========================================================
-        // AUDIO ENGINE
+        // AUDIO ENGINE WITH FULL WEB AUDIO ROUTING
         // ========================================================
         const htmlAudio = new Audio();
         htmlAudio.preload = 'auto';
@@ -1323,11 +1323,13 @@
         } else {
             htmlAudio.src = 'assets/strauss-blue-danube-trailer.mp3';
         }
-        htmlAudio.volume = currentVolume;
 
         let customAudio = null;
         let audioCtx = null;
         let masterGain = null;
+        let audioDestNode = null;
+        let htmlAudioSourceNode = null;
+        let customAudioSourceNode = null;
         let synthTimer = null;
         let synthBeat = 0;
 
@@ -1361,6 +1363,20 @@
                     masterGain = audioCtx.createGain();
                     masterGain.gain.setValueAtTime(isMuted ? 0 : currentVolume, audioCtx.currentTime);
                     masterGain.connect(audioCtx.destination);
+
+                    // MediaStream Destination for MediaRecorder export
+                    audioDestNode = audioCtx.createMediaStreamDestination();
+                    masterGain.connect(audioDestNode);
+
+                    // Route htmlAudio through Web Audio
+                    if (!htmlAudioSourceNode) {
+                        try {
+                            htmlAudioSourceNode = audioCtx.createMediaElementSource(htmlAudio);
+                            htmlAudioSourceNode.connect(masterGain);
+                        } catch (e) {
+                            console.warn('htmlAudio source connect note:', e);
+                        }
+                    }
                 } catch (e) {
                     console.warn('AudioContext Init Error:', e);
                 }
@@ -1374,11 +1390,11 @@
             currentVolume = parseFloat(val);
             if (currentVolume > 0) isMuted = false;
             
-            htmlAudio.volume = isMuted ? 0 : currentVolume;
-            if (customAudio) customAudio.volume = isMuted ? 0 : currentVolume;
             if (masterGain && audioCtx) {
                 masterGain.gain.setValueAtTime(isMuted ? 0 : currentVolume, audioCtx.currentTime);
             }
+            htmlAudio.volume = isMuted ? 0 : currentVolume;
+            if (customAudio) customAudio.volume = isMuted ? 0 : currentVolume;
 
             volumeSlider.value = isMuted ? 0 : currentVolume;
             volumePercent.textContent = `${Math.round((isMuted ? 0 : currentVolume) * 100)}%`;
@@ -1412,7 +1428,7 @@
                 if (detune !== 0) osc.detune.setValueAtTime(detune, audioCtx.currentTime);
 
                 gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
-                gain.gain.linearRampToValueAtTime(gainLevel * currentVolume, audioCtx.currentTime + 0.04);
+                gain.gain.linearRampToValueAtTime(gainLevel, audioCtx.currentTime + 0.04);
                 gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + duration);
 
                 osc.connect(gain);
@@ -1471,7 +1487,7 @@
         function startSynthIfActive() {
             if (synthTimer) clearInterval(synthTimer);
             const mode = soundPreset.value;
-            if (mode !== 'strauss') {
+            if (mode !== 'strauss' && mode !== 'custom') {
                 synthBeat = Math.floor(currentTime / 0.422);
                 synthTimer = setInterval(stepSynthSequencer, 422);
             }
@@ -1485,6 +1501,7 @@
         }
 
         function syncAudioPlayback() {
+            initAudioContext();
             const mode = soundPreset.value;
             if (mode === 'strauss') {
                 stopSynth();
@@ -1495,7 +1512,7 @@
                 } else {
                     htmlAudio.pause();
                 }
-            } else if (customAudio) {
+            } else if (customAudio && mode === 'custom') {
                 stopSynth();
                 htmlAudio.pause();
                 customAudio.currentTime = currentTime;
@@ -1523,10 +1540,19 @@
         customAudioInput.addEventListener('change', (e) => {
             const file = e.target.files[0];
             if (file) {
+                initAudioContext();
                 const url = URL.createObjectURL(file);
                 if (customAudio) customAudio.pause();
                 customAudio = new Audio(url);
                 customAudio.volume = isMuted ? 0 : currentVolume;
+
+                try {
+                    if (audioCtx) {
+                        customAudioSourceNode = audioCtx.createMediaElementSource(customAudio);
+                        customAudioSourceNode.connect(masterGain);
+                    }
+                } catch (err) {}
+
                 htmlAudio.pause();
                 stopSynth();
 
@@ -1934,7 +1960,6 @@
 
         // ========================================================
         // 3D HARDCOVER BOOK ENGINE (FRONT, SPINE & BACK TEXTURES)
-        // WITH EXTENDED BACK COVER PAUSE & CONTINUOUS POSITIONING
         // ========================================================
         function draw3DBook(cx, cy, rotY, scale = 1.0, glintTime = 0) {
             ctx.save();
@@ -2327,7 +2352,6 @@
 
             // ========================================================
             // SCENES 5 & 6: SEAMLESS 3D BOOK JOURNEY & GRAND FINALE
-            // (Continuous smooth interpolation from 35.0s to 50.0s)
             // ========================================================
             } else {
                 const st = t - 35.0;
@@ -2589,7 +2613,7 @@
         });
 
         // ========================================================
-        // BULLETPROOF 1080P 60FPS VIDEO EXPORTER
+        // BULLETPROOF 1080P 60FPS VIDEO EXPORTER WITH AUDIO
         // ========================================================
         let mediaRecorder = null;
         let recordedChunks = [];
@@ -2617,35 +2641,37 @@
             initAudioContext();
             recordedChunks = [];
 
-            // 1. Capture 60fps canvas stream
-            const stream = canvas.captureStream(60);
+            // 1. Capture 60fps canvas visual stream
+            const canvasStream = canvas.captureStream(60);
 
-            // 2. Safe Audio Track Capture via Web Audio Node
+            // 2. Capture Audio Track directly from Web Audio Destination Node
+            let tracksToRecord = [...canvasStream.getVideoTracks()];
             try {
-                if (audioCtx && masterGain) {
-                    const audioDest = audioCtx.createMediaStreamDestination();
-                    masterGain.connect(audioDest);
-                    const tracks = audioDest.stream.getAudioTracks();
-                    if (tracks && tracks.length > 0) {
-                        stream.addTrack(tracks[0]);
+                if (audioDestNode && audioDestNode.stream) {
+                    const aTracks = audioDestNode.stream.getAudioTracks();
+                    if (aTracks.length > 0) {
+                        tracksToRecord.push(aTracks[0]);
                     }
                 }
             } catch (e) {
-                console.warn('Audio track routing note:', e);
+                console.warn('Audio track capture notice:', e);
             }
+
+            const combinedStream = new MediaStream(tracksToRecord);
 
             // 3. Select best supported MIME type
             selectedMimeType = getBestMimeType();
             const fileExt = selectedMimeType.includes('mp4') ? 'mp4' : 'webm';
 
             try {
-                mediaRecorder = new MediaRecorder(stream, {
+                mediaRecorder = new MediaRecorder(combinedStream, {
                     mimeType: selectedMimeType,
-                    videoBitsPerSecond: 8000000
+                    videoBitsPerSecond: 8000000,
+                    audioBitsPerSecond: 192000
                 });
             } catch (e) {
                 try {
-                    mediaRecorder = new MediaRecorder(stream);
+                    mediaRecorder = new MediaRecorder(combinedStream);
                 } catch (e2) {
                     alert('Video recording is not supported in this browser. Please try Chrome, Edge, or Firefox.');
                     return;
@@ -2678,7 +2704,7 @@
                 document.body.removeChild(a);
                 URL.revokeObjectURL(url);
 
-                showToast(`🎉 Video exported and downloaded: Chakra_Energetics_Trailer_1080p.${fileExt}!`, 5000);
+                showToast(`🎉 Video with audio exported and downloaded: Chakra_Energetics_Trailer_1080p.${fileExt}!`, 5000);
             };
 
             isRecording = true;
@@ -2686,9 +2712,9 @@
             recordBtn.innerHTML = `🔴 Recording Active...`;
             showToast('Recording started! Capturing 1080p 60fps trailer with audio...');
 
-            // Start recorder & play from beginning
+            // Seek to 0, start recorder & play
             seekToTime(0);
-            mediaRecorder.start(500); // 500ms time slice
+            mediaRecorder.start(500);
             playTrailer();
         }
 
