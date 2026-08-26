@@ -31,7 +31,7 @@ $phone_clean     = preg_replace("/[^0-9+]/", "", $global_phone);
             Explore
           </h4>
           <ul>
-            <li><a href="<?php echo esc_url(home_url("/about-us/")); ?>">About Us</a></li>
+            <li><a href="<?php echo esc_url(home_url("/about/")); ?>">About</a></li>
             <li><a href="<?php echo esc_url(home_url("/services/")); ?>">Services &amp; Coaching</a></li>
             <li><a href="<?php echo esc_url(home_url("/science-evidence/")); ?>">Evidence &amp; Science</a></li>
             <li><a href="<?php echo esc_url(home_url("/results/")); ?>">Results &amp; Voices</a></li>

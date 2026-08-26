@@ -35,7 +35,7 @@
             ?>
             <ul>
               <li><a href="<?php echo esc_url(home_url("/")); ?>" <?php echo is_front_page() ? "aria-current=\"page\"" : ""; ?>>Home</a></li>
-              <li><a href="<?php echo esc_url(home_url("/about-us/")); ?>">About Us</a></li>
+              <li><a href="<?php echo esc_url(home_url("/about/")); ?>">About</a></li>
               <li><a href="<?php echo esc_url(home_url("/services/")); ?>">Services</a></li>
               <li><a href="<?php echo esc_url(home_url("/science-evidence/")); ?>">Science &amp; Evidence</a></li>
               <li><a href="<?php echo esc_url(home_url("/results/")); ?>">Results</a></li>

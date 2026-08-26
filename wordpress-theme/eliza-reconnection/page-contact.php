@@ -108,6 +108,12 @@ if (!empty(trim($saved_content))) {
               <h2 class="section-title" style="font-size:1.6rem; margin-bottom:18px;">Contact Form</h2>
               
               <form class="contact-form" action="#" method="post" novalidate>
+                <!-- Anti-Bot Honeypot Field (Invisible to humans, trapped by bots) -->
+                <div style="display:none !important; position:absolute !important; left:-9999px !important;" aria-hidden="true">
+                  <label for="hp_website">Leave this field empty</label>
+                  <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off">
+                  <input type="hidden" id="form_timestamp" name="form_timestamp" value="<?php echo time(); ?>">
+                </div>
                 <div class="field">
                   <label for="name">Name *</label>
                   <input type="text" id="name" name="your-name" placeholder="Your Full Name" required>
