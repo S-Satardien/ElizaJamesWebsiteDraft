@@ -102,7 +102,7 @@ if (!empty(trim($saved_content))) {
             <!-- Group Collaboration & Vision Photo Card -->
             <div class="bio-photo-card">
               <div class="bio-photo-frame">
-                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/eliza-group-session.jpg" alt="Eliza James facilitating conscious vision and alignment sessions" width="1000" height="750" loading="lazy" style="height: 200px; object-fit: cover; object-position: center 30%;">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/eliza-group-session.jpg" alt="Eliza James facilitating conscious vision and alignment sessions" width="1000" height="750" loading="lazy" style="width:100%; height:240px; object-fit:cover; object-position:center 30%;">
                 <div class="bio-photo-caption">
                   <span class="bio-photo-badge">✦ Conscious Life Purpose &amp; Vision</span>
                   <p>Transforming inner clarity into shared growth, vision, and real-world alignment.</p>

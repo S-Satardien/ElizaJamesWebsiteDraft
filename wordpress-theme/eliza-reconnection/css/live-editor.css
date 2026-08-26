@@ -169,7 +169,22 @@ body.eliza-edit-active .kind[contenteditable="true"] {
 body.eliza-edit-active .eliza-editable-img-wrap {
   position: relative;
   cursor: pointer;
-  display: inline-block;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+body.eliza-edit-active .bio-photo-frame .eliza-editable-img-wrap {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.eliza-edit-active .bio-photo-frame .eliza-editable-img-wrap img {
+  display: block !important;
+  width: 100% !important;
+  height: 240px !important;
+  object-fit: cover !important;
 }
 
 body.eliza-edit-active .eliza-editable-img-wrap:hover::after {
