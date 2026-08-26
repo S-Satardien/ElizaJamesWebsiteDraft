@@ -26,7 +26,7 @@ if (!empty(trim($saved_content))) {
       </div>
     </section>
 
-    <!-- Main Narrative Section (Evenly Balanced Columns) -->
+    <!-- Main Narrative Section 1: Practitioner Journey -->
     <section>
       <div class="container">
         <div class="reveal" style="margin-bottom: 28px;">
@@ -59,11 +59,55 @@ if (!empty(trim($saved_content))) {
 
             <p>Despite doing sessions on an almost daily basis, every interaction with my client continues to leave me in absolute awe of our ability to commune with GOD / The Universe / Source Energy / The Creator (or whatever label you are most comfortable using). And every session confirms that we are all Divine, that the spark of GOD resides within us &ndash; all we need do is allow it to come forth. Albeit sometimes skeptical, clients that have come for sessions, find themselves booking a second or third session.</p>
 
-            <p>For more details on in-person and remote sessions, call <strong>082 926 9851</strong> or email <a href="mailto:eliza.reconnection@gmail.com">eliza.reconnection@gmail.com</a>. Practicing from a dedicated home office in Lakeside, Cape Town.</p>
+            <p>I am based in Lakeside, Cape Town and most of my clients come to my home-office. Clients living in other Provinces book distant healing sessions or would plan sessions during their holidays to the Cape.</p>
 
-            <div class="glass-box" style="margin-top: 24px;">
-              <h4 style="color:var(--gold); margin-bottom: 8px;">Practice Logistics &amp; Hours</h4>
-              <p style="margin: 0; font-size: 0.92rem; line-height: 1.6;">Appointments available on weekdays from 6pm and weekends from 3pm. Distant / remote healing sessions available globally by prior arrangement.</p>
+            <p>During office hours, I manage an <a href="http://www.asf.org.za" target="_blank" rel="noopener noreferrer">NGO</a>. Healing sessions are strictly by appointment. Available times are: weekdays after 6pm, Saturdays and Sundays from 3pm. And should you be wondering &ndash; my youngest client is aged 8yrs and the eldest, to date is aged 79yrs.</p>
+
+            <div class="glass-box" style="margin-top: auto;">
+              <h4>Session Logistics &amp; Hours</h4>
+              <ul>
+                <li><strong>Practicing Since:</strong> 2011 (Sydney, Australia training)</li>
+                <li><strong>Location:</strong> Lakeside, Cape Town (Home-Office)</li>
+                <li><strong>Available Times:</strong> Weekdays after 6pm, Saturdays &amp; Sundays from 3pm</li>
+                <li><strong>Format:</strong> In-person or Distant Healing sessions</li>
+                <li><strong>Daily Work:</strong> NGO Management (African Scholars' Fund)</li>
+                <li><strong>Client Span:</strong> 8 years young to 79 years grand</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Narrative Section 2: Biography & Background -->
+    <section class="section-alt">
+      <div class="container">
+        <div class="reveal" style="margin-bottom: 28px;">
+          <span class="eyebrow">Background &amp; Philosophy</span>
+          <h2 class="section-title">Biography</h2>
+        </div>
+
+        <div class="grid-balanced-2">
+          <div class="prose reveal equal-col">
+            <p>I am a graduate of the University of Cape Town Graduate School of Business; an experienced Reconnective Healing Practitioner (having added the skill of presenting Meditation and Conscious Breathing Workshops into the mix). Conversational or presenting the more structured Life Coaching Workshops is second nature and I resonate strongly with the work of Drs Hurtak (Academy for Future Science). However, being a student and friend of St Germain is what brings me the most joy. My 9-year Spiritual Journey with the enigmatic Comte de St Germain was recently shared with the world in my internationally published work (<em>A Most Extraordinary Journey of Self-discovery</em>).</p>
+
+            <p>I consider myself an ordinary individual, grounded in the realities of daily life. I am a mother, a colleague, a friend and a sibling - someone who laughs with abandon, sheds tears unashamedly, feels the full spectrum of emotions, and loves fiercely. I am not immune to the world's hardships and the harsh realities of corruption, inequality, and inhumanity. And yes, I often voice my frustration with a heartfelt, &ldquo;What the f#ck!&rdquo;</p>
+          </div>
+
+          <div class="prose reveal delay-1 equal-col">
+            <p>I've always had this sense that &ldquo;there must be more to life&rdquo; than what the status quo offers - that there is a greater truth beyond what most people settle for. My hunger for understanding has led me to seminars, books, and teachings that dive into the mysteries of the world. These steps are not just intellectual - each step is a quest to know the Self more deeply, to uncover the truth of who I really am. I believe that true freedom comes from self-awareness, and that the journey is most enlightening when guided by wisdom and clarity.</p>
+
+            <p>In these shifting times, I fully embrace the dawning of the Age of Aquarius - a time when the individual is called to take full responsibility for their own path. With courage, understanding, and consciousness. And so I urge others to step into their power and experience life with intention and self-awareness. For me, the human journey is not one to be left to chance; it is something to be consciously directed and lived to its fullest potential.</p>
+
+            <!-- Group Collaboration & Vision Photo Card -->
+            <div class="bio-photo-card">
+              <div class="bio-photo-frame">
+                <img src="<?php echo esc_url(get_template_directory_uri()); ?>/assets/eliza-group-session.jpg" alt="Eliza James facilitating conscious vision and alignment sessions" width="1000" height="750" loading="lazy" style="height: 200px; object-fit: cover; object-position: center 30%;">
+                <div class="bio-photo-caption">
+                  <span class="bio-photo-badge">✦ Conscious Life Purpose &amp; Vision</span>
+                  <p>Transforming inner clarity into shared growth, vision, and real-world alignment.</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -71,13 +115,13 @@ if (!empty(trim($saved_content))) {
     </section>
 
     <!-- SECTION: Blog Posts / Sacred Journal Grid (Auto-populated from WordPress Posts) -->
-    <section class="section-alt" id="journal">
+    <section class="section-subtle" id="journal">
       <div class="container">
         <div class="section-header-row reveal" style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 36px; flex-wrap: wrap; gap: 16px;">
           <div>
             <span class="eyebrow">Reflections &amp; Sacred Journal</span>
             <h2 class="section-title">Articles, Wisdom &amp; Insights</h2>
-            <p class="section-intro" style="margin: 0;">Explore teachings on energy frequencies, spiritual discernment, and conscious living.</p>
+            <p class="section-intro" style="margin: 0;">Explore teachings, reflections on personal sovereignty, and consciousness exploration.</p>
           </div>
           <div>
             <a href="<?php echo esc_url(get_permalink(get_option('page_for_posts')) ?: home_url('/journal/')); ?>" class="btn btn-ghost">View All Articles &rarr;</a>
@@ -99,7 +143,7 @@ if (!empty(trim($saved_content))) {
                   $delay_idx++;
                   $delay_class = ($delay_idx > 1) ? 'delay-' . min($delay_idx - 1, 3) : '';
                   $categories = get_the_category();
-                  $cat_name = !empty($categories) ? esc_html($categories[0]->name) : 'Spiritual Wisdom';
+                  $cat_name = !empty($categories) ? esc_html($categories[0]->name) : 'Sacred Journal';
                   $read_time = max(1, round(str_word_count(strip_tags(get_the_content())) / 200)) . ' min read';
                   ?>
                   <article class="blog-card reveal <?php echo esc_attr($delay_class); ?>">
@@ -156,15 +200,16 @@ if (!empty(trim($saved_content))) {
       </div>
     </section>
 
-    <!-- Bottom CTA Band -->
+    <!-- Tea Chat & Contact CTA -->
     <section class="cta-band">
+      <div class="glow" aria-hidden="true"></div>
       <div class="container container-narrow reveal">
-        <span class="eyebrow eyebrow-on-dusk">Begin Your Journey</span>
         <h2>Do call me – let's have an informal chat over a cup of tea</h2>
-        <p>I am sure you have lots of questions and you will be under no obligation to then book a session. Psssssttt – really, I don't charge "an arm and a leg" for a 30 minute session.</p>
+        <p>I am sure you have lots of questions and you will be under no obligation to then book a session. Psssssttt – really, I don't charge "an arm and a leg" for a 30 minute session.<br><br>
+        <strong>You are alive to give voice, action and physicality to GOD. To become the grandest version of the greatest vision you hold about Who You Are.</strong></p>
         <div class="btn-row" style="justify-content:center; margin-top:28px;">
-          <a href="<?php echo esc_url(home_url('/contact/')); ?>" class="btn btn-primary">Get in Touch</a>
-          <a href="tel:+27829269851" class="btn btn-ghost-light">Call 082 926 9851</a>
+          <a class="btn btn-primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Get in touch</a>
+          <a class="btn btn-ghost-light" href="<?php echo esc_url(home_url('/services/')); ?>">View Services</a>
         </div>
       </div>
     </section>

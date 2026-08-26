@@ -2943,3 +2943,222 @@ form.contact-form {
   line-height: 1.6;
   margin: 0;
 }
+
+
+/* =========================================================
+   Luxury Single Post Template Styling
+   ========================================================= */
+
+.single-hero-dark {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(130% 160% at 50% -20%, #201713 0%, #0E0A08 70%);
+  color: var(--cream, #FDFBF7);
+  padding: 130px 0 70px;
+}
+
+.single-hero-mandala {
+  position: absolute;
+  right: -80px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 440px;
+  height: 440px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.single-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  font-size: 0.86rem;
+  color: var(--sand-200, #E4D9C8);
+  flex-wrap: wrap;
+}
+
+.single-meta-sep {
+  opacity: 0.4;
+}
+
+.single-hero-title {
+  font-family: var(--font-serif, "Cormorant Garamond", serif);
+  font-size: clamp(2.3rem, 4.8vw, 3.6rem);
+  line-height: 1.15;
+  color: var(--cream, #FDFBF7);
+  margin-bottom: 24px;
+}
+
+.single-hero-lead {
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: var(--sand-200, #E4D9C8);
+  font-style: italic;
+  max-width: 52ch;
+  margin-bottom: 28px;
+}
+
+.single-author-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(229, 191, 101, 0.35);
+  padding: 8px 18px;
+  border-radius: 40px;
+  backdrop-filter: blur(8px);
+}
+
+.single-author-pill-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid var(--gold, #E5BF65);
+}
+
+.single-author-name {
+  display: block;
+  font-weight: 700;
+  font-size: 0.92rem;
+  color: var(--cream, #FDFBF7);
+}
+
+.single-author-role {
+  display: block;
+  font-size: 0.76rem;
+  color: var(--gold, #E5BF65);
+}
+
+.single-content-section {
+  padding: 64px 0 80px;
+  background: var(--sand-50, #FAF7F2);
+}
+
+.article-prose {
+  font-size: 1.12rem;
+  line-height: 1.85;
+  color: var(--ink, #1F1916);
+}
+
+.article-prose p {
+  margin-bottom: 24px;
+}
+
+.article-prose blockquote {
+  border-left: 3.5px solid var(--gold, #E5BF65);
+  background: rgba(229, 191, 101, 0.06);
+  padding: 20px 28px;
+  border-radius: 0 12px 12px 0;
+  margin: 36px 0;
+  font-family: var(--font-serif, "Cormorant Garamond", serif);
+  font-size: 1.45rem;
+  line-height: 1.5;
+  font-style: italic;
+  color: var(--ink, #1F1916);
+}
+
+.single-author-card-grid {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .single-author-card-grid {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.single-author-avatar-lg {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--gold, #E5BF65);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.single-author-bio-content h3 {
+  margin: 0 0 4px;
+  font-size: 1.3rem;
+}
+
+.single-author-sub {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--gold-dark, #A87D20);
+  margin-bottom: 10px;
+}
+
+.single-author-link {
+  font-weight: 700;
+  color: var(--copper, #C26330);
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.single-author-link:hover {
+  color: var(--gold-dark, #A87D20);
+  text-decoration: underline;
+}
+
+.single-nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--sand-200, #E4D9C8);
+  border-bottom: 1px solid var(--sand-200, #E4D9C8);
+  padding: 24px 0;
+  margin-top: 56px;
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .single-nav-bar {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
+
+.single-nav-prev,
+.single-nav-next {
+  flex: 1;
+}
+
+.single-nav-next {
+  text-align: right;
+}
+
+@media (max-width: 700px) {
+  .single-nav-next {
+    text-align: center;
+  }
+}
+
+.single-nav-bar small {
+  display: block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--gold-dark, #A87D20);
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.single-nav-bar a {
+  text-decoration: none;
+  color: var(--ink, #1F1916);
+  font-family: var(--font-serif, "Cormorant Garamond", serif);
+  font-size: 1.15rem;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.single-nav-bar a:hover {
+  color: var(--copper, #C26330);
+}
