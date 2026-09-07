@@ -169,12 +169,13 @@ body.eliza-edit-active .kind[contenteditable="true"] {
 body.eliza-edit-active .eliza-editable-img-wrap {
   position: relative;
   cursor: pointer;
-  display: block;
-  width: 100%;
-  height: 100%;
+  display: inline-block;
+  max-width: 100%;
 }
 
-body.eliza-edit-active .bio-photo-frame .eliza-editable-img-wrap {
+body.eliza-edit-active .bio-photo-frame .eliza-editable-img-wrap,
+body.eliza-edit-active .home-hero-portrait .eliza-editable-img-wrap,
+body.eliza-edit-active .card-image .eliza-editable-img-wrap {
   display: block !important;
   width: 100% !important;
   height: 100% !important;
@@ -203,4 +204,20 @@ body.eliza-edit-active .eliza-editable-img-wrap:hover::after {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
   pointer-events: none;
   z-index: 20;
+}
+
+/* WordPress Smiley / Emoji Inline Text Protection */
+img.emoji,
+img.wp-smiley {
+  display: inline !important;
+  width: 1.15em !important;
+  height: 1.15em !important;
+  max-height: 1.15em !important;
+  margin: 0 0.1em !important;
+  vertical-align: -0.15em !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  pointer-events: none !important;
 }

@@ -37,8 +37,8 @@
         $(this).attr('spellcheck', 'false');
       });
 
-      // Wrap images for click-to-change
-      $('#main img').each(function () {
+      // Wrap content images for click-to-change (exclude emojis, smileys, and icons)
+      $('#main img:not(.emoji):not(.wp-smiley):not(.custom-logo):not(.icon-img)').each(function () {
         if (!$(this).parent().hasClass('eliza-editable-img-wrap')) {
           $(this).wrap('<div class="eliza-editable-img-wrap"></div>');
         }
@@ -48,6 +48,10 @@
     function disableLiveEditing() {
       $('body').removeClass('eliza-edit-active');
       $('#main').find('[contenteditable="true"]').removeAttr('contenteditable');
+      $('#main .eliza-editable-img-wrap').each(function () {
+        const $img = $(this).find('img');
+        $(this).replaceWith($img);
+      });
     }
 
     // Toggle Edit Mode Button
@@ -103,6 +107,14 @@
       // Clone #main to clean live-editor temporary wrappers
       const $clone = $('#main').clone();
       $clone.find('[contenteditable]').removeAttr('contenteditable').removeAttr('spellcheck');
+      
+      // Convert any WP emoji images back into raw text strings
+      $clone.find('img.emoji, img.wp-smiley').each(function () {
+        const altText = $(this).attr('alt') || '🙂';
+        $(this).replaceWith(altText);
+      });
+
+      // Unwrap all editable image wrappers
       $clone.find('.eliza-editable-img-wrap').each(function () {
         const $innerImg = $(this).find('img');
         $(this).replaceWith($innerImg);
