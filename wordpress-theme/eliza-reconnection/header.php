@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/favicon-192x192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/apple-touch-icon.png">
+  <link rel="shortcut icon" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/favicon.ico">
   <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
