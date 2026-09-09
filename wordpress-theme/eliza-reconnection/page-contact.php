@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Contact & Inquiries
+ * Template Name: Contact Page
  * @package Eliza_Reconnection
  */
 get_header();
@@ -16,134 +16,99 @@ if (!empty(trim($saved_content))) {
     echo '<main id="main">' . $saved_content . '</main>';
 } else {
 ?>
-<main id="main">
+  <main id="main">
     <!-- Page Hero -->
     <section class="page-hero">
       <div class="glow" aria-hidden="true"></div>
       <div class="container reveal">
-        <span class="eyebrow eyebrow-on-dusk">Get In Touch</span>
+        <span class="eyebrow eyebrow-on-dusk">Get in Touch</span>
         <h1>Contact Us</h1>
         <p>&ldquo;Do call me &ndash; let's have an informal chat over a cup of tea. I am sure you have lots of questions and you will be under no obligation to then book a session.&rdquo;</p>
       </div>
     </section>
 
-    <!-- Main Contact Section (Evenly Balanced Columns) -->
+    <!-- Main Contact Section -->
     <section>
       <div class="container">
-        <div class="grid-balanced-2" style="align-items: start;">
-          <!-- Column 1: Contact Info & Logistics -->
-          <div class="reveal equal-col">
-            <span class="eyebrow">Direct Details</span>
-            <h2 class="section-title">Contact Details</h2>
-            <p style="margin-bottom: 24px;">Healing sessions are strictly by appointment at my home-office in Lakeside, Cape Town, or via distant / remote sessions worldwide.</p>
-
-            <div class="contact-card-group">
-              <div class="contact-item-card">
-                <div class="info">
-                  <span class="label">Telephone</span>
-                  <a href="tel:+27829269851">082 926 9851</a>
-                </div>
-                <button class="copy-btn" data-copy="0829269851" aria-label="Copy phone number">Copy</button>
-              </div>
-
-              <div class="contact-item-card">
-                <div class="info">
-                  <span class="label">Email</span>
-                  <a href="mailto:eliza.reconnection@gmail.com">eliza.reconnection@gmail.com</a>
-                </div>
-                <button class="copy-btn" data-copy="eliza.reconnection@gmail.com" aria-label="Copy email address">Copy</button>
-              </div>
-
-              <div class="contact-item-card">
-                <div class="info">
-                  <span class="label">Physical Address</span>
-                  <span style="font-weight:600; color:var(--ink);">Promenade Road, Lakeside, Cape Town, South Africa</span>
-                </div>
-                <button class="copy-btn" data-copy="Promenade Road, Lakeside, Cape Town" aria-label="Copy address">Copy</button>
-              </div>
+        <div class="grid-balanced-2">
+          <!-- Column 1: Contact Details & Logistics -->
+          <div class="prose reveal equal-col">
+            <div class="reveal" style="margin-bottom: 24px;">
+              <span class="eyebrow">Direct Inquiries</span>
+              <h2 class="section-title">Reach Out to Eliza</h2>
             </div>
 
-            <!-- Hours Table -->
-            <div style="margin-top: 10px;">
-              <span class="eyebrow">Availability</span>
-              <h3 style="font-size:1.25rem; margin-bottom:10px;">Session Hours (Strictly by Appointment)</h3>
-              <table class="hours-table">
-                <thead>
-                  <tr>
-                    <th>Day</th>
-                    <th>Available Times</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Monday &ndash; Friday</td>
-                    <td>After 6:00 PM (Evenings)</td>
-                  </tr>
-                  <tr>
-                    <td>Saturday &ndash; Sunday</td>
-                    <td>From 3:00 PM (Afternoons)</td>
-                  </tr>
-                  <tr>
-                    <td>Distant / Remote Sessions</td>
-                    <td>Scheduled by arrangement across timezones</td>
-                  </tr>
-                </tbody>
-              </table>
+            <p class="lede" style="color:var(--copper-text); font-weight:600; font-size:1.1rem; margin-bottom:14px;">I look forward to connecting with you on your journey of healing and self-discovery.</p>
+
+            <p>Whether you have questions regarding Reconnective Healing, The Reconnection, Consciousness Coaching, or upcoming Meditation Workshops, please feel free to call, email, or fill out the form.</p>
+
+            <div class="glass-box" style="margin: 24px 0;">
+              <h4>Contact Information</h4>
+              <ul>
+                <li><strong>Mobile / WhatsApp:</strong> <a href="tel:+27829269851" style="color:var(--gold); font-weight:600;">082 926 9851</a></li>
+                <li><strong>Email:</strong> <a href="mailto:eliza@elizareconnection.co.za" style="color:var(--gold); font-weight:600;">eliza@elizareconnection.co.za</a></li>
+                <li><strong>Location:</strong> Lakeside, Cape Town, South Africa</li>
+                <li><strong>Sessions:</strong> In-person (Lakeside Home-Office) or Remote Worldwide</li>
+              </ul>
             </div>
 
-            <!-- Tea Chat Callout -->
-            <div class="tea-cta">
-              <div>
-                <strong style="color:var(--ink); font-size:1.05rem; display:block; margin-bottom:4px;">Informal Tea Chat</strong>
-                <p>Psssssttt &ndash; really, I don't charge &ldquo;an arm and a leg&rdquo; for a 30 minute session. Let's connect over tea to answer all your questions.</p>
-              </div>
-              <a class="btn btn-primary" href="tel:+27829269851">Call Eliza</a>
+            <div class="glass-box" style="border-left: 4px solid var(--gold); margin-top: auto;">
+              <h4 style="color:var(--gold); margin-bottom:8px;">Availability &amp; Appointments</h4>
+              <p style="margin:0; font-size:0.95rem;">Sessions are strictly by appointment.<br>
+              <strong>Weekdays:</strong> After 6:00 PM<br>
+              <strong>Saturdays &amp; Sundays:</strong> From 3:00 PM onwards</p>
             </div>
           </div>
 
           <!-- Column 2: Contact Form & Map -->
-          <div class="reveal delay-1 equal-col">
-            <div class="form-glass">
-              <span class="eyebrow">Send A Message</span>
-              <h2 class="section-title" style="font-size:1.6rem; margin-bottom:18px;">Contact Form</h2>
-              
-              <form class="contact-form" action="#" method="post" novalidate>
-                <!-- Anti-Bot Honeypot Field (Invisible to humans, trapped by bots) -->
-                <div style="display:none !important; position:absolute !important; left:-9999px !important;" aria-hidden="true">
-                  <label for="hp_website">Leave this field empty</label>
+          <div class="prose reveal delay-1 equal-col">
+            <div class="glass-box" style="margin-top: 0;">
+              <h3 style="margin-bottom: 18px;">Send a Message</h3>
+              <form id="contact-form" class="contact-form" method="post" action="#">
+                <?php wp_nonce_field('eliza_contact_nonce', 'contact_nonce'); ?>
+                
+                <!-- Honeypot Anti-Spam (Invisible to real users) -->
+                <div style="display:none !important;" aria-hidden="true">
+                  <label for="hp_website">Leave this field blank</label>
                   <input type="text" id="hp_website" name="hp_website" tabindex="-1" autocomplete="off">
-                  <input type="hidden" id="form_timestamp" name="form_timestamp" value="<?php echo time(); ?>">
-                </div>
-                <div class="field">
-                  <label for="name">Name *</label>
-                  <input type="text" id="name" name="your-name" placeholder="Your Full Name" required>
+                  <input type="hidden" name="form_timestamp" value="<?php echo time(); ?>">
                 </div>
 
                 <div class="field">
-                  <label for="tel">Tel *</label>
-                  <input type="tel" id="tel" name="tel-810" placeholder="Your Contact number (e.g. 082 123 4567)" required>
+                  <label for="name">Name *</label>
+                  <input type="text" id="name" name="name" placeholder="Your Full Name" required>
                 </div>
 
                 <div class="field">
                   <label for="email">Email *</label>
-                  <input type="email" id="email" name="your-email" placeholder="Your email address" required>
+                  <input type="email" id="email" name="email" placeholder="Your email address" required>
                 </div>
 
                 <div class="field">
-                  <label for="subject">Subject *</label>
-                  <input type="text" id="subject" name="your-subject" placeholder="Your Subject (e.g. Reconnective Healing / Tea Chat)" required>
+                  <label for="phone">Phone / WhatsApp</label>
+                  <input type="tel" id="phone" name="phone" placeholder="e.g. 082 123 4567">
+                </div>
+
+                <div class="field">
+                  <label for="service">Interested In</label>
+                  <select id="service" name="service" style="width:100%; padding:10px 14px; background:rgba(23,15,10,0.6); border:1px solid rgba(229,191,101,0.3); border-radius:var(--radius-sm); color:var(--parchment); font-family:inherit;">
+                    <option value="Reconnective Healing">Reconnective Healing / The Reconnection</option>
+                    <option value="Curator of Consciousness">Curator of Consciousness Coaching</option>
+                    <option value="Raising Frequency">Consciously Raising Vibrations</option>
+                    <option value="Meditation Workshops">Meditation &amp; Breathing Workshops</option>
+                    <option value="Informal Tea Chat">Informal Tea Chat</option>
+                    <option value="Other Inquiries">Other Inquiries</option>
+                  </select>
                 </div>
 
                 <div class="field">
                   <label for="message">Message *</label>
-                  <textarea id="message" name="your-message" placeholder="Your Message" required></textarea>
+                  <textarea id="message" name="message" rows="4" placeholder="How can Eliza assist you?" required></textarea>
                 </div>
 
-                <div id="form-status" class="form-status" role="alert">
-                  Thank you! Your message has been sent successfully. Eliza will be in touch with you shortly.
-                </div>
+                <div id="form-status" class="form-status" role="alert" style="display:none; padding:12px; border-radius:var(--radius-sm); margin-bottom:14px; font-weight:600;"></div>
 
-                <button type="submit" class="btn btn-primary" style="width:100%;">Send Message</button>
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width:100%;">Send Inquiry</button>
               </form>
             </div>
 
@@ -167,7 +132,7 @@ if (!empty(trim($saved_content))) {
         <p>To become the grandest version of the greatest vision you hold about Who You Are.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="tel:+27829269851">Call 082 926 9851</a>
-          <a class="btn btn-ghost-light" href="<?php echo esc_url(home_url('/about-us/')); ?>">About Eliza</a>
+          <a class="btn btn-ghost-light" href="<?php echo esc_url(home_url('/about/')); ?>">About Eliza</a>
         </div>
       </div>
     </section>
