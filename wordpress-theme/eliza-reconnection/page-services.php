@@ -34,7 +34,6 @@ if (!empty(trim($saved_content))) {
           <a href="#reconnective-healing" class="active">Reconnective Healing</a>
           <a href="#curator-of-consciousness">Curator of Consciousness</a>
           <a href="#raising-frequency">Raising Frequency</a>
-          <a href="#neural-remapping">Neural Remapping</a>
           <a href="#meditation-breathing">Meditation &amp; Breathing</a>
         </div>
       </div>
@@ -178,51 +177,8 @@ if (!empty(trim($saved_content))) {
       </div>
     </section>
 
-    <!-- Modality 4: Consciously Remapping Neuro Pathways (Evenly Balanced Columns) -->
-    <section id="neural-remapping" class="work-section section-alt">
-      <div class="container">
-        <div class="grid-balanced-2">
-          <!-- Column 1: Brain Anatomy & Computer Analogy -->
-          <div class="prose reveal equal-col">
-            <div class="work-icon-wrap" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
-                <line x1="8" y1="21" x2="16" y2="21"></line>
-                <line x1="12" y1="17" x2="12" y2="21"></line>
-              </svg>
-            </div>
-            <span class="eyebrow">Neuroplasticity</span>
-            <h2 class="section-title">Consciously Remapping Neuro Pathways</h2>
-
-            <p>The human brain contains approximately 100 billion neurons connected by trillions of synaptic pathways. Every repeated thought, emotional response, and behavioral habit carves a groove into this neural network.</p>
-
-            <p>To understand how neuro pathways operate, imagine the human mind as a complex computer system. When old habitual programming keeps executing obsolete loops of worry or limitation, we have the conscious agency to rewrite and rewire those circuits through deliberate focus and mindful re-patterning.</p>
-          </div>
-
-          <!-- Column 2: Formula & Habit Formation -->
-          <div class="prose reveal delay-1 equal-col">
-            <div class="glass-box" style="margin-top: 0; margin-bottom: 20px;">
-              <h4>The Neural Reprogramming Formula:</h4>
-              <ul>
-                <li>Beliefs &amp; Habits = Established neural program</li>
-                <li>Adjusted Program = Intentional thoughts &amp; conscious choices</li>
-                <li>New Neuro Patterns = Consistent repetition of elevated responses</li>
-                <li>New Neural Pathway Created = Rewired reality &amp; lasting transformation</li>
-              </ul>
-            </div>
-
-            <p>Just as muscle memory is developed through repetition, your brain physically rewires itself (neuroplasticity) when you consistently replace automatic reactions with conscious presence.</p>
-
-            <div style="margin-top: auto;">
-              <a class="btn btn-primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Schedule Neural Coaching</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Modality 5: Meditation and Conscious Breathing (Evenly Balanced Columns) -->
-    <section id="meditation-breathing" class="work-section">
+    <!-- Modality 4: Meditation and Conscious Breathing (Evenly Balanced Columns) -->
+    <section id="meditation-breathing" class="work-section section-alt">
       <div class="container">
         <div class="grid-balanced-2">
           <!-- Column 1: Heart Connection, Definition & Download Quote -->
