@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chakra Energetics — A5 Promotional Flyer & Poster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #d4af37;
+            --gold-light: #f5e7a9;
+            --gold-dark: #997312;
+            --gold-gradient: linear-gradient(135deg, #fcedb0 0%, #d4af37 50%, #aa7c11 100%);
+            --bg-dark: #07090f;
+            --bg-card: rgba(18, 23, 36, 0.82);
+            --border-gold: rgba(212, 175, 55, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #030407;
+            color: #f3f4f6;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 15px 60px;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 0%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(138, 75, 175, 0.08) 0%, transparent 50%);
+        }
+
+        /* Screen Toolbar */
+        .toolbar {
+            position: fixed;
+            top: 18px;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(15, 20, 32, 0.88);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid var(--border-gold);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .toolbar button, .toolbar a {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .toolbar button:hover, .toolbar a:hover {
+            background: rgba(212, 175, 55, 0.25);
+            border-color: var(--gold-primary);
+            color: var(--gold-light);
+            transform: translateY(-1px);
+        }
+
+        .toolbar button.primary-action {
+            background: var(--gold-gradient);
+            color: #0b0c10;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .toolbar button.primary-action:hover {
+            background: linear-gradient(135deg, #fff2be 0%, #dfbd4b 100%);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.6);
+        }
+
+        /* Desk / Stage Container */
+        .stage-wrapper {
+            margin-top: 60px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .sheet-meta {
+            font-size: 0.78rem;
+            color: #9ca3af;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .sheet-meta span {
+            color: var(--gold-primary);
+            font-weight: 700;
+        }
+
+        /* ========================================================
+           EXACT ISO A5 CANVAS (148mm × 210mm)
+           ======================================================== */
+        .a5-flyer {
+            width: 148mm;
+            min-height: 210mm;
+            height: 210mm;
+            background: var(--bg-dark);
+            position: relative;
+            box-shadow: 
+                0 30px 70px rgba(0, 0, 0, 0.9),
+                0 0 45px rgba(212, 175, 55, 0.18),
+                0 0 0 1px rgba(212, 175, 55, 0.35);
+            padding: 8mm 8mm 7mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 12%, rgba(212, 175, 55, 0.14) 0%, transparent 45%),
+                radial-gradient(circle at 20% 45%, rgba(142, 68, 173, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 50%, rgba(41, 128, 185, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 50% 90%, rgba(212, 175, 55, 0.1) 0%, transparent 50%);
+        }
+
+        /* Light Paper Theme Override */
+        body.theme-light .a5-flyer {
+            background: #ffffff;
+            color: #1a1e29;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(212, 175, 55, 0.5);
+            background-image: 
+                radial-gradient(circle at 50% 12%, rgba(212, 175, 55, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(212, 175, 55, 0.08) 0%, transparent 50%);
+        }
+
+        body.theme-light .a5-flyer .inner-border {
+            border-color: rgba(170, 124, 17, 0.5);
+        }
+
+        body.theme-light .a5-flyer .book-title-main {
+            color: #11141c;
+            text-shadow: none;
+        }
+
+        body.theme-light .a5-flyer .book-title-gold {
+            color: #aa7c11;
+            text-shadow: none;
+        }
+
+        body.theme-light .a5-flyer .bullet-card {
+            background: rgba(245, 235, 215, 0.45);
+            border-color: rgba(170, 124, 17, 0.25);
+        }
+
+        body.theme-light .a5-flyer .bullet-text {
+            color: #2b3140;
+        }
+
+        body.theme-light .a5-flyer .kicker {
+            color: #8c6407;
+        }
+
+        body.theme-light .a5-flyer .subtitle-banner {
+            color: #694b05;
+        }
+
+        body.theme-light .a5-flyer .quote-banner {
+            color: #1f2433;
+        }
+
+        body.theme-light .a5-flyer .retailers-banner {
+            background: rgba(170, 124, 17, 0.1);
+            color: #1a1e29;
+        }
+
+        /* Bleed Guides for print shops */
+        .bleed-guide {
+            display: none;
+            position: absolute;
+            inset: 3mm;
+            border: 1px dashed rgba(239, 68, 68, 0.6);
+            pointer-events: none;
+            z-index: 50;
+        }
+
+        body.show-bleed .bleed-guide {
+            display: block;
+        }
+
+        /* Decorative Gold Corner Filigree */
+        .inner-border {
+            position: absolute;
+            inset: 4.5mm;
+            border: 1px solid rgba(212, 175, 55, 0.45);
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .inner-border::before, .inner-border::after {
+            content: '';
+            position: absolute;
+            width: 8mm;
+            height: 8mm;
+            border-color: var(--gold-primary);
+            border-style: solid;
+        }
+
+        .inner-border::before {
+            top: -1px;
+            left: -1px;
+            border-width: 2.5px 0 0 2.5px;
+        }
+
+        .inner-border::after {
+            bottom: -1px;
+            right: -1px;
+            border-width: 0 2.5px 2.5px 0;
+        }
+
+        /* Ambient Sacred Geometry Watermark */
+        .bg-watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 140mm;
+            height: 140mm;
+            opacity: 0.055;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ========================================================
+           HEADER SECTION
+           ======================================================== */
+        .flyer-header {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2mm;
+        }
+
+        .kicker {
+            font-family: 'Cinzel', serif;
+            font-size: 2.7mm;
+            letter-spacing: 2.2px;
+            color: #ffd700;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .ornament-line {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2mm;
+            width: 75%;
+            margin: 0.5mm 0;
+        }
+
+        .ornament-line::before, .ornament-line::after {
+            content: '';
+            flex: 1;
+            height: 0.8px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+        }
+
+        .ornament-diamond {
+            color: var(--gold-primary);
+            font-size: 2.2mm;
+        }
+
+        .title-block {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            line-height: 0.95;
+            margin: 0.6mm 0;
+        }
+
+        .book-title-main {
+            font-family: 'Cinzel', serif;
+            font-size: 9mm;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+            color: #ffffff;
+            text-shadow: 0 0 16px rgba(212, 175, 55, 0.5);
+        }
+
+        .book-title-gold {
+            font-family: 'Cinzel', serif;
+            font-size: 9mm;
+            font-weight: 900;
+            letter-spacing: 2.5px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.45));
+        }
+
+        .subtitle-banner {
+            font-family: 'Cinzel', serif;
+            font-size: 2.9mm;
+            font-weight: 700;
+            letter-spacing: 1.8px;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            margin-top: 0.8mm;
+        }
+
+        .author-signature {
+            font-family: 'Great Vibes', cursive;
+            font-size: 7.2mm;
+            color: #f7e8ba;
+            margin-top: -0.5mm;
+            filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.8));
+        }
+
+        /* ========================================================
+           CENTERPIECE: 3D BOOK & ASCENDED MASTERS MEDALLIONS
+           ======================================================== */
+        .showcase-row {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 28mm 48mm 28mm;
+            align-items: center;
+            justify-content: center;
+            gap: 2mm;
+            margin: 2mm 0 0.5mm;
+        }
+
+        /* Master Medallions */
+        .master-medallion {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2mm;
+            text-align: center;
+        }
+
+        .medallion-frame {
+            width: 22mm;
+            height: 29mm;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold-primary);
+            padding: 1px;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.8), 0 0 12px rgba(212, 175, 55, 0.4);
+            background: rgba(15, 20, 32, 0.9);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .medallion-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .master-name {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2mm;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 0.8px;
+            line-height: 1.1;
+        }
+
+        .master-title {
+            font-size: 1.7mm;
+            color: #cbd5e1;
+            font-style: italic;
+        }
+
+        /* Clean Hero Book Showcase (Option 1 - Single Focus) */
+        .showcase-row-single {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1.2mm 0 0.8mm;
+        }
+
+        .book-picture-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .book-picture-frame {
+            width: 37mm;
+            height: 52mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 1.5mm;
+            box-shadow: 
+                0 10px 24px rgba(0, 0, 0, 0.85),
+                0 0 18px rgba(212, 175, 55, 0.35);
+            border: 1.2px solid rgba(212, 175, 55, 0.7);
+            background: #0f1422;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .book-picture-frame:hover {
+            transform: translateY(-1.2mm);
+            box-shadow: 
+                0 16px 36px rgba(0, 0, 0, 0.95),
+                0 0 28px rgba(212, 175, 55, 0.45);
+        }
+
+        .book-picture-img {
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+            display: block;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: high-quality;
+        }
+
+        /* Masters Banner */
+        .masters-caption {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            font-family: 'Cinzel', serif;
+            font-size: 2.1mm;
+            letter-spacing: 1.2px;
+            color: var(--gold-primary);
+            font-weight: 600;
+            margin-top: 1.2mm;
+            margin-bottom: 1.2mm;
+        }
+
+        /* ========================================================
+           CORE HIGHLIGHTS & INSIGHTS (5 BULLET POINTS)
+           ======================================================== */
+        .bullets-section {
+            position: relative;
+            z-index: 5;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 2mm;
+            padding: 2.2mm 3.5mm;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            margin: 1.2mm 0 1.8mm;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5mm;
+        }
+
+        .section-label {
+            font-family: 'Cinzel', serif;
+            font-size: 2.25mm;
+            font-weight: 700;
+            letter-spacing: 1.4px;
+            color: var(--gold-light);
+            text-align: center;
+            text-transform: uppercase;
+            border-bottom: 0.8px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 0.8mm;
+            margin-bottom: 0.2mm;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.8mm;
+        }
+
+        .bullet-icon {
+            color: #ffd700;
+            font-size: 2mm;
+            line-height: 1.2;
+            filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.8));
+        }
+
+        .bullet-text {
+            font-size: 2.3mm;
+            color: #f1f5f9;
+            line-height: 1.32;
+            font-weight: 500;
+        }
+
+        .bullet-text strong {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* ========================================================
+           13-CHAKRA PROGRESSION STRIP
+           ======================================================== */
+        .chakra-strip {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8mm;
+            background: rgba(10, 14, 22, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 1.8mm;
+            padding: 1.4mm 2.5mm;
+        }
+
+        .chakra-strip-header {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Cinzel', serif;
+            font-size: 1.9mm;
+            color: var(--gold-primary);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+
+        .chakra-dots-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1mm;
+        }
+
+        .chakra-pill {
+            flex: 1;
+            height: 2.8mm;
+            border-radius: 1.4mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5mm;
+            font-weight: 700;
+            color: #0b0c10;
+            box-shadow: 0 0 6px rgba(0,0,0,0.5);
+        }
+
+        /* ========================================================
+           FOOTER & RETAILER CALL TO ACTION
+           ======================================================== */
+        .flyer-footer {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 1fr 22mm;
+            gap: 2.5mm;
+            align-items: center;
+            border-top: 1px solid var(--border-gold);
+            padding-top: 1.8mm;
+            padding-bottom: 1mm;
+        }
+
+        .cta-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.2mm;
+        }
+
+        .worldwide-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2mm;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        .retailers-line {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3mm;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1.2px;
+        }
+
+        .formats-line {
+            font-size: 2.1mm;
+            color: #cbd5e1;
+            letter-spacing: 0.6px;
+        }
+
+        .author-signoff {
+            font-size: 2.0mm;
+            color: var(--gold-primary);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 1.5mm;
+            margin-top: 0.5mm;
+        }
+
+        /* QR Code Container */
+        .qr-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8mm;
+            background: rgba(15, 20, 32, 0.92);
+            border: 1px solid var(--border-gold);
+            border-radius: 2mm;
+            padding: 1.4mm;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7), 0 0 10px rgba(212, 175, 55, 0.25);
+        }
+
+        .qr-badge-inner {
+            background: #ffffff;
+            border-radius: 1.2mm;
+            padding: 0.8mm;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(212, 175, 55, 0.6);
+        }
+
+        .qr-col img {
+            width: 14.5mm;
+            height: 14.5mm;
+            border-radius: 0.6mm;
+            display: block;
+        }
+
+        .qr-caption {
+            font-size: 1.45mm;
+            font-weight: 700;
+            color: var(--gold-light);
+            text-transform: uppercase;
+            text-align: center;
+            line-height: 1.05;
+            letter-spacing: 0.3px;
+        }
+
+        /* ========================================================
+           PRINT-SPECIFIC STYLES (@media print)
+           ======================================================== */
+        @media print {
+            body {
+                background: none !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                overflow: visible !important;
+            }
+
+            .toolbar, .sheet-meta {
+                display: none !important;
+            }
+
+            .stage-wrapper {
+                margin: 0 !important;
+            }
+
+            .a5-flyer {
+                box-shadow: none !important;
+                border: none !important;
+                width: 148mm !important;
+                height: 210mm !important;
+                min-height: 210mm !important;
+                page-break-after: avoid;
+                page-break-inside: avoid;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .book-picture-frame {
+                box-shadow: none !important;
+                border-color: rgba(212, 175, 55, 0.8) !important;
+            }
+
+            .book-picture-img {
+                image-rendering: -webkit-optimize-contrast !important;
+                image-rendering: high-quality !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .medallion-frame img {
+                image-rendering: -webkit-optimize-contrast !important;
+                image-rendering: high-quality !important;
+            }
+
+            @page {
+                size: A5 portrait;
+                margin: 0;
+            }
+        }
+    
+        /* Live Edit Mode & Visual Indicators */
+        body.edit-mode [data-editable] {
+            outline: 1.5px dashed rgba(212, 175, 55, 0.7) !important;
+            outline-offset: 3px;
+            border-radius: 3px;
+            cursor: text !important;
+            transition: all 0.2s ease;
+        }
+
+        body.edit-mode [data-editable]:hover {
+            outline: 1.5px dashed #ffd700 !important;
+            background: rgba(212, 175, 55, 0.12) !important;
+        }
+
+        body.edit-mode [data-editable]:focus {
+            outline: 2px solid #ffd700 !important;
+            background: rgba(212, 175, 55, 0.2) !important;
+        }
+
+        /* Edit Mode Hint Toast */
+        .edit-toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(15, 20, 32, 0.95);
+            border: 1px solid var(--gold-primary);
+            color: #f3e5ab;
+            padding: 10px 22px;
+            border-radius: 30px;
+            font-size: 0.84rem;
+            font-weight: 600;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 200;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .edit-toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+    
+        /* Design Tabs Switcher */
+        .tab-btn {
+            background: transparent !important;
+            border: none !important;
+            color: #94a3b8 !important;
+            font-weight: 600 !important;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .tab-btn.active {
+            background: var(--gold-gradient) !important;
+            color: #0b0c10 !important;
+            font-weight: 700 !important;
+            box-shadow: 0 2px 10px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Visibility toggle for Design Options */
+        .design-opt-container {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .design-opt-container.active-opt {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* ========================================================
+           DESIGN OPTION 2: COSMIC NEBULA & MEDITATING AVATAR
+           ======================================================== */
+        .a5-flyer.show-opt2 {
+            background: #060918 url('assets/cosmic-nebula-bg.jpg') center center / cover no-repeat;
+            box-shadow: 0 30px 70px rgba(0,0,0,0.95), 0 0 50px rgba(120, 45, 205, 0.35), 0 0 0 1px rgba(212, 175, 55, 0.45);
+        }
+
+        /* In Option 2, hide the watermark since the nebula background already has high-res sacred geometry */
+        .a5-flyer.show-opt2 .bg-watermark {
+            display: none;
+        }
+
+        /* Option 2 Header */
+        .header-opt2 {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1mm;
+            position: relative;
+            z-index: 5;
+            margin-top: -1mm;
+        }
+
+        .title-opt2 {
+            font-family: 'Cinzel', serif;
+            font-size: 8.8mm;
+            font-weight: 900;
+            letter-spacing: 2.8px;
+            background: linear-gradient(135deg, #fff7d6 0%, #ecd078 40%, #c49626 70%, #f7e199 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 10px rgba(212, 175, 55, 0.5));
+            line-height: 1.05;
+        }
+
+        .subtitle-opt2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 4.8mm;
+            font-style: italic;
+            font-weight: 600;
+            color: #ffd875;
+            letter-spacing: 1.2px;
+            filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.45));
+            margin-top: -0.5mm;
+        }
+
+        /* Option 2 Center Showcase (Meditating Avatar + Ornate Baroque Medallions) */
+        .showcase-opt2 {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 29mm 46mm 29mm;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5mm;
+            margin: 1mm 0 0.5mm;
+        }
+
+        .ornate-master {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            gap: 1mm;
+        }
+
+        .showcase-opt2 {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 30mm 45mm 30mm;
+            align-items: center;
+            justify-content: center;
+            gap: 1.5mm;
+            margin: 1.5mm 0 1mm;
+        }
+
+        .ornate-frame-img {
+            width: 30mm;
+            height: 36mm;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 16px rgba(0,0,0,0.9)) drop-shadow(0 0 12px rgba(212, 175, 55, 0.4));
+            transition: transform 0.3s ease;
+        }
+
+        .ornate-frame-img:hover {
+            transform: scale(1.03);
+        }
+
+        .ornate-caption {
+            font-family: 'Cinzel', serif;
+            font-size: 1.95mm;
+            font-weight: 700;
+            color: #fce7b0;
+            letter-spacing: 0.8px;
+            line-height: 1.15;
+            text-transform: uppercase;
+            text-shadow: 0 0 8px rgba(0,0,0,0.9);
+            margin-top: 0.5mm;
+        }
+
+        .avatar-center-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .avatar-img {
+            width: 45mm;
+            height: 48mm;
+            object-fit: contain;
+            filter: drop-shadow(0 0 25px rgba(168, 85, 247, 0.75)) drop-shadow(0 0 45px rgba(56, 189, 248, 0.55));
+            transition: transform 0.3s ease;
+        }
+
+        .avatar-img:hover {
+            transform: scale(1.02);
+        }
+
+        /* Option 2 Mid Callout */
+        .mid-callout-opt2 {
+            position: relative;
+            z-index: 5;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8mm;
+            margin: 0.8mm 0;
+        }
+
+        .author-sign-opt2 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 6.8mm;
+            color: #fdf2c7;
+            filter: drop-shadow(0 1px 6px rgba(0,0,0,0.9));
+        }
+
+        .masters-title-opt2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2mm;
+            font-weight: 900;
+            letter-spacing: 1.6px;
+            color: #ffffff;
+            text-transform: uppercase;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.4));
+        }
+
+        .guidance-title-opt2 {
+            font-family: 'Cinzel', serif;
+            font-size: 3.2mm;
+            font-weight: 900;
+            letter-spacing: 2.2px;
+            background: var(--gold-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            filter: drop-shadow(0 2px 8px rgba(212, 175, 55, 0.5));
+            margin-top: -0.4mm;
+        }
+
+        /* Option 2 Filigree Divider */
+        .filigree-divider-opt2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2mm;
+            width: 88%;
+            margin: 1mm auto;
+        }
+
+        .filigree-divider-opt2::before, .filigree-divider-opt2::after {
+            content: '';
+            flex: 1;
+            height: 0.8px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        }
+
+        .filigree-text-opt2 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.4mm;
+            font-weight: 700;
+            color: var(--gold-light);
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 1.5mm;
+        }
+
+        /* Option 2 Bullets */
+        .bullets-opt2 {
+            position: relative;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8mm;
+            padding: 0 3mm;
+            margin: 1mm 0 1.5mm;
+        }
+
+        .bullet-item-opt2 {
+            display: flex;
+            align-items: flex-start;
+            gap: 2mm;
+            font-size: 2.35mm;
+            line-height: 1.34;
+            color: #f1f5f9;
+        }
+
+        .bullet-dot-opt2 {
+            color: #ffd700;
+            font-size: 2.6mm;
+            line-height: 1.1;
+            filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.9));
+        }
+
+        .bullet-item-opt2 strong {
+            color: #ffd875;
+            font-weight: 600;
+        }
+
+        /* Option 2 Footer */
+        .footer-opt2 {
+            position: relative;
+            z-index: 5;
+            display: grid;
+            grid-template-columns: 1fr 22mm;
+            gap: 2.5mm;
+            align-items: center;
+            border-top: 1px solid rgba(212, 175, 55, 0.4);
+            padding-top: 2mm;
+        }
+
+        .footer-opt2 .worldwide-tag {
+            font-family: 'Cinzel', serif;
+            font-size: 3.1mm;
+            font-weight: 900;
+            letter-spacing: 1.8px;
+            color: #ffd875;
+            text-transform: uppercase;
+            text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+        }
+
+        .footer-opt2 .retailers-line {
+            font-family: 'Cinzel', serif;
+            font-size: 2.3mm;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+            color: #ffffff;
+        }
+
+        .footer-opt2 .formats-line {
+            font-size: 2.05mm;
+            color: #cbd5e1;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-opt2 .author-signoff {
+            font-size: 2.05mm;
+            color: #ffd875;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+            margin-top: 0.5mm;
+        }
+
+        /* Sacred geometry watermark flanks for Option 2 */
+        .side-mandala-left, .side-mandala-right {
+            display: none;
+            position: absolute;
+            top: 50%;
+            width: 70mm;
+            height: 70mm;
+            opacity: 0.14;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .a5-flyer.show-opt2 .side-mandala-left {
+            display: block;
+            left: -35mm;
+            transform: translateY(-50%);
+        }
+
+        .a5-flyer.show-opt2 .side-mandala-right {
+            display: block;
+            right: -35mm;
+            transform: translateY(-50%);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Screen Interactive Controls Bar -->
+    <header class="toolbar">
+        <a href="index.html" title="Back to Cinematic Video Trailer">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            Video Trailer
+        </a>
+        <!-- Design Option Tabs Switcher -->
+        <div class="design-tabs" style="display: flex; gap: 6px; background: rgba(0,0,0,0.4); padding: 3px; border-radius: 20px; border: 1px solid rgba(212, 175, 55, 0.35);">
+            <button id="tabOpt1" class="tab-btn active" onclick="switchDesignOption(1)" style="border-radius: 16px; padding: 6px 14px; font-size: 0.78rem;">
+                📘 Option 1: 3D Book
+            </button>
+            <button id="tabOpt2" class="tab-btn" onclick="switchDesignOption(2)" style="border-radius: 16px; padding: 6px 14px; font-size: 0.78rem;">
+                🌌 Option 2: Cosmic Avatar
+            </button>
+        </div>
+
+        <button id="editToggleBtn" onclick="toggleEditMode()" style="background: rgba(212, 175, 55, 0.18); border-color: var(--gold-primary); color: var(--gold-light);">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            ✏️ Edit Text
+        </button>
+        <button id="resetTextBtn" onclick="resetFlyerText()" style="display: none; background: rgba(239, 68, 68, 0.15); border-color: rgba(239, 68, 68, 0.5); color: #fca5a5;" title="Revert to original text">
+            ↺ Reset Text
+        </button>
+        <button class="primary-action" onclick="window.print()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+            Print / Save as PDF (A5)
+        </button>
+        <button onclick="toggleTheme()">
+            🌓 Dark / Light
+        </button>
+        <button onclick="toggleBleed()">
+            📐 Bleed Guides
+        </button>
+    </header>
+
+    <div class="stage-wrapper">
+        <div class="sheet-meta">
+            Official Promotional Poster <span>•</span> Size: <span>A5 Portrait (148mm × 210mm)</span> <span>•</span> 300 DPI Print-Ready
+        </div>
+
+        <!-- The A5 Document Container -->
+        <main class="a5-flyer" id="flyerDoc">
+            <!-- Commercial Print Bleed Outline (3mm) -->
+            <div class="bleed-guide"></div>
+
+            <!-- Sacred Inner Filigree Frame -->
+            <div class="inner-border"></div>
+
+            <!-- Ambient Sacred Lotus Watermark -->
+            <svg class="bg-watermark" viewBox="0 0 400 400" fill="none" stroke="#d4af37" stroke-width="1.2">
+                <circle cx="200" cy="200" r="180"/>
+                <circle cx="200" cy="200" r="140"/>
+                <circle cx="200" cy="200" r="90"/>
+                <circle cx="200" cy="200" r="40"/>
+                <path d="M200 20 L200 380 M20 200 L380 200"/>
+                <polygon points="200,60 321,270 79,270"/>
+                <polygon points="200,340 321,130 79,130"/>
+            </svg>
+
+            <!-- Side Sacred Watermarks for Option 2 -->
+            <img src="assets/mandala-gold-sacred.png" class="side-mandala-left" alt="Sacred Geometry Mandala">
+            <img src="assets/mandala-gold-sacred.png" class="side-mandala-right" alt="Sacred Geometry Mandala">
+
+            <!-- ========================================================
+                 DESIGN OPTION 1: 3D HARDCOVER BOOK SHOWCASE
+                 ======================================================== -->
+            <div class="design-opt-container active-opt" id="containerOpt1">
+            <!-- 1. Header & Identity -->
+            <header class="flyer-header">
+                <div class="kicker" data-editable="kicker">Ancient Wisdom for Modern Awakening</div>
+                <div class="ornament-line">
+                    <span class="ornament-diamond">✦</span>
+                </div>
+                <div class="title-block">
+                    <div class="book-title-main" data-editable="title_main">CHAKRA</div>
+                    <div class="book-title-gold" data-editable="title_gold">ENERGETICS</div>
+                </div>
+                <div class="subtitle-banner" data-editable="subtitle">Interactive Human Energy System</div>
+                <div class="author-signature" data-editable="author">by Eliza James</div>
+            </header>
+
+            <!-- 2. Visual Centerpiece: Hero Book Feature (Clean Single Focus) -->
+            <section class="showcase-row-single">
+                <div class="book-picture-wrapper">
+                    <div class="book-picture-frame">
+                        <img src="assets/chakra-energetics-book-clean.png" alt="Chakra Energetics Book Cover" class="book-picture-img">
+                    </div>
+                </div>
+            </section>
+
+            <div class="masters-caption" data-editable="masters_caption">
+                Teachers of Ancient &amp; Inner Wisdom • Direct Channeled Guidance
+            </div>
+
+            <!-- 3. Core Insights & Features (5 Bullet Points) -->
+            <section class="bullets-section">
+                <div class="section-label" data-editable="section_label">Key Revelations Inside The Book</div>
+                <div class="bullet-item">
+                    <span class="bullet-icon">✦</span>
+                    <div class="bullet-text" data-editable="bullet_1"><strong>The Male &amp; Female Energy Systems</strong> — Dynamic balance of polarity and vitality.</div>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon">✦</span>
+                    <div class="bullet-text" data-editable="bullet_2"><strong>The Development of the Human Entity</strong> — The sacred genesis from incarnate vessel to light.</div>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon">✦</span>
+                    <div class="bullet-text" data-editable="bullet_3"><strong>The Complete 13-Chakra Energetic System Revealed</strong> — Physical &amp; multidimensional alignment.</div>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon">✦</span>
+                    <div class="bullet-text" data-editable="bullet_4"><strong>The Vastness of Dimensional Consciousness</strong> — Expanding awareness into higher frequencies.</div>
+                </div>
+                <div class="bullet-item">
+                    <span class="bullet-icon">✦</span>
+                    <div class="bullet-text" data-editable="bullet_5"><strong>Ascended Master Channeling &amp; Ancient Wisdom</strong> — Authentic teachings for planetary transformation.</div>
+                </div>
+            </section>
+
+            
+
+            <!-- 4. Footer & Ordering Call to Action -->
+            <footer class="flyer-footer">
+                <div class="cta-col">
+                    <div class="worldwide-tag" data-editable="worldwide_tag">Now Available Worldwide</div>
+                    <div class="retailers-line" data-editable="retailers_line">ORDER ON AMAZON &amp; MY OFFICIAL WEBSITE</div>
+                    <div class="formats-line" data-editable="formats_line">Available in Paperback &amp; eBook Editions &bull; Tracked Door-to-Door Delivery</div>
+                    <div class="author-signoff" data-editable="author_signoff">
+                        <span>✦ Eliza James</span>
+                        <span>•</span>
+                        <span>Order Direct: www.elizareconnection.co.za</span>
+                    </div>
+                </div>
+
+                <!-- QR Code Link to Website Order Page -->
+                <div class="qr-col">
+                    <a href="https://elizareconnection.co.za/books.html" target="_blank" style="text-decoration:none;" class="qr-badge-inner" title="Click or Scan to Order Direct">
+                        <img src="assets/qr-code.png" alt="Scan QR Code to Order on My Website">
+                    </a>
+                    <div class="qr-caption" data-editable="qr_caption">Scan To Order<br>On My Website</div>
+                </div>
+            </footer>
+            </div>
+
+            <!-- ========================================================
+                 DESIGN OPTION 2: COSMIC NEBULA & MEDITATING AVATAR
+                 ======================================================== -->
+            <div class="design-opt-container" id="containerOpt2">
+                <!-- 1. Header -->
+                <header class="header-opt2">
+                    <div class="title-opt2" data-editable="opt2_title">CHAKRA ENERGETICS</div>
+                    <div class="subtitle-opt2" data-editable="opt2_subtitle">Interactive Human Energy System</div>
+                </header>
+
+                <!-- 2. Centerpiece: St Germain, Meditating Avatar, Serapis Bey -->
+                <section class="showcase-opt2">
+                    <!-- St Germain in Ornate Baroque Oval Frame -->
+                    <div class="ornate-master">
+                        <img src="assets/st-germain-baroque-gold.png" alt="St Germain Ornate Portrait" class="ornate-frame-img">
+                        <div class="ornate-caption" data-editable="opt2_st_caption">ST. GERMAIN &bull; Inner Wisdom</div>
+                    </div>
+
+                    <!-- Luminous Meditating Chakra Silhouette -->
+                    <div class="avatar-center-wrapper">
+                        <img src="assets/chakra-avatar-custom.png" alt="Cosmic Human Energy Avatar" class="avatar-img">
+                    </div>
+
+                    <!-- Serapis Bey in Ornate Baroque Oval Frame -->
+                    <div class="ornate-master">
+                        <img src="assets/serapis-bey-baroque-gold.png" alt="Serapis Bey Ornate Portrait" class="ornate-frame-img">
+                        <div class="ornate-caption" data-editable="opt2_serapis_caption">SERAPIS BEY &bull; Ancient Wisdom</div>
+                    </div>
+                </section>
+
+                <!-- 3. Mid-Section Callout & Channeled Guidance -->
+                <section class="mid-callout-opt2">
+                    <div class="author-sign-opt2" data-editable="opt2_author">by Eliza James</div>
+                    <div class="masters-title-opt2" data-editable="opt2_masters_title">TEACHERS OF ANCIENT &amp; INNER WISDOM</div>
+                    <div class="guidance-title-opt2" data-editable="opt2_guidance_title">DIRECT CHANNELED GUIDANCE</div>
+                </section>
+
+                <!-- 4. Key Revelations Section -->
+                <div class="filigree-divider-opt2">
+                    <div class="filigree-text-opt2" data-editable="opt2_sec_label">
+                        <span>✦</span> KEY REVELATIONS INSIDE THE BOOK <span>✦</span>
+                    </div>
+                </div>
+
+                <section class="bullets-opt2">
+                    <div class="bullet-item-opt2">
+                        <span class="bullet-dot-opt2">&bull;</span>
+                        <div data-editable="opt2_bullet_1"><strong>The Male &amp; Female Energy Systems</strong> &ndash; Dynamic balance of polarity and vitality.</div>
+                    </div>
+                    <div class="bullet-item-opt2">
+                        <span class="bullet-dot-opt2">&bull;</span>
+                        <div data-editable="opt2_bullet_2"><strong>The Development of the Human Entity</strong> &ndash; The sacred genesis from incarnate vessel to light.</div>
+                    </div>
+                    <div class="bullet-item-opt2">
+                        <span class="bullet-dot-opt2">&bull;</span>
+                        <div data-editable="opt2_bullet_3"><strong>The Complete 13-Chakra Energetic System Revealed</strong> &ndash; Physical &amp; multidimensional alignment.</div>
+                    </div>
+                    <div class="bullet-item-opt2">
+                        <span class="bullet-dot-opt2">&bull;</span>
+                        <div data-editable="opt2_bullet_4"><strong>The Vastness of Dimensional Consciousness</strong> &ndash; Expanding awareness into higher frequencies.</div>
+                    </div>
+                    <div class="bullet-item-opt2">
+                        <span class="bullet-dot-opt2">&bull;</span>
+                        <div data-editable="opt2_bullet_5"><strong>Ascended Master Channeling &amp; Ancient Wisdom</strong> &ndash; Authentic teachings for planetary transformation.</div>
+                    </div>
+                </section>
+
+                <!-- 5. Footer & Ordering Call to Action -->
+                <footer class="footer-opt2">
+                    <div class="cta-col">
+                        <div class="worldwide-tag" data-editable="opt2_worldwide">NOW AVAILABLE WORLDWIDE</div>
+                        <div class="retailers-line" data-editable="opt2_retailers">ORDER ON AMAZON &amp; MY OFFICIAL WEBSITE</div>
+                        <div class="formats-line" data-editable="opt2_formats">Available in Paperback &amp; eBook Editions. Tracked Door-to-Door Delivery</div>
+                        <div class="author-signoff" data-editable="opt2_signoff">
+                            <span>✦ Eliza James</span>
+                            <span>&bull;</span>
+                            <span>Order Direct: www.elizareconnection.co.za</span>
+                        </div>
+                    </div>
+
+                    <!-- QR Code Link -->
+                    <div class="qr-col">
+                        <a href="https://elizareconnection.co.za/books.html" target="_blank" style="text-decoration:none;" class="qr-badge-inner" title="Click or Scan to Order Direct">
+                            <img src="assets/qr-code.png" alt="Scan QR Code to Order on My Website">
+                        </a>
+                        <div class="qr-caption" data-editable="opt2_qr_caption">Scan To Order<br>On My Website</div>
+                    </div>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        
+        // Switch between Design Option 1 (3D Book) and Option 2 (Cosmic Avatar)
+        let currentOption = 1;
+
+        function switchDesignOption(optNum) {
+            currentOption = optNum;
+            const flyer = document.getElementById('flyerDoc');
+            const cont1 = document.getElementById('containerOpt1');
+            const cont2 = document.getElementById('containerOpt2');
+            const tab1 = document.getElementById('tabOpt1');
+            const tab2 = document.getElementById('tabOpt2');
+
+            if (optNum === 1) {
+                flyer.classList.remove('show-opt2');
+                cont1.classList.add('active-opt');
+                cont2.classList.remove('active-opt');
+                tab1.classList.add('active');
+                tab2.classList.remove('active');
+                showToast('📘 Switched to Design Option 1: 3D Hardcover Book Showcase');
+            } else {
+                flyer.classList.add('show-opt2');
+                cont1.classList.remove('active-opt');
+                cont2.classList.add('active-opt');
+                tab1.classList.remove('active');
+                tab2.classList.add('active');
+                showToast('🌌 Switched to Design Option 2: Cosmic Avatar & Ornate Medallions');
+            }
+
+            // If edit mode is active, make sure new fields are editable
+            if (isEditMode) {
+                document.querySelectorAll('[data-editable]').forEach(el => {
+                    el.contentEditable = 'true';
+                });
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('theme-light');
+        }
+
+        function toggleBleed() {
+            document.body.classList.toggle('show-bleed');
+        }
+
+        // ========================================================
+        // IN-PLACE LIVE TEXT EDITOR ENGINE WITH LOCAL STORAGE
+        // ========================================================
+        const STORAGE_KEY = 'chakra_flyer_custom_text_v1';
+        let isEditMode = false;
+        const defaultData = {};
+
+        // Capture initial default HTML templates
+        document.querySelectorAll('[data-editable]').forEach(el => {
+            const key = el.getAttribute('data-editable');
+            defaultData[key] = el.innerHTML.trim();
+        });
+
+        function loadSavedEdits() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    let hasCustomEdits = false;
+                    document.querySelectorAll('[data-editable]').forEach(el => {
+                        const key = el.getAttribute('data-editable');
+                        if (parsed[key] !== undefined && parsed[key] !== defaultData[key]) {
+                            el.innerHTML = parsed[key];
+                            hasCustomEdits = true;
+                        }
+                    });
+                    if (hasCustomEdits) {
+                        const resetBtn = document.getElementById('resetTextBtn');
+                        if (resetBtn) resetBtn.style.display = 'inline-flex';
+                    }
+                }
+            } catch (e) {
+                console.warn('Error reading saved flyer edits:', e);
+            }
+        }
+
+        function saveEdits() {
+            try {
+                const data = {};
+                document.querySelectorAll('[data-editable]').forEach(el => {
+                    const key = el.getAttribute('data-editable');
+                    data[key] = el.innerHTML.trim();
+                });
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+                const resetBtn = document.getElementById('resetTextBtn');
+                if (resetBtn) resetBtn.style.display = 'inline-flex';
+            } catch (e) {
+                console.warn('Error saving flyer edits:', e);
+            }
+        }
+
+        function toggleEditMode() {
+            isEditMode = !isEditMode;
+            document.body.classList.toggle('edit-mode', isEditMode);
+            const btn = document.getElementById('editToggleBtn');
+
+            document.querySelectorAll('[data-editable]').forEach(el => {
+                el.contentEditable = isEditMode ? 'true' : 'false';
+                if (isEditMode) {
+                    el.addEventListener('input', saveEdits);
+                    el.addEventListener('blur', () => {
+                        saveEdits();
+                        showToast('✨ Text changes auto-saved!');
+                    });
+                }
+            });
+
+            if (isEditMode) {
+                btn.innerHTML = '✅ Done Editing';
+                btn.style.background = 'var(--gold-gradient)';
+                btn.style.color = '#0b0c10';
+                showToast('✏️ Edit Mode ON: Click any text directly on the flyer to customize it!');
+            } else {
+                btn.innerHTML = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg> ✏️ Edit Text';
+                btn.style.background = 'rgba(212, 175, 55, 0.18)';
+                btn.style.color = 'var(--gold-light)';
+                saveEdits();
+                showToast('💾 Edits saved! You can now Print / Save as PDF.');
+            }
+        }
+
+        function resetFlyerText() {
+            if (confirm('Are you sure you want to revert all text back to the original flyer defaults?')) {
+                localStorage.removeItem(STORAGE_KEY);
+                document.querySelectorAll('[data-editable]').forEach(el => {
+                    const key = el.getAttribute('data-editable');
+                    if (defaultData[key]) {
+                        el.innerHTML = defaultData[key];
+                    }
+                });
+                const resetBtn = document.getElementById('resetTextBtn');
+                if (resetBtn) resetBtn.style.display = 'none';
+                showToast('↺ Restored original default text!');
+            }
+        }
+
+        function showToast(msg) {
+            let toast = document.getElementById('editToast');
+            if (!toast) {
+                toast = document.createElement('div');
+                toast.id = 'editToast';
+                toast.className = 'edit-toast';
+                document.body.appendChild(toast);
+            }
+            toast.innerHTML = msg;
+            toast.classList.add('show');
+            clearTimeout(window._toastTimer);
+            window._toastTimer = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3500);
+        }
+
+        // Hydrate saved edits on load
+        loadSavedEdits();
+
+    </script>
+</body>
+</html>

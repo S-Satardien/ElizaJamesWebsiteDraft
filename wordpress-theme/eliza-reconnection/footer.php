@@ -20,7 +20,7 @@ $phone_clean     = preg_replace("/[^0-9+]/", "", $global_phone);
             </svg>
             Eliza Reconnection
           </h4>
-          <p><?php echo esc_html(eliza_field("footer_bio", "Reconnective Healing, Consciousness Coaching, and Meditation & Conscious Breathing — practiced with care from a home office in Lakeside, Cape Town.", "option")); ?></p>
+          <p><?php echo esc_html(eliza_field("footer_bio", "Reconnective Healing, Consciousness Coaching, and Meditation & Conscious Breathing — offered with care from my Practice in Lakeside, Cape Town.", "option")); ?></p>
         </div>
         <div>
           <h4>
@@ -33,8 +33,10 @@ $phone_clean     = preg_replace("/[^0-9+]/", "", $global_phone);
           <ul>
             <li><a href="<?php echo esc_url(home_url("/about/")); ?>">About</a></li>
             <li><a href="<?php echo esc_url(home_url("/services/")); ?>">Services &amp; Coaching</a></li>
+            <li><a href="<?php echo esc_url(home_url("/books/")); ?>">Books &amp; Publications</a></li>
             <li><a href="<?php echo esc_url(home_url("/science-evidence/")); ?>">Evidence &amp; Science</a></li>
             <li><a href="<?php echo esc_url(home_url("/results/")); ?>">Results &amp; Voices</a></li>
+            <li><a href="<?php echo esc_url(home_url("/terms/")); ?>">Terms &amp; Policies</a></li>
           </ul>
         </div>
         <div>
@@ -53,7 +55,15 @@ $phone_clean     = preg_replace("/[^0-9+]/", "", $global_phone);
         </div>
       </div>
       <div class="footer-bottom">
-        <span>&copy; <?php echo date("Y"); ?> Eliza Reconnection. All rights reserved.</span>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 0.84rem;">
+          <span>&copy; <?php echo date("Y"); ?> Eliza Reconnection. All rights reserved.</span>
+          <span style="opacity: 0.5;">&middot;</span>
+          <a href="<?php echo esc_url(home_url("/terms/")); ?>" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Terms &amp; Conditions</a>
+          <span style="opacity: 0.5;">&middot;</span>
+          <a href="<?php echo esc_url(home_url("/terms/#delivery")); ?>" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Delivery Policy</a>
+          <span style="opacity: 0.5;">&middot;</span>
+          <a href="<?php echo esc_url(home_url("/terms/#refunds")); ?>" style="color: inherit; text-decoration: underline; text-underline-offset: 3px;">Refunds &amp; Cancellations</a>
+        </div>
         <div class="social-row">
           <?php if ($facebook_url): ?>
           <a href="<?php echo esc_url($facebook_url); ?>" target="_blank" rel="noopener" aria-label="Facebook">

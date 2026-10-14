@@ -22,7 +22,7 @@ if (!empty(trim($saved_content))) {
       <div class="glow" aria-hidden="true"></div>
       <div class="container reveal">
         <span class="eyebrow eyebrow-on-dusk">Holistic Modalities</span>
-        <h1>Services &amp; Coaching</h1>
+        <h1>Energy Healing &amp; Guided Awakening</h1>
         <p>&ldquo;Allow me to guide you toward experiencing this Life Journey in a meaningful way, to gently hold the space as you step onto your unique path toward the unfolding of your Becoming.&rdquo;</p>
       </div>
     </section>
@@ -78,7 +78,7 @@ if (!empty(trim($saved_content))) {
                 <li><strong>Format:</strong> In-person (Lakeside, Cape Town) or Distant / Remote Worldwide</li>
                 <li><strong>Duration:</strong> 30-minute dedicated table session + debrief</li>
                 <li><strong>Attire:</strong> Comfortable clothing; no physical manipulation</li>
-                <li><strong>Pricing:</strong> Affordable &amp; accessible (&ldquo;I don't charge an arm and a leg&rdquo;)</li>
+                <li><strong>Pricing:</strong> R500 or manageable voluntary energy exchange</li>
               </ul>
               <div style="margin-top: 16px;">
                 <a class="btn btn-primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Book a Session</a>
@@ -100,11 +100,11 @@ if (!empty(trim($saved_content))) {
                 <path d="M2 12h5l3 7 4-14 3 7h5"></path>
               </svg>
             </div>
-            <span class="eyebrow">Life Coaching</span>
+            <span class="eyebrow">EMBODIED AWARENESS</span>
             <h2 class="section-title">Curator of Consciousness</h2>
             <p class="lede" style="color:var(--copper-text); font-weight:600; font-size:1.1rem; margin-bottom:14px;">(Aligning your Outer Reality with your Inner World)</p>
 
-            <p>We help connect your head and your heart in a way that transforms your passion for your dreams into action for your life.</p>
+            <p>We help connect your head and your heart in a way that transforms your passion for your dreams into aligned action for your life.</p>
 
             <p><strong>A curator doesn't create</strong> &ndash; hence I select, arrange, and present so others can understand and experience in a meaningful way. Life coaching is conversational and structured, drawing upon timeless metaphysical truths and practical neuroscience to align your personal purpose with daily reality.</p>
           </div>
@@ -197,7 +197,7 @@ if (!empty(trim($saved_content))) {
 
             <blockquote class="pull" style="margin: 18px 0 0;">
               &ldquo;Pay attention to me and I shall attend to you.&rdquo;
-              <cite>Downloaded into consciousness during breathing meditation</cite>
+              <cite>Downloaded into consciousness during breatH meditation</cite>
             </blockquote>
           </div>
 
@@ -210,9 +210,9 @@ if (!empty(trim($saved_content))) {
             <div class="glass-box" style="margin-top: auto;">
               <h4>✦ Practical Guidance &amp; Benefits</h4>
               <ul>
-                <li><strong>Effortless Presence:</strong> Shift from mental exhaustion into serene inner stillness</li>
+                <li><strong>Effortless Presence:</strong> Shift from mental exhaustion &amp; clutter into serene inner stillness</li>
                 <li><strong>Listening Mode:</strong> Reconnect with intuitive clarity, guidance, and peace</li>
-                <li><strong>Breath as Elixir:</strong> 15 minutes daily transforms your state of consciousness</li>
+                <li><strong>Breath as Elixir:</strong> A mere 15 minutes regularly transforms your state of consciousness</li>
               </ul>
               <div style="margin-top: 14px;">
                 <a class="btn btn-primary" href="<?php echo esc_url(home_url('/contact/')); ?>">Join a Meditation Workshop</a>

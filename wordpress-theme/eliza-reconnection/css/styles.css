@@ -4,7 +4,7 @@
    ========================================================================== */
 
 /* ---------- Google Fonts Import ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
   /* Sanctuary Light Theme (Default) */
@@ -475,6 +475,19 @@ p:last-child {
 }
 
 /* ---------- Header & Navigation (Glassmorphic & Spacious) ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+}
+.admin-bar .site-header {
+  top: 32px;
+}
+@media (max-width: 782px) {
+  .admin-bar .site-header {
+    top: 0;
+  }
+}
 .site-header {
   position: sticky;
   top: 0;
@@ -1638,6 +1651,168 @@ blockquote.pull cite {
   color: var(--gold);
   transform: translateX(2px);
 }
+
+/* ==========================================================================
+   3D Book Rendition Showcase & Official Trailer Buttons
+   ========================================================================== */
+.book-showcase-column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.book-3d-presentation {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 6px 10px 0;
+  perspective: 1200px;
+  cursor: pointer;
+  text-decoration: none;
+  outline: none;
+}
+
+.book-3d-presentation picture {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.book-3d-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  width: 85%;
+  height: 85%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.14) 0%, rgba(212, 175, 55, 0.03) 50%, transparent 72%);
+  pointer-events: none;
+  filter: blur(20px);
+  z-index: 0;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.book-3d-mockup-img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin: 0 auto;
+  width: auto;
+  max-width: 100%;
+  max-height: 330px;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.16));
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+  -webkit-user-drag: none;
+  transform-origin: center center;
+  will-change: transform, filter;
+}
+
+/* Enhanced 3D Hover & Focus Effect */
+.book-3d-presentation:hover .book-3d-mockup-img,
+.book-3d-presentation:focus-visible .book-3d-mockup-img {
+  transform: translateY(-12px) rotateY(-6deg) rotateX(3deg) scale(1.045);
+  filter: drop-shadow(-8px 24px 32px rgba(0, 0, 0, 0.26)) drop-shadow(0 0 22px rgba(212, 175, 55, 0.30));
+}
+
+.book-3d-presentation:hover .book-3d-glow,
+.book-3d-presentation:focus-visible .book-3d-glow {
+  transform: translate(-50%, -50%) scale(1.24);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.26) 0%, rgba(212, 175, 55, 0.08) 52%, transparent 75%);
+  filter: blur(26px);
+}
+
+/* Container for YouTube Trailer Button */
+.video-footer-link {
+  margin-top: 18px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* Luxury Presence Button for Official Trailer */
+.btn-trailer-presence {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 22px;
+  font-family: var(--font-sans, system-ui, -apple-system, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink, #1F1916);
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(212, 175, 55, 0.42);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 0 8px rgba(212, 175, 55, 0.08);
+  text-decoration: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.btn-trailer-presence:hover {
+  color: var(--gold-dark, #8e6516);
+  background: rgba(255, 255, 255, 0.98);
+  border-color: var(--gold, #D4AF37);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.26), 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.btn-trailer-presence .trailer-play-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.16);
+  color: var(--gold-dark, #8e6516);
+  font-size: 0.65rem;
+  line-height: 1;
+  transition: all 0.25s ease;
+}
+
+.btn-trailer-presence:hover .trailer-play-icon {
+  background: var(--gold, #D4AF37);
+  color: #FFFFFF;
+  transform: scale(1.14);
+}
+
+@media (max-width: 768px) {
+  .book-3d-presentation {
+    max-width: 260px;
+    padding: 4px 0 0;
+  }
+  .book-3d-mockup-img {
+    max-height: 270px;
+  }
+  .btn-trailer-presence {
+    padding: 9px 18px;
+    font-size: 0.84rem;
+  }
+  .video-footer-link {
+    margin-top: 14px;
+  }
+}
+
 
 /* Testimonial Cards & Filter Grid */
 .filter-tabs-row {
@@ -3162,3 +3337,102 @@ form.contact-form {
 .single-nav-bar a:hover {
   color: var(--copper, #C26330);
 }
+
+/* =========================================================================
+   STICKY TERMS POLICIES SUBNAV & SCROLL TARGETS
+   ========================================================================= */
+.terms-subnav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 62px;
+  z-index: 400;
+  padding: 10px 0;
+  background: rgba(253, 251, 247, 0.96);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+  box-shadow: 0 4px 20px rgba(23, 15, 10, 0.04);
+  transition: top 0.15s ease;
+}
+.logged-in .terms-subnav,
+.admin-bar .terms-subnav {
+  top: 94px; /* 32px admin bar + 62px scrolled header = 94px (FLUSH, ZERO GAP!) */
+}
+@media (max-width: 782px) {
+  .logged-in .terms-subnav,
+  .admin-bar .terms-subnav {
+    top: 62px;
+  }
+}
+.terms-subnav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.terms-subnav-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dark, #AA7C11);
+  flex-shrink: 0;
+}
+.terms-subnav-links {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+.terms-nav-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 7px 15px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink, #170F0A);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+  cursor: pointer;
+}
+.terms-nav-chip:hover {
+  background: rgba(212, 175, 55, 0.14);
+  border-color: var(--gold, #D4AF37);
+  color: var(--gold-dark, #AA7C11);
+  transform: translateY(-1px);
+}
+.terms-nav-chip.active {
+  background: var(--gold-dark, #AA7C11) !important;
+  color: #ffffff !important;
+  border-color: var(--gold-dark, #AA7C11) !important;
+  box-shadow: 0 4px 12px rgba(170, 124, 17, 0.25);
+}
+.terms-policy-section {
+  scroll-margin-top: 155px;
+}
+@media (max-width: 768px) {
+  .terms-subnav-inner {
+    justify-content: flex-start;
+  }
+  .terms-subnav-links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
+    padding-bottom: 4px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .terms-subnav-links::-webkit-scrollbar {
+    display: none;
+  }
+  .terms-policy-section {
+    scroll-margin-top: 140px;
+  }
+}
+

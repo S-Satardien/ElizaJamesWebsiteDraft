@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
   <link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="192x192" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/favicon-192x192.png">
   <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url(get_template_directory_uri()); ?>/assets/apple-touch-icon.png">
@@ -39,11 +40,12 @@
             ?>
             <ul>
               <li><a href="<?php echo esc_url(home_url("/")); ?>" <?php echo is_front_page() ? "aria-current=\"page\"" : ""; ?>>Home</a></li>
-              <li><a href="<?php echo esc_url(home_url("/about/")); ?>">About</a></li>
-              <li><a href="<?php echo esc_url(home_url("/services/")); ?>">Services</a></li>
-              <li><a href="<?php echo esc_url(home_url("/science-evidence/")); ?>">Science &amp; Evidence</a></li>
-              <li><a href="<?php echo esc_url(home_url("/results/")); ?>">Results</a></li>
-              <li><a href="<?php echo esc_url(home_url("/contact/")); ?>">Contact Us</a></li>
+              <li><a href="<?php echo esc_url(home_url("/about/")); ?>" <?php echo is_page("about") ? "aria-current=\"page\"" : ""; ?>>About</a></li>
+              <li><a href="<?php echo esc_url(home_url("/services/")); ?>" <?php echo is_page("services") ? "aria-current=\"page\"" : ""; ?>>Services</a></li>
+              <li><a href="<?php echo esc_url(home_url("/books/")); ?>" <?php echo is_page("books") ? "aria-current=\"page\"" : ""; ?>>Books</a></li>
+              <li><a href="<?php echo esc_url(home_url("/science-evidence/")); ?>" <?php echo is_page("science-evidence") ? "aria-current=\"page\"" : ""; ?>>Science &amp; Evidence</a></li>
+              <li><a href="<?php echo esc_url(home_url("/results/")); ?>" <?php echo is_page("results") ? "aria-current=\"page\"" : ""; ?>>Results</a></li>
+              <li><a href="<?php echo esc_url(home_url("/contact/")); ?>" <?php echo is_page("contact") ? "aria-current=\"page\"" : ""; ?>>Contact Us</a></li>
             </ul>
             <?php
         }

@@ -12,8 +12,8 @@ $hero_subtitle    = eliza_field('hero_subtitle', 'Where Inner Stillness Meets Sa
 $hero_lede        = eliza_field('hero_lede', '“We are each Miraculous Works of Art in this amazing tapestry called Life. Allow me to guide you toward experiencing this Life Journey in a meaningful way, to gently hold the space as you step onto your unique path toward the unfolding of your Becoming.”');
 $hero_btn1_text   = eliza_field('hero_btn1_text', 'Book a session');
 $hero_btn1_url    = eliza_field('hero_btn1_url', home_url('/contact/'));
-$hero_btn2_text   = eliza_field('hero_btn2_text', 'Explore Book & Trailer');
-$hero_btn2_url    = eliza_field('hero_btn2_url', '#book');
+$hero_btn2_text   = eliza_field('hero_btn2_text', 'Explore Books');
+$hero_btn2_url    = eliza_field('hero_btn2_url', home_url('/books/'));
 $hero_image       = eliza_field('hero_image', get_template_directory_uri() . '/assets/eliza-headshot.jpg');
 $hero_float_badge = eliza_field('hero_float_badge', 'Since 2011 · Lakeside, Cape Town');
 
@@ -35,15 +35,6 @@ $bio_logistics_text  = eliza_field('bio_logistics_text', 'Available weekdays aft
 $serv_eyebrow     = eliza_field('serv_eyebrow', 'Offerings & Modalities');
 $serv_title       = eliza_field('serv_title', 'A Symphony of Energy, Mind & Breath');
 $serv_intro       = eliza_field('serv_intro', 'Harmonizing physical vitality, cognitive clarity, and spiritual awareness.');
-
-// Book Fields
-$book_eyebrow     = eliza_field('book_eyebrow', '✦ Internationally Published Work');
-$book_title       = eliza_field('book_title', 'A Most Extraordinary Journey of Self-Discovery');
-$book_subtitle    = eliza_field('book_subtitle', 'A 9-Year Spiritual Journey with the Enigmatic Comte de St Germain · By Eliza James');
-$book_badge       = eliza_field('book_badge', 'Spiritual Biography · Metaphysical Wisdom');
-$book_lead_quote  = eliza_field('book_lead_quote', '“Being a student and friend of St Germain is what brings me the most joy. My 9-year Spiritual Journey with the enigmatic Comte de St Germain is shared with the world in this work.”');
-$book_synopsis    = eliza_field('book_synopsis', 'In this deeply personal and transformative book, Eliza chronicles her extraordinary nine-year communion with the Ascended Master, the enigmatic Comte de St Germain. Spanning deep metaphysical revelations, the dawning of the Age of Aquarius, and the sacred truth of personal sovereignty, the book serves as a guiding light for anyone seeking to uncover the truth of who they really are.');
-$book_trailer_id  = eliza_field('book_trailer_youtube_id', 'VmsQBtoa7h0');
 
 // Interview Fields
 $int_eyebrow      = eliza_field('interview_eyebrow', '✦ Featured In-Depth Dialogue');
@@ -269,53 +260,7 @@ if (!empty(trim($saved_content))) {
       </div>
     </section>
 
-    <!-- Section 4: Featured Book -->
-    <section id="book" class="section-subtle">
-      <div class="container-wide">
-        <div class="reveal text-center" style="max-width: 840px; margin: 0 auto 36px;">
-          <span class="eyebrow"><?php echo esc_html($book_eyebrow); ?></span>
-          <h2 class="section-title"><?php echo esc_html($book_title); ?></h2>
-          <p class="section-intro" style="margin: 12px auto 0; font-family: var(--font-serif); font-size: 1.18rem; font-style: italic; color: var(--ink-soft); max-width: 680px;">
-            <?php echo esc_html($book_subtitle); ?>
-          </p>
-        </div>
-
-        <div class="grid-balanced-2" style="align-items: center; gap: 44px;">
-          <div class="prose reveal">
-            <div class="glass-chip" style="margin-bottom: 16px;">
-              <span class="pulse-dot" aria-hidden="true"></span>
-              <span><?php echo esc_html($book_badge); ?></span>
-            </div>
-            <p class="lede" style="color: var(--ink); font-weight: 600; font-size: 1.15rem; line-height: 1.5; margin-bottom: 16px;">
-              <?php echo esc_html($book_lead_quote); ?>
-            </p>
-            <p style="font-size: 0.98rem; line-height: 1.68; color: var(--ink-soft); margin-bottom: 20px;">
-              <?php echo esc_html($book_synopsis); ?>
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-primary" href="https://www.youtube.com/watch?v=<?php echo esc_attr($book_trailer_id); ?>" target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-                Watch Trailer on YouTube &nearr;
-              </a>
-              <a class="btn btn-ghost-dark" href="<?php echo esc_url(home_url('/contact/')); ?>">Inquire About the Book</a>
-            </div>
-          </div>
-
-          <div class="reveal delay-1">
-            <div class="video-frame">
-              <iframe src="https://www.youtube-nocookie.com/embed/<?php echo esc_attr($book_trailer_id); ?>?rel=0" title="A Most Extraordinary Journey of Self-Discovery - Official Book Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
-            </div>
-            <div class="video-footer-link">
-              <a href="https://www.youtube.com/watch?v=<?php echo esc_attr($book_trailer_id); ?>" target="_blank" rel="noopener noreferrer">
-                <span>✦</span> Watch &ldquo;A Most Extraordinary Journey of Self-Discovery&rdquo; Trailer on YouTube &nearr;
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 5: In Conversation Interview -->
+    <!-- Section 4: In Conversation Interview -->
     <section id="interview" class="section-alt">
       <div class="container-wide">
         <div class="reveal text-center" style="max-width: 840px; margin: 0 auto 36px;">
@@ -387,11 +332,11 @@ if (!empty(trim($saved_content))) {
             <p>What attendees and workshop participants are saying after meditation and life coaching sessions.</p>
             <span class="card-link">Read Remarks &rarr;</span>
           </a>
-          <a class="offer-card reveal delay-3" href="https://www.austinmacauley.com/book/a-most-extraordinary-journey-of-self-discovery" target="_blank" rel="noopener">
-            <span class="tag">Published Work</span>
-            <h3>A Most Extraordinary Journey of Self-discovery</h3>
-            <p>Eliza's internationally published book recounting nine years of study and spiritual journey with the Comte de St Germain.</p>
-            <span class="card-link">Explore Book &rarr;</span>
+          <a class="offer-card reveal delay-3" href="<?php echo esc_url(home_url('/books/')); ?>">
+            <span class="tag">Literary Works</span>
+            <h3>Books &amp; Publications</h3>
+            <p>Explore Eliza's spiritual books, chakra energetics teachings, and downloadable sacred guides.</p>
+            <span class="card-link">Explore Books &rarr;</span>
           </a>
         </div>
       </div>

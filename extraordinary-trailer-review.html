@@ -1,0 +1,1460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Most Extraordinary Journey of Self-Discovery · Official Trailer Review Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400;1,600;1,700&family=Great+Vibes&family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa7c11;
+            --bg-deep: #05070c;
+            --bg-surface: rgba(14, 18, 28, 0.92);
+            --bg-card: rgba(22, 28, 42, 0.78);
+            --border-glass: rgba(212, 175, 55, 0.35);
+            --text-main: #f5f5f7;
+            --text-muted: #9ca3af;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 85% 75%, rgba(138, 75, 175, 0.11) 0%, transparent 50%),
+                radial-gradient(circle at 15% 85%, rgba(45, 115, 195, 0.09) 0%, transparent 50%);
+        }
+
+        header {
+            width: 100%;
+            max-width: 1600px;
+            padding: 20px 24px 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            z-index: 10;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1.5px solid var(--gold-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold-primary);
+            font-size: 1.35rem;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.45);
+            background: rgba(212, 175, 55, 0.12);
+        }
+
+        .brand h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 1.25rem;
+            letter-spacing: 2.5px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .brand span {
+            color: var(--gold-primary);
+        }
+
+        .tagline {
+            font-size: 0.76rem;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .review-mode-badge {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .review-mode-badge:hover {
+            background: rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.4);
+        }
+
+        .nav-link-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #d1d5db;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .nav-link-btn:hover {
+            color: #fff;
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Main Layout Grid */
+        .main-layout {
+            width: 100%;
+            max-width: 1600px;
+            padding: 8px 24px 40px;
+            display: grid;
+            grid-template-columns: 390px 1fr;
+            gap: 24px;
+            z-index: 5;
+        }
+
+        @media (max-width: 1100px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ========================================================
+           LEFT SIDEBAR: REVIEW & COMMENTS PANEL
+           ======================================================== */
+        .review-sidebar {
+            background: var(--bg-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+            height: fit-content;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.25);
+            padding-bottom: 12px;
+        }
+
+        .sidebar-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.1rem;
+            color: var(--gold-light);
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .comment-count-badge {
+            background: var(--gold-primary);
+            color: #000;
+            font-size: 0.72rem;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 12px;
+        }
+
+        .comment-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            background: rgba(10, 14, 24, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        label {
+            font-size: 0.74rem;
+            color: #a5adc2;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        input[type="text"], select, textarea {
+            background: rgba(16, 20, 32, 0.95);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #fff;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.82rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 70px;
+            line-height: 1.4;
+        }
+
+        .time-capture-btn {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px dashed var(--gold-primary);
+            color: var(--gold-light);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 0.72rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .time-capture-btn:hover {
+            background: rgba(212, 175, 55, 0.25);
+            border-style: solid;
+        }
+
+        .submit-comment-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.84rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s;
+            box-shadow: 0 4px 14px rgba(212, 175, 55, 0.35);
+        }
+
+        .submit-comment-btn:hover {
+            background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(212, 175, 55, 0.5);
+        }
+
+        /* Comments List */
+        .comments-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 480px;
+            overflow-y: auto;
+            padding-right: 4px;
+        }
+
+        .comments-list-container::-webkit-scrollbar {
+            width: 5px;
+        }
+
+        .comments-list-container::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.4);
+            border-radius: 4px;
+        }
+
+        .comment-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-left: 3.5px solid var(--gold-primary);
+            border-radius: 10px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .comment-item:hover {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .comment-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .time-jump-pill {
+            background: rgba(212, 175, 55, 0.2);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            transition: all 0.2s;
+        }
+
+        .time-jump-pill:hover {
+            background: var(--gold-primary);
+            color: #000;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+        }
+
+        .scene-badge-pill {
+            font-size: 0.7rem;
+            color: #9ca3af;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Cinzel', serif;
+        }
+
+        .comment-text {
+            font-size: 0.83rem;
+            color: #e5e7eb;
+            line-height: 1.45;
+            white-space: pre-wrap;
+        }
+
+        .comment-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.7rem;
+            color: #6b7280;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 6px;
+        }
+
+        .delete-comment-btn {
+            background: transparent;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 0.72rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+
+        .delete-comment-btn:hover {
+            opacity: 1;
+            background: rgba(239, 68, 68, 0.15);
+        }
+
+        .sidebar-export-row {
+            display: flex;
+            gap: 8px;
+            border-top: 1px solid rgba(212, 175, 55, 0.25);
+            padding-top: 14px;
+        }
+
+        .export-feedback-btn {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: var(--gold-light);
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: all 0.2s;
+        }
+
+        .export-feedback-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold-primary);
+            color: #fff;
+        }
+
+        /* ========================================================
+           RIGHT CONTENT: VIDEO STAGE & CONTROLS
+           ======================================================== */
+        .player-content {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .video-viewport {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 
+                0 25px 60px rgba(0, 0, 0, 0.9),
+                0 0 50px rgba(212, 175, 55, 0.22),
+                inset 0 0 0 1px rgba(212, 175, 55, 0.45);
+        }
+
+        #videoPlayer {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: contain;
+            background: #000;
+        }
+
+        /* Controls Card */
+        .controls-card {
+            width: 100%;
+            padding: 16px 22px;
+            background: var(--bg-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--border-glass);
+            border-radius: 14px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6);
+        }
+
+        .progress-row {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .time-display {
+            font-family: 'Cinzel', monospace;
+            font-size: 0.88rem;
+            color: var(--gold-light);
+            min-width: 110px;
+            letter-spacing: 1.5px;
+        }
+
+        .timeline-bar {
+            position: relative;
+            flex: 1;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: visible;
+            transition: height 0.2s ease;
+        }
+
+        .timeline-bar:hover {
+            height: 10px;
+        }
+
+        .timeline-fill {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #aa7c11, #d4af37, #fff2a3);
+            box-shadow: 0 0 12px rgba(212, 175, 55, 0.9);
+            border-radius: 4px;
+            pointer-events: none;
+        }
+
+        .scene-indicator {
+            font-size: 0.82rem;
+            color: #8e95aa;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .scene-indicator span {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .buttons-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .left-controls, .right-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button.ctrl-btn {
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            color: #f0f0f0;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            outline: none;
+        }
+
+        button.ctrl-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold-primary);
+            color: #fff;
+            box-shadow: 0 0 14px rgba(212, 175, 55, 0.35);
+            transform: translateY(-1px);
+        }
+
+        button.primary-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #aa7c11 100%);
+            color: #000;
+            font-weight: 700;
+            border: none;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        button.primary-btn:hover {
+            background: linear-gradient(135deg, #f5d76e 0%, #d4af37 100%);
+            box-shadow: 0 6px 22px rgba(212, 175, 55, 0.6);
+        }
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.35);
+            padding: 6px 12px;
+            border-radius: 8px;
+        }
+
+        .volume-icon-btn {
+            background: transparent;
+            border: none;
+            padding: 0;
+            cursor: pointer;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 70px;
+            height: 5px;
+            border-radius: 3px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+            cursor: pointer;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            background: var(--gold-primary);
+            cursor: pointer;
+            box-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+            transition: transform 0.15s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+
+        /* Storyboard Section */
+        .storyboard-section {
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.2rem;
+            color: var(--gold-light);
+            letter-spacing: 2.5px;
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
+        }
+
+        .scenes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 12px;
+        }
+
+        .scene-card {
+            background: rgba(18, 22, 34, 0.65);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .scene-card:hover, .scene-card.active {
+            border-color: var(--gold-primary);
+            background: rgba(212, 175, 55, 0.12);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .scene-card.active {
+            border-width: 1.5px;
+            border-color: #ffe066;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.35);
+        }
+
+        .scene-card .card-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.72rem;
+            color: var(--gold-primary);
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1.5px;
+            margin-bottom: 6px;
+        }
+
+        .scene-card h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.15rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .scene-card p {
+            font-size: 0.76rem;
+            color: #9ca3af;
+            line-height: 1.4;
+        }
+
+        /* Toast */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(10, 12, 20, 0.95);
+            border: 1px solid var(--gold-primary);
+            padding: 12px 28px;
+            border-radius: 30px;
+            color: #fff;
+            font-size: 0.88rem;
+            letter-spacing: 1px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.8), 0 0 20px rgba(212, 175, 55, 0.4);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            z-index: 100;
+        }
+
+        .toast.visible {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Keyboard Shortcuts helper card */
+        .shortcuts-bar {
+            background: rgba(10, 14, 24, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 0.74rem;
+            color: #8b949e;
+        }
+
+        .shortcut-item kbd {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--gold-light);
+            font-family: monospace;
+            font-size: 0.72rem;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="brand">
+            <div class="brand-icon">✦</div>
+            <div>
+                <h1>A MOST EXTRAORDINARY <span>JOURNEY</span></h1>
+                <div class="tagline">Official Cinematic Book Trailer & Author Review Portal</div>
+            </div>
+        </div>
+        <div class="header-meta">
+            <a href="cover-preview.html" class="review-mode-badge" style="border-color: var(--gold-primary); background: rgba(212, 175, 55, 0.2);">
+                <span>🎨 Book Cover Showcase</span>
+            </a>
+            <div class="review-mode-badge">
+                <span>💬 Review & Feedback Mode Active</span>
+            </div>
+            <a href="c:/Claude/ElizajamesBookTrailer/index.html" class="nav-link-btn" title="Switch to Chakra Energetics Trailer">
+                Switch to Chakra Trailer ↗
+            </a>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        
+        <!-- ========================================================
+             LEFT SIDEBAR: AUTHOR REVIEW & FEEDBACK
+             ======================================================== -->
+        <aside class="review-sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-title">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                    Review Comments
+                </div>
+                <span class="comment-count-badge" id="commentCountBadge">0 Notes</span>
+            </div>
+
+            <!-- Comment Entry Form -->
+            <form class="comment-form" id="commentForm" onsubmit="event.preventDefault(); addReviewComment();">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="reviewerName">Your Name</label>
+                        <input type="text" id="reviewerName" value="Eliza James" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="commentTimestamp">Timestamp</label>
+                        <div style="display:flex; gap:4px;">
+                            <input type="text" id="commentTimestamp" value="00:00" style="width:70px; text-align:center;">
+                            <button type="button" class="time-capture-btn" onclick="captureCurrentTime()" title="Capture current video time">
+                                ⏱️ Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sceneSelect">Target Scene</label>
+                    <select id="sceneSelect">
+                        <option value="Prologue (0:00 - 0:04): Author Presentation">Intro Card (0:00 - 0:04)</option>
+                        <option value="Scene 1 (0:04 - 0:14): Book Reveal & Subtitle">Scene 1: Book Reveal & Subtitle (0:04 - 0:14)</option>
+                        <option value="Transition 1 (0:14 - 0:17): Left-to-Right 3D Spin">Transition 1: Left-to-Right 3D Spin (0:14 - 0:17)</option>
+                        <option value="Scene 2 (0:17 - 0:26): St Germain First Transmission">Scene 2: St Germain First Transmission (0:17 - 0:26)</option>
+                        <option value="Transition 2 (0:26 - 0:28): Right-to-Left 3D Spin">Transition 2: Right-to-Left 3D Spin (0:26 - 0:28)</option>
+                        <option value="Scene 3 (0:28 - 0:37): Spiritual Sovereignty">Scene 3: Spiritual Sovereignty (0:28 - 0:37)</option>
+                        <option value="Transition 3 (0:37 - 0:40): Left-to-Right 3D Spin">Transition 3: Left-to-Right 3D Spin (0:37 - 0:40)</option>
+                        <option value="Scene 4 (0:40 - 0:49): Sacred Presence in Daily Life">Scene 4: Sacred Presence in Daily Life (0:40 - 0:49)</option>
+                        <option value="Transition 4 (0:49 - 0:51): Right-to-Left 3D Spin">Transition 4: Right-to-Left 3D Spin (0:49 - 0:51)</option>
+                        <option value="Scene 5 (0:51 - 1:00): Highest Intention & Purpose">Scene 5: Highest Intention & Purpose (0:51 - 1:00)</option>
+                        <option value="Transition 5 (1:00 - 1:02): Left-to-Right 3D Spin">Transition 5: Left-to-Right 3D Spin (1:00 - 1:02)</option>
+                        <option value="Scene 6 (1:02 - 1:14): Retail Availability & Final Outro">Scene 6: Retail Availability (1:02 - 1:14)</option>
+                        <option value="Soundtrack & Audio Score">Soundtrack & Orchestral Score</option>
+                        <option value="Overall Trailer Feedback">Overall Trailer Feedback</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="commentTag">Category</label>
+                    <select id="commentTag">
+                        <option value="✨ Visual / 3D Animation">✨ Visual / 3D Animation</option>
+                        <option value="✍️ Text / Quote Adjustment">✍️ Text / Quote Adjustment</option>
+                        <option value="🎵 Audio / Music Pacing">🎵 Audio / Music Pacing</option>
+                        <option value="⏱️ Scene Timing">⏱️ Scene Timing</option>
+                        <option value="👍 Approved / Love It">👍 Approved / Love It</option>
+                        <option value="💬 General Comment">💬 General Comment</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="commentText">Feedback / Note</label>
+                    <textarea id="commentText" placeholder="Write your note or adjustment request here... (e.g. 'Love the 3D book spin here', 'Adjust font size', 'Check quote wording')"></textarea>
+                </div>
+
+                <button type="submit" class="submit-comment-btn">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                    Add Comment Note
+                </button>
+            </form>
+
+            <!-- Feedback Items List -->
+            <div class="comments-list-container" id="commentsListContainer">
+                <!-- Dynamically Rendered -->
+            </div>
+
+            <!-- Export / Share Feedback -->
+            <div class="sidebar-export-row">
+                <button class="export-feedback-btn" onclick="copyAllFeedbackToClipboard()" title="Copy clean formatted notes for WhatsApp / Email">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    Copy for WhatsApp
+                </button>
+                <button class="export-feedback-btn" onclick="downloadFeedbackReport()" title="Download text report of all comments">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                    Save Report
+                </button>
+                <button class="export-feedback-btn" style="color:#ef4444; border-color:rgba(239, 68, 68, 0.4);" onclick="clearAllFeedback()" title="Clear comments">
+                    Clear
+                </button>
+            </div>
+        </aside>
+
+        <!-- ========================================================
+             RIGHT AREA: VIDEO PLAYER, CONTROLS & STORYBOARD
+             ======================================================== -->
+        <main class="player-content">
+            <!-- 16:9 1080p Video Viewport -->
+            <div class="video-viewport" id="viewport">
+                <video id="videoPlayer" playsinline preload="auto">
+                    <source src="assets/extraordinary-journey-trailer.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+
+            <!-- Glass Controls Bar -->
+            <div class="controls-card">
+                <div class="progress-row">
+                    <span class="time-display" id="timeLabel">00:00 / 01:13</span>
+                    <div class="timeline-bar" id="timelineBar" onclick="seekByClick(event)">
+                        <div class="timeline-fill" id="timelineFill"></div>
+                    </div>
+                    <div class="scene-indicator" id="sceneIndicator">Scene: <span>Intro</span></div>
+                </div>
+
+                <div class="buttons-row">
+                    <div class="left-controls">
+                        <button class="ctrl-btn primary-btn" id="playBtn" onclick="togglePlay()">
+                            <svg id="playIconSvg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                            <span id="playBtnText">Play Trailer</span>
+                        </button>
+                        <button class="ctrl-btn" id="restartBtn" onclick="restartVideo()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                            Restart
+                        </button>
+                        <button class="ctrl-btn" onclick="skipTime(-5)" title="Rewind 5 seconds">
+                            -5s
+                        </button>
+                        <button class="ctrl-btn" onclick="skipTime(5)" title="Forward 5 seconds">
+                            +5s
+                        </button>
+                        
+                        <!-- Volume Slider Control -->
+                        <div class="volume-container">
+                            <button class="volume-icon-btn" id="volumeIconBtn" onclick="toggleMute()" title="Mute/Unmute">
+                                <svg id="volumeIconSvg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                            </button>
+                            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.01" value="0.9" oninput="updateVolume(this.value)" title="Volume Control">
+                            <span id="volumePercent" style="font-size:0.75rem; color:var(--gold-light); min-width:32px;">90%</span>
+                        </div>
+                    </div>
+
+                    <div class="right-controls">
+                        <a href="assets/extraordinary-journey-trailer.mp4" download="A-Most-Extraordinary-Journey-Official-Trailer-1080p.mp4" style="text-decoration:none;">
+                            <button type="button" class="ctrl-btn" style="background: rgba(212, 175, 55, 0.15); border-color: var(--gold-primary); color: var(--gold-light);" title="Download 1080p Broadcast Video File">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                                ⬇ Download 1080p MP4
+                            </button>
+                        </a>
+                        <button class="ctrl-btn" id="fullscreenBtn" onclick="toggleFullscreen()">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+                            Fullscreen
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Keyboard Shortcuts Helper -->
+            <div class="shortcuts-bar">
+                <span>⚡ <strong>Shortcuts:</strong></span>
+                <span class="shortcut-item"><kbd>Space</kbd> Play / Pause</span>
+                <span class="shortcut-item"><kbd>←</kbd> <kbd>→</kbd> Seek ±5s</span>
+                <span class="shortcut-item"><kbd>J</kbd> <kbd>L</kbd> Seek ±10s</span>
+                <span class="shortcut-item"><kbd>C</kbd> Capture Time to Note</span>
+                <span class="shortcut-item"><kbd>M</kbd> Mute Toggle</span>
+                <span class="shortcut-item"><kbd>F</kbd> Fullscreen</span>
+            </div>
+
+            <!-- Storyboard Grid -->
+            <section class="storyboard-section">
+                <div class="section-title">Trailer Scenes & Timeline Breakdown</div>
+                <div class="scenes-grid">
+                    <div class="scene-card" id="card_intro" onclick="seekToTime(0)">
+                        <div class="card-header">
+                            <span>0:00 - 0:04</span>
+                            <span>PROLOGUE</span>
+                        </div>
+                        <h4>Eliza James Presents</h4>
+                        <p>Cinematic opening: "A Transcendent Journey of Awakening & Divine Consciousness" fades in over deep obsidian ambient light.</p>
+                    </div>
+
+                    <div class="scene-card" id="card_scene1" onclick="seekToTime(4)">
+                        <div class="card-header">
+                            <span>0:04 - 0:14</span>
+                            <span>SCENE 1</span>
+                        </div>
+                        <h4>Book Reveal & Subtitle</h4>
+                        <p>3D hardcover book on left stage; title typography & "A 9-Year Spiritual Journey with Ascended Master St Germain" on right.</p>
+                    </div>
+
+                    <div class="scene-card" id="card_scene2" onclick="seekToTime(17)">
+                        <div class="card-header">
+                            <span>0:17 - 0:26</span>
+                            <span>SCENE 2</span>
+                        </div>
+                        <h4>St Germain Transmission</h4>
+                        <p>Following smooth 360° spin, book rests on right; quote on left: "Thank you for the opportunity that I may come and speak with each one of you..."</p>
+                    </div>
+
+                    <div class="scene-card" id="card_scene3" onclick="seekToTime(28)">
+                        <div class="card-header">
+                            <span>0:28 - 0:37</span>
+                            <span>SCENE 3</span>
+                        </div>
+                        <h4>Spiritual Sovereignty</h4>
+                        <p>Reverse 360° spin glides book to left; sacred quote on right: "It is an affirmation in two directions of our being..." (The Way of the Heart).</p>
+                    </div>
+
+                    <div class="scene-card" id="card_scene4" onclick="seekToTime(40)">
+                        <div class="card-header">
+                            <span>0:40 - 0:49</span>
+                            <span>SCENE 4</span>
+                        </div>
+                        <h4>Sacred Presence in Daily Life</h4>
+                        <p>Book glides to right; quote on left: "And live your lives please, if you may, if you choose, if you will, in that same manner..."</p>
+                    </div>
+
+                    <div class="scene-card" id="card_scene5" onclick="seekToTime(51)">
+                        <div class="card-header">
+                            <span>0:51 - 1:00</span>
+                            <span>SCENE 5</span>
+                        </div>
+                        <h4>The Highest Intention</h4>
+                        <p>Book returns to left; quote on right: "...So that every conversation matters, every interaction counts, and everything is done with the highest intention."</p>
+                    </div>
+
+                    <div class="scene-card" id="card_scene6" onclick="seekToTime(62)">
+                        <div class="card-header">
+                            <span>1:02 - 1:14</span>
+                            <span>SCENE 6</span>
+                        </div>
+                        <h4>Retail Callout & Final Fade</h4>
+                        <p>Final 3D spin to right; clean retail callout on left: Amazon • Takealot • www.elizajames.co.za (zero ISBN clutter). Soft fade-out to black.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast" id="toastNotification">Action completed</div>
+
+    <script>
+        const video = document.getElementById('videoPlayer');
+        const playBtn = document.getElementById('playBtn');
+        const playBtnText = document.getElementById('playBtnText');
+        const playIconSvg = document.getElementById('playIconSvg');
+        const timeLabel = document.getElementById('timeLabel');
+        const timelineFill = document.getElementById('timelineFill');
+        const timelineBar = document.getElementById('timelineBar');
+        const sceneIndicator = document.getElementById('sceneIndicator');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumePercent = document.getElementById('volumePercent');
+        const volumeIconSvg = document.getElementById('volumeIconSvg');
+        const commentTimestamp = document.getElementById('commentTimestamp');
+        const sceneSelect = document.getElementById('sceneSelect');
+        const commentText = document.getElementById('commentText');
+        const reviewerName = document.getElementById('reviewerName');
+        const commentTag = document.getElementById('commentTag');
+        const commentsListContainer = document.getElementById('commentsListContainer');
+        const commentCountBadge = document.getElementById('commentCountBadge');
+        const toastNotification = document.getElementById('toastNotification');
+
+        const STORAGE_KEY = 'eliza_extraordinary_journey_comments';
+        let reviewComments = [];
+
+        // Scene Definitions for Timeline Matching
+        const SCENES = [
+            { id: 'card_intro', name: 'Prologue', start: 0, end: 4, label: 'Intro' },
+            { id: 'card_scene1', name: 'Scene 1: Book Reveal', start: 4, end: 14, label: 'Scene 1' },
+            { id: 'card_scene1_trans', name: 'Transition 1 (3D Spin)', start: 14, end: 17, label: 'Trans 1' },
+            { id: 'card_scene2', name: 'Scene 2: St Germain Message', start: 17, end: 26, label: 'Scene 2' },
+            { id: 'card_scene2_trans', name: 'Transition 2 (3D Spin)', start: 26, end: 28, label: 'Trans 2' },
+            { id: 'card_scene3', name: 'Scene 3: Spiritual Sovereignty', start: 28, end: 37, label: 'Scene 3' },
+            { id: 'card_scene3_trans', name: 'Transition 3 (3D Spin)', start: 37, end: 40, label: 'Trans 3' },
+            { id: 'card_scene4', name: 'Scene 4: Sacred Presence', start: 40, end: 49, label: 'Scene 4' },
+            { id: 'card_scene4_trans', name: 'Transition 4 (3D Spin)', start: 49, end: 51, label: 'Trans 4' },
+            { id: 'card_scene5', name: 'Scene 5: Highest Intention', start: 51, end: 60, label: 'Scene 5' },
+            { id: 'card_scene5_trans', name: 'Transition 5 (3D Spin)', start: 60, end: 62, label: 'Trans 5' },
+            { id: 'card_scene6', name: 'Scene 6: Retail Availability', start: 62, end: 74, label: 'Scene 6' },
+        ];
+
+        // Format seconds as MM:SS
+        function formatTime(sec) {
+            const m = Math.floor(sec / 60);
+            const s = Math.floor(sec % 60);
+            return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        }
+
+        // Show Toast
+        function showToast(message) {
+            toastNotification.textContent = message;
+            toastNotification.classList.add('visible');
+            setTimeout(() => {
+                toastNotification.classList.remove('visible');
+            }, 3000);
+        }
+
+        // Play / Pause Toggle
+        function togglePlay() {
+            if (video.paused || video.ended) {
+                video.play();
+                updatePlayButton(true);
+            } else {
+                video.pause();
+                updatePlayButton(false);
+            }
+        }
+
+        function updatePlayButton(isPlaying) {
+            if (isPlaying) {
+                playBtnText.textContent = 'Pause';
+                playIconSvg.innerHTML = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+            } else {
+                playBtnText.textContent = 'Play Trailer';
+                playIconSvg.innerHTML = '<polygon points="5 3 19 12 5 21 5 3"/>';
+            }
+        }
+
+        function restartVideo() {
+            video.currentTime = 0;
+            video.play();
+            updatePlayButton(true);
+        }
+
+        function skipTime(delta) {
+            video.currentTime = Math.max(0, Math.min(video.duration || 73.7, video.currentTime + delta));
+        }
+
+        function seekToTime(seconds) {
+            video.currentTime = seconds;
+            if (video.paused) {
+                video.play();
+                updatePlayButton(true);
+            }
+            showToast(`Jumped to ${formatTime(seconds)}`);
+        }
+
+        function seekByClick(e) {
+            const rect = timelineBar.getBoundingClientRect();
+            const pos = (e.clientX - rect.left) / rect.width;
+            const duration = video.duration || 73.71;
+            video.currentTime = Math.max(0, Math.min(duration, pos * duration));
+        }
+
+        // Volume Controls
+        function updateVolume(val) {
+            video.volume = val;
+            video.muted = (val == 0);
+            volumePercent.textContent = Math.round(val * 100) + '%';
+            updateVolumeIcon(val);
+        }
+
+        function toggleMute() {
+            video.muted = !video.muted;
+            if (video.muted) {
+                volumeIconSvg.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+                volumePercent.textContent = 'Muted';
+            } else {
+                updateVolume(video.volume);
+            }
+        }
+
+        function updateVolumeIcon(val) {
+            if (val == 0) {
+                volumeIconSvg.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+            } else if (val < 0.5) {
+                volumeIconSvg.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+            } else {
+                volumeIconSvg.innerHTML = '<polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+            }
+        }
+
+        // Fullscreen
+        function toggleFullscreen() {
+            const vp = document.getElementById('viewport');
+            if (!document.fullscreenElement) {
+                if (vp.requestFullscreen) vp.requestFullscreen();
+                else if (video.requestFullscreen) video.requestFullscreen();
+            } else {
+                if (document.exitFullscreen) document.exitFullscreen();
+            }
+        }
+
+        // Video TimeUpdate Event
+        video.addEventListener('timeupdate', () => {
+            const cur = video.currentTime;
+            const dur = video.duration || 73.71;
+            timeLabel.textContent = `${formatTime(cur)} / ${formatTime(dur)}`;
+            timelineFill.style.width = `${(cur / dur) * 100}%`;
+
+            // Active scene identification
+            let currentScene = SCENES[0];
+            for (const s of SCENES) {
+                if (cur >= s.start && cur < s.end) {
+                    currentScene = s;
+                    break;
+                }
+            }
+
+            sceneIndicator.innerHTML = `Scene: <span>${currentScene.label}</span>`;
+
+            // Highlight corresponding storyboard card
+            document.querySelectorAll('.scene-card').forEach(c => c.classList.remove('active'));
+            const activeCard = document.getElementById(currentScene.id);
+            if (activeCard) {
+                activeCard.classList.add('active');
+            }
+        });
+
+        video.addEventListener('play', () => updatePlayButton(true));
+        video.addEventListener('pause', () => updatePlayButton(false));
+        video.addEventListener('ended', () => updatePlayButton(false));
+
+        // Time Capture for Comment Box
+        function captureCurrentTime() {
+            const cur = video.currentTime;
+            commentTimestamp.value = formatTime(cur);
+
+            // Auto-select scene
+            for (const s of SCENES) {
+                if (cur >= s.start && cur < s.end) {
+                    for (let i = 0; i < sceneSelect.options.length; i++) {
+                        if (sceneSelect.options[i].text.includes(s.label) || sceneSelect.options[i].value.includes(s.label)) {
+                            sceneSelect.selectedIndex = i;
+                            break;
+                        }
+                    }
+                    break;
+                }
+            }
+
+            commentText.focus();
+            showToast(`Captured Timestamp: ${commentTimestamp.value}`);
+        }
+
+        // Comments System & LocalStorage
+        function loadComments() {
+            try {
+                const stored = localStorage.getItem(STORAGE_KEY);
+                if (stored) {
+                    reviewComments = JSON.parse(stored);
+                } else {
+                    reviewComments = [];
+                }
+            } catch (e) {
+                reviewComments = [];
+            }
+            renderCommentsList();
+        }
+
+        function saveComments() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(reviewComments));
+            } catch (e) {
+                console.error("Failed to save to localStorage", e);
+            }
+            renderCommentsList();
+        }
+
+        function parseTimestampToSeconds(ts) {
+            const parts = ts.split(':').map(Number);
+            if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+                return parts[0] * 60 + parts[1];
+            }
+            return 0;
+        }
+
+        function addReviewComment() {
+            const text = commentText.value.trim();
+            if (!text) {
+                showToast("Please enter a note or comment first!");
+                commentText.focus();
+                return;
+            }
+
+            const ts = commentTimestamp.value.trim() || formatTime(video.currentTime);
+            const author = reviewerName.value.trim() || 'Eliza James';
+            const scene = sceneSelect.value;
+            const tag = commentTag.value;
+            const sec = parseTimestampToSeconds(ts);
+
+            const commentObj = {
+                id: Date.now(),
+                timestamp: ts,
+                seconds: sec,
+                author: author,
+                scene: scene,
+                tag: tag,
+                text: text,
+                date: new Date().toLocaleDateString() + ' ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+            };
+
+            reviewComments.push(commentObj);
+            // Sort by timestamp
+            reviewComments.sort((a, b) => a.seconds - b.seconds);
+            saveComments();
+
+            commentText.value = '';
+            showToast("Review note added successfully!");
+        }
+
+        function deleteComment(id) {
+            reviewComments = reviewComments.filter(c => c.id !== id);
+            saveComments();
+            showToast("Comment removed.");
+        }
+
+        function renderCommentsList() {
+            commentCountBadge.textContent = `${reviewComments.length} Note${reviewComments.length === 1 ? '' : 's'}`;
+
+            if (reviewComments.length === 0) {
+                commentsListContainer.innerHTML = `
+                    <div style="text-align:center; padding:32px 16px; color:#6b7280; font-size:0.8rem; line-height:1.6;">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="margin-bottom:8px; opacity:0.6;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <p>No feedback notes added yet.</p>
+                        <p style="font-size:0.75rem; color:#4b5563;">Play the trailer, click <strong>⏱️ Now</strong> at any moment, and add notes for review!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            let html = '';
+            reviewComments.forEach(c => {
+                html += `
+                    <div class="comment-item">
+                        <div class="comment-meta">
+                            <span class="time-jump-pill" onclick="seekToTime(${c.seconds})" title="Click to seek trailer to ${c.timestamp}">
+                                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                                ${c.timestamp}
+                            </span>
+                            <span class="scene-badge-pill">${c.tag}</span>
+                        </div>
+                        <div class="comment-text">${escapeHtml(c.text)}</div>
+                        <div class="comment-actions">
+                            <span>${c.author} · ${c.date}</span>
+                            <button class="delete-comment-btn" onclick="deleteComment(${c.id})" title="Delete this note">Delete</button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            commentsListContainer.innerHTML = html;
+        }
+
+        function escapeHtml(str) {
+            return str
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        // Export Feedback for WhatsApp / Email
+        function copyAllFeedbackToClipboard() {
+            if (reviewComments.length === 0) {
+                showToast("No comments to export yet!");
+                return;
+            }
+
+            let report = `🎬 *ELIZA JAMES · EXTRAORDINARY JOURNEY TRAILER REVIEW*\n`;
+            report += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+            reviewComments.forEach((c, i) => {
+                report += `[${c.timestamp}] ${c.scene}\n`;
+                report += `Category: ${c.tag}\n`;
+                report += `"${c.text}" — ${c.author}\n\n`;
+            });
+
+            report += `━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n`;
+            report += `Generated: ${new Date().toLocaleString()}`;
+
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(report).then(() => {
+                    showToast("📋 All review notes copied! Ready to paste into WhatsApp.");
+                }).catch(() => fallbackCopy(report));
+            } else {
+                fallbackCopy(report);
+            }
+        }
+
+        function fallbackCopy(text) {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.focus();
+            ta.select();
+            try {
+                document.execCommand('copy');
+                showToast("📋 All review notes copied! Ready to paste into WhatsApp.");
+            } catch (err) {
+                showToast("Please copy manually from Save Report.");
+            }
+            document.body.removeChild(ta);
+        }
+
+        function downloadFeedbackReport() {
+            if (reviewComments.length === 0) {
+                showToast("No comments to download yet!");
+                return;
+            }
+
+            let report = `ELIZA JAMES - A MOST EXTRAORDINARY JOURNEY OF SELF-DISCOVERY\n`;
+            report += `OFFICIAL BOOK TRAILER REVIEW & FEEDBACK REPORT\n`;
+            report += `Generated: ${new Date().toLocaleString()}\n`;
+            report += `Total Notes: ${reviewComments.length}\n`;
+            report += `========================================================================\n\n`;
+
+            reviewComments.forEach((c, idx) => {
+                report += `NOTE #${idx + 1}\n`;
+                report += `Timestamp:  ${c.timestamp} (${c.seconds}s)\n`;
+                report += `Scene:      ${c.scene}\n`;
+                report += `Category:   ${c.tag}\n`;
+                report += `Reviewer:   ${c.author}\n`;
+                report += `Date Added: ${c.date}\n`;
+                report += `Feedback:   \n"${c.text}"\n`;
+                report += `------------------------------------------------------------------------\n\n`;
+            });
+
+            const blob = new Blob([report], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `Eliza-James-Extraordinary-Journey-Trailer-Notes-${new Date().toISOString().split('T')[0]}.txt`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast("Report downloaded successfully.");
+        }
+
+        function clearAllFeedback() {
+            if (reviewComments.length === 0) return;
+            if (confirm("Are you sure you want to clear all feedback notes?")) {
+                reviewComments = [];
+                saveComments();
+                showToast("All feedback notes cleared.");
+            }
+        }
+
+        // Keyboard Shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Do not capture if typing in form inputs
+            if (['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName)) {
+                return;
+            }
+
+            if (e.code === 'Space') {
+                e.preventDefault();
+                togglePlay();
+            } else if (e.code === 'ArrowLeft') {
+                e.preventDefault();
+                skipTime(-5);
+            } else if (e.code === 'ArrowRight') {
+                e.preventDefault();
+                skipTime(5);
+            } else if (e.key === 'j' || e.key === 'J') {
+                skipTime(-10);
+            } else if (e.key === 'l' || e.key === 'L') {
+                skipTime(10);
+            } else if (e.key === 'm' || e.key === 'M') {
+                toggleMute();
+            } else if (e.key === 'f' || e.key === 'F') {
+                toggleFullscreen();
+            } else if (e.key === 'c' || e.key === 'C') {
+                e.preventDefault();
+                captureCurrentTime();
+            }
+        });
+
+        // Initialize on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            loadComments();
+            updateVolume(0.9);
+        });
+    </script>
+</body>
+</html>

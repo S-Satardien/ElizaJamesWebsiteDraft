@@ -1,0 +1,1044 @@
+
+/* =========================================================================
+   Frontend Live Visual Editor Styling
+   ========================================================================= */
+
+/* Floating Live Editor Bar */
+.eliza-live-toolbar {
+  position: fixed !important;
+  bottom: 24px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  z-index: 99999999 !important;
+  background: rgba(23, 15, 10, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1.5px solid rgba(229, 191, 101, 0.6) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.65), 0 0 24px rgba(229, 191, 101, 0.25) !important;
+  border-radius: 50px !important;
+  padding: 10px 24px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 20px !important;
+  color: #FDFBF7 !important;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.9rem !important;
+  white-space: nowrap !important;
+  max-width: calc(100vw - 32px) !important;
+  box-sizing: border-box !important;
+}
+
+.eliza-toolbar-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.eliza-toolbar-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(229, 191, 101, 0.18);
+  border: 1px solid rgba(229, 191, 101, 0.5);
+  padding: 5px 12px;
+  border-radius: 20px;
+  color: #E5BF65;
+  font-weight: 700;
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.eliza-pulse-dot {
+  width: 8px;
+  height: 8px;
+  background: #34D399;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #34D399;
+  animation: elizaPulse 1.8s infinite;
+}
+
+@keyframes elizaPulse {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.3); opacity: 1; box-shadow: 0 0 12px #34D399; }
+  100% { transform: scale(0.95); opacity: 0.8; }
+}
+
+.eliza-toolbar-hint {
+  color: #E4D9C8;
+  font-size: 0.82rem;
+  opacity: 0.9;
+}
+
+.eliza-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eliza-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 18px;
+  border-radius: 30px;
+  font-size: 0.86rem;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
+  outline: none;
+}
+
+.eliza-btn-mode {
+  background: rgba(255, 255, 255, 0.12);
+  color: #FDFBF7;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.eliza-btn-mode:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.eliza-btn-save {
+  background: linear-gradient(135deg, #E5BF65, #C26330);
+  color: #170F0A;
+  box-shadow: 0 4px 14px rgba(194, 99, 48, 0.45);
+}
+
+.eliza-btn-save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(194, 99, 48, 0.65);
+}
+
+.eliza-btn-save:active {
+  transform: translateY(0);
+}
+
+/* Toast Alert */
+.eliza-live-toast {
+  position: fixed !important;
+  bottom: 90px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(20px) !important;
+  background: #10B981 !important;
+  color: #FFFFFF !important;
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  padding: 10px 24px !important;
+  border-radius: 30px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45) !important;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  z-index: 100000000 !important;
+}
+
+.eliza-live-toast.show {
+  transform: translateX(-50%) translateY(0) !important;
+  opacity: 1 !important;
+}
+
+/* Editable Focus & Hover Outlines for All Text Elements */
+body.eliza-edit-active [contenteditable="true"] {
+  outline: 1px dashed transparent;
+  transition: outline 0.2s ease, background 0.2s ease;
+  border-radius: 4px;
+  cursor: text;
+}
+
+body.eliza-edit-active [contenteditable="true"]:hover {
+  outline: 1.5px dashed rgba(229, 191, 101, 0.8);
+  background: rgba(229, 191, 101, 0.06);
+}
+
+body.eliza-edit-active [contenteditable="true"]:focus {
+  outline: 2px solid #E5BF65;
+  background: rgba(229, 191, 101, 0.1);
+}
+
+body.eliza-edit-active li[contenteditable="true"] {
+  padding: 2px 4px;
+}
+
+body.eliza-edit-active .who[contenteditable="true"],
+body.eliza-edit-active .kind[contenteditable="true"] {
+  display: block;
+  padding: 2px 6px;
+  margin: 4px 0;
+}
+
+/* Image Click-to-Edit Indicator */
+body.eliza-edit-active .eliza-editable-img-wrap {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  max-width: 100%;
+}
+
+body.eliza-edit-active .bio-photo-frame .eliza-editable-img-wrap,
+body.eliza-edit-active .home-hero-portrait .eliza-editable-img-wrap,
+body.eliza-edit-active .card-image .eliza-editable-img-wrap {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+body.eliza-edit-active .bio-photo-frame .eliza-editable-img-wrap img {
+  display: block !important;
+  width: 100% !important;
+  height: 240px !important;
+  object-fit: cover !important;
+}
+
+body.eliza-edit-active .eliza-editable-img-wrap:hover::after {
+  content: "📷 Click to Change Photo";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(23, 15, 10, 0.9);
+  color: #E5BF65;
+  font-weight: 700;
+  font-size: 0.84rem;
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid #E5BF65;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* WordPress Smiley / Emoji Inline Text Protection */
+img.emoji,
+img.wp-smiley {
+  display: inline !important;
+  width: 1.15em !important;
+  height: 1.15em !important;
+  max-height: 1.15em !important;
+  margin: 0 0.1em !important;
+  vertical-align: -0.15em !important;
+  box-shadow: none !important;
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+}
+
+/* ========================================================================= */
+/* BUTTON & LINK URL LIVE EDITING SUITE */
+/* ========================================================================= */
+.eliza-btn-links {
+  background: rgba(255, 255, 255, 0.16) !important;
+  color: #FFFDF9 !important;
+  border: 1px solid rgba(229, 191, 101, 0.7) !important;
+  margin-right: 6px !important;
+}
+
+.eliza-btn-links:hover {
+  background: #AA7C11 !important;
+  color: #FFFDF9 !important;
+  border-color: #FFE49E !important;
+  transform: translateY(-2px) !important;
+}
+
+body.eliza-edit-active .eliza-editable-btn-wrap {
+  position: relative !important;
+  user-select: text !important;
+  outline: 1.5px dashed rgba(229, 191, 101, 0.6) !important;
+  transition: outline 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+body.eliza-edit-active .eliza-editable-btn-wrap:hover {
+  outline: 2px solid #AA7C11 !important;
+  box-shadow: 0 0 0 4px rgba(170, 124, 17, 0.2) !important;
+}
+
+/* Button text inline editing cursor & indicators */
+body.eliza-edit-active .eliza-editable-btn-wrap .btn-text-content,
+body.eliza-edit-active .eliza-editable-btn-wrap span[contenteditable="true"] {
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  padding: 1px 4px !important;
+  border-radius: 4px !important;
+  transition: background 0.15s ease, outline 0.15s ease !important;
+}
+
+body.eliza-edit-active .eliza-editable-btn-wrap .btn-text-content:hover,
+body.eliza-edit-active .eliza-editable-btn-wrap span[contenteditable="true"]:hover {
+  background: rgba(229, 191, 101, 0.22) !important;
+  outline: 1.5px dashed #FFE49E !important;
+}
+
+body.eliza-edit-active .eliza-editable-btn-wrap .btn-text-content:focus,
+body.eliza-edit-active .eliza-editable-btn-wrap span[contenteditable="true"]:focus {
+  background: rgba(229, 191, 101, 0.35) !important;
+  outline: 2px solid #FFE49E !important;
+}
+
+/* Explicit cursor & outlines for Books order elements */
+body.eliza-edit-active .channel-tag,
+body.eliza-edit-active .intl-heading,
+body.eliza-edit-active .channel-price,
+body.eliza-edit-active .price-val,
+body.eliza-edit-active .price-currency,
+body.eliza-edit-active .channel-title,
+body.eliza-edit-active .channel-desc,
+body.eliza-edit-active .intl-subtext {
+  cursor: text !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  display: inline-block !important;
+  transition: outline 0.2s ease, background 0.2s ease !important;
+}
+
+body.eliza-edit-active .channel-tag:hover,
+body.eliza-edit-active .intl-heading:hover,
+body.eliza-edit-active .channel-price:hover,
+body.eliza-edit-active .price-val:hover,
+body.eliza-edit-active .channel-title:hover,
+body.eliza-edit-active .channel-desc:hover,
+body.eliza-edit-active .intl-subtext:hover {
+  outline: 2px dashed #AA7C11 !important;
+  background: rgba(229, 191, 101, 0.16) !important;
+  border-radius: 4px !important;
+}
+
+body.eliza-edit-active .channel-tag:focus,
+body.eliza-edit-active .intl-heading:focus,
+body.eliza-edit-active .channel-price:focus,
+body.eliza-edit-active .price-val:focus,
+body.eliza-edit-active .channel-title:focus,
+body.eliza-edit-active .channel-desc:focus,
+body.eliza-edit-active .intl-subtext:focus {
+  outline: 2px solid #AA7C11 !important;
+  background: rgba(229, 191, 101, 0.22) !important;
+  border-radius: 4px !important;
+}
+
+body.eliza-edit-active .eliza-btn-url-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  background: #AA7C11 !important;
+  color: #FFFDF9 !important;
+  border: 1px solid #FFE49E !important;
+  border-radius: 8px !important;
+  padding: 3px 9px !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+  margin-left: 8px !important;
+  vertical-align: middle !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  cursor: pointer !important;
+  z-index: 100 !important;
+  pointer-events: auto !important;
+  opacity: 0.95 !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  transition: all 0.2s ease !important;
+  white-space: nowrap !important;
+}
+
+body.eliza-edit-active .eliza-btn-url-badge:hover {
+  opacity: 1 !important;
+  transform: scale(1.08) !important;
+  background: #170F0A !important;
+  color: #E5BF65 !important;
+  border-color: #E5BF65 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Links List Drawer */
+.eliza-links-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+}
+
+.eliza-link-item-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 14px !important;
+  padding: 12px 16px !important;
+  background: #F8F5EE !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  border-radius: 8px !important;
+  transition: background 0.15s ease !important;
+}
+
+.eliza-link-item-row:hover {
+  background: #F0E9DA !important;
+  border-color: #AA7C11 !important;
+}
+
+.eliza-link-item-info {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 3px !important;
+  min-width: 0 !important;
+  flex: 1 !important;
+}
+
+.eliza-link-item-title {
+  font-size: 0.95rem !important;
+  color: #170F0A !important;
+  font-weight: 700 !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.eliza-link-item-url {
+  font-size: 0.78rem !important;
+  color: #7A6960 !important;
+  font-family: monospace !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+.eliza-btn-item-edit {
+  background: #170F0A !important;
+  color: #E5BF65 !important;
+  border: 1px solid #E5BF65 !important;
+  padding: 6px 14px !important;
+  border-radius: 6px !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: all 0.15s ease !important;
+}
+
+.eliza-btn-item-edit:hover {
+  background: #AA7C11 !important;
+  color: #FFFDF9 !important;
+}
+
+/* Link Modal Backdrop & Card */
+.eliza-link-modal-backdrop {
+  position: fixed !important;
+  inset: 0 !important;
+  background: rgba(10, 7, 5, 0.78) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  z-index: 99999999 !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 16px !important;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease !important;
+}
+
+.eliza-link-modal-backdrop.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: flex !important;
+}
+
+.eliza-link-modal-card {
+  background: #FFFDF9 !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.5) !important;
+  border-radius: 14px !important;
+  width: 100% !important;
+  max-width: 500px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4) !important;
+  padding: 26px 28px !important;
+  position: relative !important;
+  color: #170F0A !important;
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-sizing: border-box !important;
+}
+
+.eliza-link-modal-backdrop.show .eliza-link-modal-card {
+  transform: translateY(0) scale(1) !important;
+}
+
+.eliza-link-modal-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.25) !important;
+  padding-bottom: 14px !important;
+  margin-bottom: 18px !important;
+}
+
+.eliza-link-modal-close {
+  background: transparent !important;
+  border: none !important;
+  font-size: 1.6rem !important;
+  line-height: 1 !important;
+  color: #7A6960 !important;
+  cursor: pointer !important;
+  padding: 0 4px !important;
+}
+
+.eliza-link-modal-close:hover {
+  color: #C26330 !important;
+}
+
+.eliza-form-field label {
+  display: block !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  color: #382417 !important;
+  margin-bottom: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.04em !important;
+}
+
+.eliza-form-field input[type="text"],
+.eliza-form-field input[type="url"] {
+  width: 100% !important;
+  padding: 10px 14px !important;
+  font-size: 0.95rem !important;
+  color: #170F0A !important;
+  background: #FFFFFF !important;
+  border: 1.5px solid rgba(212, 175, 55, 0.4) !important;
+  border-radius: 8px !important;
+  box-sizing: border-box !important;
+  outline: none !important;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.eliza-form-field input:focus {
+  border-color: #AA7C11 !important;
+  box-shadow: 0 0 0 3px rgba(170, 124, 17, 0.2) !important;
+}
+
+.eliza-link-helpers {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 6px !important;
+  margin-top: 8px !important;
+}
+
+.eliza-link-chip {
+  display: inline-block !important;
+  font-size: 0.76rem !important;
+  padding: 3px 8px !important;
+  background: #F4EFE6 !important;
+  border: 1px solid rgba(212, 175, 55, 0.3) !important;
+  border-radius: 6px !important;
+  color: #6E4F1B !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.eliza-link-chip:hover {
+  background: #EEDEC1 !important;
+  color: #170F0A !important;
+  border-color: #AA7C11 !important;
+}
+
+.eliza-link-modal-footer {
+  display: flex !important;
+  justify-content: flex-end !important;
+  gap: 12px !important;
+  margin-top: 22px !important;
+  padding-top: 16px !important;
+  border-top: 1px solid rgba(212, 175, 55, 0.25) !important;
+}
+
+.eliza-btn-cancel {
+  background: #EFECE6 !important;
+  color: #4A3B32 !important;
+  border: 1px solid #D5CFC5 !important;
+  padding: 9px 18px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+}
+
+.eliza-btn-cancel:hover {
+  background: #E4E0D7 !important;
+  color: #170F0A !important;
+}
+
+.eliza-btn-apply {
+  background: linear-gradient(135deg, #1C120C 0%, #382417 100%) !important;
+  color: #E5BF65 !important;
+  border: 1.5px solid #E5BF65 !important;
+  padding: 9px 20px !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  font-size: 0.88rem !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(28, 18, 12, 0.25) !important;
+  transition: all 0.2s ease !important;
+}
+
+.eliza-btn-apply:hover {
+  background: #AA7C11 !important;
+  color: #FFFDF9 !important;
+  box-shadow: 0 6px 18px rgba(170, 124, 17, 0.35) !important;
+}
+
+
+/* =========================================================================
+   Right-Hand Docked Text Formatting Inspector
+   ========================================================================= */
+
+.eliza-format-dock {
+  position: fixed !important;
+  right: 20px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 99999999 !important;
+  width: 250px !important;
+  background: rgba(23, 15, 10, 0.96) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1.5px solid rgba(229, 191, 101, 0.6) !important;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.75), 0 0 24px rgba(229, 191, 101, 0.22) !important;
+  border-radius: 18px !important;
+  padding: 14px 16px !important;
+  color: #FDFBF7 !important;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-size: 0.85rem !important;
+  box-sizing: border-box !important;
+  user-select: none !important;
+  transition: opacity 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.eliza-format-dock.dock-minimized {
+  opacity: 0 !important;
+  transform: translateY(-50%) translateX(280px) !important;
+  pointer-events: none !important;
+}
+
+/* Dock Header */
+.eliza-dock-header {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding-bottom: 10px !important;
+  margin-bottom: 12px !important;
+  border-bottom: 1px solid rgba(229, 191, 101, 0.25) !important;
+}
+
+.eliza-dock-title-wrap {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.eliza-dock-icon {
+  font-size: 1rem !important;
+}
+
+.eliza-dock-title {
+  font-weight: 700 !important;
+  font-size: 0.88rem !important;
+  color: #E5BF65 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.eliza-dock-tag {
+  background: rgba(229, 191, 101, 0.18) !important;
+  border: 1px solid rgba(229, 191, 101, 0.45) !important;
+  color: #E5BF65 !important;
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  padding: 1px 6px !important;
+  border-radius: 6px !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+}
+
+.eliza-dock-header-actions {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+.eliza-dock-action-btn {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  color: #E4D9C8 !important;
+  width: 24px !important;
+  height: 24px !important;
+  border-radius: 6px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  font-size: 0.9rem !important;
+  line-height: 1 !important;
+  padding: 0 !important;
+  transition: all 0.15s ease !important;
+}
+
+.eliza-dock-action-btn:hover {
+  background: rgba(229, 191, 101, 0.25) !important;
+  color: #FFF !important;
+  border-color: #E5BF65 !important;
+}
+
+/* Dock Sections */
+.eliza-dock-body {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+}
+
+.eliza-dock-section {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 5px !important;
+}
+
+.eliza-dock-label {
+  font-size: 0.72rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.06em !important;
+  color: #C5B8A5 !important;
+  margin: 0 !important;
+}
+
+.eliza-dock-select {
+  width: 100% !important;
+  background: rgba(35, 25, 20, 0.95) !important;
+  color: #FDFBF7 !important;
+  border: 1px solid rgba(229, 191, 101, 0.45) !important;
+  border-radius: 8px !important;
+  padding: 6px 10px !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+  transition: border-color 0.2s ease !important;
+}
+
+.eliza-dock-select:focus,
+.eliza-dock-select:hover {
+  border-color: #E5BF65 !important;
+}
+
+.eliza-dock-select option {
+  background: #1C120C !important;
+  color: #FDFBF7 !important;
+  padding: 6px !important;
+}
+
+/* Font Size Row */
+.eliza-dock-size-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.eliza-fmt-btn-step {
+  flex: 0 0 34px !important;
+  height: 32px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #FDFBF7 !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  transition: all 0.15s ease !important;
+}
+
+.eliza-fmt-btn-step:hover {
+  background: rgba(229, 191, 101, 0.28) !important;
+  border-color: #E5BF65 !important;
+  color: #FFF !important;
+}
+
+.eliza-dock-size-select {
+  flex: 1 !important;
+  height: 32px !important;
+  background: rgba(35, 25, 20, 0.95) !important;
+  color: #FDFBF7 !important;
+  border: 1px solid rgba(229, 191, 101, 0.45) !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  outline: none !important;
+  box-sizing: border-box !important;
+}
+
+/* Style & Weight Row */
+.eliza-dock-style-row {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+}
+
+.eliza-fmt-style-btn {
+  flex: 1 !important;
+  height: 32px !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #FDFBF7 !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 8px !important;
+  font-size: 0.78rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  padding: 0 4px !important;
+  transition: all 0.15s ease !important;
+}
+
+.eliza-fmt-style-btn:hover {
+  background: rgba(229, 191, 101, 0.25) !important;
+  border-color: #E5BF65 !important;
+  color: #FFF !important;
+}
+
+.eliza-fmt-style-btn.active {
+  background: #AA7C11 !important;
+  border-color: #E5BF65 !important;
+  color: #FFF !important;
+  box-shadow: 0 0 10px rgba(229, 191, 101, 0.5) !important;
+}
+
+/* Color Palette Row */
+.eliza-dock-color-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  padding: 4px 2px !important;
+}
+
+.eliza-color-chip {
+  width: 26px !important;
+  height: 26px !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.5) !important;
+  cursor: pointer !important;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease !important;
+  padding: 0 !important;
+}
+
+.eliza-color-chip:hover {
+  transform: scale(1.2) !important;
+  border-color: #E5BF65 !important;
+  box-shadow: 0 0 10px rgba(229, 191, 101, 0.7) !important;
+}
+
+/* Collapsed Right Edge Handle Tab */
+.eliza-dock-open-tab {
+  position: fixed !important;
+  right: 0 !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  z-index: 99999998 !important;
+  background: rgba(23, 15, 10, 0.94) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1.5px solid rgba(229, 191, 101, 0.6) !important;
+  border-right: none !important;
+  border-radius: 12px 0 0 12px !important;
+  padding: 10px 8px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  gap: 4px !important;
+  color: #E5BF65 !important;
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  transition: all 0.2s ease !important;
+}
+
+.eliza-dock-open-tab[style*="display: none"],
+.eliza-dock-open-tab.dock-tab-hidden {
+  display: none !important;
+}
+
+.eliza-format-dock[style*="display: none"] {
+  display: none !important;
+}
+
+.eliza-dock-open-tab:hover {
+  background: rgba(45, 30, 20, 0.98) !important;
+  padding-left: 12px !important;
+  box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.65), 0 0 20px rgba(229, 191, 101, 0.4) !important;
+}
+
+.eliza-dock-tab-icon {
+  font-size: 1.1rem !important;
+  line-height: 1 !important;
+}
+
+.eliza-dock-tab-label {
+  font-size: 0.68rem !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.08em !important;
+  text-transform: uppercase !important;
+  writing-mode: vertical-rl !important;
+  text-orientation: mixed !important;
+  transform: rotate(180deg) !important;
+}
+
+/* Format Button on bottom toolbar */
+.eliza-btn-format {
+  background: rgba(229, 191, 101, 0.18) !important;
+  color: #E5BF65 !important;
+  border: 1px solid rgba(229, 191, 101, 0.5) !important;
+}
+
+.eliza-btn-format:hover {
+  background: rgba(229, 191, 101, 0.3) !important;
+  color: #FFF !important;
+}
+
+.eliza-btn-format.active {
+  background: #AA7C11 !important;
+  color: #FFF !important;
+  border-color: #E5BF65 !important;
+}
+
+/* Screen reader only */
+.eliza-sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  border: 0 !important;
+}
+
+/* =========================================================================
+   Responsive Breakpoints for Toolbar and Dock
+   ========================================================================= */
+
+@media (max-width: 1200px) {
+  .eliza-toolbar-hint {
+    display: none !important;
+  }
+  .eliza-live-toolbar {
+    gap: 16px !important;
+    padding: 8px 18px !important;
+  }
+}
+
+@media (max-width: 900px) {
+  .eliza-live-toolbar {
+    padding: 6px 14px !important;
+    gap: 10px !important;
+    bottom: 16px !important;
+    max-width: 95vw !important;
+  }
+  .eliza-toolbar-left {
+    gap: 8px !important;
+  }
+  .eliza-toolbar-badge {
+    padding: 4px 8px !important;
+    font-size: 0.72rem !important;
+  }
+  .eliza-toolbar-right {
+    gap: 6px !important;
+  }
+  .eliza-btn {
+    padding: 6px 12px !important;
+    font-size: 0.78rem !important;
+    gap: 6px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .eliza-live-toolbar {
+    width: calc(100% - 16px) !important;
+    max-width: calc(100% - 16px) !important;
+    bottom: 10px !important;
+    padding: 6px 8px !important;
+    border-radius: 24px !important;
+    justify-content: space-between !important;
+    gap: 4px !important;
+  }
+  #eliza-mode-label {
+    display: none !important;
+  }
+  .eliza-toolbar-badge {
+    padding: 6px !important;
+    border-radius: 50% !important;
+  }
+  .eliza-toolbar-right {
+    gap: 4px !important;
+  }
+  .eliza-btn {
+    padding: 6px 8px !important;
+    font-size: 0.72rem !important;
+    gap: 4px !important;
+  }
+
+  .eliza-format-dock {
+    right: 10px !important;
+    left: 10px !important;
+    width: auto !important;
+    top: auto !important;
+    bottom: 70px !important;
+    transform: none !important;
+    border-radius: 16px !important;
+  }
+  .eliza-format-dock.dock-minimized {
+    transform: translateY(120%) !important;
+  }
+  .eliza-dock-open-tab {
+    top: auto !important;
+    bottom: 70px !important;
+    transform: none !important;
+    border-radius: 12px 0 0 12px !important;
+  }
+}
+
+/* Video Frame Editing Badge */
+.eliza-editable-video-wrap {
+  position: relative !important;
+  display: block !important;
+}
+
+.eliza-video-edit-badge {
+  position: absolute !important;
+  top: 14px !important;
+  right: 14px !important;
+  z-index: 9999 !important;
+  background: rgba(23, 15, 10, 0.94) !important;
+  color: #E5BF65 !important;
+  border: 1.5px solid rgba(229, 191, 101, 0.75) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 20px !important;
+  padding: 6px 14px !important;
+  font-size: 0.82rem !important;
+  font-weight: 700 !important;
+  font-family: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, sans-serif !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.65), 0 0 12px rgba(229, 191, 101, 0.25) !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  outline: none !important;
+}
+
+.eliza-video-edit-badge:hover {
+  background: #AA7C11 !important;
+  color: #FFF !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 6px 22px rgba(170, 124, 17, 0.6) !important;
+}

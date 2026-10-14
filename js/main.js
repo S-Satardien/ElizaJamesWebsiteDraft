@@ -572,6 +572,112 @@
   }
 
   /**
+   * Initializes smooth scrolling for in-page anchor links and URL hash navigation,
+   * dynamically computing offsets for the fixed header, WordPress admin bar,
+   * and sticky policy subnav.
+   * @returns {void}
+   */
+  function initSmoothAnchors() {
+    function getHeaderOffset() {
+      var adminBar = document.getElementById('wpadminbar');
+      var adminBarH = adminBar ? adminBar.offsetHeight : 0;
+      var siteHeader = document.querySelector('.site-header') || document.querySelector('header');
+      var siteHeaderH = siteHeader ? siteHeader.offsetHeight : 80;
+      var subnav = document.querySelector('.terms-subnav');
+      var subnavH = subnav ? subnav.offsetHeight : 0;
+      return adminBarH + siteHeaderH + subnavH + 16;
+    }
+
+    function scrollToElement(targetEl, updateHash, hashStr) {
+      if (!targetEl) return;
+      var offset = getHeaderOffset();
+      var rect = targetEl.getBoundingClientRect();
+      var targetTop = rect.top + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: Math.max(0, targetTop),
+        behavior: 'smooth'
+      });
+
+      if (updateHash && hashStr && window.history && window.history.pushState) {
+        window.history.pushState(null, '', hashStr);
+      }
+    }
+
+    // Delegate click on all internal hash links
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('a[href^="#"]');
+      if (!link) return;
+
+      var href = link.getAttribute('href');
+      if (!href || href === '#' || href === '#authorOrderModal') return;
+
+      // Ensure target is on this page
+      var targetId = href.substring(1);
+      var targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        scrollToElement(targetEl, true, href);
+
+        // If it's a terms subnav chip, update active state
+        if (link.classList.contains('terms-nav-chip')) {
+          document.querySelectorAll('.terms-nav-chip').forEach(function (c) {
+            c.classList.remove('active');
+          });
+          link.classList.add('active');
+        }
+      }
+    });
+
+    // Handle initial hash in URL upon page load
+    if (window.location.hash && window.location.hash.length > 1) {
+      var initialId = window.location.hash.substring(1);
+      setTimeout(function () {
+        var initialEl = document.getElementById(initialId);
+        if (initialEl) {
+          scrollToElement(initialEl, false);
+          var activeChip = document.querySelector('.terms-nav-chip[href="#' + initialId + '"]');
+          if (activeChip) {
+            document.querySelectorAll('.terms-nav-chip').forEach(function (c) {
+              c.classList.remove('active');
+            });
+            activeChip.classList.add('active');
+          }
+        }
+      }, 180);
+    }
+
+    // Scrollspy to highlight active terms subnav chip as user scrolls
+    var policySections = document.querySelectorAll('.terms-policy-section');
+    if (policySections.length > 0) {
+      var scrollTimer = null;
+      window.addEventListener('scroll', function () {
+        if (scrollTimer) return;
+        scrollTimer = setTimeout(function () {
+          scrollTimer = null;
+          var offset = getHeaderOffset() + 60;
+          var currentId = '';
+          policySections.forEach(function (sec) {
+            var top = sec.getBoundingClientRect().top;
+            if (top <= offset) {
+              currentId = sec.getAttribute('id');
+            }
+          });
+          if (currentId) {
+            document.querySelectorAll('.terms-nav-chip').forEach(function (chip) {
+              if (chip.getAttribute('href') === '#' + currentId) {
+                chip.classList.add('active');
+              } else {
+                chip.classList.remove('active');
+              }
+            });
+          }
+        }, 80);
+      }, { passive: true });
+    }
+  }
+
+  /**
    * Updates any element with [data-year] to the current calendar year.
    * @returns {void}
    */
@@ -583,6 +689,33 @@
     });
   }
 
+  /**
+   * Dynamically docks .terms-subnav flush below .site-header with 0px gap.
+   * @returns {void}
+   */
+  function initStickySubnavDock() {
+    var subnav = document.querySelector('.terms-subnav');
+    var header = document.querySelector('.site-header');
+    if (!subnav || !header) return;
+
+    function updateDock() {
+      var adminBar = document.getElementById('wpadminbar');
+      var adminBarH = 0;
+      if (adminBar) {
+        var style = window.getComputedStyle(adminBar);
+        if (style.position === 'fixed') {
+          adminBarH = adminBar.offsetHeight;
+        }
+      }
+      var headerH = header.offsetHeight;
+      subnav.style.top = (adminBarH + headerH) + 'px';
+    }
+
+    window.addEventListener('scroll', updateDock, { passive: true });
+    window.addEventListener('resize', updateDock, { passive: true });
+    updateDock();
+  }
+
   // DOMContentLoaded bootstrap
   document.addEventListener('DOMContentLoaded', function () {
     initScrollReveal();
@@ -592,6 +725,8 @@
     initCategoryFilters();
     initContactForm();
     initVioletFlame();
+    initSmoothAnchors();
+    initStickySubnavDock();
     initYear();
   });
 })();

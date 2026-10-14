@@ -21,7 +21,7 @@ if (!empty(trim($saved_content))) {
       <div class="glow" aria-hidden="true"></div>
       <div class="container reveal">
         <span class="eyebrow eyebrow-on-dusk">About Eliza</span>
-        <h1>About</h1>
+        <h1>As am I, so too...</h1>
         <p>&ldquo;You are alive to give voice, action and physicality to GOD. To become the grandest version of the greatest vision you hold about Who You Are.&rdquo;</p>
       </div>
     </section>
@@ -31,7 +31,7 @@ if (!empty(trim($saved_content))) {
       <div class="container">
         <div class="reveal" style="margin-bottom: 28px;">
           <span class="eyebrow">Practitioner Journey</span>
-          <h2 class="section-title">A Magical Journey of Discovery</h2>
+          <h2 class="section-title">A Magical Journey of Becoming</h2>
         </div>
 
         <div class="grid-balanced-2">
@@ -50,7 +50,7 @@ if (!empty(trim($saved_content))) {
               <p style="margin:0; font-size:0.95rem; font-style:italic;">I am grateful for the introduction into the field of energy healing introduced by RH, but I am even more humbled to have progressed on to working with the Christ Consciousness. The Light, Love and Wisdom felt during a session communicates &amp; merges with Your Light within and you know, instinctively, that you have experienced Grace.</p>
             </div>
 
-            <p>To continue 🙂 &hellip; I’ve always had this sense that &ldquo;there must be more to life&rdquo;, than what many seem to accept as the norm. So I’ve made it my business to attend seminars and immerse myself in books that explores the mysteries of this world, whether it be self help books, books on spiritual matters, books that address metaphysical concepts &ndash; anything really that would bring me closer to understanding more of the SELF. This, in itself, has made Life quite fascinating &ndash; a magical journey of discovery that I would encourage everyone to embark on.</p>
+            <p>To continue ...🙂 … I’ve always had this sense that &ldquo;there must be more to life&rdquo;, than what many seem to accept as the norm. So I’ve made it my business to attend seminars and immerse myself in books that explores the mysteries of this world, whether it be self help books, books on spiritual matters, books that address metaphysical concepts &ndash; anything really that would bring me closer to understanding more of the SELF. This, in itself, has made Life quite fascinating &ndash; a magical journey of discovery that I would encourage everyone to embark on.</p>
           </div>
 
           <!-- Column 2: Roots, Communion, Practice Logistics & Hours -->
@@ -59,19 +59,19 @@ if (!empty(trim($saved_content))) {
 
             <p>Despite doing sessions on an almost daily basis, every interaction with my client continues to leave me in absolute awe of our ability to commune with GOD / The Universe / Source Energy / The Creator (or whatever label you are most comfortable using). And every session confirms that we are all Divine, that the spark of GOD resides within us &ndash; all we need do is allow it to come forth. Albeit sometimes skeptical, clients that have come for sessions, find themselves booking a second or third session.</p>
 
-            <p>I am based in Lakeside, Cape Town and most of my clients come to my home-office. Clients living in other Provinces book distant healing sessions or would plan sessions during their holidays to the Cape.</p>
+            <p>I am based in Lakeside, Cape Town and most of my clients come to my home-office. Clients living in other Provinces book remote healing sessions or would plan sessions during their holidays to the Cape.</p>
 
-            <p>During office hours, I manage an <a href="http://www.asf.org.za" target="_blank" rel="noopener noreferrer">NGO</a>. Healing sessions are strictly by appointment. Available times are: weekdays after 6pm, Saturdays and Sundays from 3pm. And should you be wondering &ndash; my youngest client is aged 8yrs and the eldest, to date is aged 79yrs.</p>
+            <p>During office hours, I manage an <a href="http://www.asf.org.za" target="_blank" rel="noopener noreferrer">NGO</a>, so RH sessions are strictly by appointment. Available times are: weekdays after 6pm and Sundays from 3pm. And should you be wondering &ndash; my youngest client is aged 8yrs and the eldest, to date is aged 79yrs.</p>
 
             <div class="glass-box" style="margin-top: auto;">
               <h4>Session Logistics &amp; Hours</h4>
               <ul>
                 <li><strong>Practicing Since:</strong> 2011 (Sydney, Australia training)</li>
                 <li><strong>Location:</strong> Lakeside, Cape Town (Home-Office)</li>
-                <li><strong>Available Times:</strong> Weekdays after 6pm, Saturdays &amp; Sundays from 3pm</li>
-                <li><strong>Format:</strong> In-person or Distant Healing sessions</li>
-                <li><strong>Daily Work:</strong> NGO Management (African Scholars' Fund)</li>
+                <li><strong>Available Times:</strong> Weekdays after 6pm and Sundays from 3pm</li>
+                <li><strong>Format:</strong> In-person or Remote Healing sessions</li>
                 <li><strong>Client Span:</strong> 8 years young to 79 years grand</li>
+                <li><strong>Cost:</strong> R500 or voluntary energy exchange</li>
               </ul>
             </div>
           </div>

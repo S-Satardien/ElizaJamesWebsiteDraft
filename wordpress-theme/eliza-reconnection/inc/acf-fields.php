@@ -98,7 +98,7 @@ function eliza_register_all_acf_fields() {
             array('key' => 'f_opt_phone', 'label' => 'Primary Phone Number', 'name' => 'global_phone', 'type' => 'text', 'default_value' => '082 926 9851'),
             array('key' => 'f_opt_email', 'label' => 'Inquiry Email Address', 'name' => 'global_email', 'type' => 'email', 'default_value' => 'eliza.reconnection@gmail.com'),
             array('key' => 'f_opt_address', 'label' => 'Physical Location', 'name' => 'global_address', 'type' => 'text', 'default_value' => 'Promenade Road, Lakeside, Cape Town, South Africa'),
-            array('key' => 'f_opt_footer_bio', 'label' => 'Footer Short Bio', 'name' => 'footer_bio', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Reconnective Healing, Consciousness Coaching, and Meditation & Conscious Breathing — practiced with care from a home office in Lakeside, Cape Town.'),
+            array('key' => 'f_opt_footer_bio', 'label' => 'Footer Short Bio', 'name' => 'footer_bio', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'Reconnective Healing, Consciousness Coaching, and Meditation & Conscious Breathing — offered with care from my Practice in Lakeside, Cape Town.'),
             array('key' => 'f_opt_facebook', 'label' => 'Facebook URL', 'name' => 'facebook_url', 'type' => 'url', 'default_value' => 'https://www.facebook.com/eliza.james1/'),
             array('key' => 'f_opt_instagram', 'label' => 'Instagram URL', 'name' => 'instagram_url', 'type' => 'url', 'default_value' => 'https://www.instagram.com/eliza.mudita'),
             array('key' => 'f_opt_linkedin', 'label' => 'LinkedIn URL', 'name' => 'linkedin_url', 'type' => 'url', 'default_value' => 'https://www.linkedin.com/in/eliza-james-8789b3109/'),
@@ -130,4 +130,55 @@ function eliza_register_all_acf_fields() {
         'style' => 'default',
         'active' => true,
     ));
+
+    // ======================================================
+    // 4. Book Product Fields (Pricing & Channels)
+    // ======================================================
+    acf_add_local_field_group(array(
+        'key' => 'group_eliza_book_product',
+        'title' => '✦ Book Product: Pricing & Purchasing Channels',
+        'fields' => array(
+            array('key' => 'tab_bp_info', 'label' => 'Product Details', 'type' => 'tab'),
+            array(
+                'key' => 'f_bp_type',
+                'label' => 'Product Type',
+                'name' => 'product_type',
+                'type' => 'select',
+                'choices' => array(
+                    'physical' => 'Physical Book (Courier Delivery)',
+                    'digital_pdf' => 'Digital Publication (Downloadable Online PDF)',
+                ),
+                'default_value' => 'physical',
+                'ui' => 1,
+            ),
+            array('key' => 'f_bp_subtitle', 'label' => 'Subtitle / Edition', 'name' => 'product_subtitle', 'type' => 'text'),
+            array('key' => 'f_bp_publisher', 'label' => 'Publisher', 'name' => 'product_publisher', 'type' => 'text'),
+            array('key' => 'f_bp_video_url', 'label' => 'Trailer / Video Embed URL', 'name' => 'product_video_url', 'type' => 'text'),
+            array(
+                'key' => 'f_bp_download_url',
+                'label' => 'Downloadable PDF File / URL',
+                'name' => 'product_download_url',
+                'type' => 'text',
+                'instructions' => 'Paste link to the hosted PDF file for customer download upon payment.',
+            ),
+            
+            array('key' => 'tab_bp_sa', 'label' => 'South Africa (Author Direct)', 'type' => 'tab'),
+            array('key' => 'f_bp_price_zar', 'label' => 'SA Direct Price (ZAR)', 'name' => 'product_price_zar', 'type' => 'text', 'default_value' => 'R450'),
+            array('key' => 'f_bp_courier_info', 'label' => 'Courier & Delivery Info', 'name' => 'product_courier_info', 'type' => 'text', 'default_value' => 'Door-to-door tracked courier across South Africa included'),
+            array('key' => 'f_bp_author_service_note', 'label' => 'Author Direct Service Note', 'name' => 'product_author_service_note', 'type' => 'textarea', 'rows' => 2, 'default_value' => 'I print through my contact and courier books to clients in South Africa myself. Includes optional personal author dedication.'),
+            
+            array('key' => 'tab_bp_intl', 'label' => 'International & Retailers', 'type' => 'tab'),
+            array('key' => 'f_bp_amazon_paperback', 'label' => 'Amazon Paperback URL', 'name' => 'product_amazon_paperback_url', 'type' => 'url'),
+            array('key' => 'f_bp_amazon_kindle', 'label' => 'Amazon Kindle URL', 'name' => 'product_amazon_kindle_url', 'type' => 'url'),
+            array('key' => 'f_bp_takealot', 'label' => 'Takealot URL', 'name' => 'product_takealot_url', 'type' => 'url'),
+            array('key' => 'f_bp_publisher_url', 'label' => 'Publisher Purchase URL', 'name' => 'product_publisher_url', 'type' => 'url'),
+        ),
+        'location' => array(
+            array(array('param' => 'post_type', 'operator' => '==', 'value' => 'book_product')),
+        ),
+        'position' => 'normal',
+        'style' => 'default',
+        'active' => true,
+    ));
 }
+

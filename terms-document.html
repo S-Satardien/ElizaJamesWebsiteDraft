@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eliza Reconnection — Terms &amp; Conditions &amp; Store Policies</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+    :root {
+      --gold: #C5A059;
+      --gold-dark: #8C6D2D;
+      --gold-light: #F7EFE2;
+      --ink: #1F1B16;
+      --ink-soft: #423C35;
+      --ink-muted: #6B635B;
+      --cream-bg: #FCFBF9;
+      --card-bg: #FFFFFF;
+      --border-color: rgba(197, 160, 89, 0.35);
+      --border-subtle: #E8E2D9;
+      --sage: #4E6855;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+      font-size: 9.5pt;
+      line-height: 1.6;
+      color: var(--ink);
+      background-color: var(--cream-bg);
+    }
+
+    /* Print Setup */
+    @page {
+      size: A4 portrait;
+      margin: 14mm 14mm 14mm 14mm;
+    }
+
+    .document-container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      padding: 36px 42px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+    }
+
+    @media print {
+      body {
+        background: #FFFFFF;
+      }
+      .document-container {
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* Letterhead Header */
+    .doc-header {
+      border-bottom: 2px solid var(--gold);
+      padding-bottom: 18px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      color: var(--gold-dark);
+      flex-shrink: 0;
+    }
+
+    .brand-text h1 {
+      margin: 0;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 19pt;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+
+    .brand-text .tagline {
+      margin: 3px 0 0;
+      font-size: 8pt;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--gold-dark);
+      font-weight: 600;
+    }
+
+    .doc-meta {
+      text-align: right;
+      font-size: 8pt;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    .doc-meta strong {
+      color: var(--ink);
+    }
+
+    .doc-title-banner {
+      background: linear-gradient(135deg, rgba(197, 160, 89, 0.12) 0%, rgba(252, 251, 249, 0.6) 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 22px;
+    }
+
+    .doc-title-banner h2 {
+      margin: 0;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 13pt;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+    }
+
+    .doc-title-banner p {
+      margin: 4px 0 0;
+      font-size: 8.5pt;
+      color: var(--ink-soft);
+      font-style: italic;
+    }
+
+    /* Policy Sections */
+    .policy-section {
+      margin-bottom: 20px;
+      page-break-inside: avoid;
+      break-inside: avoid;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 6px;
+      margin-bottom: 10px;
+    }
+
+    .section-num {
+      background: var(--gold-dark);
+      color: #FFFFFF;
+      font-size: 8pt;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      margin: 0;
+      font-family: 'Cinzel', Georgia, serif;
+      font-size: 11pt;
+      color: var(--ink);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .prose p {
+      margin: 0 0 8px 0;
+      font-size: 9.2pt;
+      color: var(--ink-soft);
+      text-align: justify;
+    }
+
+    /* Cards / Boxes */
+    .details-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-left: 3.5px solid var(--gold);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin: 8px 0 12px 0;
+    }
+
+    .details-box h4 {
+      margin: 0 0 6px 0;
+      font-size: 9.5pt;
+      color: var(--gold-dark);
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+      font-size: 8.8pt;
+    }
+
+    .details-item {
+      display: flex;
+      gap: 6px;
+    }
+
+    .details-label {
+      font-weight: 600;
+      color: var(--ink);
+      min-width: 130px;
+    }
+
+    .details-value {
+      color: var(--ink-soft);
+    }
+
+    /* Grid for 2-column policy blocks */
+    .two-col-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 8px 0 10px 0;
+    }
+
+    .policy-card {
+      background: #FAF8F5;
+      border: 1px solid var(--border-subtle);
+      border-radius: 6px;
+      padding: 10px 12px;
+    }
+
+    .policy-card h5 {
+      margin: 0 0 6px 0;
+      font-size: 9.2pt;
+      color: var(--gold-dark);
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    ul, ol {
+      margin: 4px 0 8px 0;
+      padding-left: 18px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      font-size: 8.8pt;
+      color: var(--ink-soft);
+    }
+
+    li strong {
+      color: var(--ink);
+    }
+
+    .security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #FFFFFF;
+      border: 1px solid #E0D7C8;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 8pt;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .badge-payfast {
+      color: #EE2E24;
+    }
+    .badge-payfast span {
+      color: #009FE3;
+    }
+
+    /* Document Footer */
+    .doc-footer {
+      border-top: 1.5px solid var(--border-subtle);
+      padding-top: 14px;
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8pt;
+      color: var(--ink-muted);
+      page-break-inside: avoid;
+    }
+
+    .footer-stamp {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Floating Print Button for interactive screen viewing */
+    .print-bar {
+      position: sticky;
+      top: 0;
+      background: #1F1B16;
+      color: #FFFFFF;
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+
+    .btn-print {
+      background: #C5A059;
+      color: #FFFFFF;
+      border: none;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 9pt;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-print:hover {
+      background: #8C6D2D;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Screen Only Toolbar -->
+  <div class="print-bar no-print">
+    <div>
+      <strong>Eliza Reconnection</strong> &middot; Official Terms &amp; Conditions Document (PDF Ready)
+    </div>
+    <div style="display: flex; gap: 10px; align-items: center;">
+      <span style="font-size: 8.5pt; color: #D5CBBF;">Physical Book Orders removed from Cancellation Policy as requested</span>
+      <button class="btn-print" onclick="window.print()">Print / Save as PDF</button>
+    </div>
+  </div>
+
+  <div class="document-container">
+
+    <!-- Letterhead -->
+    <header class="doc-header">
+      <div class="brand-wrap">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2c1.6 2.1 2.6 3.8 2.6 5.4 0 1.2-.8 2-1.8 2s-1.7-.8-1.7-1.8c0-.6.2-1.1.5-1.6-1.1.8-1.9 2.1-1.9 3.6a3 3 0 0 0 3 3 3.9 3.9 0 0 0 3.3-4.1C16 6.2 13.7 3.7 12 2z"/>
+        </svg>
+        <div class="brand-text">
+          <h1>Eliza Reconnection</h1>
+          <div class="tagline">Sacred Alignment &middot; Consciousness Coaching &middot; Publications</div>
+        </div>
+      </div>
+      <div class="doc-meta">
+        <div><strong>Document:</strong> Terms, Conditions &amp; Policies</div>
+        <div><strong>Effective Date:</strong> October 2026</div>
+        <div><strong>Domicile:</strong> South Africa</div>
+        <div><strong>Currency:</strong> South African Rand (ZAR)</div>
+      </div>
+    </header>
+
+    <!-- Document Title Banner -->
+    <div class="doc-title-banner">
+      <h2>Terms &amp; Conditions &middot; Store Policies</h2>
+      <p>&ldquo;Honouring transparent, secure, and respectful relationships with every client, reader, and seeker.&rdquo;</p>
+    </div>
+
+    <!-- 1. BUSINESS DETAILS & GENERAL TERMS -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h3 class="section-title">General Terms of Service &amp; Business Information</h3>
+      </div>
+      <div class="prose">
+        <p>
+          These Terms and Conditions govern your purchase of publications and engagement with services through this website (<code>https://elizareconnection.co.za</code>). By placing an order or booking an appointment, you confirm that you have read, understood, and agreed to be bound by these Terms. We reserve the right to revise or update these Terms to reflect changes in regulatory standards, courier arrangements, or payment gateway requirements. The latest version will always be published on this page.
+        </p>
+
+        <div class="details-box">
+          <h4>Merchant &amp; Business Registration Details</h4>
+          <div class="details-grid">
+            <div class="details-item">
+              <span class="details-label">Trading Name:</span>
+              <span class="details-value">Eliza Reconnection (Sole Proprietorship of Eliza James)</span>
+            </div>
+            <div class="details-item">
+              <span class="details-label">Country of Domicile:</span>
+              <span class="details-value">South Africa</span>
+            </div>
+            <div class="details-item">
+              <span class="details-label">Physical Operating Address:</span>
+              <span class="details-value">Promenade Road, Lakeside, Cape Town, 7945, Western Cape, South Africa</span>
+            </div>
+            <div class="details-item">
+              <span class="details-label">Transactional Currency:</span>
+              <span class="details-value">South African Rand (ZAR)</span>
+            </div>
+            <div class="details-item">
+              <span class="details-label">Contact Email:</span>
+              <span class="details-value">eliza.reconnection@gmail.com</span>
+            </div>
+            <div class="details-item">
+              <span class="details-label">Customer Support Phone:</span>
+              <span class="details-value">+27 82 926 9851</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. DELIVERY & SHIPPING POLICY -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h3 class="section-title">Delivery &amp; Shipping Policy</h3>
+      </div>
+      <div class="prose">
+        <p>We pride ourselves on prompt, personal, and reliable fulfillment of both physical literature and instant digital editions:</p>
+
+        <div class="two-col-grid">
+          <div class="policy-card">
+            <h5>Physical Books &middot; Door-to-Door Courier</h5>
+            <ul>
+              <li><strong>Coverage:</strong> Door-to-door courier delivery across all 9 provinces in South Africa.</li>
+              <li><strong>Delivery Timeframe:</strong> Dispatched and delivered to your doorstep within <strong>10 to 14 business days</strong> from receipt of payment.</li>
+              <li><strong>Courier Cost:</strong> <strong>Included</strong> in the advertised price (e.g. R450 includes packaging, local handling, and tracked door courier).</li>
+              <li><strong>Tracking:</strong> A unique courier tracking waybill number is sent to your mobile phone via SMS and to your email upon collection.</li>
+              <li><strong>Signed Copies:</strong> If you requested a personal author inscription, Eliza will personally sign the book prior to packaging.</li>
+            </ul>
+          </div>
+
+          <div class="policy-card">
+            <h5>Instant Digital Guides &middot; PDF Download</h5>
+            <ul>
+              <li><strong>Delivery Method:</strong> Immediate electronic delivery.</li>
+              <li><strong>Delivery Timeframe:</strong> <strong>Instant</strong> upon completion of PayFast payment.</li>
+              <li><strong>Fulfillment Access:</strong> A direct download button is rendered on your payment confirmation screen, and an automated download link is sent to your email address.</li>
+              <li><strong>Shipping Fee:</strong> <strong>R0.00 (Free)</strong> &mdash; No shipping charges apply to digital products.</li>
+            </ul>
+          </div>
+        </div>
+
+        <p><strong>Physical Address Requirements:</strong> Deliveries are carried out by door-to-door couriers who require a physical street address where a recipient is available during normal working hours (8:00 AM to 5:00 PM, Monday through Friday). Deliveries cannot be completed to P.O. Box addresses.</p>
+        <p><strong>International Orders:</strong> Physical orders via PayFast on this website are restricted to South African addresses. For international readers please use the provided links to order through <strong>Amazon Paperback</strong> or <strong>Amazon Kindle</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 3. CANCELLATION POLICY -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h3 class="section-title">Cancellation Policy</h3>
+      </div>
+      <div class="prose">
+        <p>We understand that circumstances may change. Our cancellation rules are fair, practical, and transparent:</p>
+
+        <div class="details-box" style="border-left-color: var(--gold-dark);">
+          <h4>Consultation &amp; Healing Appointments</h4>
+          <p style="margin: 0; font-size: 9pt; line-height: 1.65; color: var(--ink-soft);">
+            In-person or remote Reconnective Healing appointments, Meditation and Consciousness Coaching Workshop attendance may be rescheduled or cancelled with at least <strong>48 hours prior notice</strong>. Appointments cancelled with less than 48 hours notice may incur a 50% reservation fee due to the venue requirements, practitioner preparation and dedicated time slot allocated.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. REFUND & RETURN POLICY -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h3 class="section-title">Return &amp; Refund Policy</h3>
+      </div>
+      <div class="prose">
+        <p>In full compliance with Section 56 of the <strong>South African Consumer Protection Act (CPA No. 68 of 2008)</strong>, we stand behind the quality and integrity of all materials supplied:</p>
+
+        <div class="details-box" style="border-left-color: var(--sage);">
+          <h4 style="color: var(--sage);">Damaged, Defective or Misprinted Physical Books</h4>
+          <p style="margin: 0 0 6px 0; font-size: 8.8pt;">If your physical book arrives damaged, with missing pages, or misprints:</p>
+          <ol style="margin: 0; padding-left: 18px; font-size: 8.8pt;">
+            <li>Notify us within <strong>3 calendar days</strong> of delivery by emailing photos of the defect and your order reference to <a href="mailto:eliza.reconnection@gmail.com" style="color: var(--gold-dark); text-decoration: none; font-weight: 600;">eliza.reconnection@gmail.com</a>.</li>
+            <li>Return the damaged product and we will immediately dispatch a <strong>brand-new replacement copy free of charge</strong>, or issue a <strong>full refund</strong> of the purchase price.</li>
+          </ol>
+        </div>
+
+        <div class="two-col-grid">
+          <div class="policy-card">
+            <h5>Personalized &amp; Inscribed Books</h5>
+            <p style="margin: 0; font-size: 8.6pt; line-height: 1.55;">
+              Where an author dedication or custom inscription was specifically requested by the customer, such items represent bespoke, personalized goods under Section 42(2)(f) of the ECTA. They cannot be returned for a change-of-mind, but remain fully guaranteed against any physical defect or courier damage.
+            </p>
+          </div>
+
+          <div class="policy-card">
+            <h5>Digital Publications (PDF Downloads)</h5>
+            <p style="margin: 0; font-size: 8.6pt; line-height: 1.55;">
+              Due to the immediate access nature of electronic downloads, digital publications are non-refundable once downloaded. If you experience technical difficulty opening the PDF file, we will promptly re-issue a working copy to your email address or assist with alternate access.
+            </p>
+          </div>
+        </div>
+
+        <p><strong>Refund Processing Method:</strong> Approved refunds are credited directly back to the original funding card, bank account, or digital wallet through the <strong>PayFast Merchant Gateway</strong>. Processing typically completes within <strong>5 to 7 South African banking days</strong>.</p>
+      </div>
+    </section>
+
+    <!-- 5. PAYMENT SECURITY & GATEWAY GOVERNANCE -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h3 class="section-title">Payment Gateway &amp; Transaction Security</h3>
+      </div>
+      <div class="prose">
+        <p>Online transactions through this website are secured and managed in partnership with South Africa's foremost payment aggregator:</p>
+
+        <div class="details-box">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <h4 style="margin: 0;">Processed by PayFast (Pty) Ltd</h4>
+            <div class="security-badge">
+              <span class="badge-payfast">Pay<span>Fast</span></span>
+              <span>&bull; PCI-DSS Level 1</span>
+            </div>
+          </div>
+          <ul>
+            <li><strong>PCI-DSS Level 1 Certification:</strong> PayFast complies with the highest global security standards for handling payment cards.</li>
+            <li><strong>256-bit Encryption:</strong> All transactions are protected by 256-bit Extended Validation SSL encryption.</li>
+            <li><strong>3D Secure &amp; 2FA:</strong> Card payments require mandatory OTP or banking app biometric verification (Mastercard ID Check, Verified by Visa).</li>
+            <li><strong>Zero Cardholder Data Storage:</strong> Eliza Reconnection never captures, processes, or stores your credit card number, CVV code, or banking login credentials on our website. All sensitive payment data is inputted directly onto PayFast's secured banking environment.</li>
+            <li><strong>Supported Payment Methods:</strong> Visa, Mastercard, Instant EFT (ABSA, Capitec, FNB, Nedbank, Standard Bank, Investec, TymeBank, African Bank, Bidvest), SnapScan, Zapper, and Capitec Pay.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. PRIVACY & POPIA COMPLIANCE -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h3 class="section-title">Customer Privacy &amp; Data Protection</h3>
+      </div>
+      <div class="prose">
+        <p>In accordance with the <strong>Protection of Personal Information Act (POPIA Act No. 4 of 2013)</strong>, we hold customer confidentiality and data security sacred:</p>
+        <ul>
+          <li><strong>Information Collected:</strong> Name, delivery street address, contact telephone number, and email address provided during checkout or inquiry.</li>
+          <li><strong>Purpose of Processing:</strong> Contact information is processed strictly to execute order fulfillment, generate courier waybills, communicate tracking updates, and fulfill tax/accounting obligations.</li>
+          <li><strong>Third-Party Disclosure:</strong> Your information is never sold, rented, or distributed to advertisers or data brokers. It is shared solely with the designated courier service and PayFast for the direct fulfillment of your transaction.</li>
+          <li><strong>Right of Access &amp; Correction:</strong> You have the right to request confirmation of personal data held on record and to request correction or deletion at any time.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. CONTACT & DISPUTE RESOLUTION -->
+    <section class="policy-section">
+      <div class="section-header">
+        <span class="section-num">07</span>
+        <h3 class="section-title">Customer Support &amp; Dispute Resolution</h3>
+      </div>
+      <div class="prose">
+        <div class="details-box" style="text-align: center; padding: 14px 18px; border-left: none; border: 1.5px solid var(--border-color); background: #FAF8F5;">
+          <h4 style="color: var(--ink); margin-bottom: 4px;">Questions Regarding Our Terms or Orders?</h4>
+          <p style="margin: 0 auto 10px auto; max-width: 620px; font-size: 8.8pt;">
+            We are committed to prompt, personalized customer support for all readers and clients. Please reach out directly through our verified channels:
+          </p>
+          <div style="display: flex; justify-content: center; gap: 20px; font-size: 9pt; font-weight: 600; color: var(--gold-dark); flex-wrap: wrap;">
+            <span>Email: <a href="mailto:eliza.reconnection@gmail.com" style="color: inherit; text-decoration: underline;">eliza.reconnection@gmail.com</a></span>
+            <span>&bull;</span>
+            <span>Phone / WhatsApp: <a href="tel:+27829269851" style="color: inherit; text-decoration: underline;">+27 82 926 9851</a></span>
+            <span>&bull;</span>
+            <span>Website: <a href="https://elizareconnection.co.za" target="_blank" style="color: inherit; text-decoration: underline;">elizareconnection.co.za</a></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Document Footer -->
+    <footer class="doc-footer">
+      <div class="footer-stamp">
+        <span>&copy; 2026 Eliza Reconnection. All rights reserved.</span>
+      </div>
+      <div>
+        <span>Sole Proprietorship of Eliza James &middot; Lakeside, Cape Town, Western Cape, South Africa</span>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>

@@ -22,7 +22,7 @@ if (!empty(trim($saved_content))) {
       <div class="glow" aria-hidden="true"></div>
       <div class="container reveal">
         <span class="eyebrow eyebrow-on-dusk">Research &amp; Exploration</span>
-        <h1>Evidence &amp; Science</h1>
+        <h1>Science &amp; Evidence</h1>
         <p>&ldquo;The reality of its existence has been demonstrated clearly in practice, as well as in scientific research laboratories.&rdquo;</p>
       </div>
     </section>

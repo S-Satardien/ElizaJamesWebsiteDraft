@@ -158,8 +158,46 @@ function eliza_handle_contact_ajax() {
 add_action('wp_ajax_eliza_contact_submit', 'eliza_handle_contact_ajax');
 add_action('wp_ajax_nopriv_eliza_contact_submit', 'eliza_handle_contact_ajax');
 
+
+// =========================================================================
+// BOOK PRODUCTS CUSTOM POST TYPE (Manageable in WP-Admin)
+// =========================================================================
+function eliza_register_book_product_cpt() {
+    $labels = array(
+        'name'               => __('Book Products', 'eliza-reconnection'),
+        'singular_name'      => __('Book Product', 'eliza-reconnection'),
+        'menu_name'          => __('Book Products', 'eliza-reconnection'),
+        'add_new'            => __('Add New Product', 'eliza-reconnection'),
+        'add_new_item'       => __('Add New Book Product', 'eliza-reconnection'),
+        'edit_item'          => __('Edit Book Product', 'eliza-reconnection'),
+        'new_item'           => __('New Book Product', 'eliza-reconnection'),
+        'view_item'          => __('View Book Product', 'eliza-reconnection'),
+        'search_items'       => __('Search Book Products', 'eliza-reconnection'),
+        'not_found'          => __('No Book Products found', 'eliza-reconnection'),
+        'not_found_in_trash' => __('No Book Products found in Trash', 'eliza-reconnection'),
+    );
+    $args = array(
+        'labels'             => $labels,
+        'public'             => true,
+        'has_archive'        => true,
+        'rewrite'            => array('slug' => 'products'),
+        'menu_icon'          => 'dashicons-book-alt',
+        'supports'           => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'show_in_rest'       => false,
+    );
+    register_post_type('book_product', $args);
+}
+add_action('init', 'eliza_register_book_product_cpt');
+
+// Load Native Book Product Meta Box & Admin Columns
+require_once get_template_directory() . '/inc/book-product-metabox.php';
+
 // Load Programmatic ACF Field Groups
 require_once get_template_directory() . '/inc/acf-fields.php';
 
 // Load Frontend Live Visual Editor
 require_once get_template_directory() . '/inc/live-editor.php';
+
+// Load PayFast Payment Gateway Integration & Admin Order Settings
+require_once get_template_directory() . '/inc/payfast-integration.php';
+
