@@ -458,6 +458,11 @@
             display: block;
             object-fit: contain;
             background: #000;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
         }
 
         /* Controls Card */
